@@ -2,3 +2,8 @@
     background-color: #3f4d70;
     padding-bottom: 60px;
 }
+.skills__container{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 50px;
+}
