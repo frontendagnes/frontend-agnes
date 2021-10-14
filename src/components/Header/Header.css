@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap');
+.header{
+    height: 85px;
+}
+.header__container{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap-reverse;
+    padding: 20px 30px;
+    background: url("../../assets/backgroun-header.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #ffffff;
+    width: 100%;
+    position: fixed;
+    top: 0;
+}
+
+.header__container > h1{
+    font-size: 3rem;
+    letter-spacing:4px;
+
+}
+.header__container > h1 > span{
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    font-family: 'ZCOOL KuaiLe', cursive;
+}
+.header__skills{
+    font-size: 3rem;
+    width: 25%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__skillOne{
+   color: #ff0000;
+}
+.header__skillTwo{
+    color: #0000ff;
+}
+.header__skillThree{
+    color: #ffa500;
+}
+.header__skillFour{
+    color: rgb(100, 100, 253);
+}
+.header__skillFive{
+    color: #808080;
+}
