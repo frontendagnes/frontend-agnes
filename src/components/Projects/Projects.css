@@ -1,0 +1,29 @@
+.projects{
+    /* background: url("../../assets/background.svg"); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 60px;
+}
+.projects__container{
+    padding-bottom: 30px;
+}
+.projects__bottom{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.projects__bottom svg{
+    color: #ffffff;
+    transition: transform 0.5s ease-in;
+    cursor: pointer;
+}
+
+.projects__bottom svg:hover{
+    transform: translateY(30px);
+}
+.projects__bottom > p{
+    color: #ffffff;
+    font-size: 1.5rem;
+    padding-top: 10px;
+}

@@ -4,10 +4,10 @@ import Skill from "../Skill/Skill";
 function Skills() {
   return (
     <div className="skills" id="information">
-      <h3>W czym mogę pomóc</h3>
+      <h3>W czym mogę pomóc?</h3>
       <div className="skills__container">
         <Skill
-          title="Html, Css"
+          title="HTML, CSS"
           content="Programownie stron w języku HTML i CSS"
         />
         <Skill
@@ -16,7 +16,7 @@ function Skills() {
         />
         <Skill
           title="JavaScript/React"
-          content="Programowanie może być zabawne za pomocą tych narzędzi można dodać na stronę interaktywność"
+          content="Programowanie może być zabawne za pomocą tych narzędzi można dodać do strony interaktywność"
         />
       </div>
     </div>

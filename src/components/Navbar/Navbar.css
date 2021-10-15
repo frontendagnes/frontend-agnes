@@ -11,7 +11,13 @@
     padding: 10px 20px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; 
+}
+.navbar__icon svg{
+    transition: color 0.75s ease-in-out;
+}
+.navbar__icon svg:hover{
+    color: #808080;
     cursor: pointer;
 }
 .navbar ul{

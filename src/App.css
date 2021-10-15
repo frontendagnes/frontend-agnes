@@ -4,7 +4,9 @@
     box-sizing: border-box;
     
 }
-
+html{
+    scroll-behavior: smooth;
+}
 h3{
     color: #ffffff;
     font-size: 3rem;
@@ -13,6 +15,11 @@ h3{
     letter-spacing: 5px;
 }
 
-.app__conatiner{
+.app__container{
     width: 80%;
+}
+.app__middle{
+    background: url("./assets/background.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
