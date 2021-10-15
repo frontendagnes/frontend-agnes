@@ -1,0 +1,55 @@
+.socialmedia{
+    padding-top: 60px;
+    padding-bottom: 60px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 3rem;
+    background-color:#3f4d70;
+    color: #a4b0cc;
+}
+.socialmedia__container{
+    width:40%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    font-size: 4rem;
+}
+.socialmedia a{
+    color: lightgray;
+}
+.socialmedia svg{
+    transition: transform 0.5s ease-in;
+}
+.socialmedia > .socialmedia__container svg:hover{
+    transform: translateY(20px);
+}
+.socialmedia__left > svg {
+    animation: moveRight 2s ease infinite;
+}
+.socialmedia__right > svg {
+    animation: moveLeft 2s ease infinite;
+}
+@keyframes moveRight {
+    0%{
+        transform: translateX(0)
+    }
+    50%{
+        transform: translateX(60px)
+    }
+    0%{
+        transform: translateX(0)
+    }
+}
+
+@keyframes moveLeft {
+    0%{
+        transform: translateX(0)
+    }
+    50%{
+        transform: translateX(-60px)
+    }
+    0%{
+        transform: translateX(0)
+    }
+}

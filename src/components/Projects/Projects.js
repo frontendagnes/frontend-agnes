@@ -3,7 +3,7 @@ import './Projects.css'
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 function Projects() {
     return (
-        <div className="projects">
+        <div className="projects" id="my-projects">
             <h3>Moje Projekty</h3>
             <div className="projects__container">
 

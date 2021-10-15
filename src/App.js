@@ -1,5 +1,7 @@
 import "./App.css";
 
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 // components
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
@@ -9,18 +11,22 @@ import Projects from "./components/Projects/Projects";
 import Contact from "./components/Contact/Contact";
 function App() {
   return (
-    <div className="app">
-      <Header />
-      <Navbar />
-      <div className="app__container">
-        <Home />
-        <div className="app__middle">
-          <Skills />
-          <Projects />
+    <Router>
+      <Switch>
+        <div className="app">
+          <Header />
+          <Navbar />
+          <div className="app__container">
+            <Home />
+            <div className="app__middle">
+              <Skills />
+              <Projects />
+            </div>
+            <Contact />
+          </div>
         </div>
-        <Contact />
-      </div>
-    </div>
+      </Switch>
+    </Router>
   );
 }
 
