@@ -8,25 +8,31 @@ import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home";
 import Skills from "./components/Skills/Skills";
 import Projects from "./components/Projects/Projects";
-import Contact from "./components/Contact/Contact";
+import Footer from "./components/Footer/Footer";
+import Curriculum from "./components/Curriculum/Curriculum";
 function App() {
   return (
-    <Router>
-      <Switch>
-        <div className="app">
-          <Header />
-          <Navbar />
-          <div className="app__container">
-            <Home />
-            <div className="app__middle">
-              <Skills />
-              <Projects />
+    <div className="app">
+      <Router>
+        <Header />
+        <Switch>
+          <Route path="/curriculum">
+            <Curriculum />
+          </Route>
+          <Route path="/">
+            <Navbar />
+            <div className="app__container">
+              <Home />
+              <div className="app__middle">
+                <Skills />
+                <Projects />
+              </div>
+              <Footer />
             </div>
-            <Contact />
-          </div>
-        </div>
-      </Switch>
-    </Router>
+          </Route>
+        </Switch>
+      </Router>
+    </div>
   );
 }
 

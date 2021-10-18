@@ -12,18 +12,26 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+
 }
 .projects__bottom svg{
     color: #ffffff;
     transition: transform 0.5s ease-in;
-    cursor: pointer;
+
 }
 
-.projects__bottom svg:hover{
+.projects__bottom div:hover svg{
     transform: translateY(30px);
 }
-.projects__bottom > p{
+.projects__bottom > div{
+    width: 60px;
+    cursor: pointer;
+}
+.projects__bottom a{
     color: #ffffff;
     font-size: 1.5rem;
     padding-top: 10px;
+    font-weight: 600;
+    text-decoration: none;
 }

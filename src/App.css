@@ -4,6 +4,9 @@
     box-sizing: border-box;
     
 }
+html, body{
+    height: 100%;
+}
 html{
     scroll-behavior: smooth;
 }
@@ -14,7 +17,9 @@ h3{
     padding-top: 60px;
     letter-spacing: 5px;
 }
-
+.app{
+    height: 100%;
+}
 .app__container{
     width: 80%;
 }
@@ -23,3 +28,4 @@ h3{
     background-repeat: no-repeat;
     background-size: cover;
 }
+

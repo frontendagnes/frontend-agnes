@@ -1,0 +1,28 @@
+.curriculumpoint{
+    margin-top: 20px;
+    display: flex;
+}
+
+.curriculumpoint__data{
+    width: 20%;
+    padding: 0 10px 10px 10px;
+}
+
+.curriculumpoint__title{
+    font-weight: 600;
+    font-size:larger;
+    padding-bottom: 5px;
+    font-size: 1.3rem;
+}
+
+.curriculumpoint__content{
+    padding-bottom: 15px;
+    font-style: italic;
+    font-size: 1.1rem;
+}
+.curriculumpoint__skills{
+    padding-left: 15px;
+}
+.curriculumpoint__skills li{
+    margin-bottom: 10px;
+}

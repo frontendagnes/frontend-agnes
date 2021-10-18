@@ -1,0 +1,27 @@
+.contact{
+    padding: 20px 30px;
+    background: url("../../assets/background.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.contact a{
+    color: #ffffff;
+}
+.contact__left{
+    width: 50%;
+}
+.contact_right{
+    font-size: 3.5rem;
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}

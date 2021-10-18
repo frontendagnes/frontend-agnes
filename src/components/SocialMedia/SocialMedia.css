@@ -16,7 +16,7 @@
     font-size: 4rem;
 }
 .socialmedia a{
-    color: lightgray;
+    color: #d3d3d3;
 }
 .socialmedia svg{
     transition: transform 0.5s ease-in;

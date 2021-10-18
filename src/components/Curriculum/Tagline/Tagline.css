@@ -1,0 +1,57 @@
+.tagline{
+    background: url("../../../assets/background.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 25%;
+    position: absolute;
+    right: 0;
+    color: #ffffff;
+    top:185px;
+    z-index: -1;
+    min-height: 165%;
+}
+.tagline ul{
+    list-style-type: none;
+    padding-bottom: 20px;
+    text-shadow: 2px 2px 2px #000000;
+}
+.tagline__personal ul li{
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+}
+.tagline__personal ul li > span{
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 10px 10px 5px 0px;
+}
+.tagline__skills ul li{
+    padding: 10px 10px 5px 10px;
+    font-size: 1.3rem;
+}
+.tagline__name{
+    font-size: 2rem;
+    font-weight: 600;
+    padding-left: 10px;
+    padding-top: 20px;
+    
+}
+.tagline__profession{
+    font-size: 1.5rem;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.tagline__top > img{
+    width: 80%;
+    margin-left: 10%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 30px;
+}
+.tagline__title{
+    background-color: #3c4269b9;
+    padding: 20px 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
