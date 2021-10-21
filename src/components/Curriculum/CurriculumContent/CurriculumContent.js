@@ -19,6 +19,7 @@ function CurriculumContent() {
   ]);
   const [agnes, setAgnes] = useState([
     "Tworzenie strony internetowej (sklepu) do obsługi klienta(HTML, CSS, JavaScript)",
+    "Praca z oprogramowaniem do obsługi sklepu KQS",
     "Współpraca z US i ZUS, a także innymi instytucjami zewnętrznymi (GUS)",
     "Kontakty z klientami w celu uzgodnienia warunków umowy oraz finalizacji zamówień",
     "Pakowanie i wysyłka zamówień do kilentów",
@@ -35,8 +36,8 @@ function CurriculumContent() {
         />
         <CurriculumPoint
           data="2008-11 - 2010-03"
-          title="Agent Ubezpieczeniowy Alianz"
-          content="AK Agnieszka Kamińska, Wojcieszów (Agencja AWA Jelenia Góra)"
+          title="Agent Ubezpieczeniowy Allianz"
+          content="AK Agnieszka Kamińska, Wojcieszów (Agencja AWA s.c. Jelenia Góra)"
           arr={alianz}
         />
         <CurriculumPoint
@@ -48,7 +49,7 @@ function CurriculumContent() {
         <CurriculumPoint
           data="2012-03 - 2021-12"
           title="Właściciel Jednoosobowa Działalność Gospodarcza"
-          content="AGNES Agnieszka Kamińska, Wojcieszów"
+          content="AGNES Agnieszka Kamińska (księgarnia internetowa), Wojcieszów"
           arr={agnes}
         />
       </div>
@@ -73,13 +74,13 @@ function CurriculumContent() {
       <div className="curriculumContent__coursers">
         <div className="curriculumContent__title">Kursy</div>
         <CurriculumPoint
-          data="2008-11"
+          data="2008-09 - 2008-11"
           title="Asystent ds. kadrowo płacowych + obsługa programu Płatnik"
         />
       </div>
       <div className="curriculumContent__clause">
         Wyrażam zgodę na przetwarzanie moich danych osobowych w celu prowadzenia
-        rekrutacji na aplikowane przeze mnie stanowisko.
+        rekrutacji.
       </div>
     </div>
   );

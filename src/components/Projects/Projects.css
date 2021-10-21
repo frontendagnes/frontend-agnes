@@ -6,6 +6,9 @@
 }
 .projects__container{
     padding-bottom: 30px;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 40px;
 }
 .projects__bottom{
     display: flex;

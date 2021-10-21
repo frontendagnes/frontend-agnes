@@ -1,16 +1,12 @@
-.curriculum__top{
-    padding: 30px 30px;
-    background: url('../../assets/background.svg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
+.curriculum__top {
+    margin-top: 20px;
 }
-.curriculum button{
+
+.curriculum button {
+    position: fixed;
+    top: 75px;
     padding: 10px 20px;
-    border-radius: 10px;
+    border-radius: 0px 10px 10px 0px;
     border: transparent;
     background: #6b83c0;
     color: #000000;
@@ -19,10 +15,9 @@
     letter-spacing: 2px;
     cursor: pointer;
     transition: all 0.75s ease-in-out;
-    height: 100%;
-    
 }
-.curriculum button:hover{
+
+.curriculum button:hover {
     background: #1f2136;
     color: #ffffff;
 }

@@ -3,13 +3,14 @@
     padding: 20px 30px;
 }
 .curriculumContent__title{
-    border-top: 1px solid blue;
-    border-bottom: 1px solid blue;
+    border-top:2px solid #a4b0cc;
+    border-bottom: 2px solid #a4b0cc;
     padding: 10px;
     font-weight: 600;
     font-size: 1.5rem;
 }
 .curriculumContent__clause{
     text-align: center;
-    padding-top: 20px;
+    margin-top: 20px;
+    border-top: 2px solid #a4b0cc;
 }

@@ -9,7 +9,7 @@ function Home() {
         <h3>Kim Jestem?</h3>
         <div className="home__bottom">
           <div>
-            Jestem początkującym front-end developerem. Jestem zainteresowana
+            Jestem początkującym front-end developerem samoukiem. Jestem zainteresowana
             przede wszystkim JavaScript/React. Znam HTML i CSS. Mam bardzo duży
             zapał do pracy, pasję i umiejętność szybkiego uczenia się.
           </div>
