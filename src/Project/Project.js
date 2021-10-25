@@ -1,19 +1,26 @@
 import React from "react";
 import "./Project.css";
-function Project({ icons, iconColor, title, img, isView, description}) {
+import { index }from '../assets/utility/functions'
+function Project({ icons, title, img, isView, description, id}) {
+  const abc = {
+    justifyContent: "space-between",
+  }
+  const cde = {
+    justifyContent: "center",
+  }
   return (
-    <div className="project">
-      <div className="project__top" style={{ color: iconColor }}>
+    <div className="project" >
+      <div className="project__top" >
         {icons.map((item) => (
-          <span>{item}</span>
+          <span key={index()}>{item}</span>
         ))}
       </div>
       <div className="project__middle">
-        {title}
+        <p>{title}</p>
         <img src={img} alt="" />
       </div>
       <div className="project__bottom">
-          <div className="project__links">
+          <div className="project__links" style={isView ? abc : cde}>
             <div>
                <span className="project__code"> &lt;</span> <span className="project__tag">View Code</span><span className="project__code">  /&gt; </span>
             </div>

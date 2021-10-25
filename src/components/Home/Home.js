@@ -1,7 +1,7 @@
 import React from "react";
 import "./Home.css";
 
-import photo from '../../assets/me.jpg'
+import photo from '../../assets/images/me.jpg'
 function Home() {
   return (
     <div className="home" id="aboutme">

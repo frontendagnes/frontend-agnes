@@ -1,6 +1,7 @@
 import React from "react";
 import "./CurriculumPoint.css";
-function CurriculumPoint({ data, title, content, arr }) {
+import { index } from'../../../assets/utility/functions'
+function CurriculumPoint({ data, title, content, arr, id }) {
   return (
     <div className="curriculumpoint">
       <div className="curriculumpoint__data">{data}</div>
@@ -9,7 +10,7 @@ function CurriculumPoint({ data, title, content, arr }) {
         <div className="curriculumpoint__content">{content}</div>
         <ul className="curriculumpoint__skills">
           {arr?.map((item) => (
-            <li>{item}</li>
+            <li key={index()}>{item}</li>
           ))}
         </ul>
       </div>

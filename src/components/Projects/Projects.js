@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Projects.css";
-import shop from '../../assets/shop.webp'
+
+import shop from '../../assets/images/shop.webp'
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -13,24 +14,19 @@ import Project from "../../Project/Project";
 function Projects() {
   const [react, setReact] = useState([<FontAwesomeIcon icon={faReact} />]);
   const [pure, setPure] = useState([<FontAwesomeIcon icon={faHtml5} />, <FontAwesomeIcon icon={faCss3Alt} />, <FontAwesomeIcon icon={faJsSquare} />])
+
   return (
     <div className="projects" id="my-projects">
       <h3>Moje Projekty</h3>
       <div className="projects__container">
         <Project 
         icons={react} 
-        title="REACT Project"
-        isView
+        title="Projekty React"
         />
         <Project 
         icons={pure} 
+        title="Projekty JS, HTML, CSS"
         img={shop}
-        isView
-        />
-        <Project 
-        icons={react} 
-        img={shop}
-        isView
         />
       </div>
       <div className="projects__bottom">

@@ -1,6 +1,6 @@
 import React from "react";
 import "./Tagline.css";
-import photo from "../../../assets/me.jpg";
+import photo from "../../../assets/images/me.jpg";
 
 function Tagline() {
   return (

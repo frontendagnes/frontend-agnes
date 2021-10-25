@@ -1,6 +1,6 @@
 .home{
     height: 500px;
-    background-image: url("../../assets/background-home.jpg");
+    background-image: url("../../assets/images/background-home.jpg");
     background-attachment: fixed;
 }
 .home__container{
