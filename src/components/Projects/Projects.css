@@ -1,37 +1,36 @@
-.projects{
-    /* background: url("../../assets/images/background.svg"); */
-    background-repeat: no-repeat;
-    background-size: cover;
+.projects {
     padding-bottom: 60px;
 }
-.projects__container{
+
+.projects__container {
     padding-bottom: 30px;
     display: flex;
     justify-content: space-around;
     padding-top: 40px;
 }
-.projects__bottom{
+
+.projects__bottom {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-
 }
-.projects__bottom svg{
+
+.projects__bottom svg {
     color: #ffffff;
     transition: transform 0.5s ease-in;
-
 }
 
-.projects__bottom div:hover svg{
+.projects__bottom div:hover svg {
     transform: translateY(30px);
 }
-.projects__bottom > div{
+
+.projects__bottom>div {
     width: 60px;
     cursor: pointer;
 }
-.projects__bottom a{
+
+.projects__bottom a {
     color: #ffffff;
     font-size: 1.5rem;
     padding-top: 10px;

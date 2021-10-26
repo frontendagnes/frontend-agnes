@@ -1,0 +1,23 @@
+/* .buttonback{
+    margin-top: 20px;
+} */
+
+.buttonback button{
+    position: fixed;
+    top: 75px;
+    padding: 10px 20px;
+    border-radius: 0px 10px 10px 0px;
+    border: transparent;
+    background: #6b83c0;
+    color: #000000;
+    font-weight: 600;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.75s ease-in-out;
+}
+
+.buttonback button:hover{
+    background: #1f2136;
+    color: #ffffff;
+}

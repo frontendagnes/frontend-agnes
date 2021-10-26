@@ -1,32 +1,30 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Projects.css";
-
-import shop from '../../assets/images/shop.webp'
+import { useStateValue } from "../../assets/utility/StateProvider";
+import shop from "../../assets/images/shop.webp";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faHtml5,
-  faCss3Alt,
-  faJsSquare,
-  faReact,
-} from "@fortawesome/free-brands-svg-icons";
-import Project from "../../Project/Project";
-function Projects() {
-  const [react, setReact] = useState([<FontAwesomeIcon icon={faReact} />]);
-  const [pure, setPure] = useState([<FontAwesomeIcon icon={faHtml5} />, <FontAwesomeIcon icon={faCss3Alt} />, <FontAwesomeIcon icon={faJsSquare} />])
+import reactAll from "../../assets/images/react-all.webp";
 
+import Project from "../Project/Project";
+function Projects() {
+  const [{ reactIcon, pureIcons }] = useStateValue();
   return (
     <div className="projects" id="my-projects">
       <h3>Moje Projekty</h3>
       <div className="projects__container">
-        <Project 
-        icons={react} 
-        title="Projekty React"
+        <Project
+          icons={reactIcon}
+          title="Projekty React"
+          img={reactAll}
+          url="/projects/react"
+          description="W tym miejscu znajdują się wybrane projekty wykonane w React."
         />
-        <Project 
-        icons={pure} 
-        title="Projekty JS, HTML, CSS"
-        img={shop}
+        <Project
+          icons={pureIcons}
+          title="Projekty JS, HTML, CSS"
+          img={shop}
+          url="/projects/purejs"
+          description="W tym miejscu znajdują się wybrane projekty wykonane za pomocą HTML, CSS i czystego JavaScript."
         />
       </div>
       <div className="projects__bottom">

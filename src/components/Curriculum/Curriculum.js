@@ -1,25 +1,20 @@
-import React from 'react'
-import './Curriculum.css'
-import { useHistory } from "react-router-dom"
-import Tagline from './Tagline/Tagline'
-import CurriculumContent from './CurriculumContent/CurriculumContent'
+import React from "react";
+import "./Curriculum.css";
+import Tagline from "./Tagline/Tagline";
+import CurriculumContent from "./CurriculumContent/CurriculumContent";
+import ButtonBack from "../ButtonBack/ButtonBack";
 function Curriculum() {
-
-    const history = useHistory()
-    const backToHomepage = () =>{
-        history.push("/")
-    }
-    return (
-        <div className="curriculum">
-            <div className="curriculum__top">
-           <button type="button" onClick={backToHomepage}>Wróć</button>
-            </div>
-            <div className="curriuculum__bottom">
-                <Tagline />
-                <CurriculumContent />
-            </div>
-        </div>
-    )
+  return (
+    <div className="curriculum">
+      <div className="curriculum__top">
+        <ButtonBack />
+      </div>
+      <div className="curriuculum__bottom">
+        <Tagline />
+        <CurriculumContent />
+      </div>
+    </div>
+  );
 }
 
-export default Curriculum
+export default Curriculum;

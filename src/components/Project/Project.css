@@ -4,6 +4,12 @@
     border-radius: 10px;
     width: 40%;
     color: #3f4d70;
+    margin-bottom: 10px;
+}
+.project a{
+    text-decoration: none;
+    color: #3f4d70;
+    font-weight: 600;
 }
 .project__top{
     font-size: 36px;
@@ -29,11 +35,19 @@
 }
 .project__middle > img{
     width: 100%;
-    height: 100%;
+    height: 90%;
     transition: transform 0.75s ease-in-out;
 }
 .project__middle > img:hover{
-    transform: scale(2);
+    transform: scale(0.8);
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    vertical-align: middle;
+    /* margin-top: 100px;
+    width: 100%;
+    height: auto; */
 }
 
 .project__links{
@@ -42,12 +56,22 @@
     font-size: 1.2rem;
     font-weight: 600;
     padding: 10px;
-}
-.project__links div{
-    transition: transform 0.75s ease-in-out;
     padding-top: 15px;
 }
-
-.project__links div:hover{
+.project__links a,
+.project__hover{
+    transition: transform 0.75s ease-in-out;
+}
+.project__links a:hover {
    transform: translateY(10px);
 }
+.project__description{
+    padding: 10px;
+    letter-spacing: 1px;
+    font-size: 1.1rem;
+}
+
+.project__hover:hover{
+    transform: translateY(10px);
+}
+
