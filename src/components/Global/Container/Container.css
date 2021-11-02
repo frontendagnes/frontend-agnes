@@ -1,6 +1,6 @@
 .container{
     padding-top: 60px;
-    background: url("../../assets/images/background.svg");
+    background: url("../../../assets/background.svg");
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;

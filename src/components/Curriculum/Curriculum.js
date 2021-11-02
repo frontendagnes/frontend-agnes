@@ -2,7 +2,7 @@ import React from "react";
 import "./Curriculum.css";
 import Tagline from "./Tagline/Tagline";
 import CurriculumContent from "./CurriculumContent/CurriculumContent";
-import ButtonBack from "../ButtonBack/ButtonBack";
+import ButtonBack from "../Global/ButtonBack/ButtonBack";
 function Curriculum() {
   return (
     <div className="curriculum">

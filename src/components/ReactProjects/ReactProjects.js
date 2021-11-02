@@ -2,8 +2,8 @@ import React from "react";
 import "./ReactProjects.css";
 import { useStateValue } from "../../assets/utility/StateProvider";
 import Project from "../Project/Project";
-import Container from "../Container/Container";
-import ButtonBack from "../ButtonBack/ButtonBack";
+import Container from "../Global/Container/Container";
+import ButtonBack from "../Global/ButtonBack/ButtonBack";
 //images
 import fbClone from "../../assets/images/fb-clone.webp";
 import instaClone from '../../assets/images/instagram-clone.webp'
@@ -58,7 +58,7 @@ function ReactProjects() {
           img={chatApp}
           viewCode="https://github.com/zabula81/chatApp"
           live="https://czatapplication.herokuapp.com/"
-          description='Moja pierwsza samodzielna aplikacja wykonana w React. Aplikacja czatu jak sama nazwa wskazuje służy do rozmowy. Na ekranie powitalnyn musimy podać nazwę użytkowanika która zostaje zapisana do LacalStorage, żeby po odświeżeniu strony się "nie zgubiła". Użytkownik widzi że została dodana nowa wiadomość może również wyszukać użytkowanika po nazwie. Widaomości dodane przez siebie może edytować oraz usuwać. Jako, że to moja pierwsza samodzielna aplikacja w react wymaga ona poprawy np. dodania weryfikacji użytkownika żeby nie było dwóch użytkowników z tą samą nazwą, co za tym idzie dodanie athentication w postaci logowania i wtedy zmienienie LocalStorage na np. ContextApi.'
+          description='Moja pierwsza samodzielna aplikacja wykonana w React. Aplikacja czatu jak sama nazwa wskazuje służy do rozmowy. Na ekranie powitalnyn musimy podać nazwę użytkowanika która zostaje zapisana do LacalStorage, żeby po odświeżeniu strony się "nie zgubiła". Użytkownik widzi że została dodana nowa wiadomość może również wyszukać użytkowanika po nazwie. Widaomości dodane przez siebie może edytować oraz usuwać. Jako, że to moja pierwsza samodzielna aplikacja w react wymaga ona poprawy np. dodania weryfikacji użytkownika żeby nie było dwóch użytkowników z tą samą nazwą, co za tym idzie dodanie authentication w postaci logowania i wtedy zmienienie LocalStorage na np. ContextApi.'
           isView />
       </Container>
     </div>

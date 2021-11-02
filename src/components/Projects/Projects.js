@@ -1,11 +1,11 @@
 import React from "react";
 import "./Projects.css";
 import { useStateValue } from "../../assets/utility/StateProvider";
-import shop from "../../assets/images/shop.webp";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
-import reactAll from "../../assets/images/react-all.webp";
-
 import Project from "../Project/Project";
+//images
+import reactAll from "../../assets/images/react-all.webp";
+import jsAll from "../../assets/images/ja-all.webp"
 function Projects() {
   const [{ reactIcon, pureIcons }] = useStateValue();
   return (
@@ -22,7 +22,7 @@ function Projects() {
         <Project
           icons={pureIcons}
           title="Projekty JS, HTML, CSS"
-          img={shop}
+          img={jsAll}
           url="/projects/purejs"
           description="W tym miejscu znajdują się wybrane projekty wykonane za pomocą HTML, CSS i czystego JavaScript."
         />

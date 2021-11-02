@@ -1,14 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Project.css";
 import { index } from "../../assets/utility/functions";
 import { Link } from 'react-router-dom'
+import classNames from 'classnames';
 function Project({ icons, title, img, isView, description, url, viewCode, live }) {
-  const alignJustify = {
-    justifyContent: "space-around",
-  };
-  const alignCenter = {
-    justifyContent: "center",
-  };
+  const styles = {
+    alignJustify:{
+      justifyContent: "space-around",
+    },
+    alignCenter:{
+      justifyContent: "center",
+    },
+  }
+
+  const [isClicked, setIsClicked] = useState(false)
+  const clickedImage = () => {
+    setIsClicked(!isClicked)
+  }
+  const classValue = classNames({
+    'project__image': !isClicked,
+    'project__image--clicked': isClicked
+  })
+
   return (
     <div className="project">
       <div className="project__top">
@@ -18,11 +31,11 @@ function Project({ icons, title, img, isView, description, url, viewCode, live }
       </div>
       <div className="project__middle">
         <p>{title}</p>
-        <img src={img} alt="" />
+        <img src={img} alt="" className={classValue} onClick={clickedImage}/>
       </div>
       <div className="project__bottom">
         {isView ? (
-          <div className="project__links" style={alignJustify}>
+          <div className="project__links" style={styles.alignJustify}>
             <a href={viewCode} alt="">
               <span className="project__code"> &lt; </span>
               <span className="project__tag"> &nbsp; View Code &nbsp; </span>
@@ -36,7 +49,7 @@ function Project({ icons, title, img, isView, description, url, viewCode, live }
           </div>
         ) : (
           <Link to={url}>
-          <div className="project__links project__hover" style={alignCenter}>
+          <div className="project__links project__hover" style={styles.alignCenter}>
             <span className="project__code"> &lt; </span>
             <span className="project__tag"> &nbsp; View &nbsp;</span>
             <span className="project__code"> /&gt; </span>
