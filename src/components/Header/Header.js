@@ -17,8 +17,8 @@ function Header() {
           <h1>
             <span>Junior</span>Front-End Developer
           </h1>
-          <div className="header__skills" title="html5">
-            <div className="header__skillOne">
+          <div className="header__skills">
+            <div className="header__skillOne" title="html5">
               <FontAwesomeIcon icon={faHtml5} />
             </div>
             <div className="header__skillTwo" title="css3">

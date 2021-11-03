@@ -28,7 +28,7 @@ function App() {
             <Curriculum />
           </Route>
           <Route path="/">
-            <Navbar />
+            {/* <Navbar /> */}
             <div className="app__container">
               <Home />
               <div className="app__middle">

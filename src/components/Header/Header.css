@@ -49,3 +49,26 @@
 .header__skillFive{
     color: #808080;
 }
+
+@media screen and (max-width: 885px){
+    .header__skills{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .header__container h1{
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width:680px){
+    .header__container h1{
+        font-size: 1.5rem;
+    }   
+    .header__container h1 span{
+        font-size: 1rem;
+    }
+    .header__skills{
+        font-size: 2rem;
+    }
+}

@@ -29,3 +29,8 @@ h3{
     background-size: cover;
 }
 
+@media screen and (max-width: 850px){
+    .app__container{
+        width: 100vw;
+    }
+}

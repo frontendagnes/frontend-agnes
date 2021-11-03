@@ -18,3 +18,22 @@
     font-size: 1.5rem;
     color: #ffffff;
 }
+
+@media screen and (max-width: 830px){
+    .skill{
+        width: 40%;
+        margin-bottom: 10px;
+    }
+    .skill__title{
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .skill{
+        width: 90%;
+    }
+    .skill__title{
+        font-size: 2rem;
+    }
+}

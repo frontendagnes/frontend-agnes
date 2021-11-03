@@ -76,3 +76,9 @@
     transform: translateY(10px);
 }
 
+@media screen and (max-width: 600px){
+    .project{
+        width: 80%;
+        margin-bottom: 10px;
+    }
+}

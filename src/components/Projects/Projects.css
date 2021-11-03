@@ -6,6 +6,7 @@
     padding-bottom: 30px;
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
     padding-top: 40px;
 }
 
@@ -37,3 +38,5 @@
     font-weight: 600;
     text-decoration: none;
 }
+
+@media screen and (max-width: 680px){}

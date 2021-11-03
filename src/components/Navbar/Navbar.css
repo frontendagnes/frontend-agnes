@@ -1,5 +1,4 @@
 .navbar{
-    background-color: #161827;
     width: 20%;
     height: 100%;
     position: fixed;
@@ -16,6 +15,7 @@
     text-decoration: none;
 }
 .navbar__icon{
+    background-color: #161827;
     padding: 10px 20px;
     display: flex;
     justify-content: center;
@@ -29,7 +29,9 @@
     cursor: pointer;
 }
 .navbar ul{
+    background-color: #161827;
     list-style-type: none;
+    height: 100%;
 }
 .navbar ul>li{
     padding-left: 20px;
@@ -48,4 +50,26 @@
 }
 .navbar ul>li:hover{
     background: #1f2136;
+}
+
+@media screen and (max-width: 850px){
+    .navbar{
+        width: 100%;
+        top: 140px;
+        left: 0;
+    }
+    .navbar__list{
+        transition: all 0.75s ease-in-out;
+        /* position: absolute; */
+        width: 100%;
+        transform-origin: right 50%;
+    }
+
+}
+
+@media screen and (max-width: 680px){
+    .navbar{
+        top: 100px;
+    }
+
 }
