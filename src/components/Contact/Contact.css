@@ -25,3 +25,12 @@
     justify-content: space-around;
     flex-wrap: wrap;
 }
+
+@media screen and (max-width: 450px){
+    .contact{
+        font-size: 1rem;
+    }
+    .contact_right{
+        font-size: 2rem;
+    }
+}

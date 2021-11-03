@@ -31,6 +31,6 @@ h3{
 
 @media screen and (max-width: 850px){
     .app__container{
-        width: 100vw;
+        width: 100%;
     }
 }

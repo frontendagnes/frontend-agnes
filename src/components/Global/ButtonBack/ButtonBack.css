@@ -1,7 +1,3 @@
-/* .buttonback{
-    margin-top: 20px;
-} */
-
 .buttonback button{
     position: fixed;
     top: 75px;
@@ -20,4 +16,16 @@
 .buttonback button:hover{
     background: #1f2136;
     color: #ffffff;
+}
+
+@media screen and (max-width:885px){
+    .buttonback button{
+        top: 130px;
+    }
+}
+
+@media screen and (max-width:680px){
+    .buttonback button{
+        top: 95px;
+    }
 }

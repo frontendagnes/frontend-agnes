@@ -16,17 +16,14 @@ function Navbar() {
   }, [matches]);
 
   const style = {
-    marginPositive: {
+    visible: {
       visibility: "visible",
-      transform: "scaleX(1)",
+      transform: `scaleX(${1})`,
     },
-    marginNegative: {
+    hidden: {
       visibility: "hidden",
-      transform: "scaleX(0)",
+      transform: `scaleX(${0})`,
     },
-  };
-  const abc = () => {
-    console.log("abc");
   };
   const handleClick = () => {
     setIsVisible(!isVisible);
@@ -37,13 +34,13 @@ function Navbar() {
     }
   }
   return (
-    <nav className="navbar">
-      <div className="navbar__icon" onClick={matches ? handleClick : abc}>
+    <nav className="navbar" >
+      <div className="navbar__icon" onClick={matches ? handleClick : undefined}>
         <MenuIcon sx={{ fontSize: 52 }} />
       </div>
       <ul
         className="navbar__list"
-        style={!isVisible ? style.marginNegative : style.marginPositive}
+        style={!isVisible ? style.hidden : style.visible}
       >
         <li onClick={closeMenu}>
           <a href="#aboutme">Kim Jestem?</a>

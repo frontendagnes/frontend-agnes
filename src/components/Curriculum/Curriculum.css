@@ -2,22 +2,22 @@
     margin-top: 20px;
 }
 
-.curriculum button {
-    position: fixed;
-    top: 75px;
-    padding: 10px 20px;
-    border-radius: 0px 10px 10px 0px;
-    border: transparent;
-    background: #6b83c0;
-    color: #000000;
-    font-weight: 600;
-    font-size: 1.2rem;
-    letter-spacing: 2px;
-    cursor: pointer;
-    transition: all 0.75s ease-in-out;
-}
-
 .curriculum button:hover {
     background: #1f2136;
     color: #ffffff;
+}
+
+@media screen and (max-width:885px){
+    .curriculum__top {
+        margin-top: 80px; 
+    }
+}
+
+@media screen and (max-width:680px){
+    .curriculum__top {
+        margin-top: 40px; 
+    }
+    .curriculum__bottom{
+        z-index: -1;
+    }
 }

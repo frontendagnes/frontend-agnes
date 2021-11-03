@@ -14,3 +14,9 @@
     margin-top: 20px;
     border-top: 2px solid #a4b0cc;
 }
+
+@media screen and (max-width: 680px){
+    .curriculumContent{
+        width: 100%;
+    }
+}

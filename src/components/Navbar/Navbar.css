@@ -5,6 +5,7 @@
     right: 0;
     color: #ffffff;
     top: 85px;
+    z-index: 2;
 }
 .navbar a{
     display: flex;
@@ -55,14 +56,16 @@
 @media screen and (max-width: 850px){
     .navbar{
         width: 100%;
+        height: 0;
         top: 140px;
         left: 0;
     }
     .navbar__list{
         transition: all 0.75s ease-in-out;
-        /* position: absolute; */
         width: 100%;
         transform-origin: right 50%;
+        visibility: hidden;
+        transform: scaleX(0);
     }
 
 }

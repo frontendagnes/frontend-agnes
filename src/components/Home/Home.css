@@ -27,6 +27,16 @@
   border-radius: 999px;
   object-fit: contain;
 }
+@media screen and (max-width: 850px){
+    .home h3{
+        padding-top: 150px;
+    }
+}
+@media screen and (max-width: 680px){
+    .home h3{
+        padding-top: 130px;
+    }
+}
 @media screen and (max-width: 500px){
     .home__bottom > div{
         width: 90%;

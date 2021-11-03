@@ -1,10 +1,52 @@
-import React from "react";
+import React, { useState, useEffect} from "react";
 import "./Tagline.css";
 import photo from "../../../assets/images/me.jpg";
+import { useMediaQuery } from "@mui/material";
 
 function Tagline() {
+  const matches = useMediaQuery("(max-width: 885px)");
+  const [isVisible, setIsVisible] = useState(true)
+
+  useEffect(() => {
+    if(matches){
+      setIsVisible(false)
+    }else {
+      setIsVisible(true)
+    }
+  }, [matches])
+
+  const style = {
+    visible: {
+      visibility: "visible",
+      transform: "scaleX(1)",
+    },
+    hidden: {
+      visibility: "hidden",
+      transform: "scaleX(0)",
+    },
+    displayBlock: {
+      display: "block",
+    },
+    displayNone:{
+      display: "none",
+    },
+    ZindexPos:{
+      zIndex: 2,
+    },
+    ZindexNeg:{
+      zIndex: -1,
+    },
+  };
+
+  const handleClick = () => {
+    setIsVisible(!isVisible)
+  }
   return (
-    <div className="tagline">
+    <div className="tagline" style={matches ? style.ZindexPos : style.ZindexNeg}>
+      <div className="tagline__button" onClick={handleClick} style={matches ? style.displayBlock : style.displayNone}>
+        O mnie
+      </div>
+      <div className="tagline__container" style={isVisible ? style.visible : style.hidden}>
       <div className="tagline__top">
         <div className="tagline__name">Agnieszka Kamińska</div>
         <div className="tagline__profession">Junior Front-End Developer</div>
@@ -34,6 +76,7 @@ function Tagline() {
             <li>Znajomoąść HTML i CSS</li>
             <li>Znajomoąść frameworka REACT</li>
           </ul>
+        </div>
         </div>
       </div>
     </div>
