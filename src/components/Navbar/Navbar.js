@@ -3,6 +3,7 @@ import "./Navbar.css";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
 import { useMediaQuery } from "@mui/material";
+import { style } from '../Global/style'
 function Navbar() {
   const matches = useMediaQuery("(max-width: 850px)");
 
@@ -15,16 +16,6 @@ function Navbar() {
     }
   }, [matches]);
 
-  const style = {
-    visible: {
-      visibility: "visible",
-      transform: `scaleX(${1})`,
-    },
-    hidden: {
-      visibility: "hidden",
-      transform: `scaleX(${0})`,
-    },
-  };
   const handleClick = () => {
     setIsVisible(!isVisible);
   };
@@ -34,7 +25,7 @@ function Navbar() {
     }
   }
   return (
-    <nav className="navbar" >
+    <nav className="navbar" style={isVisible ? style.height100 : style.height0}>
       <div className="navbar__icon" onClick={matches ? handleClick : undefined}>
         <MenuIcon sx={{ fontSize: 52 }} />
       </div>
@@ -55,9 +46,10 @@ function Navbar() {
           <a href="#contact-me">Kontakt</a>
         </li>
         <li>
-          <Link to="/curriculum">Moje CV</Link>
+          <Link to="/resume-agnieszka.kaminska">Moje CV</Link>
         </li>
-        <li>Generator CV</li>
+        <li>
+          <Link to="/resume-generator">Generator CV</Link></li>
       </ul>
     </nav>
   );

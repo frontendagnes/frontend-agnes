@@ -2,22 +2,21 @@
     margin-top: 20px;
 }
 
-.curriculum button:hover {
-    background: #1f2136;
-    color: #ffffff;
+.curriuculum__bottom{
+    height: 100%;
+    display: flex;
+    flex-flow: row-reverse wrap;
+    
 }
 
 @media screen and (max-width:885px){
     .curriculum__top {
-        margin-top: 80px; 
+        margin-top: 60px; 
     }
 }
 
 @media screen and (max-width:680px){
     .curriculum__top {
-        margin-top: 40px; 
-    }
-    .curriculum__bottom{
-        z-index: -1;
+        margin-top: 30px; 
     }
 }

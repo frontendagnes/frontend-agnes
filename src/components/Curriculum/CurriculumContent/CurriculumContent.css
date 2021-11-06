@@ -15,7 +15,7 @@
     border-top: 2px solid #a4b0cc;
 }
 
-@media screen and (max-width: 680px){
+@media screen and (max-width: 885px){
     .curriculumContent{
         width: 100%;
     }
