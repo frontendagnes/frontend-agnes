@@ -1,9 +1,14 @@
 import React from 'react'
 import './Generator.css'
+
+// components
+import GeneratorSidebar from '../GeneratorSidebar/GeneratorSidebar'
+import GeneratorContent from '../GeneratorContent/GeneratorContent'
 function Generator() {
     return (
         <div className="generator">
-            <h1>Resume Generator</h1>
+            <GeneratorContent />
+            <GeneratorSidebar />
         </div>
     )
 }
