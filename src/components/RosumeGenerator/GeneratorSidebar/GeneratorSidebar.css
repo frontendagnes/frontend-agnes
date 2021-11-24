@@ -1,3 +1,8 @@
 .generatorsidebar{
     width: 25%;
 }
+.generatorsidebar__top form > div{
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
