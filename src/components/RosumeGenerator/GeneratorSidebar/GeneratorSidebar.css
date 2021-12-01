@@ -1,8 +1,43 @@
 .generatorsidebar{
     width: 25%;
 }
-.generatorsidebar__top form > div{
-    margin-top: 20px;
+.generatorsidebar h4{
+    font-size: 1.4rem;
+    text-align: center;
+    padding: 10px;
+}
+.generatorsidebar form > div{
+    margin-top: 10px;
     margin-right: 20px;
 }
 
+.generatorsidebar__container{
+    height: 100%;
+    background-color: #d2d2d2;
+    /* background: url("../../../assets/images/background.svg");
+    background-size: cover; */
+    padding: 10px 20px;
+    
+}
+
+.generatorsidebar__title{
+    background-color: #add8e6;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.generatorsidebar button{
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: transparent;
+    font-size: 1.1rem;
+}
+
+.generatorsidebar ul {
+    list-style-type: none;
+}
+.generatorsidebar ul > li{
+    padding: 10px;
+    font-size: 1.3rem;
+}

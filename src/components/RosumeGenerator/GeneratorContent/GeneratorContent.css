@@ -1,3 +1,20 @@
 .generatorcontent{
     width: 75%;
+    margin-top: 20px;
+}
+.generatorcontent__title{
+    border-top:2px solid #a4b0cc;
+    border-bottom: 2px solid #a4b0cc;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+.generatorcontent__content{
+    padding: 10px 20px;
+    display: flex;
+    width: 100%;
+}
+.generatorcontent__date{
+    display: flex;
+    flex-flow: row wrap;
 }

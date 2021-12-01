@@ -31,27 +31,23 @@ function CurriculumContent() {
       <div className="curriculumContent__experience">
         <div className="curriculumContent__title">Doświadczenie</div>
         <CurriculumPoint
-          key={index()}
           data="2008-03 - 2008-06"
           title="Technik informatyk - staż"
           content="Zakład Wpienniczy Wojcieszów sp. s o.o., Wojcieszów"
         />
         <CurriculumPoint
-          key={index()}
           data="2008-11 - 2010-03"
           title="Agent Ubezpieczeniowy Allianz"
           content="AK Agnieszka Kamińska, Wojcieszów (Agencja AWA s.c. Jelenia Góra)"
           arr={alianz}
         />
         <CurriculumPoint
-          key={index()}
           data="2011-06 - 2012-02"
           title="Księgowa"
           content="ATOM Maria Syrek, Sokołowiec"
           arr={atom}
         />
         <CurriculumPoint
-          key={index()}
           data="2012-03 - 2021-12"
           title="Właściciel Jednoosobowa Działalność Gospodarcza"
           content="AGNES Agnieszka Kamińska (księgarnia internetowa), Wojcieszów"
@@ -61,19 +57,16 @@ function CurriculumContent() {
       <div className="curriculumContent__educatione">
         <div className="curriculumContent__title">Wykształcenie</div>
         <CurriculumPoint
-          key={index()}
           data="1996-09 - 2000-06"
           title="Liceum Handlowe, technik handlowiec"
           content="Zespół Szkół Zawodowych w Złotoryji"
         />
         <CurriculumPoint
-          key={index()}
           data="2001-09 - 2003-06"
           title="Policealne Studium Informatyki, technik informatyk"
           content="Ośrodek Doskonalenia Zawodowego DZDZ w Złotoryji"
         />
         <CurriculumPoint
-          key={index()}
           data="2003-10 - 2007-03"
           title="Informatyka w szkole, inżynier informatyk"
           content="Państwowa Wyższa Szkoła Zawodowa. Kolegium Karkonoskie w Jeleniej Górze"
@@ -82,7 +75,6 @@ function CurriculumContent() {
       <div className="curriculumContent__coursers">
         <div className="curriculumContent__title">Kursy</div>
         <CurriculumPoint
-          key={index()}
           data="2008-09 - 2008-11"
           title="Asystent ds. kadrowo płacowych + obsługa programu Płatnik"
         />

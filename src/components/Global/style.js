@@ -13,4 +13,10 @@ export const style = {
   height0: {
     height: 0 + "px",
   },
+  input: {
+    color: "#ffffff",
+    "&::placeholder":{
+      color: "#ffffff",
+    }
+  },
 };
