@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./CurriculumContent.css";
-import { index } from "../../../assets/utility/functions";
-import CurriculumPoint from "../CurriculumPoint/CurriculumPoint";
+import CurriculumPoint from "../CurriculumPoint/CurriculumPoint"
 function CurriculumContent() {
   const [alianz, setAlianz] = useState([
     "Finalizowanie sprzedaży ubezpieczeń",

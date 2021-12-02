@@ -3,6 +3,7 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 // components
+// import Generator from "./components/RosumeGenerator/Generator/Generator";
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home";
@@ -21,6 +22,7 @@ const NoMatch = lazy(() => import("./components/NoMatch/NoMatch"));
 const Generator = lazy(() =>
   import("./components/RosumeGenerator/Generator/Generator")
 );
+
 function App() {
   const renderLoader = () => <p>Loading...</p>;
   return (
