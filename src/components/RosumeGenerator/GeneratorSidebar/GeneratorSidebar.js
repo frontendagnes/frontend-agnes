@@ -22,8 +22,23 @@ function GeneratorSidebar() {
   }
   const saveData = () => {
     setIsEdit(!isEdit);
-  };
 
+
+  };
+function previewFile() {
+  const preview = document.querySelector('img');
+  const file = document.querySelector('input[type=file]').files[0];
+  const reader = new FileReader();
+
+  reader.addEventListener("load", function () {
+    // convert image file to base64 string
+    preview.src = reader.result;
+  }, false);
+
+  if (file) {
+    reader.readAsDataURL(file);
+  }
+}
   const addSkill = () => {
     if (skill) {
       setSkills([skill, ...skills]);
@@ -32,6 +47,7 @@ function GeneratorSidebar() {
     }
     setSkill("");
   };
+  
   return (
     <div className="generatorsidebar">
       {isEdit ? (
@@ -61,7 +77,8 @@ function GeneratorSidebar() {
               />
             </div>
             <div>
-              <input type="file" onChange={handleFileInput}/>
+              <input type="file" onChange={previewFile}/>
+              <img src="" alt="totot"/>
             </div>
             <div className="generatorsidebar__title">Dane Osobowe:</div>
             <div>
