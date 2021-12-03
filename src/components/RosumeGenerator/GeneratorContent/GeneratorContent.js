@@ -1,27 +1,53 @@
 import React, { useState, useEffect } from "react";
 import "./GeneratorContent.css";
+import { index } from "../../../assets/utility/functions";
+
+//components
 import AddForm from "../AddForm/AddForm";
 import CurriculumPoint from "../../Curriculum/CurriculumPoint/CurriculumPoint";
-import { index } from "../../../assets/utility/functions";
+import TabGenerator from "../../TabGenerator/TabGenerator";
 function GeneratorContent() {
   const [isEdit, setIsEdit] = useState(false);
-  
+
   const [point, setPoint] = useState([]);
   const [education, setEducation] = useState([]);
   const [courses, setCourses] = useState([]);
 
-
   return (
     <div className="generatorcontent">
       <div className="generatorcontent__tabs">
-              <AddForm 
-                  point={point}
-                  setPoint={setPoint}
-                  name="Zawód"
-                  helperName="Wprowadź nazwę zawodu"
-                  place="Miejsce pracy"
-                  helperPlace="Wprowadź miejsce pracy"
-      />
+        <TabGenerator
+          component={
+            <AddForm
+              point={point}
+              setPoint={setPoint}
+              name="Zawód"
+              helperName="Wprowadź nazwę zawodu"
+              place="Miejsce pracy"
+              helperPlace="Wprowadź miejsce pracy"
+            />
+          }
+          component1={
+            <AddForm
+              point={education}
+              setPoint={setEducation}
+              name="Wykrztałcenie"
+              helperName="Wprowadź wykrztałcenie"
+              place="Szkoła"
+              helperPlace="Wprowadź nazwę szkoły"
+            />
+          }
+          component2={
+            <AddForm
+              point={courses}
+              setPoint={setCourses}
+              name="Kurs"
+              helperName="Wprowadź Kurs"
+              place="Miejsce odbycia"
+              helperPlace="Wprowadź gdzie odbyłeś kurs"
+            />
+          }
+        />
       </div>
 
       <div className="generatorcontent__title">Doświadczenie</div>
@@ -50,7 +76,7 @@ function GeneratorContent() {
           ))}
         </div>
       </div>
-      <div className="generatorcontent__title">Kursy</div>
+      {courses.length ? <div className="generatorcontent__title">Kursy</div> : null}
       <div className="generatorcontent__content">
         <div>
           {courses?.map((item) => (
