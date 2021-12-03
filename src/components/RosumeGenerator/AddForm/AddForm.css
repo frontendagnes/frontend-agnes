@@ -1,0 +1,46 @@
+.addform form {
+    padding: 20px 30px;
+}
+.addform button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.75s ease-in;
+}
+.addform__date,
+.addform__inputs {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+
+.addform__dateWrapper {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+
+.addform__date div {
+    margin-right: 5px;
+    padding-bottom: 20px;
+}
+
+.addform__inputs div {
+    margin-right: 5px;
+}
+.addform ul li {
+    margin-left: 30px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+.addform__description {
+    font-weight: 600;
+    font-size: 1.3rem;
+    margin-left: 10px;
+}
+
+.addform__buttons {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+}
