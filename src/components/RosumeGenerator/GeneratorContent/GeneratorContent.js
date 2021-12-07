@@ -6,6 +6,7 @@ import { index } from "../../../assets/utility/functions";
 import AddForm from "../AddForm/AddForm";
 import CurriculumPoint from "../../Curriculum/CurriculumPoint/CurriculumPoint";
 import TabGenerator from "../../TabGenerator/TabGenerator";
+
 function GeneratorContent() {
   const [isEdit, setIsEdit] = useState(false);
 
@@ -55,10 +56,12 @@ function GeneratorContent() {
         <div>
           {point?.map((item) => (
             <CurriculumPoint
+              key={index()}
               data={item.date}
               title={item.title}
               content={item.workplace}
               arr={item.skills}
+              isRemove
             />
           ))}
         </div>
@@ -68,10 +71,12 @@ function GeneratorContent() {
         <div>
           {education?.map((item) => (
             <CurriculumPoint
+              key={index()}
               data={item.date}
               title={item.title}
               content={item.workplace}
               arr={item.skills}
+              isRemove
             />
           ))}
         </div>
@@ -81,10 +86,12 @@ function GeneratorContent() {
         <div>
           {courses?.map((item) => (
             <CurriculumPoint
+              key={index()}
               data={item.date}
               title={item.title}
               content={item.workplace}
               arr={item.skills}
+              isRemove
             />
           ))}
         </div>

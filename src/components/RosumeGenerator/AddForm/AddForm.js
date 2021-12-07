@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./AddForm.css";
 import TextField from "@mui/material/TextField";
 import { index } from "../../../assets/utility/functions";
-function AddForm({ setPoint, point,name, helperName, place, helperPlace }) {
+function AddForm({ setPoint, point, name, helperName, place, helperPlace }) {
   const [dateStart, setDateStart] = useState("");
   const [dateEnd, setDateEnd] = useState("");
   const [date, setDate] = useState("");
@@ -62,7 +62,7 @@ function AddForm({ setPoint, point,name, helperName, place, helperPlace }) {
               onChange={(e) => setDateStart(e.target.value)}
             />
             <h5>Data rozpoczęcia</h5>
-          </div>
+            </div>
           <div>
             <input
               type="date"
@@ -86,7 +86,6 @@ function AddForm({ setPoint, point,name, helperName, place, helperPlace }) {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
-            <p className="addform__description">{title}</p>
           </div>
           <div>
             <TextField
@@ -97,7 +96,6 @@ function AddForm({ setPoint, point,name, helperName, place, helperPlace }) {
               value={workplace}
               onChange={(e) => setWorkPlace(e.target.value)}
             />
-            <p className="addform__description">{workplace}</p>
           </div>
           <div className="addform__skills">
             <TextField
@@ -111,11 +109,16 @@ function AddForm({ setPoint, point,name, helperName, place, helperPlace }) {
             <button type="button" onClick={addSkill}>
               Dodaj umiejętność
             </button>
-            <ul className="addform__description">
-              {skills?.map((item) => (
-                <li key={index()}>{item}</li>
-              ))}
-            </ul>
+          </div>
+          <div className="addform__descriptions">
+            <p className="addform__description">{title}</p>
+            <p className="addform__description">{workplace}</p>
+              <ul className="addform__description">
+                {skills?.map((item) => (
+                  <li key={index()}>{item}</li>
+                ))}
+              </ul>
+              <p></p>
           </div>
         </div>
         <div className="addform__buttons">

@@ -5,15 +5,32 @@
     margin-left: 10px;
     padding: 10px 20px;
     cursor: pointer;
-    transition: all 0.75s ease-in;
+    transition: background 0.75s ease-in;
+    background: #3f4d70;
+    color: #ffffff;
+    letter-spacing: 1px;
+    font-weight: 600;
+    border: transparent;
+    border-radius: 10px;
 }
-.addform__date,
+.addform button:hover{
+    background: #53679a;
+}
 .addform__inputs {
     display: flex;
     flex-flow: row wrap;
     align-items: center;
 }
-
+.addform__inputs input{
+    width: 185px;
+}
+.addform__date{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    padding-bottom: 30px;
+    padding-top: 20px;
+}
 .addform__dateWrapper {
     display: flex;
     flex-flow: row wrap;
@@ -22,11 +39,17 @@
 
 .addform__date div {
     margin-right: 5px;
-    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .addform__inputs div {
     margin-right: 5px;
+}
+.addform__inputs div button{
+    margin-top: 10px;
 }
 .addform ul li {
     margin-left: 30px;
@@ -43,4 +66,15 @@
     display: flex;
     justify-content: center;
     padding-top: 30px;
+}
+
+.addform__descriptions{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.addform__descriptions > p,
+.addform__descriptions > ul{
+    width: 33%;
 }
