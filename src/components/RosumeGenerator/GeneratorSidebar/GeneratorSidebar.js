@@ -1,11 +1,12 @@
-import React, { useState, useRef } from "react";
+import React, { useState  } from "react";
 import "./GeneratorSidebar.css";
 import TextField from "@mui/material/TextField";
 import Tagline from "../../Curriculum/Tagline/Tagline";
 import { index } from "../../../assets/utility/functions";
-import { style } from "../../Global/style.js";
+import { useStateValue } from "../../../assets/utility/StateProvider"
+import db, { storage } from "../../../assets/utility/firebase.js"
 function GeneratorSidebar() {
-  const [isEdit, setIsEdit] = useState(true);
+  const [{ isEdit }] = useStateValue();
   const [name, setName] = useState("");
   const [job, setJob] = useState("");
   const [email, setEmail] = useState("");
@@ -13,32 +14,12 @@ function GeneratorSidebar() {
   const [skill, setSkill] = useState("");
   const [skills, setSkills] = useState([]);
   const [selectedFile, setSelectedFile] = useState(null)
+  const [photos, setPhotos] = useState([])
 
   const handleFileInput = (e) => {
     setSelectedFile(e.target.files[0])
-    console.log("1>>",e.target.files)
-    console.log("2>>",e.target.files[0])
-    console.log("3>>", selectedFile)
   }
-  const saveData = () => {
-    setIsEdit(!isEdit);
 
-
-  };
-function previewFile() {
-  const preview = document.querySelector('img');
-  const file = document.querySelector('input[type=file]').files[0];
-  const reader = new FileReader();
-
-  reader.addEventListener("load", function () {
-    // convert image file to base64 string
-    preview.src = reader.result;
-  }, false);
-
-  if (file) {
-    reader.readAsDataURL(file);
-  }
-}
   const addSkill = () => {
     if (skill) {
       setSkills([skill, ...skills]);
@@ -47,13 +28,17 @@ function previewFile() {
     }
     setSkill("");
   };
-  
+  const uploadImage = e =>{
+    if(selectedFile){
+
+    } else { alert("Zdjęcie nie zostało wybrane")}
+  }
   return (
     <div className="generatorsidebar">
       {isEdit ? (
         <div className="generatorsidebar__container">
           <form>
-            <h4>Wypełnij pola i wybierz zatwierdź!</h4>
+            <h4>Informacje ogólne</h4>
             <div>
               <TextField
                 fullWidth
@@ -70,15 +55,16 @@ function previewFile() {
                 fullWidth
                 helperText="Wpisz nazwę stanowiska o które się ubiegasz."
                 id="outlined-basic"
-                label="Job"
+                label="Stanowisko"
                 variant="outlined"
                 value={job}
                 onChange={(e) => setJob(e.target.value)}
               />
             </div>
             <div>
-              <input type="file" onChange={previewFile}/>
-              <img src="" alt="totot"/>
+              <input type="file" onChange={handleFileInput}/>
+              <button type="button" onClick={uploadImage}> Załąduj Zdjęcie</button>
+              <h5>Wybierz zdjęcie</h5>
             </div>
             <div className="generatorsidebar__title">Dane Osobowe:</div>
             <div>
@@ -97,7 +83,7 @@ function previewFile() {
                 fullWidth
                 helperText="Wpisz swój numer telefonu."
                 id="outlined-basic"
-                label="Phone"
+                label="Telefon"
                 variant="outlined"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
@@ -109,7 +95,7 @@ function previewFile() {
                 fullWidth
                 helperText="Podaj swoje umiejętności."
                 id="outlined-basic"
-                label="Skill"
+                label="Umiejętności"
                 variant="outlined"
                 value={skill}
                 onChange={(e) => setSkill(e.target.value)}
@@ -136,10 +122,6 @@ function previewFile() {
           isFull
         />
       )}
-
-      <button type="button" onClick={saveData}>
-        {isEdit ? "Zatwierdź" : "Edytuj"}
-      </button>
     </div>
   );
 }

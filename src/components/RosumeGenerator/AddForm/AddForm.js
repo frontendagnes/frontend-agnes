@@ -45,6 +45,7 @@ function AddForm({ setPoint, point, name, helperName, place, helperPlace }) {
       },
       ...point,
     ]);
+
     setDate("");
     setTitle("");
     setWorkPlace("");

@@ -1,12 +1,26 @@
 import React from "react";
 import "./CurriculumPoint.css";
-import { index } from'../../../assets/utility/functions'
-function CurriculumPoint({ data, title, content, arr, isRemove, id, setPoint, point }) {
-  const removeItem = (e) =>{
-    // const removedItem = e.target.value
-    // console.log(removedItem)
-    // const newSatet = point.filter((item) => )
-  }
+import { index } from "../../../assets/utility/functions";
+import { useStateValue } from "../../../assets/utility/StateProvider";
+function CurriculumPoint({
+  data,
+  title,
+  content,
+  arr,
+  isRemove,
+  setPoint,
+  point,
+  id,
+}) {
+  const [{ isEdit }] = useStateValue();
+  const removeItem = () => {
+    // setPoint(prevState => {
+    //   let newPoint = prevState.slice()
+    //   newPoint.splice(index, 1)
+    //   return newPoint
+    // })
+    setPoint(() => point.filter((_, i) => i !== id));
+  };
   return (
     <div className="curriculumpoint">
       <div className="curriculumpoint__data">{data}</div>
@@ -19,7 +33,17 @@ function CurriculumPoint({ data, title, content, arr, isRemove, id, setPoint, po
           ))}
         </ul>
       </div>
-          {isRemove && <button type="button" onClick={removeItem}>Usuń</button>}
+      {isEdit ? (
+        <div>
+          {isRemove ? (
+            <div>
+              <button type="button" onClick={() => removeItem(id)}>
+                Usuń
+              </button>
+            </div>
+          ) : null}
+        </div>
+      ) : null}
     </div>
   );
 }

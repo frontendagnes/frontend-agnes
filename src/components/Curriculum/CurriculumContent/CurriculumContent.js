@@ -32,7 +32,7 @@ function CurriculumContent() {
         <CurriculumPoint
           data="2008-03 - 2008-06"
           title="Technik informatyk - staż"
-          content="Zakład Wpienniczy Wojcieszów sp. s o.o., Wojcieszów"
+          content="Zakład Wapienniczy Wojcieszów sp. z o.o."
         />
         <CurriculumPoint
           data="2008-11 - 2010-03"

@@ -34,7 +34,7 @@ function JsProjects() {
           isView 
         />
         <Project 
-          title="Strona typu OnePage" 
+          title="OnePage" 
           icons={pureIcons} 
           viewCode="https://github.com/zabula81/Challenge-5-Macankumbang"
           live="https://zabula81.github.io/Challenge-5-Macankumbang/"

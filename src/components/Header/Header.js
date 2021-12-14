@@ -9,14 +9,17 @@ import {
   faReact,
   faGithubSquare,
 } from "@fortawesome/free-brands-svg-icons";
+import Changelanguage from "../ChangeLanguage/Changelanguage";
 function Header() {
   return (
     <div className="header">
       <Link to="/">
         <div className="header__container">
-          <h1>
-            <span>Junior</span>Front-End Developer
-          </h1>
+          <div className="header__left">
+            <h1>
+              <span>Junior</span>Front-End Developer
+            </h1>
+          </div>
           <div className="header__skills">
             <div className="header__skillOne" title="html5">
               <FontAwesomeIcon icon={faHtml5} />
@@ -36,6 +39,7 @@ function Header() {
           </div>
         </div>
       </Link>
+      <Changelanguage />
     </div>
   );
 }

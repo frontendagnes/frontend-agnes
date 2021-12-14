@@ -18,12 +18,12 @@
     top: 0;
 }
 
-.header__container > h1{
+.header h1{
     font-size: 3rem;
     letter-spacing:4px;
 
 }
-.header__container > h1 > span{
+.header h1 > span{
     font-size: 1.5rem;
     letter-spacing: 1px;
     font-family: 'ZCOOL KuaiLe', cursive;

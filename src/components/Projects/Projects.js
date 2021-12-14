@@ -7,10 +7,11 @@ import Project from "../Project/Project";
 import reactAll from "../../assets/images/react-all.webp";
 import jsAll from "../../assets/images/ja-all.webp"
 function Projects() {
-  const [{ reactIcon, pureIcons }] = useStateValue();
+  const [{ reactIcon, pureIcons, isEnglish }] = useStateValue();
   return (
     <div className="projects" id="my-projects">
-      <h3>Moje Projekty</h3>
+      {!isEnglish ? <h3>Moje Projekty</h3> : <h3>My Projects</h3>}
+      {!isEnglish ?
       <div className="projects__container">
         <Project
           icons={reactIcon}
@@ -27,6 +28,24 @@ function Projects() {
           description="W tym miejscu znajdują się wybrane projekty wykonane za pomocą HTML, CSS i czystego JavaScript."
         />
       </div>
+      :
+      <div className="projects__container">
+        <Project
+          icons={reactIcon}
+          title="React projects"
+          img={reactAll}
+          url="/projects/react"
+          description="Here you will find a selection of projects made in React."
+        />
+        <Project
+          icons={pureIcons}
+          title="JS, HTML, CSS projects"
+          img={jsAll}
+          url="/projects/purejs"
+          description="Here you will find a selection of projects made using HTML, CSS and pure JavaScript."
+        />
+      </div>
+      }
       <div className="projects__bottom">
         <a
           href="https://github.com/zabula81?tab=repositories"
