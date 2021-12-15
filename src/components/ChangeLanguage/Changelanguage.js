@@ -5,17 +5,12 @@ import { styled } from '@mui/material/styles'
 import { useStateValue } from "../../assets/utility/StateProvider";
 
 const Button = styled(IconButton)({
-  background: "#fafafa",
-  marginLeft: 10 + "px",
   fontSize: 1 + "rem",
   fontWeight: 600,
-  "&:hover": {
-    color: "#fafafa",
-  },
 });
 
 function Changelanguage() {
-  const [{ insEnglish }, dispatch] = useStateValue();
+  const [{ isEnglish }, dispatch] = useStateValue();
 
   const polishLanguage = () => {
     dispatch({
@@ -30,10 +25,10 @@ function Changelanguage() {
   return (
     <div className="changelanguage">
       <div title="Zmień język">
-        <Button title="Polski" onClick={polishLanguage}>
+        <Button style={{background: isEnglish ? "transparent" : "#fafafa", color: isEnglish ? "#fafafa" : "#000000"}} title="Polski" onClick={polishLanguage}>
           PL
         </Button>
-        <Button title="English" onClick={englishLanguage}>
+        <Button style={{background: !isEnglish ? "transparent" : "#fafafa", color: !isEnglish ? "#fafafa" : "#000000"}}title="English" onClick={englishLanguage}>
           EN
         </Button>
       </div>
