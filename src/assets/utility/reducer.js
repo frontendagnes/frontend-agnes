@@ -15,6 +15,7 @@ export const initialState = {
   ],
   isEdit: true,
   isEnglish: false,
+  user: null,
 };
 
 const reducer = (state, action) => {
@@ -24,6 +25,7 @@ const reducer = (state, action) => {
         ...state,
         isEdit: !state.isEdit,
       };
+    //change language
     case "SET_ENGLISH":
       return {
         ...state,
@@ -33,6 +35,17 @@ const reducer = (state, action) => {
       return {
         ...state,
         isEnglish: false,
+      };
+    // user
+    case "SET_USER":
+      return {
+        ...state,
+        user: action.user,
+      };
+    case "DELETE_USER":
+      return {
+        ...state,
+        user: null,
       };
     default:
       return state;

@@ -1,7 +1,8 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
+import { auth } from "./assets/utility/firebase";
+import { useStateValue } from "./assets/utility/StateProvider";
 // components
 // import Generator from "./components/RosumeGenerator/Generator/Generator";
 import Header from "./components/Header/Header";
@@ -13,6 +14,7 @@ import Footer from "./components/Footer/Footer";
 // import Curriculum from "./components/Curriculum/Curriculum";
 // import ReactProjects from "./components/ReactProjects/ReactProjects";
 // import JsProjects from "./components/JsProjects/JsProjects";
+const Login = lazy(() => import("./components/RosumeGenerator/Login/Login.js"));
 const ReactProjects = lazy(() =>
   import("./components/ReactProjects/ReactProjects")
 );
@@ -25,6 +27,25 @@ const Generator = lazy(() =>
 
 function App() {
   const renderLoader = () => <p>Loading...</p>;
+  const [{ user }, dispatch] = useStateValue();
+  useEffect(() => {
+    // auth.onAuthStateChanged((authUser) => {
+    //   if (authUser) {
+    //     dispatch({
+    //       type: "SET_USER",
+    //       user: authUser,
+    //     });
+    //   } else {
+    //     dispatch({
+    //       type: "DELETE_USER",
+    //     });
+    //   }
+    // });
+    // dispatch({
+    //   type: "SET_USER",
+    //   user: null
+    // })
+  }, [dispatch]);
   return (
     <div className="app">
       <Router>
@@ -33,6 +54,11 @@ function App() {
           <Route exact path="/resume-generator">
             <Suspense fallback={renderLoader()}>
               <Generator />
+            </Suspense>
+          </Route>
+          <Route exact path="/login">
+            <Suspense fallback={renderLoader()}>
+              <Login />
             </Suspense>
           </Route>
           <Route exact path="/projects/purejs">
