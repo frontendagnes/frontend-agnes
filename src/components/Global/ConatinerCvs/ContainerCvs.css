@@ -1,0 +1,14 @@
+.containercvs{
+    display: flex;
+    justify-content: center;
+    
+}
+.containercvs__wrapper{
+    box-sizing: border-box;
+    width: 595px;
+    height: 842px;
+    height: 100%;
+    display: flex;
+    flex-flow: row-reverse wrap;
+    border: 1px solid #000000;
+}

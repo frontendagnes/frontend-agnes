@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./AddForm.css";
 import TextField from "@mui/material/TextField";
 import { index } from "../../../assets/utility/functions";
+import { useStateValue } from "../../../assets/utility/StateProvider";
+import { today } from "../../../assets/utility/functions"
 function AddForm({ setPoint, point, name, helperName, place, helperPlace }) {
   const [dateStart, setDateStart] = useState("");
   const [dateEnd, setDateEnd] = useState("");
@@ -10,16 +12,9 @@ function AddForm({ setPoint, point, name, helperName, place, helperPlace }) {
   const [workplace, setWorkPlace] = useState("");
   const [skill, setSkill] = useState("");
   const [skills, setSkills] = useState([]);
+  const [{ alert }, dispatch] = useStateValue();
 
-  const addSkill = () => {
-    if (skill) {
-      setSkills([skill, ...skills]);
-      setSkill("");
-    } else alert("Wprowadź umiejętność!");
-  };
-  const sendDate = (e) => {
-    e.preventDefault();
-
+  useEffect(() => {
     let start = new Date(dateStart);
     let monthStart = start.getMonth() + 1;
     let yearStart = start.getFullYear();
@@ -31,6 +26,13 @@ function AddForm({ setPoint, point, name, helperName, place, helperPlace }) {
     const endDate = `${monthStart}-${yearStart} - ${monthEnd}-${yearEnd}`;
 
     setDate(endDate);
+  }, [dateEnd, dateStart]);
+
+  const addSkill = () => {
+    if (skill) {
+      setSkills([skill, ...skills]);
+      setSkill("");
+    } else dispatch({ type: "ALERT__ERROR", item: "Pole nie może być puste" });
   };
 
   const saveData = (e) => {
@@ -57,24 +59,24 @@ function AddForm({ setPoint, point, name, helperName, place, helperPlace }) {
       <form>
         <div className="addform__date">
           <div>
-            <input
+            <TextField
               type="date"
+              variant="outlined"
               value={dateStart}
               onChange={(e) => setDateStart(e.target.value)}
+              helperText="Podaj datę rozpoczęcia"
+              fullWidth
             />
-            <h5>Data rozpoczęcia</h5>
-            </div>
+          </div>
           <div>
-            <input
+             <TextField
               type="date"
+              variant="outlined"
               value={dateEnd}
               onChange={(e) => setDateEnd(e.target.value)}
-            />
-            <h5>Data zakończenia</h5>
-          </div>
-          <div className="addform__dateWrapper">
-            <button onClick={sendDate}>Zapisz Datę</button>
-            <p className="addform__description">{date}</p>
+              helperText="Podaj datę zakończenia"
+              fullWidth
+              />
           </div>
         </div>
         <div className="addform__inputs">
@@ -86,6 +88,7 @@ function AddForm({ setPoint, point, name, helperName, place, helperPlace }) {
               variant="outlined"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
+              fullWidth
             />
           </div>
           <div>
@@ -96,6 +99,7 @@ function AddForm({ setPoint, point, name, helperName, place, helperPlace }) {
               variant="outlined"
               value={workplace}
               onChange={(e) => setWorkPlace(e.target.value)}
+              fullWidth
             />
           </div>
           <div className="addform__skills">
@@ -106,20 +110,22 @@ function AddForm({ setPoint, point, name, helperName, place, helperPlace }) {
               variant="outlined"
               value={skill}
               onChange={(e) => setSkill(e.target.value)}
+              fullWidth
             />
             <button type="button" onClick={addSkill}>
               Dodaj umiejętność
             </button>
           </div>
           <div className="addform__descriptions">
+            <p>{date}</p>
             <p className="addform__description">{title}</p>
             <p className="addform__description">{workplace}</p>
-              <ul className="addform__description">
-                {skills?.map((item) => (
-                  <li key={index()}>{item}</li>
-                ))}
-              </ul>
-              <p></p>
+            <ul className="addform__description">
+              {skills?.map((item) => (
+                <li key={index()}>{item}</li>
+              ))}
+            </ul>
+            <p></p>
           </div>
         </div>
         <div className="addform__buttons">

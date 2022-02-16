@@ -1,14 +1,12 @@
 import React from "react";
 import "./Tagline.css";
-
-// import { Sidebar } from "./TaglineSyled";
 import { index } from "../../../assets/utility/functions"
+
 function Tagline({name, job, email, phone, skills, photo, isFull}) {
   return (
     <div className="tagline" style={{width: isFull ? "100%" : "25%"}}>
       <div className="tagline__container" >
       <div className="tagline__top">
-        <div className="tagline__name">{name}</div>
         <div className="tagline__profession">{job}</div>
         <img src={photo} alt={name} title={name} />
       </div>

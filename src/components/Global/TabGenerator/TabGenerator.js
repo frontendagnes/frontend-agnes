@@ -21,11 +21,11 @@ const Tab = styled.div`
   }
 `;
 
-function TabGenerator({ component, component1, component2 }) {
+function TabGenerator({ component, component1, component2, component3 }) {
   const [tab, setTab] = useState(true);
   const [tab1, setTab1] = useState(false);
   const [tab2, setTab2] = useState(false);
-
+  const [tab3, setTab3] = useState(false);
   const styles = {
     defaultStyle: "#3f4d70",
     activeStyle: "#5a71aa",
@@ -35,17 +35,26 @@ function TabGenerator({ component, component1, component2 }) {
     setTab(true);
     setTab1(false);
     setTab2(false);
+    setTab3(false)
   };
   const switchTab1 = () => {
     setTab(false);
     setTab1(true);
     setTab2(false);
+    setTab3(false)
   };
   const switchTab2 = () => {
     setTab(false);
     setTab1(false);
     setTab2(true);
+    setTab3(false)
   };
+  const switchTab3 =() =>{
+    setTab(false);
+    setTab1(false);
+    setTab2(false);
+    setTab3(true)
+  }
 
   return (
     <div className="tabgenerator">
@@ -72,11 +81,20 @@ function TabGenerator({ component, component1, component2 }) {
         >
           Kursy
         </Tab>
+        <Tab
+          style={{
+            background: tab3 ? styles.activeStyle : styles.defaultStyle
+          }}
+          onClick={switchTab3}
+        >
+          Dane Osobowe
+        </Tab>
       </Tabs>
       <div className="tabgenrator__content">
         {tab ? <div>{component}</div> : null}
         {tab1 ? <div>{component1}</div> : null}
         {tab2 ? <div>{component2}</div> : null}
+        {tab3 ? <div>{component3}</div> : null}
       </div>
     </div>
   );

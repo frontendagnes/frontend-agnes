@@ -1,4 +1,4 @@
-.login {
+.register {
     height: 80vh;
     display: flex;
     flex-direction: column;
@@ -6,8 +6,10 @@
     align-items: center;
     background-color: #fafafa;
 }
-
-.login__logo {
+.register h1{
+    margin-bottom: 20px;
+}
+.register__logo {
     width: 100%;
     text-align: center;
     height: 51px;
@@ -16,7 +18,7 @@
     font-weight: 600;
 }
 
-.login__wrapper {
+.register__wrapper {
     background-color: #ffffff;
     padding: 20px 30px;
     width: 40%;
@@ -27,29 +29,25 @@
     border: 1px solid #d3d3d3;
 }
 
-.login form {
+.register form {
     display: flex;
     flex-direction: column;
 }
 
-.login__input {
+.register__input {
     margin-bottom: 10px !important;
     background-color: #fAFAFA;
 }
 
-.login__infoRegister {
-    margin-top: 20px;
-    background-color: #ffffff;
-    font-size: 1.5rem;
-    padding: 20px 30px;
-    border: 1px solid #d3d3d3;
+.register__button:disabled{
+    background-color: #c1e4fc !important;
 }
 /* input antyspam */
-.login__age{
+.register__age{
     display: none;
 }
 @media (max-width: 700px) {
-    .login__wrapper {
+    .register__wrapper {
         width: 90%;
     }
 }

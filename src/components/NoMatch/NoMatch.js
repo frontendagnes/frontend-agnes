@@ -1,13 +1,13 @@
 import React from "react";
 import "./NoMatch.css";
 
-import { useLocation, useHistory } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 function NoMatch() {
   const location = useLocation();
-  const history = useHistory()
+  const history = useNavigate()
 
   const handleClick = () =>{
-    history.push("/")
+   history("/")
   }
   return (
     <div className="noMatch">

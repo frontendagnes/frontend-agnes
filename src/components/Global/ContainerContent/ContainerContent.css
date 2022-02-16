@@ -1,0 +1,11 @@
+.containercontent{
+    width: 75%;
+    padding: 20px 30px;
+}
+.containercontent__name{
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.5rem;
+    padding-bottom: 10px;
+    letter-spacing: 3px;
+}

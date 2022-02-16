@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import "./CurriculumContent.css";
-import CurriculumPoint from "../CurriculumPoint/CurriculumPoint"
+import CurriculumPoint from "../CurriculumPoint/CurriculumPoint";
+import ContainerPrint from "../../Global/ContainerPrint/ContainerPrint";
+import ContainerContent from "../../Global/ContainerContent/ContainerContent";
+import Clause from "../../Global/Clause";
 function CurriculumContent() {
   const [alianz, setAlianz] = useState([
     "Finalizowanie sprzedaży ubezpieczeń",
@@ -26,9 +29,8 @@ function CurriculumContent() {
     "Przygotowywanie deklaracji PIT, VAT, ZUS",
   ]);
   return (
-    <div className="curriculumContent">
-      <div className="curriculumContent__experience">
-        <div className="curriculumContent__title">Doświadczenie</div>
+    <ContainerContent name="Agnieszka Kamińska">
+      <ContainerPrint title="Doświadczenie">
         <CurriculumPoint
           data="2008-03 - 2008-06"
           title="Technik informatyk - staż"
@@ -52,9 +54,8 @@ function CurriculumContent() {
           content="AGNES Agnieszka Kamińska (księgarnia internetowa), Wojcieszów"
           arr={agnes}
         />
-      </div>
-      <div className="curriculumContent__educatione">
-        <div className="curriculumContent__title">Wykształcenie</div>
+      </ContainerPrint>
+      <ContainerPrint title="Wykrztałcenie">
         <CurriculumPoint
           data="1996-09 - 2000-06"
           title="Liceum Handlowe, technik handlowiec"
@@ -70,19 +71,15 @@ function CurriculumContent() {
           title="Informatyka w szkole, inżynier informatyk"
           content="Państwowa Wyższa Szkoła Zawodowa. Kolegium Karkonoskie w Jeleniej Górze"
         />
-      </div>
-      <div className="curriculumContent__coursers">
-        <div className="curriculumContent__title">Kursy</div>
+      </ContainerPrint>
+      <ContainerPrint title="Kursy">
         <CurriculumPoint
           data="2008-09 - 2008-11"
           title="Asystent ds. kadrowo płacowych + obsługa programu Płatnik"
         />
-      </div>
-      <div className="curriculumContent__clause">
-        Wyrażam zgodę na przetwarzanie moich danych osobowych w celu prowadzenia
-        rekrutacji.
-      </div>
-    </div>
+      </ContainerPrint>
+      <Clause />
+    </ContainerContent>
   );
 }
 

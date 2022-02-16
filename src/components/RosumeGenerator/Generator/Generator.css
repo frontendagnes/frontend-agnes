@@ -1,5 +1,28 @@
 .generator{
     margin-top: 20px;
+}
+
+.generator__container{
     display: flex;
     justify-content: space-between;
+}
+.generator__button{
+    display: flex;
+    justify-content: center;
+}
+.generator__button > button{
+    padding: 20px 30px;
+    cursor: pointer;
+    transition: background 0.75s ease-in;
+    background: #3f4d70;
+    color: #ffffff;
+    letter-spacing: 3px;
+    font-weight: 600;
+    border: transparent;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    margin-top: 30px;
+}
+.generator__button > button:hover{
+    background: #53679a;
 }

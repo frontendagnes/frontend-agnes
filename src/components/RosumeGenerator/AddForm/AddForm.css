@@ -20,33 +20,29 @@
     display: flex;
     flex-flow: row wrap;
     align-items: center;
+    justify-content: center;
 }
-.addform__inputs input{
-    width: 185px;
-}
+
 .addform__date{
     display: flex;
     flex-flow: row wrap;
     align-items: center;
+    justify-content: center;
     padding-bottom: 30px;
     padding-top: 20px;
 }
-.addform__dateWrapper {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-}
 
-.addform__date div {
+.addform__date > div {
     margin-right: 5px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 40%;
 }
 
 .addform__inputs div {
-    margin-right: 5px;
+    width: 100%;
 }
 .addform__inputs div button{
     margin-top: 10px;

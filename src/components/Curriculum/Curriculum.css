@@ -2,12 +2,6 @@
     margin-top: 20px;
 }
 
-.curriuculum__bottom{
-    height: 100%;
-    display: flex;
-    flex-flow: row-reverse wrap;
-    
-}
 
 @media screen and (max-width:885px){
     .curriculum__top {

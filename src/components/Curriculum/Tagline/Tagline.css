@@ -1,13 +1,6 @@
 .tagline{
      width: 25%;
      color: #ffffff;
-     /* z-index: -1; */
-     /* height: 100%; */
-    /*position: absolute;
-    right: 0;
-    top:100px;
-    z-index: -1;
-    min-height: 165%; */
 }
 .tagline__container{
     background: url("../../../assets/images/background.svg");
@@ -30,37 +23,28 @@
 }
 .tagline__personal ul li > span{
     font-weight: 600;
-    font-size: 1.1rem;
     padding: 10px 10px 5px 0px;
 }
 .tagline__skills ul li{
     padding: 10px 10px 5px 10px;
-    font-size: 1.3rem;
 }
-.tagline__name{
-    font-size: 2rem;
-    font-weight: 600;
-    padding-left: 10px;
-    padding-top: 20px;
-    
-}
+
 .tagline__profession{
-    font-size: 1.5rem;
     padding-left: 10px;
     padding-top: 10px;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 2px;
 }
 
 .tagline__top > img{
-    width: 80%;
-    margin-left: 10%;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-radius: 30px;
+    width: 101%;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .tagline__title{
     background-color: #3c4269b9;
-    padding: 20px 10px;
-    font-size: 1.2rem;
+    padding: 10px 10px;
     font-weight: 600;
 }
 

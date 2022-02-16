@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import "./Login.css";
-// react-router-dom
-import { Link, useNavigate } from "react-router-dom";
-// API
-import { auth } from "../../../assets/utility/firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import "./Register.css";
 // materia-ui icons
 import { TextField, Button } from "@mui/material";
-import { styled } from "@mui/material/styles";
-// components
+import { styled } from "@mui/material/styles"
+//react-roter-dom
+import { useNavigate, Link } from "react-router-dom";
+// API
+import { auth } from "../../../assets/utility/firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth"
+//component
 import ValidationError from "../ValidatinError/ValidationError";
 import ButtonBack from "../../Global/ButtonBack/ButtonBack";
 import { useStateValue } from "../../../assets/utility/StateProvider";
@@ -20,73 +20,65 @@ const validate = (email, password, test) => {
   }
   if (!password) {
     return "Password is required";
+  } else if (password.length < 6) {
+    return "The password must be 6 characters long";
   }
   if (test) {
     return "You have not passed the spam filter. Please refresh the page and try again";
   }
   return null;
 };
-
-const LoginButton = styled(Button)({
+const RegisterButton = styled(Button)({
   background: "#53679a",
   color: "#ffffff",
   fontWeight: 600,
 
-  "&:hover": {
+  "&:hover":{ 
     background: "#3f4d70",
-  },
-});
-function Login() {
+  }
+})
+function Register() {
+  const history = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   // filtr antyspam
   const [test, setTest] = useState("");
-  const [{ alert }, dispatch] = useStateValue();
-  const history = useNavigate();
-  const signIn = (e) => {
+  const [{alert}, dispatch] =useStateValue()
+  const register = (e) => {
     e.preventDefault();
-
     const errMsg = validate(email, password, test);
     if (errMsg) {
       setError(errMsg);
       return;
     }
-    //firebase login
-    signInWithEmailAndPassword(auth, email, password)
-      .then((user) => {
-        if (user) {
-          history("/resume-generator");
-          dispatch({ type: "ALERT__OK", item: user.user.email });
-        }
+
+      createUserWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        history("/");
+        dispatch({type: "ALERT_REGISETER"})
       })
       .catch((error) => {
-        console.error("Login>>", error.message);
-        dispatch({ type: "ALERT__ERROR", item: error.message });
-      });
-    // auth
-    //   .signInWithEmailAndPassword(email, password)
-    //   .catch((error) => alert(error.message));
+        dispatch({type: "ALERT__ERROR", itme: error.message})
+        console.log(error.message)});
   };
 
   return (
-    <div className="login">
-        <ButtonBack />
-      <div className="login__wrapper">
+    <div className="register">
+      <ButtonBack />
+      <div className="register__wrapper">
         {error && <ValidationError text={error} />}
-        <div className="login__logo">Generator Login</div>
-        <form onSubmit={signIn}>
+        <div className="register__logo">Generator Register</div>
+        <form onSubmit={register}>
           <TextField
-            autocomplete="off"
-            className="login__input"
-            label="Enter login"
+            className="register__input"
+            label="Enter e-mail"
             variant="outlined"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <TextField
-            autocomplete="off"
-            className="login__input"
+            className="register__input"
             label="Enter password"
             variant="outlined"
             type="password"
@@ -98,21 +90,20 @@ function Login() {
             autocomplete="off"
             type="text"
             name="age"
-            className="login__age"
+            className="register__age"
             value={test}
             onChange={(e) => setTest(e.target.value)}
           />
-          <LoginButton type="submit" className="login__button">
-            Log In
-          </LoginButton>
+          <RegisterButton type="submit" className="register__button">
+            Create Acount
+          </RegisterButton>
         </form>
       </div>
-      <div className="login__infoRegister">
-        You do not have an account? Register
-        <Link to="/register"> here</Link>
+      <div>
+        Have an account? <Link to="/login">Sign In</Link>
       </div>
     </div>
   );
 }
 
-export default Login;
+export default Register;

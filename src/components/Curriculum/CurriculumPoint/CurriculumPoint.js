@@ -1,7 +1,6 @@
 import React from "react";
 import "./CurriculumPoint.css";
 import { index } from "../../../assets/utility/functions";
-import { useStateValue } from "../../../assets/utility/StateProvider";
 function CurriculumPoint({
   data,
   title,
@@ -12,7 +11,6 @@ function CurriculumPoint({
   point,
   id,
 }) {
-  const [{ isEdit }] = useStateValue();
   const removeItem = () => {
     // setPoint(prevState => {
     //   let newPoint = prevState.slice()
@@ -33,17 +31,15 @@ function CurriculumPoint({
           ))}
         </ul>
       </div>
-      {isEdit ? (
-        <div>
-          {isRemove ? (
-            <div>
-              <button type="button" onClick={() => removeItem(id)}>
-                Usuń
-              </button>
-            </div>
-          ) : null}
-        </div>
-      ) : null}
+      <div>
+        {isRemove ? (
+          <div>
+            <button type="button" onClick={() => removeItem(id)}>
+              Usuń
+            </button>
+          </div>
+        ) : null}
+      </div>
     </div>
   );
 }

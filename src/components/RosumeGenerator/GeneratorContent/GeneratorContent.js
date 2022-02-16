@@ -1,71 +1,99 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./GeneratorContent.css";
 import { index } from "../../../assets/utility/functions";
-import { useStateValue } from "../../../assets/utility/StateProvider";
 import { Link } from "react-router-dom";
 //components
 import AddForm from "../AddForm/AddForm";
 import CurriculumPoint from "../../Curriculum/CurriculumPoint/CurriculumPoint";
-import TabGenerator from "../../TabGenerator/TabGenerator";
+import TabGenerator from "../../Global/TabGenerator/TabGenerator";
+import GeneratorSidebar from "../GeneratorSidebar/GeneratorSidebar";
 
-function GeneratorContent() {
-  const [{ isEdit }, dispatch] = useStateValue();
-  const [point, setPoint] = useState([]);
-  const [education, setEducation] = useState([]);
-  const [courses, setCourses] = useState([]);
-  
-
-  useEffect(() => {
-    console.log(point);
-  }, [point]);
-  
-  const editForm = () => {
-    dispatch({
-      type: "EDIT_FORM",
-    });
-  };
+function GeneratorContent({
+  point,
+  setPoint,
+  education,
+  setEducation,
+  courses,
+  setCourses,
+  skill,
+  setSkill,
+  setSkills,
+  skills,
+  name,
+  setName,
+  job,
+  setJob,
+  email,
+  setEmail,
+  phone,
+  setPhone,
+}) {
   return (
     <div className="generatorcontent">
-      {isEdit ? (
-        <div className="generatorcontent__tabs">
-          <div className="generatorcontent__description">Generator nie wysyła i nie zapisuje żadnych danych dlatego po odświerzeniu strony wszystkie informację znikają i trzeba je wpisywać od nowa. Proszę o uważne korzystanie z aplikacji żeby nie stracić wprowadzonych danych</div>
-          <h4>Wypełnij formularze i wybierz przycisk Zatwierdź.
-            <div title="Przykładowe CV"><Link to="/resume-agnieszka.kaminska">Przykład wypełnionego CV(zalecane otwarcie w nowej karcie)</Link></div>
-          </h4>
-          <TabGenerator
-            component={
-              <AddForm
-                point={point}
-                setPoint={setPoint}
-                name="Zawód"
-                helperName="Wprowadź nazwę zawodu"
-                place="Miejsce pracy"
-                helperPlace="Wprowadź miejsce pracy"
-              />
-            }
-            component1={
-              <AddForm
-                point={education}
-                setPoint={setEducation}
-                name="Wykrztałcenie"
-                helperName="Wprowadź wykrztałcenie"
-                place="Szkoła"
-                helperPlace="Wprowadź nazwę szkoły"
-              />
-            }
-            component2={
-              <AddForm
-                point={courses}
-                setPoint={setCourses}
-                name="Kurs"
-                helperName="Wprowadź Kurs"
-                place="Miejsce odbycia"
-                helperPlace="Wprowadź gdzie odbyłeś kurs"
-              />
-            }
-          />
+      <div className="generatorcontent__tabs">
+        <div className="generatorcontent__description">
+          Generator nie wysyła i nie zapisuje żadnych danych dlatego po
+          odświerzeniu strony wszystkie informację znikają i trzeba je wpisywać
+          od nowa. Proszę o uważne korzystanie z aplikacji żeby nie stracić
+          wprowadzonych danych
         </div>
-      ) : null}
+        <h4>
+          Wypełnij formularze i wybierz przycisk Zatwierdź.
+          <div title="Przykładowe CV">
+            <Link to="/resume-agnieszka.kaminska">
+              Przykład wypełnionego CV(zalecane otwarcie w nowej karcie)
+            </Link>
+          </div>
+        </h4>
+        <TabGenerator
+          component={
+            <AddForm
+              point={point}
+              setPoint={setPoint}
+              name="Zawód"
+              helperName="Wprowadź nazwę zawodu"
+              place="Miejsce pracy"
+              helperPlace="Wprowadź miejsce pracy"
+            />
+          }
+          component1={
+            <AddForm
+              point={education}
+              setPoint={setEducation}
+              name="Wykrztałcenie"
+              helperName="Wprowadź wykrztałcenie"
+              place="Szkoła"
+              helperPlace="Wprowadź nazwę szkoły"
+            />
+          }
+          component2={
+            <AddForm
+              point={courses}
+              setPoint={setCourses}
+              name="Kurs"
+              helperName="Wprowadź Kurs"
+              place="Miejsce odbycia"
+              helperPlace="Wprowadź gdzie odbyłeś kurs"
+            />
+          }
+          component3={
+            <GeneratorSidebar
+              skill={skill}
+              setSkill={setSkill}
+              setSkills={setSkills}
+              skills={skills}
+              name={name}
+              setName={setName}
+              job={job}
+              setJob={setJob}
+              email={email}
+              setEmail={setEmail}
+              phone={phone}
+              setPhone={setPhone}
+            />
+          }
+        />
+      </div>
       <div className="generatorcontent__title">Doświadczenie</div>
       <div className="generatorcontent__content">
         <div>
@@ -125,11 +153,6 @@ function GeneratorContent() {
       <div className="generatorcontent__clause">
         Wyrażam zgodę na przetwarzanie moich danych osobowych w celu prowadzenia
         rekrutacji.
-      </div>
-      <div className="generatorcontent__button">
-        <button type="button" onClick={editForm}>
-          {isEdit ? "Zatwierdź" : "Edytuj"}
-        </button>
       </div>
     </div>
   );
