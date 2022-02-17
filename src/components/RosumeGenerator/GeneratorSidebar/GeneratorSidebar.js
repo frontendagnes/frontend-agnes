@@ -1,7 +1,8 @@
 import React from "react";
 import "./GeneratorSidebar.css";
 import TextField from "@mui/material/TextField";
-import { index } from "../../../assets/utility/functions";
+import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
+import { removeSkill } from "../../../assets/utility/functions";
 import { useStateValue } from "../../../assets/utility/StateProvider";
 
 function GeneratorSidebar({
@@ -98,8 +99,8 @@ function GeneratorSidebar({
               Dodaj umiejętność
             </button>
             <ul>
-              {skills.map((item) => (
-                <li key={index()}>{item}</li>
+              {skills.map((item, index) => (
+                <li key={index}><span>{item}</span><RemoveCircleIcon color="error" onClick={() => removeSkill(index, skills, setSkills)}/></li>
               ))}
             </ul>
           </div>

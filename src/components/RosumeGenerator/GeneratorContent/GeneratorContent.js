@@ -150,10 +150,6 @@ function GeneratorContent({
           ))}
         </div>
       </div>
-      <div className="generatorcontent__clause">
-        Wyrażam zgodę na przetwarzanie moich danych osobowych w celu prowadzenia
-        rekrutacji.
-      </div>
     </div>
   );
 }

@@ -47,30 +47,32 @@
 .addform__inputs div button{
     margin-top: 10px;
 }
+
 .addform ul li {
-    margin-left: 30px;
-    margin-bottom: 5px;
-    margin-top: 5px;
-}
-.addform__description {
+    margin-top: 10px;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #fafafafa;
     font-weight: 600;
     font-size: 1.3rem;
-    margin-left: 10px;
 }
-
+.addform ul li > svg{
+    cursor: pointer;
+}
 .addform__buttons {
     display: flex;
     justify-content: center;
     padding-top: 30px;
 }
 
-.addform__descriptions{
+/* .addform__descriptions{
     width: 100%;
     display: flex;
     justify-content: space-around;
-}
+} */
 
-.addform__descriptions > p,
+/* .addform__descriptions > p,
 .addform__descriptions > ul{
     width: 33%;
-}
+} */

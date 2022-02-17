@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./AddForm.css";
 import TextField from "@mui/material/TextField";
+import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import { index } from "../../../assets/utility/functions";
 import { useStateValue } from "../../../assets/utility/StateProvider";
-import { today } from "../../../assets/utility/functions"
+import { today, removeSkill } from "../../../assets/utility/functions"
+
 function AddForm({ setPoint, point, name, helperName, place, helperPlace }) {
   const [dateStart, setDateStart] = useState("");
   const [dateEnd, setDateEnd] = useState("");
@@ -117,12 +119,12 @@ function AddForm({ setPoint, point, name, helperName, place, helperPlace }) {
             </button>
           </div>
           <div className="addform__descriptions">
-            <p>{date}</p>
-            <p className="addform__description">{title}</p>
-            <p className="addform__description">{workplace}</p>
+            {/* <p>{date}</p> */}
+            {/* <p className="addform__description">{title}</p>
+            <p className="addform__description">{workplace}</p> */}
             <ul className="addform__description">
-              {skills?.map((item) => (
-                <li key={index()}>{item}</li>
+              {skills?.map((item, index) => (
+                <li key={index}><span>{item}</span><RemoveCircleIcon color="error" onClick={() => removeSkill(index, skills, setSkills)} /></li>
               ))}
             </ul>
             <p></p>

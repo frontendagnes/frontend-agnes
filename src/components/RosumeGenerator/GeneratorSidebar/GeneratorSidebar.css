@@ -1,5 +1,5 @@
 .generatorsidebar{
-    width: 25%;
+    /* width: 25%; */
 }
 .generatorsidebar h4{
     font-size: 1.4rem;
@@ -48,5 +48,13 @@
 }
 .generatorsidebar ul > li{
     padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #fafafafa;
+    font-weight: 600;
     font-size: 1.3rem;
+}
+
+.generatorsidebar ul > li svg{
+    cursor: pointer;
 }
