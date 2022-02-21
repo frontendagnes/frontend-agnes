@@ -1,10 +1,28 @@
 import React, { useState, useEffect } from "react";
 import "./AddForm.css";
 import TextField from "@mui/material/TextField";
-import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
+import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import { index } from "../../../assets/utility/functions";
 import { useStateValue } from "../../../assets/utility/StateProvider";
-import { today, removeSkill } from "../../../assets/utility/functions"
+import { removeSkill } from "../../../assets/utility/functions";
+import ValidationError from "../ValidatinError/ValidationError";
+
+const validate = ( dateStart, dateEnd, title, workplace ) => {
+  if (!dateStart) {
+    return "Sprawdź datę rozpoczęcia";
+  }
+  if (!dateEnd) {
+    return "Sprawdź datę zakończenia";
+  }
+  if (!title) {
+    return "Sprawdź nazwę";
+  }
+  if(!workplace){
+    return "Sprawdź miejsce"
+  }
+
+  return null;
+};
 
 function AddForm({ setPoint, point, name, helperName, place, helperPlace }) {
   const [dateStart, setDateStart] = useState("");
@@ -14,6 +32,7 @@ function AddForm({ setPoint, point, name, helperName, place, helperPlace }) {
   const [workplace, setWorkPlace] = useState("");
   const [skill, setSkill] = useState("");
   const [skills, setSkills] = useState([]);
+  const [error, setError] = useState("");
   const [{ alert }, dispatch] = useStateValue();
 
   useEffect(() => {
@@ -34,11 +53,18 @@ function AddForm({ setPoint, point, name, helperName, place, helperPlace }) {
     if (skill) {
       setSkills([skill, ...skills]);
       setSkill("");
-    } else dispatch({ type: "ALERT__ERROR", item: "Pole nie może być puste" });
+    } else dispatch({ type: "ALERT__ERROR", item: "Pole umięjętności nie może być puste" });
   };
 
   const saveData = (e) => {
     e.preventDefault();
+
+    const msg = validate(dateStart, dateEnd, title, workplace);
+    if (msg) {
+      setError(msg);
+      return;
+    }
+
     setPoint([
       {
         id: index(),
@@ -55,6 +81,9 @@ function AddForm({ setPoint, point, name, helperName, place, helperPlace }) {
     setWorkPlace("");
     setSkill("");
     setSkills([]);
+    setDateStart("")
+    setDateEnd("")
+    setError("")
   };
   return (
     <div className="addform">
@@ -71,16 +100,17 @@ function AddForm({ setPoint, point, name, helperName, place, helperPlace }) {
             />
           </div>
           <div>
-             <TextField
+            <TextField
               type="date"
               variant="outlined"
               value={dateEnd}
               onChange={(e) => setDateEnd(e.target.value)}
               helperText="Podaj datę zakończenia"
               fullWidth
-              />
+            />
           </div>
         </div>
+        {error ? <ValidationError text={error} /> : null}
         <div className="addform__inputs">
           <div>
             <TextField
@@ -106,7 +136,7 @@ function AddForm({ setPoint, point, name, helperName, place, helperPlace }) {
           </div>
           <div className="addform__skills">
             <TextField
-              helperText="Wpisz nabyte umiejętności"
+              helperText="Wpisz nabyte umiejętności po kolei"
               id="outlined-basic"
               label="Nabyte umiejętności"
               variant="outlined"
@@ -119,12 +149,15 @@ function AddForm({ setPoint, point, name, helperName, place, helperPlace }) {
             </button>
           </div>
           <div className="addform__descriptions">
-            {/* <p>{date}</p> */}
-            {/* <p className="addform__description">{title}</p>
-            <p className="addform__description">{workplace}</p> */}
             <ul className="addform__description">
               {skills?.map((item, index) => (
-                <li key={index}><span>{item}</span><RemoveCircleIcon color="error" onClick={() => removeSkill(index, skills, setSkills)} /></li>
+                <li key={index}>
+                  <span>{item}</span>
+                  <RemoveCircleIcon
+                    color="error"
+                    onClick={() => removeSkill(index, skills, setSkills)}
+                  />
+                </li>
               ))}
             </ul>
             <p></p>

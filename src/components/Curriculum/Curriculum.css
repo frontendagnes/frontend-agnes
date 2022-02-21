@@ -6,6 +6,7 @@
 @media screen and (max-width:885px){
     .curriculum__top {
         margin-top: 60px; 
+        flex-direction: column;
     }
 }
 

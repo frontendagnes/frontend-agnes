@@ -19,7 +19,8 @@
 .tagline__personal ul li{
     display: flex;
     flex-direction: column;
-    padding-left: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 .tagline__personal ul li > span{
     font-weight: 600;

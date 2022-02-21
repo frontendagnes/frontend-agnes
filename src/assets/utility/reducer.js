@@ -21,6 +21,7 @@ export const initialState = {
     message: "",
     type: "success",
   },
+  photo: [],
   cvs: []
   // cvs: {
   //   name: "Ola Fasola",
@@ -34,19 +35,9 @@ export const initialState = {
   //     workplace: "Zakład kamy&kamyk",
   //     skills: ["ala", "ola", "pola"]
   //   },
-  //   {
-  //     date: "09-2012 - 01-2022",
-  //     title: "Sklep",
-  //     workplace: "SPożywczy",
-  //     skills: ["ala", "ola", "pola"]
-  //   }
+
   // ],
-  //   education:[{
-  //     date: "12-99 - 02-2022",
-  //     title: "Magazyn",
-  //     workplace: "Zakład kamy&kamyk",
-  //     skills: ["ala", "ola", "pola"]
-  //   },
+  //   education:[
   //   {
   //     date: "09-2012 - 01-2022",
   //     title: "Sklep",
@@ -88,6 +79,12 @@ const reducer = (state, action) => {
         ...state,
         isEnglish: false,
       };
+    //photo
+    case "SET_PHOTO":
+      return{
+        ...state,
+        photo: action.photo,
+      }
     // user
     case "SET_USER":
       return {

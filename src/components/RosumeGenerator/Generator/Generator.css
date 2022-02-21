@@ -5,6 +5,7 @@
 .generator__container{
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
 }
 .generator__button{
     display: flex;

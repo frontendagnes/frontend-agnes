@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap');
 .header{
-    height: 85px;
+    height: 110px;
     z-index: 999;
 }
 .header__container{
@@ -16,6 +16,7 @@
     width: 100%;
     position: fixed;
     top: 0;
+    height: 110px;
 }
 
 .header h1{

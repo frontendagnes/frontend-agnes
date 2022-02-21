@@ -7,7 +7,6 @@ import AddForm from "../AddForm/AddForm";
 import CurriculumPoint from "../../Curriculum/CurriculumPoint/CurriculumPoint";
 import TabGenerator from "../../Global/TabGenerator/TabGenerator";
 import GeneratorSidebar from "../GeneratorSidebar/GeneratorSidebar";
-
 function GeneratorContent({
   point,
   setPoint,
@@ -27,6 +26,8 @@ function GeneratorContent({
   setEmail,
   phone,
   setPhone,
+  error,
+  setError
 }) {
   return (
     <div className="generatorcontent">

@@ -1,9 +1,10 @@
 import React from "react";
 import "./GeneratorSidebar.css";
 import TextField from "@mui/material/TextField";
-import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
+import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import { removeSkill } from "../../../assets/utility/functions";
 import { useStateValue } from "../../../assets/utility/StateProvider";
+import UploadImage from "../../Global/UploadImage";
 
 function GeneratorSidebar({
   skill,
@@ -19,7 +20,10 @@ function GeneratorSidebar({
   phone,
   setPhone,
 }) {
-  const [{ alert }, dispatch] = useStateValue();
+  
+  const [{ user, photo }, dispatch] = useStateValue();
+ 
+
   const addSkill = () => {
     if (skill) {
       setSkills([skill, ...skills]);
@@ -34,7 +38,7 @@ function GeneratorSidebar({
       <div className="generatorsidebar__container">
         <form>
           <h4>Informacje ogólne</h4>
-          <div>
+           <div>
             <TextField
               fullWidth
               helperText="Wpisz swoje imię i nazwisko."
@@ -57,9 +61,10 @@ function GeneratorSidebar({
             />
           </div>
           <div>
-            <input type="file" />
-            <button type="button"> Załąduj Zdjęcie</button>
-            <h5>Wybierz zdjęcie</h5>
+            {/* <TextField type="file" helperText="Wybierz zdjęcie"/>
+            <button type="button"> Załąduj Zdjęcie</button> */}
+            {/* <h5>Wybierz zdjęcie</h5> */}
+            <UploadImage userName={user.email} />
           </div>
           <div className="generatorsidebar__title">Dane Osobowe:</div>
           <div>
@@ -100,7 +105,13 @@ function GeneratorSidebar({
             </button>
             <ul>
               {skills.map((item, index) => (
-                <li key={index}><span>{item}</span><RemoveCircleIcon color="error" onClick={() => removeSkill(index, skills, setSkills)}/></li>
+                <li key={index}>
+                  <span>{item}</span>
+                  <RemoveCircleIcon
+                    color="error"
+                    onClick={() => removeSkill(index, skills, setSkills)}
+                  />
+                </li>
               ))}
             </ul>
           </div>

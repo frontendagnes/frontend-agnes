@@ -1,8 +1,13 @@
-import React, { lazy, Suspense, useEffect } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import { auth } from "./assets/utility/firebase";
 import { useStateValue } from "./assets/utility/StateProvider";
+import { onAuthStateChanged } from "firebase/auth";
+import { collection, onSnapshot } from "firebase/firestore";
+import db from "./assets/utility/firebase"
+// mui
+import { CircularProgress } from "@mui/material";
 // components
 // import Generator from "./components/RosumeGenerator/Generator/Generator";
 import Header from "./components/Header/Header";
@@ -12,8 +17,7 @@ import Skills from "./components/Skills/Skills";
 import Projects from "./components/Projects/Projects";
 import Footer from "./components/Footer/Footer";
 import Snackbar from "./components/Snackbar/Snackbar";
-import { onAuthStateChanged } from "firebase/auth";
-import ProintingRosume from "./components/RosumeGenerator/PrintingRosume/ProintingRosume";
+import ProintingResume from "./components/RosumeGenerator/PrintingResume/ProintingResume";
 // import Curriculum from "./components/Curriculum/Curriculum";
 // import ReactProjects from "./components/ReactProjects/ReactProjects";
 // import JsProjects from "./components/JsProjects/JsProjects";
@@ -32,8 +36,9 @@ const Generator = lazy(() =>
 );
 
 function App() {
-  const renderLoader = () => <p>Loading...</p>;
-  const [{ user }, dispatch] = useStateValue();
+  const [{ photo }, dispatch] = useStateValue();
+  const [dataImage, setDataImage] = useState([]);
+
   useEffect(() => {
     onAuthStateChanged(auth, (authUser) => {
       if (authUser) {
@@ -48,56 +53,82 @@ function App() {
       }
     });
   }, [dispatch]);
+
+  useEffect(() => {
+    dispatch({ type: "SET_PHOTO", photo: dataImage });
+    console.log(photo);
+  }, [dataImage, dispatch, photo]);
+
+    useEffect(() => {
+    const unsuscribe = onSnapshot(
+      collection(db, "photos"),
+      (snapshot) => {
+        setDataImage(
+          snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+        );
+      },
+      (error) => {
+        dispatch({type: "ALERT__ERROR", item: error.message})
+      }
+    );
+    return () => {
+      unsuscribe();
+    };
+  }, [dispatch]);
+
+  const renderLoader = () => 
+  <div style={{
+    display: "flex",
+    justifyContent: "center",
+    padding: "20px",
+    alignItems: "center",
+  }}>
+    <CircularProgress color="success" />
+    <span style={{
+      marginLeft: "10px",
+      letterSpacing: "3px",
+    }}>Loading...</span>
+  </div>;
+
   return (
     <div className="app">
       <Header />
+      <Suspense fallback={renderLoader()}>
       <Routes>
         <Route
           path="/resume-generator"
-          element={
-            <Suspense fallback={renderLoader()}>
+          element={   
               <Generator />
-            </Suspense>
           }
         />
         <Route
           path="/login"
           element={
-            <Suspense fallback={renderLoader()}>
               <Login />
-            </Suspense>
           }
         />
         <Route
           path="/register"
           element={
-            <Suspense fallback={renderLoader()}>
               <Register />
-            </Suspense>
           }
         />
         <Route
           path="/projects/purejs"
           element={
-            <Suspense fallback={renderLoader()}>
               <JsProjects />
-            </Suspense>
           }
         />
         <Route
           path="/projects/react"
           element={
-            <Suspense fallback={renderLoader()}>
               <ReactProjects />
-            </Suspense>
           }
         />
         <Route
           path="/resume-agnieszka.kaminska"
           element={
-            <Suspense fallback={renderLoader()}>
               <Curriculum />
-            </Suspense>
           }
         />
         <Route
@@ -116,19 +147,17 @@ function App() {
             </>
           }
         />
-       
-        <Route path="/printingrosume" element={<ProintingRosume />} />
-        
+
+        <Route path="/printingresume" element={<ProintingResume />} />
+
         <Route
           path="*"
           element={
-            <Suspense fallback={renderLoader()}>
               <NoMatch />
-            </Suspense>
           }
         />
-        
       </Routes>
+      </Suspense>
       <Snackbar />
     </div>
   );
