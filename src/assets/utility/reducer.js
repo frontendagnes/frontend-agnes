@@ -13,6 +13,7 @@ export const initialState = {
     <FontAwesomeIcon icon={faCss3Alt} />,
     <FontAwesomeIcon icon={faJsSquare} />,
   ],
+  isPhoto: true,
   isEdit: true,
   isEnglish: false,
   user: null,
@@ -21,44 +22,56 @@ export const initialState = {
     message: "",
     type: "success",
   },
-  photo: [],
-  cvs: []
-  // cvs: {
-  //   name: "Ola Fasola",
-  //   job: "Sprzedawca",
-  //   email: "ala@faSolarPanel.pl",
-  //   phone: "678098567",
-  //   skills: ["Sprzątanie", "Mycie Okien", "JEdznie pizzy"],
-  //   work: [{
-  //     date: "12-99 - 02-2022",
-  //     title: "Magazyn",
-  //     workplace: "Zakład kamy&kamyk",
-  //     skills: ["ala", "ola", "pola"]
-  //   },
-
-  // ],
-  //   education:[
-  //   {
-  //     date: "09-2012 - 01-2022",
-  //     title: "Sklep",
-  //     workplace: "SPożywczy",
-  //     skills: ["ala", "ola", "pola"]
-  //   }
-  // ],
-  //   courses:[{
-  //     date: "12-99 - 02-2022",
-  //     title: "Magazyn",
-  //     workplace: "Zakład kamy&kamyk",
-  //     skills: ["ala", "ola", "pola"]
-  //   }]
-  // }
+  // cvs: []
+  cvs: {
+    name: "Ola Fasola",
+    job: "Sprzedawca ram rowerowych z grawerowną powierzchnią",
+    email: "ala@faSolarPanel.pl",
+    phone: "678098567",
+    skills: ["Sprzątanie", "Mycie Okien", "JEdznie pizzy"],
+    work: [
+      {
+        date: "12-99 - 02-2022",
+        title: "Magazyn",
+        workplace: "Zakład kamy&kamyk",
+        skills: ["ala", "ola", "pola"],
+      },
+    ],
+    education: [
+      {
+        date: "09-2012 - 01-2022",
+        title: "Sklep",
+        workplace: "SPożywczy",
+        skills: ["ala", "ola", "pola"],
+      },
+    ],
+    courses: [
+      {
+        date: "12-99 - 02-2022",
+        title: "Magazyn",
+        workplace: "Zakład kamy&kamyk",
+        skills: ["ala", "ola", "pola"],
+      },
+    ],
+  },
 };
 
 const reducer = (state, action) => {
   switch (action.type) {
+    //photo
+    case "PHOTO_YES":
+      return {
+        ...state,
+        isPhoto: true,
+      };
+      case "PHOTO_NO":
+        return {
+          ...state,
+          isPhoto: false,
+        };
     //cvs
     case "SET_CVS":
-      return{
+      return {
         ...state,
         cvs: action.item,
       };
@@ -79,12 +92,6 @@ const reducer = (state, action) => {
         ...state,
         isEnglish: false,
       };
-    //photo
-    case "SET_PHOTO":
-      return{
-        ...state,
-        photo: action.photo,
-      }
     // user
     case "SET_USER":
       return {

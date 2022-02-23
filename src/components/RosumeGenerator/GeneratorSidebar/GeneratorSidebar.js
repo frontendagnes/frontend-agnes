@@ -4,7 +4,6 @@ import TextField from "@mui/material/TextField";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import { removeSkill } from "../../../assets/utility/functions";
 import { useStateValue } from "../../../assets/utility/StateProvider";
-import UploadImage from "../../Global/UploadImage";
 
 function GeneratorSidebar({
   skill,
@@ -21,7 +20,7 @@ function GeneratorSidebar({
   setPhone,
 }) {
   
-  const [{ user, photo }, dispatch] = useStateValue();
+  const [{ user }, dispatch] = useStateValue();
  
 
   const addSkill = () => {
@@ -61,10 +60,6 @@ function GeneratorSidebar({
             />
           </div>
           <div>
-            {/* <TextField type="file" helperText="Wybierz zdjęcie"/>
-            <button type="button"> Załąduj Zdjęcie</button> */}
-            {/* <h5>Wybierz zdjęcie</h5> */}
-            <UploadImage userName={user.email} />
           </div>
           <div className="generatorsidebar__title">Dane Osobowe:</div>
           <div>

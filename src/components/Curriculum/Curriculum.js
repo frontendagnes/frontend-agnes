@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Curriculum.css";
 import Tagline from "./Tagline/Tagline";
 import ButtonBack from "../Global/ButtonBack/ButtonBack";
@@ -8,7 +8,9 @@ import CurriculumPoint from "./CurriculumPoint/CurriculumPoint";
 import ContainerPrint from "../Global/ContainerPrint/ContainerPrint";
 import ContainerContent from "../Global/ContainerContent/ContainerContent";
 import Clause from "../Global/Clause";
+import { generatePDF } from "../../assets/utility/functions";
 function Curriculum() {
+  const [key, setKey] = useState(null)
   const [skills, setSkills] = useState([
     "Prawo jazdy kat. B",
     "Umiejętnośc pracy w zespole",
@@ -42,18 +44,32 @@ function Curriculum() {
     "Pakowanie i wysyłka zamówień do kilentów",
     "Przygotowywanie deklaracji PIT, VAT, ZUS",
   ]);
+
+  // const keyUp = (e) => {
+  //   let code = e.keyCode
+  //   setKey(code)
+  // }
+  // useEffect(() =>{
+  //   keyUp()
+  //   console.log(key)
+  // }, [key])
+
   return (
     <div className="curriculum">
       <div className="curriculum__top">
         <ButtonBack />
       </div>
-      <ContainerCvs>
+      <button className="button__pritingtopdf" type="button" onClick={() => generatePDF("akprinttopdf")}>
+        Drukuj do pdf
+      </button>
+      <ContainerCvs identifier="akprinttopdf">
         <Tagline
           job="Junior Front-End Developer"
           email="zabula81@o2.pl"
           phone="603430340"
           skills={skills}
           photo={photo}
+          myCv
         />
         <ContainerContent name="Agnieszka Kamińska">
           <ContainerPrint title="Doświadczenie">

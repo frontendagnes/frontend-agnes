@@ -5,7 +5,7 @@ import db, { storage } from "../../assets/utility/firebase";
 import { useStateValue } from "../../assets/utility/StateProvider";
 import { TextField, LinearProgress } from "@mui/material";
 import { index } from "../../assets/utility/functions";
-function UploadImage({ userName }) {
+function UploadImage() {
   const [progress, setProgress] = useState(0);
   const [image, setImage] = useState(null);
   const [{ user, photo }] = useStateValue();
@@ -34,11 +34,9 @@ function UploadImage({ userName }) {
       () => {
         getDownloadURL(uploadTask.snapshot.ref)
           .then(async (url) => {
-            await setDoc(doc(db, "photos", index()), {
+            await setDoc(doc(db, user?.uid, "photos"), {
               timestamp: new Date(),
               imageUrl: url,
-              userName: userName, //props
-              userId: user.uid,
             });
             setProgress(0);
             setImage(null);

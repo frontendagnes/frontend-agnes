@@ -7,15 +7,42 @@ import ContainerPrint from "../../Global/ContainerPrint/ContainerPrint";
 import ContainerContent from "../../Global/ContainerContent/ContainerContent";
 import Clause from "../../Global/Clause";
 import { useStateValue } from "../../../assets/utility/StateProvider";
-
+import ReactToPrint from "react-to-print";
+import { generatePDF } from "../../../assets/utility/functions";
+import Modal from "@mui/material/Modal";
+import { useState } from "react";
 function ProintingResume() {
   const [{ cvs }, dispatch] = useStateValue();
-  useEffect(() => {
-    console.log(cvs);
-  }, [cvs]);
+  const [open, setOpen] = useState(true);
+  const handleClickYes = () => {
+    dispatch({ type: "PHOTO_YES" });
+    setOpen(false);
+  };
+  const handleClickNo = () => {
+    dispatch({ type: "PHOTO_NO" });
+    setOpen(false);
+  };
   return (
-    <div className="printingrosume">
-      <ContainerCvs>
+    <div className="printingresume">
+      <Modal open={open}>
+        <div className="modal">
+          <div className="modal__wrapper">
+            <div>Chcesz dodać zdjęcie do swojego CV?</div>
+            <div className="modal__buttons">
+              <button type="button" onClick={handleClickYes}>
+                Tak
+              </button>
+              <button type="button" onClick={handleClickNo}>
+                Nie
+              </button>
+            </div>
+          </div>
+        </div>
+      </Modal>
+      <button className="button__pritingtopdf" type="button" onClick={() => generatePDF("printtopdf")}>
+        Drukuj do PDF
+      </button>
+      <ContainerCvs identifier="printtopdf">
         <Tagline
           name={cvs.name}
           job={cvs.job}

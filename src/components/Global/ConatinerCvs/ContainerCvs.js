@@ -1,10 +1,10 @@
 import React from "react";
 import "./ContainerCvs.css";
 
-function ContainerCvs({ children }) {
+function ContainerCvs({ children, identifier }) {
   return (
     <div className="containercvs">
-      <div className="containercvs__wrapper" id="printToPdf">
+      <div className="containercvs__wrapper" id={identifier}>
         {children}
         </div>
     </div>

@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import { auth } from "./assets/utility/firebase";
 import { useStateValue } from "./assets/utility/StateProvider";
 import { onAuthStateChanged } from "firebase/auth";
-import { collection, onSnapshot } from "firebase/firestore";
+import { doc, onSnapshot } from "firebase/firestore";
 import db from "./assets/utility/firebase"
 // mui
 import { CircularProgress } from "@mui/material";
@@ -36,7 +36,7 @@ const Generator = lazy(() =>
 );
 
 function App() {
-  const [{ photo }, dispatch] = useStateValue();
+  const [{ photo, user }, dispatch] = useStateValue();
   const [dataImage, setDataImage] = useState([]);
 
   useEffect(() => {
@@ -54,27 +54,27 @@ function App() {
     });
   }, [dispatch]);
 
-  useEffect(() => {
-    dispatch({ type: "SET_PHOTO", photo: dataImage });
-    console.log(photo);
-  }, [dataImage, dispatch, photo]);
+  // useEffect(() => {
+  //   dispatch({ type: "SET_PHOTO", photo: dataImage });
+  // }, [dataImage, dispatch, photo]);
 
-    useEffect(() => {
-    const unsuscribe = onSnapshot(
-      collection(db, "photos"),
-      (snapshot) => {
-        setDataImage(
-          snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
-        );
-      },
-      (error) => {
-        dispatch({type: "ALERT__ERROR", item: error.message})
-      }
-    );
-    return () => {
-      unsuscribe();
-    };
-  }, [dispatch]);
+  //   useEffect(() => {
+  //   const unsuscribe = 
+  //   onSnapshot(
+  //     doc(db, `${user?.uid}`, "photos"),
+  //     (doc) => {
+  //       setDataImage(
+  //         doc.data()
+  //       );
+  //     },
+  //     (error) => {
+  //       dispatch({type: "ALERT__ERROR", item: error.message})
+  //     }
+  //   );
+  //   return () => {
+  //     unsuscribe();
+  //   };
+  // }, [dispatch, user]);
 
   const renderLoader = () => 
   <div style={{

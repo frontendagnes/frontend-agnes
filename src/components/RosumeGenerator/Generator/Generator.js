@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./Generator.css";
 // components
 import GeneratorContent from "../GeneratorContent/GeneratorContent";
@@ -7,8 +7,6 @@ import ButtonBack from "../../Global/ButtonBack/ButtonBack";
 //other
 import { useStateValue } from "../../../assets/utility/StateProvider";
 import { useNavigate } from "react-router-dom";
-import db from "../../../assets/utility/firebase";
-import { collection, onSnapshot } from "firebase/firestore";
 import ValidationError from "../ValidatinError/ValidationError";
 
 const validate = (name, phone, email, point, education) => {
@@ -31,7 +29,7 @@ const validate = (name, phone, email, point, education) => {
   }
 };
 function Generator() {
-  const [{ cvs, photo }, dispatch] = useStateValue();
+  const [{ cvs }, dispatch] = useStateValue();
   
   const [error, setError] = useState("");
   const history = useNavigate();

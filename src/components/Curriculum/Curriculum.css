@@ -1,9 +1,13 @@
+.curriculum{
+    height: 100%;
+    background: #e7e7e7fa;
+}
 .curriculum__top {
-    margin-top: 20px;
+    padding-top: 20px;
 }
 
 
-@media screen and (max-width:885px){
+/* @media screen and (max-width:885px){
     .curriculum__top {
         margin-top: 60px; 
         flex-direction: column;
@@ -14,4 +18,4 @@
     .curriculum__top {
         margin-top: 30px; 
     }
-}
+} */
