@@ -1,0 +1,34 @@
+
+.modal{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    
+}
+.modal__wrapper{
+    border: 2px solid #ffffff;
+    padding: 20px 30px;
+    background: #3f4d70;
+    border-radius: 10px;
+}
+.modal > div{
+    font-size: 2rem;
+    letter-spacing: 5px;
+    font-weight: 600;
+}
+
+.modal__buttons{
+    display: flex;
+    justify-content: center;
+}
+.modal__buttons > button{
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
