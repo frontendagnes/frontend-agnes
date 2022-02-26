@@ -10,7 +10,7 @@ Strona (oprócz generatora) jest napisana w dwóch wersjach językowych w nagł�
 
 - Source Code: [GitHub - zabula81/frontend-agnes](https://github.com/zabula81/frontend-agnes)
 - Issue Tracker: [Issues · zabula81/frontend-agnes · GitHub](https://github.com/zabula81/frontend-agnes/issues)
-- View:  
+- View:  https://agness-676e9.web.app/
 
 ## Documantation
 
