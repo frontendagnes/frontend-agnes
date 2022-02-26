@@ -1,4 +1,44 @@
-# Getting Started with Create React App
+# Portfolio ForontEnd Developer
+
+Apliakcja zawiera projekty developera podzielone na dwa działy w jednym znajdują się wybrane projekty przy użyciu HTML, CSS oraz czystego javascript natomiast w drugim projekty wykonane za pomocą REACT .
+
+Jako dodatek dodany został genrator Resume (CV) - który tworzy proste CV i pozwala je wydrukować do pdf. Generator jest bardzo prosty w uzyciu i nie posiada połączenia z bazą danych co znaczy, że nie trzeba się logować co za tym idzie nie zapisuje żadnych danych, należy używać go ostrożenie ponieważ jedno odświeżenie strony spowoduje utratę danych. 
+
+Strona (oprócz generatora) jest napisana w dwóch wersjach językowych w nagłówku znajduje się switch do zmiany języka PL - polski,  EN - angielski.
+
+## Contribute
+
+- Source Code: [GitHub - zabula81/frontend-agnes](https://github.com/zabula81/frontend-agnes)
+- Issue Tracker: [Issues · zabula81/frontend-agnes · GitHub](https://github.com/zabula81/frontend-agnes/issues)
+- View:  
+
+## Documantation
+
+- [firebase](https://www.npmjs.com/package/firebase) - baza danych (deploy)
+
+- [material-ui](https://material-ui.com/) - użyto ikon jak również prostego komonentu SnackBar do pokazywania powiadomień oraz useMediaQuery przy tworzeniu wersji RWD
+
+- [react-router-dom](https://reactrouter.com/web/guides/quick-start) - nawigacja na stronie
+
+- [nanoid](https://www.npmjs.com/package/nanoid) - za pomocą tej aplikacji tworzę identyfikatory
+
+- [react-number-format](https://www.npmjs.com/package/react-number-format) - obsługa inputów typu number oraz użycie maski dla tych inputów
+
+- [html2canvas](https://www.npmjs.com/package/html2canvas) oraz [jspdf](https://www.npmjs.com/package/jspdf) - użyte wspólnie do drukowania CV do pdf. W związku z tym, iż jspdf nie obsługuje UTF-8, użyłam html2canvas do stworzenia zrzutu png faktury a później za pomocą pdf została zapisana do pliku pdf
+
+- [styled-components](https://styled-components.com/) - stylizacja niektórych komponentów
+
+- [classnames](https://github.com/JedWatson/classnames) - użyta do ustawienia dwóch różnych klas CSS dla jednego elementu w zależności od stanu.
+
+## Author
+
+Agnieszka Kamińska ([agnieszka.kaminska@ksiegarnia.edu.pl](mailto:agnieszka.kaminska@ksiegarnia.edu.pl))
+
+
+
+
+
+## Installation
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
