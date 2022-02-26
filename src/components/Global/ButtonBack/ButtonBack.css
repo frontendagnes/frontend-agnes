@@ -1,4 +1,4 @@
-.buttonback button{
+.buttonback button {
     position: fixed;
     top: 80px;
     left: 0px;
@@ -14,19 +14,13 @@
     transition: all 0.75s ease-in-out;
 }
 
-.buttonback button:hover{
+.buttonback button:hover {
     background: #1f2136;
     color: #ffffff;
 }
 
-@media screen and (max-width:885px){
-    .buttonback button{
-        top: 130px;
-    }
-}
-
-@media screen and (max-width:680px){
-    .buttonback button{
+@media screen and (max-width:885px) {
+    .buttonback button {
         top: 95px;
     }
 }

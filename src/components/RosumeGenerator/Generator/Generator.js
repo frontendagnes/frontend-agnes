@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import "./Generator.css";
-// components
-import GeneratorContent from "../GeneratorContent/GeneratorContent";
-import Clientmenu from "../ClientMenu/Clientmenu";
-import ButtonBack from "../../Global/ButtonBack/ButtonBack";
 //other
 import { useStateValue } from "../../../assets/utility/StateProvider";
 import { useNavigate } from "react-router-dom";
+//components
+import GeneratorContent from "../GeneratorContent/GeneratorContent";
+import ButtonBack from "../../Global/ButtonBack/ButtonBack";
 import ValidationError from "../ValidatinError/ValidationError";
 
 const validate = (name, phone, email, point, education) => {
@@ -30,7 +29,7 @@ const validate = (name, phone, email, point, education) => {
 };
 function Generator() {
   const [{ cvs }, dispatch] = useStateValue();
-  
+
   const [error, setError] = useState("");
   const history = useNavigate();
   //GeneratorContent
@@ -44,7 +43,6 @@ function Generator() {
   const [phone, setPhone] = useState("");
   const [skill, setSkill] = useState("");
   const [skills, setSkills] = useState([]);
-
 
   const addResume = () => {
     const msg = validate(name, phone, email, point, education);
@@ -73,7 +71,6 @@ function Generator() {
   return (
     <div className="generator">
       <ButtonBack />
-      <Clientmenu />
       <div className="generator__container">
         {error ? <ValidationError text={error} /> : null}
         <GeneratorContent
@@ -99,7 +96,7 @@ function Generator() {
       </div>
       <div className="generator__button">
         <button type="button" onClick={addResume}>
-          Dodaj CV
+          Utwórz CV
         </button>
       </div>
     </div>

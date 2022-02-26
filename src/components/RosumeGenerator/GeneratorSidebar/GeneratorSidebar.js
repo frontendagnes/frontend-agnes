@@ -4,7 +4,7 @@ import TextField from "@mui/material/TextField";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import { removeSkill } from "../../../assets/utility/functions";
 import { useStateValue } from "../../../assets/utility/StateProvider";
-
+import NumberFormat from "react-number-format";
 function GeneratorSidebar({
   skill,
   setSkill,
@@ -19,15 +19,16 @@ function GeneratorSidebar({
   phone,
   setPhone,
 }) {
-  
-  const [{ user }, dispatch] = useStateValue();
- 
+  const [{ alert }, dispatch] = useStateValue();
 
   const addSkill = () => {
     if (skill) {
       setSkills([skill, ...skills]);
     } else {
-      dispatch({ type: "ALERT__ERROR", item: "Pole nie może być puste" });
+      dispatch({
+        type: "ALERT__ERROR",
+        item: "Pole umiejętności nie może być puste",
+      });
     }
     setSkill("");
   };
@@ -37,10 +38,14 @@ function GeneratorSidebar({
       <div className="generatorsidebar__container">
         <form>
           <h4>Informacje ogólne</h4>
-           <div>
+          <div className="generatorsidebar__title">
+            Dane Osobowe: (wymagane)
+          </div>
+          <div>
             <TextField
               fullWidth
               helperText="Wpisz swoje imię i nazwisko."
+              placeholder="np. Jan Kowalski"
               id="outlined-basic"
               label="Imię i Nazwisko"
               variant="outlined"
@@ -52,6 +57,7 @@ function GeneratorSidebar({
             <TextField
               fullWidth
               helperText="Wpisz nazwę stanowiska o które się ubiegasz."
+              placeholder="np. Asystent ds. kadrowo płacowych"
               id="outlined-basic"
               label="Stanowisko"
               variant="outlined"
@@ -59,13 +65,12 @@ function GeneratorSidebar({
               onChange={(e) => setJob(e.target.value)}
             />
           </div>
-          <div>
-          </div>
-          <div className="generatorsidebar__title">Dane Osobowe:</div>
+          <div></div>
           <div>
             <TextField
               fullWidth
               helperText="Wpisz swój adres e-mail."
+              placeholder="example@mail.com"
               id="outlined-basic"
               label="e-mail"
               variant="outlined"
@@ -74,21 +79,26 @@ function GeneratorSidebar({
             />
           </div>
           <div>
-            <TextField
+            <NumberFormat
               fullWidth
+              customInput={TextField}
+              format="### ### ###"
+              mask="_"
+              placeholder="np. 123 456 789"
               helperText="Wpisz swój numer telefonu."
-              id="outlined-basic"
               label="Telefon"
-              variant="outlined"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
             />
           </div>
-          <div className="generatorsidebar__title">Umiejętności:</div>
+          <div className="generatorsidebar__title">
+            Umiejętności: (opcjonalnie)
+          </div>
           <div>
             <TextField
               fullWidth
               helperText="Podaj swoje umiejętności."
+              placeholder="np. prawo jazdy kat. B, umiejętność pracy w zespole, komunikatywność, kreatywność itd."
               id="outlined-basic"
               label="Umiejętności"
               variant="outlined"

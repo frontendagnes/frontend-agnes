@@ -50,3 +50,8 @@ h3{
         width: 100%;
     }
 }
+@media screen and (max-height:690px){
+    .app__container{
+        width: 100%;
+    }
+}

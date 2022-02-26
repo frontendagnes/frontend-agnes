@@ -11,7 +11,7 @@ export const style = {
     height: 100 + "%",
   },
   height0: {
-    height: 0 + "px",
+    height: 100 + "px",
   },
   input: {
     color: "#ffffff",

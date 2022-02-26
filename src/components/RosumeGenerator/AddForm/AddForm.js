@@ -1,30 +1,41 @@
 import React, { useState, useEffect } from "react";
 import "./AddForm.css";
+//mui
 import TextField from "@mui/material/TextField";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
+
 import { index } from "../../../assets/utility/functions";
 import { useStateValue } from "../../../assets/utility/StateProvider";
 import { removeSkill } from "../../../assets/utility/functions";
+//components
 import ValidationError from "../ValidatinError/ValidationError";
 
-const validate = ( dateStart, dateEnd, title, workplace ) => {
+const validate = (dateStart, title, workplace) => {
   if (!dateStart) {
     return "Sprawdź datę rozpoczęcia";
   }
-  if (!dateEnd) {
-    return "Sprawdź datę zakończenia";
-  }
+
   if (!title) {
     return "Sprawdź nazwę";
   }
-  if(!workplace){
-    return "Sprawdź miejsce"
+  if (!workplace) {
+    return "Sprawdź miejsce";
   }
 
   return null;
 };
 
-function AddForm({ setPoint, point, name, helperName, place, helperPlace }) {
+function AddForm({
+  setPoint,
+  point,
+  name,
+  helperName,
+  place,
+  helperPlace,
+  placeholderName,
+  placeholdePlace,
+  placeholdSkill,
+}) {
   const [dateStart, setDateStart] = useState("");
   const [dateEnd, setDateEnd] = useState("");
   const [date, setDate] = useState("");
@@ -44,7 +55,12 @@ function AddForm({ setPoint, point, name, helperName, place, helperPlace }) {
     let monthEnd = end.getMonth() + 1;
     let yearEnd = end.getFullYear();
 
-    const endDate = `${monthStart}-${yearStart} - ${monthEnd}-${yearEnd}`;
+    const endDate = () => {
+      if(dateEnd){
+        return `${monthStart}-${yearStart} - ${monthEnd}-${yearEnd}`
+      } else {
+        return `${monthStart}-${yearStart} - nadal`
+      }}
 
     setDate(endDate);
   }, [dateEnd, dateStart]);
@@ -53,7 +69,11 @@ function AddForm({ setPoint, point, name, helperName, place, helperPlace }) {
     if (skill) {
       setSkills([skill, ...skills]);
       setSkill("");
-    } else dispatch({ type: "ALERT__ERROR", item: "Pole umięjętności nie może być puste" });
+    } else
+      dispatch({
+        type: "ALERT__ERROR",
+        item: "Pole umięjętności nie może być puste",
+      });
   };
 
   const saveData = (e) => {
@@ -81,9 +101,9 @@ function AddForm({ setPoint, point, name, helperName, place, helperPlace }) {
     setWorkPlace("");
     setSkill("");
     setSkills([]);
-    setDateStart("")
-    setDateEnd("")
-    setError("")
+    setDateStart("");
+    setDateEnd("");
+    setError("");
   };
   return (
     <div className="addform">
@@ -115,6 +135,7 @@ function AddForm({ setPoint, point, name, helperName, place, helperPlace }) {
           <div>
             <TextField
               helperText={helperName}
+              placeholder={placeholderName}
               id="outlined-basic"
               label={name}
               variant="outlined"
@@ -126,6 +147,7 @@ function AddForm({ setPoint, point, name, helperName, place, helperPlace }) {
           <div>
             <TextField
               helperText={helperPlace}
+              placeholder={placeholdePlace}
               id="outlined-basic"
               label={place}
               variant="outlined"
@@ -136,7 +158,8 @@ function AddForm({ setPoint, point, name, helperName, place, helperPlace }) {
           </div>
           <div className="addform__skills">
             <TextField
-              helperText="Wpisz nabyte umiejętności po kolei"
+              helperText="Wpisz nabyte umiejętności po kolei (opcjonalne)"
+              placeholder={placeholdSkill}
               id="outlined-basic"
               label="Nabyte umiejętności"
               variant="outlined"

@@ -16,44 +16,43 @@ export const initialState = {
   isPhoto: true,
   isEdit: true,
   isEnglish: false,
-  user: null,
   alert: {
     open: false,
     message: "",
     type: "success",
   },
-  // cvs: []
-  cvs: {
-    name: "Ola Fasola",
-    job: "Sprzedawca ram rowerowych z grawerowną powierzchnią",
-    email: "ala@faSolarPanel.pl",
-    phone: "678098567",
-    skills: ["Sprzątanie", "Mycie Okien", "JEdznie pizzy"],
-    work: [
-      {
-        date: "12-99 - 02-2022",
-        title: "Magazyn",
-        workplace: "Zakład kamy&kamyk",
-        skills: ["ala", "ola", "pola"],
-      },
-    ],
-    education: [
-      {
-        date: "09-2012 - 01-2022",
-        title: "Sklep",
-        workplace: "SPożywczy",
-        skills: ["ala", "ola", "pola"],
-      },
-    ],
-    courses: [
-      {
-        date: "12-99 - 02-2022",
-        title: "Magazyn",
-        workplace: "Zakład kamy&kamyk",
-        skills: ["ala", "ola", "pola"],
-      },
-    ],
-  },
+  cvs: []
+  // cvs: {
+  //   name: "Ola Fasola",
+  //   job: "Sprzedawca ram rowerowych z grawerowną powierzchnią",
+  //   email: "ala@faSolarPanel.pl",
+  //   phone: "678098567",
+  //   skills: ["Sprzątanie", "Mycie Okien", "JEdznie pizzy"],
+  //   work: [
+  //     {
+  //       date: "12-99 - 02-2022",
+  //       title: "Magazyn",
+  //       workplace: "Zakład kamy&kamyk",
+  //       skills: ["ala", "ola", "pola"],
+  //     },
+  //   ],
+  //   education: [
+  //     {
+  //       date: "09-2012 - 01-2022",
+  //       title: "Sklep",
+  //       workplace: "SPożywczy",
+  //       skills: ["ala", "ola", "pola"],
+  //     },
+  //   ],
+  //   courses: [
+  //     {
+  //       date: "12-99 - 02-2022",
+  //       title: "Magazyn",
+  //       workplace: "Zakład kamy&kamyk",
+  //       skills: ["ala", "ola", "pola"],
+  //     },
+  //   ],
+  // },
 };
 
 const reducer = (state, action) => {
@@ -92,19 +91,8 @@ const reducer = (state, action) => {
         ...state,
         isEnglish: false,
       };
-    // user
-    case "SET_USER":
-      return {
-        ...state,
-        user: action.user,
-      };
-    case "DELETE_USER":
-      return {
-        ...state,
-        user: null,
-      };
     //Snackbar
-    case "ALLERT_DEFAULT":
+    case "ALERT_DEFAULT":
       return {
         ...state,
         alert: {

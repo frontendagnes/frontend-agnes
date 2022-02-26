@@ -1,19 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Curriculum.css";
+import { generatePDF } from "../../assets/utility/functions";
+import useKeypress from "react-use-keypress";
+import photo from "../../assets/images/me.jpg";
+//components
 import Tagline from "./Tagline/Tagline";
 import ButtonBack from "../Global/ButtonBack/ButtonBack";
-import photo from "../../assets/images/me.jpg";
 import ContainerCvs from "../Global/ConatinerCvs/ContainerCvs";
 import CurriculumPoint from "./CurriculumPoint/CurriculumPoint";
 import ContainerPrint from "../Global/ContainerPrint/ContainerPrint";
 import ContainerContent from "../Global/ContainerContent/ContainerContent";
 import Clause from "../Global/Clause";
-import { generatePDF } from "../../assets/utility/functions";
+
 function Curriculum() {
-  const [key, setKey] = useState(null)
+  const [key, setKey] = useState(false);
   const [skills, setSkills] = useState([
     "Prawo jazdy kat. B",
-    "Umiejętnośc pracy w zespole",
+    "Umiejętność pracy w zespole",
     "Komunikatywność",
     "Kreatywność",
     "Dociekliwość i chęć rozwoju zawodowego",
@@ -28,7 +31,7 @@ function Curriculum() {
     "Dopasowanie produktów do potrzeb i oczekiwań klientów",
     "Realizacja indywidualnych planów sprzedaży, aktywne pozyskiwanie klientów",
     "Przedstawianie ofert ubezpieczeniowych zgodnie z oczekiwaniami odbiorcy",
-    "Kontaktowanie się z klientami",
+    "Kontakt z klientami",
   ]);
   const [atom, setAtom] = useState([
     "Prowadzenie dokumentacji związanej z zatrudnianiem pracowników",
@@ -45,23 +48,24 @@ function Curriculum() {
     "Przygotowywanie deklaracji PIT, VAT, ZUS",
   ]);
 
-  // const keyUp = (e) => {
-  //   let code = e.keyCode
-  //   setKey(code)
-  // }
-  // useEffect(() =>{
-  //   keyUp()
-  //   console.log(key)
-  // }, [key])
+  useKeypress("v", () => {
+    setKey(!key);
+  });
 
   return (
     <div className="curriculum">
       <div className="curriculum__top">
         <ButtonBack />
       </div>
-      <button className="button__pritingtopdf" type="button" onClick={() => generatePDF("akprinttopdf")}>
-        Drukuj do pdf
-      </button>
+      {key ? (
+        <button
+          className="button__pritingtopdf"
+          type="button"
+          onClick={() => generatePDF("akprinttopdf")}
+        >
+          Drukuj do pdf
+        </button>
+      ) : null}
       <ContainerCvs identifier="akprinttopdf">
         <Tagline
           job="Junior Front-End Developer"
@@ -118,6 +122,7 @@ function Curriculum() {
             <CurriculumPoint
               data="2008-09 - 2008-11"
               title="Asystent ds. kadrowo płacowych + obsługa programu Płatnik"
+              content="Ośrodek Doskonalenia Zawodowego DZDZ w Złotoryji"
             />
           </ContainerPrint>
           <Clause />

@@ -1,6 +1,7 @@
 import React from "react";
 import "./CurriculumPoint.css";
 import { index } from "../../../assets/utility/functions";
+import { removeSkill } from "../../../assets/utility/functions"
 function CurriculumPoint({
   data,
   title,
@@ -11,14 +12,6 @@ function CurriculumPoint({
   point,
   id,
 }) {
-  const removeItem = () => {
-    // setPoint(prevState => {
-    //   let newPoint = prevState.slice()
-    //   newPoint.splice(index, 1)
-    //   return newPoint
-    // })
-    setPoint(() => point.filter((_, i) => i !== id));
-  };
   return (
     <div className="curriculumpoint">
       <div className="curriculumpoint__data">{data}</div>
@@ -34,7 +27,7 @@ function CurriculumPoint({
       <div>
         {isRemove ? (
           <div>
-            <button type="button" onClick={() => removeItem(id)}>
+            <button type="button" onClick={() => removeSkill(id, point, setPoint)}>
               Usuń
             </button>
           </div>

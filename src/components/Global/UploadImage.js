@@ -4,15 +4,15 @@ import { doc, setDoc } from "firebase/firestore";
 import db, { storage } from "../../assets/utility/firebase";
 import { useStateValue } from "../../assets/utility/StateProvider";
 import { TextField, LinearProgress } from "@mui/material";
-import { index } from "../../assets/utility/functions";
+
 function UploadImage() {
   const [progress, setProgress] = useState(0);
   const [image, setImage] = useState(null);
-  const [{ user, photo }] = useStateValue();
+  const [{ user }] = useStateValue();
   const handleChange = (e) => {
     setImage(e.target.files[0]);
   };
-  const formHandler = (e) => {
+  const formHandler = () => {
     uploadFiles(image);
   };
 
@@ -78,11 +78,6 @@ function UploadImage() {
           </button>
         </div>
       </div>
-      {/* {photo
-        ? photo
-            .filter((user) => user.id === user.uid)
-            .map((photo) => <div>{photo.imageUrl}</div>)
-        : null} */}
     </div>
   );
 }

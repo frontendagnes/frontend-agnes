@@ -1,7 +1,7 @@
 import React from "react";
 import "./Changelanguage.css";
 import { IconButton } from "@mui/material";
-import { styled } from '@mui/material/styles'
+import { styled } from "@mui/material/styles";
 import { useStateValue } from "../../assets/utility/StateProvider";
 
 const Button = styled(IconButton)({
@@ -25,10 +25,24 @@ function Changelanguage() {
   return (
     <div className="changelanguage">
       <div title="Zmień język">
-        <Button style={{background: isEnglish ? "transparent" : "#fafafa", color: isEnglish ? "#fafafa" : "#000000"}} title="Polski" onClick={polishLanguage}>
+        <Button
+          style={{
+            background: isEnglish ? "transparent" : "#fafafa",
+            color: isEnglish ? "#fafafa" : "#000000",
+          }}
+          title="Polski"
+          onClick={polishLanguage}
+        >
           PL
         </Button>
-        <Button style={{background: !isEnglish ? "transparent" : "#fafafa", color: !isEnglish ? "#fafafa" : "#000000"}}title="English" onClick={englishLanguage}>
+        <Button
+          style={{
+            background: !isEnglish ? "transparent" : "#fafafa",
+            color: !isEnglish ? "#fafafa" : "#000000",
+          }}
+          title="English"
+          onClick={englishLanguage}
+        >
           EN
         </Button>
       </div>

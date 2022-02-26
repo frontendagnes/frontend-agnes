@@ -1,8 +1,4 @@
 .skills{
-    /* background-color: #3f4d70; */
-    /* background: url('../../assets/images/background.svg');
-    background-repeat: no-repeat;
-    background-size: cover; */
     padding-bottom: 60px;
 }
 .skills__container{
@@ -10,9 +6,4 @@
     justify-content: space-around;
     flex-wrap: wrap;
     padding-top: 50px;
-}
-
-@media screen and (max-width: 830px){
-
-
 }

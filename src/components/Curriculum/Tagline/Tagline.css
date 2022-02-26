@@ -1,8 +1,9 @@
-.tagline{
-     width: 25%;
-     color: #ffffff;
+.tagline {
+    width: 25%;
+    color: #ffffff;
 }
-.tagline__container{
+
+.tagline__container {
     background: url("../../../assets/images/background.svg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -11,26 +12,29 @@
     height: 100%;
 }
 
-.tagline ul{
+.tagline ul {
     list-style-type: none;
     padding-bottom: 20px;
     text-shadow: 2px 2px 2px #000000;
 }
-.tagline__personal ul li{
+
+.tagline__personal ul li {
     display: flex;
     flex-direction: column;
     padding-left: 5px;
     padding-right: 5px;
 }
-.tagline__personal ul li > span{
+
+.tagline__personal ul li>span {
     font-weight: 600;
     padding: 10px 10px 5px 0px;
 }
-.tagline__skills ul li{
+
+.tagline__skills ul li {
     padding: 10px 10px 5px 10px;
 }
 
-.tagline__profession{
+.tagline__profession {
     padding-left: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -38,43 +42,46 @@
     text-align: center;
     letter-spacing: 2px;
 }
-/* .taglline__iamge{
-    background-color: grey;
-    height: 150px;
-} */
-.taglline__iamge > img,
-.tagline img
-{
-    width: 101%;
+
+.taglline__iamge {
+    width: 100%;
+}
+
+.taglline__iamge>img,
+.tagline img {
+    width: 100%;
     margin-top: 10px;
     margin-bottom: 10px;
     object-fit: contain;
     cursor: pointer;
 }
-.taglline__iamge > button{
+
+.taglline__iamge>button {
     height: 150px;
     width: 100%;
     cursor: pointer;
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid #000000;
+    font-weight: 600;
+    letter-spacing: 2px;
+    transition: background 0.75s ease-in;
 }
-.tagline__title{
+
+.taglline__iamge>button:hover {
+    background: #a4b0cc;
+    color: #000000;
+
+}
+
+.tagline__title {
     background-color: #3c4269b9;
     padding: 10px 10px;
     font-weight: 600;
 }
 
-@media screen and (max-width: 885px){
-    .tagline{
-        width: 100%;
-        height: 100%;
-        /* top: 140px; */
-    }
-    .tagline__top{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    .tagline__top > img{
-        width: 300px;
+@media screen and (max-width: 800px) {
+    .tagline {
+        font-size: 11px;
     }
 }

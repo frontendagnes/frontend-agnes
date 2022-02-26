@@ -11,7 +11,7 @@ function Skills() {
         <div className="skills__container">
           <Skill
             title="HTML, CSS"
-            content="Programownie stron w języku HTML i CSS"
+            content="Programuje strony z wykorzystaniem HTML i CSS"
           />
           <Skill
             title="RWD"
@@ -19,15 +19,12 @@ function Skills() {
           />
           <Skill
             title="JavaScript/React"
-            content="Strony nie muszą być nudne, za pomocą tych narzędzi można dodać do nich interaktywność"
+            content="Przy pomocy javascript i react można dodać do stron trochę interakcji z użytkowanikiem dzięki czemu apliakcje webowe są atrakcyjniejsze"
           />
         </div>
       ) : (
         <div className="skills__container">
-          <Skill
-            title="HTML, CSS"
-            content="HTML and CSS page programming"
-          />
+          <Skill title="HTML, CSS" content="HTML and CSS page programming" />
           <Skill
             title="RWD"
             content="Responsive web design, the website adapts to the screen resolution, which nowadays is essential"

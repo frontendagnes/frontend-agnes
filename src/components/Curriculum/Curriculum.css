@@ -5,17 +5,3 @@
 .curriculum__top {
     padding-top: 20px;
 }
-
-
-/* @media screen and (max-width:885px){
-    .curriculum__top {
-        margin-top: 60px; 
-        flex-direction: column;
-    }
-}
-
-@media screen and (max-width:680px){
-    .curriculum__top {
-        margin-top: 30px; 
-    }
-} */

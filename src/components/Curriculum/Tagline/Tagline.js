@@ -78,7 +78,7 @@ function Tagline({ name, job, email, phone, skills, isFull, myCv, photo }) {
             </ul>
           </div>
           <div className="tagline__skills">
-            <div className="tagline__title">Umiejętności: </div>
+            <div className="tagline__title">Umiejętności:</div>
             <ul>
               {skills?.map((skill) => (
                 <li key={index()}>{skill}</li>

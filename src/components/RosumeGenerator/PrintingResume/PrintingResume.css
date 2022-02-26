@@ -1,41 +1,23 @@
-.printingresume{
-    padding-top: 20px;
-    height: 100%;
-    background: #e7e7e7fa;
+.printingresume {
+  padding-top: 20px;
+  height: 100%;
+  background: #e7e7e7fa;
 }
 
-/* Modal */
-
-.modal{
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: #ffffff;
-    
+.printingresume__backButton {
+  padding: 10px 20px;
+  border-radius: 0px 10px 10px 0px;
+  border: transparent;
+  background: #6b83c0;
+  color: #000000;
+  font-weight: 600;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.75s ease-in-out;
+  position: fixed;
 }
-.modal__wrapper{
-    border: 2px solid #ffffff;
-    padding: 20px 30px;
-    background: #000000;
-    border-radius: 10px;
-}
-.modal > div{
-    font-size: 2rem;
-    letter-spacing: 5px;
-    font-weight: 600;
-}
-
-.modal__buttons{
-    display: flex;
-    justify-content: center;
-}
-.modal__buttons > button{
-    padding: 10px;
-    margin: 10px;
-    cursor: pointer;
-    font-size: 1.1rem;
-    font-weight: 600;
-    letter-spacing: 3px;
+.printingresume__backButton:hover {
+  background: #1f2136;
+  color: #ffffff;
 }

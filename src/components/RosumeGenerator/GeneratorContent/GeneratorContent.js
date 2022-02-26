@@ -26,8 +26,6 @@ function GeneratorContent({
   setEmail,
   phone,
   setPhone,
-  error,
-  setError
 }) {
   return (
     <div className="generatorcontent">
@@ -52,9 +50,12 @@ function GeneratorContent({
               point={point}
               setPoint={setPoint}
               name="Zawód"
-              helperName="Wprowadź nazwę zawodu"
+              helperName="Wprowadź nazwę zawodu (wymagane)"
               place="Miejsce pracy"
-              helperPlace="Wprowadź miejsce pracy"
+              helperPlace="Wprowadź miejsce pracy (wymagane)"
+              placeholderName="np. Księgowa"
+              placeholdePlace="Nazwa Firmy"
+              placeholdSkill="np. prowadzenie dokumentacji księgowej"
             />
           }
           component1={
@@ -62,9 +63,12 @@ function GeneratorContent({
               point={education}
               setPoint={setEducation}
               name="Wykrztałcenie"
-              helperName="Wprowadź wykrztałcenie"
+              helperName="Wprowadź wykrztałcenie (wymagane)"
               place="Szkoła"
-              helperPlace="Wprowadź nazwę szkoły"
+              helperPlace="Wprowadź nazwę szkoły (wymagane)"
+              placeholderName="np. Liceum Ekonomiczne, technik ekonomista"
+              placeholdePlace="Nazwa Szkoły"
+              placeholdSkill="np. prowadzenie dokumentacji księgowej"
             />
           }
           component2={
@@ -75,6 +79,9 @@ function GeneratorContent({
               helperName="Wprowadź Kurs"
               place="Miejsce odbycia"
               helperPlace="Wprowadź gdzie odbyłeś kurs"
+              placeholderName="np. Asystent ds. kadrowo płacowych"
+              placeholdePlace="np. Ośrodek Doskonalenia Zawodowego"
+              placeholdSkill="np. prowadzenie dokumentacji księgowej"
             />
           }
           component3={

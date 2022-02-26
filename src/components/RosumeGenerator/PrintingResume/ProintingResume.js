@@ -1,19 +1,27 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import "./PrintingResume.css";
+import { useStateValue } from "../../../assets/utility/StateProvider";
+import { generatePDF } from "../../../assets/utility/functions";
+import { useNavigate } from "react-router-dom";
+//components
 import ContainerCvs from "../../Global/ConatinerCvs/ContainerCvs";
 import Tagline from "../../Curriculum/Tagline/Tagline";
 import CurriculumPoint from "../../Curriculum/CurriculumPoint/CurriculumPoint";
 import ContainerPrint from "../../Global/ContainerPrint/ContainerPrint";
 import ContainerContent from "../../Global/ContainerContent/ContainerContent";
 import Clause from "../../Global/Clause";
-import { useStateValue } from "../../../assets/utility/StateProvider";
-import ReactToPrint from "react-to-print";
-import { generatePDF } from "../../../assets/utility/functions";
-import Modal from "@mui/material/Modal";
-import { useState } from "react";
-function ProintingResume() {
-  const [{ cvs }, dispatch] = useStateValue();
+import OpenModal from "../../Global/OpenModal/OpenModal";
+import ButtonBack from "../../Global/ButtonBack/ButtonBack";
+
+function PrintingResume() {
+  const [{ cvs }] = useStateValue();
+  const history = useNavigate();
+
+  const [{ photo }, dispatch] = useStateValue();
+
   const [open, setOpen] = useState(true);
+  const [openWarring, setOpenWarrning] = useState(false);
+
   const handleClickYes = () => {
     dispatch({ type: "PHOTO_YES" });
     setOpen(false);
@@ -22,24 +30,47 @@ function ProintingResume() {
     dispatch({ type: "PHOTO_NO" });
     setOpen(false);
   };
+
+  const warriningNo = () => {
+    setOpenWarrning(false);
+  };
+
+  const warrnigYes = () => {
+    setOpenWarrning(false);
+    history("/resume-generator");
+  };
+
+  const backButton = () => {
+    setOpenWarrning(true);
+  };
   return (
     <div className="printingresume">
-      <Modal open={open}>
-        <div className="modal">
-          <div className="modal__wrapper">
-            <div>Chcesz dodać zdjęcie do swojego CV?</div>
-            <div className="modal__buttons">
-              <button type="button" onClick={handleClickYes}>
-                Tak
-              </button>
-              <button type="button" onClick={handleClickNo}>
-                Nie
-              </button>
-            </div>
-          </div>
-        </div>
-      </Modal>
-      <button className="button__pritingtopdf" type="button" onClick={() => generatePDF("printtopdf")}>
+      <OpenModal
+        text="Chcesz dodać zdjęcie do swojego CV?"
+        open={open}
+        setOpen={setOpen}
+        handleClickNo={handleClickNo}
+        handleClickYes={handleClickYes}
+      />
+      <OpenModal
+        text="Opuszczając stronę stracisz wszytkie dane! Jesteś pewien?"
+        open={openWarring}
+        setOpen={setOpenWarrning}
+        handleClickNo={warriningNo}
+        handleClickYes={warrnigYes}
+      />
+      <ButtonBack
+        title="Uwaga Klikając ten przycisk stracisz wszystkie dane"
+        openModal={true}
+      />
+      <button className="printingresume__backButton" onClick={backButton}>
+        Back to the generator
+      </button>
+      <button
+        className="button__pritingtopdf"
+        type="button"
+        onClick={() => generatePDF("printtopdf")}
+      >
         Drukuj do PDF
       </button>
       <ContainerCvs identifier="printtopdf">
@@ -93,4 +124,4 @@ function ProintingResume() {
   );
 }
 
-export default ProintingResume;
+export default PrintingResume;

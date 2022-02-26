@@ -1,10 +1,13 @@
 import { nanoid } from "nanoid";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
+
+// create id
 export const index = () => {
   return `item-${nanoid(8)}`;
 };
 
+// returns today's date in month-year format
 export const today = () => {
   let date = new Date();
   let year = date.getFullYear();
@@ -26,24 +29,26 @@ export const today = () => {
   return fulldate;
 };
 
+// removes data from the array (state)
 export const removeSkill = (id, skills, setSkills) => {
   const newSkills = [...skills];
   newSkills.splice(id, 1);
   setSkills(newSkills);
 };
 
+//generates a pdf file
 export const generatePDF = (id) => {
   const input = document.querySelector(`#${id}`);
   html2canvas(input).then((canvas) => {
     const imgData = canvas.toDataURL("image/webp");
     const doc = new jsPDF("p", "mm", "a4");
     let width = doc.internal.pageSize.getWidth();
-    let pageHeight = doc.internal.pageSize.getHeight()
+    let pageHeight = doc.internal.pageSize.getHeight();
     const imgHeight = (canvas.height * width) / canvas.width;
     let heightLeft = imgHeight;
-    
+
     let position = 0;
-    
+
     doc.addImage(imgData, "WEBP", 0, position, width, imgHeight);
     heightLeft -= pageHeight;
 
