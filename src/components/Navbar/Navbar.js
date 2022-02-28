@@ -31,7 +31,7 @@ function Navbar() {
     }
   };
   return (
-    <nav className="navbar">
+    <nav className="navbar" style={{height: isVisible ? "100%" : "0%"}}>
       <div
         className="navbar__icon"
         onClick={matches || matchesHeight ? handleClick : undefined}
@@ -48,10 +48,10 @@ function Navbar() {
           style={!isVisible ? style.hidden : style.visible}
         >
           <li onClick={closeMenu}>
-            <a href="#aboutme"> Kim Jestem ? </a>
+            <a href="#aboutme"> Kim Jestem? </a>
           </li>
           <li onClick={closeMenu}>
-            <a href="#information"> W czym mogę pomóc ? </a>
+            <a href="#information"> W czym mogę pomóc? </a>
           </li>
           <li onClick={closeMenu}>
             <a href="#my-projects"> Moje Projekty </a>

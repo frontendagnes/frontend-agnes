@@ -31,7 +31,7 @@ function Project({ icons, title, img, isView, description, url, viewCode, live }
       </div>
       <div className="project__middle">
         <p>{title}</p>
-        <img src={img} alt="" className={classValue} onClick={clickedImage}/>
+        <img src={img} alt="" className={classValue} onClick={clickedImage} />
       </div>
       <div className="project__bottom">
         {isView ? (

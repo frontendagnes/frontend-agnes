@@ -32,9 +32,9 @@ function GeneratorContent({
       <div className="generatorcontent__tabs">
         <div className="generatorcontent__description">
           Generator nie wysyła i nie zapisuje żadnych danych dlatego po
-          odświerzeniu strony wszystkie informację znikają i trzeba je wpisywać
+          odświeżeniu strony wszystkie informację znikają i trzeba je wpisywać
           od nowa. Proszę o uważne korzystanie z aplikacji żeby nie stracić
-          wprowadzonych danych
+          wprowadzonych danych!
         </div>
         <h4>
           Wypełnij formularze i wybierz przycisk Zatwierdź.
