@@ -31,7 +31,7 @@ function Navbar() {
     }
   };
   return (
-    <nav className="navbar" style={{height: isVisible ? "100%" : "0%"}}>
+    <nav className="navbar" style={{height: isVisible ? "100%" : "0px"}} >
       <div
         className="navbar__icon"
         onClick={matches || matchesHeight ? handleClick : undefined}
