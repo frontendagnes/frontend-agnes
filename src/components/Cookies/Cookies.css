@@ -1,0 +1,28 @@
+.cookie a,
+.cookie a:visited
+{
+    color: #ffffff;
+    transition: color 0.75s ease-in;
+}
+.cookie a:hover{
+    color: #000000;
+}
+.cookiesInfo{
+    padding: 20px 30px;
+    text-align: justify;
+}
+.cookiesInfo__header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cookiesInfo h2{
+    text-align: center;
+    padding-bottom: 10px;
+    margin-right: 20px;
+}
+.cookiesInfo p{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: 600;
+}

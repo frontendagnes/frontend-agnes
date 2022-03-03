@@ -37,7 +37,7 @@ function GeneratorContent({
           wprowadzonych danych!
         </div>
         <h4>
-          Wypełnij formularze i wybierz przycisk Zatwierdź.
+          Wypełnij formularze i wybierz przycisk Utwórz CV.
           <div title="Przykładowe CV">
             <Link to="/resume-agnieszka.kaminska">
               Przykład wypełnionego CV(zalecane otwarcie w nowej karcie)
