@@ -21,48 +21,48 @@ function JsProjects() {
         <Project
           title="Slider"
           icons={pureIcons}
-          viewCode="https://github.com/zabula81/slider"
-          live="https://zabula81.github.io/slider/"
+          viewCode="https://github.com/frontendagnes/slider"
+          live="https://frontendagnes.github.io/slider/"
           img={slider}
           isView
         />
         <Project
           title="Gallery"
           icons={pureIcons}
-          viewCode="https://github.com/zabula81/gallery"
-          live="https://zabula81.github.io/gallery/"
+          viewCode="https://github.com/frontendagnes/gallery"
+          live="https://frontendagnes.github.io/gallery/"
           img={gallery}
           isView
         />
         <Project
           title="OnePage"
           icons={pureIcons}
-          viewCode="https://github.com/zabula81/Challenge-5-Macankumbang"
-          live="https://zabula81.github.io/Challenge-5-Macankumbang/"
+          viewCode="https://github.com/frontendagnes/Challenge-5-Macankumbang"
+          live="https://frontendagnes.github.io/Challenge-5-Macankumbang/"
           img={site}
           isView
         />
         <Project
           title="Snake Game"
           icons={pureIcons}
-          viewCode="https://github.com/zabula81/snake"
-          live="https://zabula81.github.io/snake/"
+          viewCode="https://github.com/frontendagnes/snake"
+          live="https://frontendagnes.github.io/snake/"
           img={snake}
           isView
         />
         <Project
           title="Tic Tac Toe Game"
           icons={pureIcons}
-          viewCode="https://github.com/zabula81/TicTacToe"
-          live="https://zabula81.github.io/TicTacToe/"
+          viewCode="https://github.com/frontendagnes/TicTacToe"
+          live="https://frontendagnes.github.io/TicTacToe/"
           img={tictactoe}
           isView
         />
         <Project
           title="Memory Game"
           icons={pureIcons}
-          viewCode="https://github.com/zabula81/memory-game"
-          live="https://zabula81.github.io/memory-game/"
+          viewCode="https://github.com/frontendagnes/memory-game"
+          live="https://frontendagnes.github.io/memory-game/"
           img={memory}
           isView
         />

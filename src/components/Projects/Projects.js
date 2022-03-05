@@ -48,7 +48,7 @@ function Projects() {
       )}
       <div className="projects__bottom">
         <a
-          href="https://github.com/zabula81?tab=repositories"
+          href="https://github.com/frontendagnes?tab=repositories"
           alt="All Projects"
         >
           <div>

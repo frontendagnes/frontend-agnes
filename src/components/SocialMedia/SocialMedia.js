@@ -18,7 +18,7 @@ function SocialMedia() {
       </div>
       <div className="socialmedia__container">
         <div className="socialmedia__github">
-          <a href="https://github.com/zabula81">
+          <a href="https://github.com/frontendagnes">
             <FontAwesomeIcon icon={faGithubSquare} />
           </a>
         </div>
