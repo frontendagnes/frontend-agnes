@@ -6,11 +6,12 @@ Jako dodatek dodany został genrator Resume (CV) - który tworzy proste CV i poz
 
 Strona (oprócz generatora) jest napisana w dwóch wersjach językowych w nagłówku znajduje się switch do zmiany języka PL - polski,  EN - angielski.
 
-Do strony został dodany plik sitemap.xml
+edit: 5.03.2022 - Do strony został dodany plik sitemap.xml
+
 ## Contribute
 
-- Source Code: [GitHub - zabula81/frontend-agnes](https://github.com/zabula81/frontend-agnes)
-- Issue Tracker: [Issues · zabula81/frontend-agnes · GitHub](https://github.com/zabula81/frontend-agnes/issues)
+- Source Code: [https://github.com/frontendagnes/frontend-agnes](https://github.com/frontendagnes/frontend-agnes)
+- Issue Tracker: [https://github.com/frontendagnes/frontend-agnes/issues](https://github.com/frontendagnes/frontend-agnes/issues)
 - View: https://frontend-agnes.pl
 
 ## Documantation
@@ -38,10 +39,6 @@ Do strony został dodany plik sitemap.xml
 ## Author
 
 Agnieszka Kamińska ([agnieszka.kaminska@ksiegarnia.edu.pl](mailto:agnieszka.kaminska@ksiegarnia.edu.pl))
-
-
-
-
 
 ## Installation
 
