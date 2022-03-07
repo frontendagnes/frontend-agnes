@@ -10,7 +10,7 @@ import Home from "./components/Home/Home";
 import Skills from "./components/Skills/Skills";
 import Projects from "./components/Projects/Projects";
 import Footer from "./components/Footer/Footer";
-import Cookies from "./components/Cookies/Cookies";
+// import Cookies from "./components/Cookies/Cookies";
 const CookieInfo = lazy(() => import("./components/Cookies/CookieInfo"));
 const Snackbar = lazy(() => import("./components/Snackbar/Snackbar"));
 const PrintingResume = lazy(() =>
@@ -79,7 +79,7 @@ function App() {
         </Routes>
         <Snackbar />
       </Suspense>
-      <Cookies />
+      {/* <Cookies /> */}
     </div>
   );
 }
