@@ -1,0 +1,21 @@
+#main__container{
+    overflow: scrollY;
+}
+.main__container{
+    width: 80%;
+}
+.main__middle{
+    background: url("../../assets/background.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+@media screen and (max-width: 850px){
+    .main__container{
+        width: 100%;
+    }
+}
+@media screen and (max-height: 700px){
+    .main__container{
+        width: 100%;
+    }
+}
