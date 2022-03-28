@@ -5,11 +5,8 @@ import { Routes, Route } from "react-router-dom";
 import { CircularProgress } from "@mui/material";
 // components
 import Header from "./components/Header/Header";
-import Navbar from "./components/Navbar/Navbar";
-import Home from "./components/Home/Home";
-import Skills from "./components/Skills/Skills";
-import Projects from "./components/Projects/Projects";
-import Footer from "./components/Footer/Footer";
+import Main from "./components/Main/Main";
+
 // import Cookies from "./components/Cookies/Cookies";
 const CookieInfo = lazy(() => import("./components/Cookies/CookieInfo"));
 const Snackbar = lazy(() => import("./components/Snackbar/Snackbar"));
@@ -19,6 +16,7 @@ const PrintingResume = lazy(() =>
 const ReactProjects = lazy(() =>
   import("./components/ReactProjects/ReactProjects")
 );
+
 const JsProjects = lazy(() => import("./components/JsProjects/JsProjects"));
 const Curriculum = lazy(() => import("./components/Curriculum/Curriculum"));
 const NoMatch = lazy(() => import("./components/NoMatch/NoMatch"));
@@ -53,26 +51,11 @@ function App() {
       <Header />
       <Suspense fallback={renderLoader()}>
         <Routes>
-          <Route path="/resume-generator" element={<Generator />} />
+          <Route path="/" element={<Main />} />
           <Route path="/projects/purejs" element={<JsProjects />} />
           <Route path="/projects/react" element={<ReactProjects />} />
           <Route path="/resume-agnieszka.kaminska" element={<Curriculum />} />
-          <Route
-            path="/"
-            element={
-              <>
-                <Navbar />
-                <div className="app__container">
-                  <Home />
-                  <div className="app__middle">
-                    <Skills />
-                    <Projects />
-                  </div>
-                  <Footer />
-                </div>
-              </>
-            }
-          />
+          <Route path="/resume-generator" element={<Generator />} />
           <Route path="/printingresume" element={<PrintingResume />} />
           <Route path="/cookie-info" element={<CookieInfo />} />
           <Route path="*" element={<NoMatch />} />

@@ -12,7 +12,7 @@ import {
 import Changelanguage from "../ChangeLanguage/Changelanguage";
 function Header() {
   return (
-    <div className="header">
+    <header className="header">
       <Link to="/">
         <div className="header__container">
           <div className="header__left">
@@ -40,7 +40,7 @@ function Header() {
         </div>
       </Link>
       <Changelanguage />
-    </div>
+    </header>
   );
 }
 

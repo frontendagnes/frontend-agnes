@@ -20,14 +20,7 @@ h3{
 .app{
     height: 100%;
 }
-.app__container{
-    width: 80%;
-}
-.app__middle{
-    background: url("./assets/background.svg");
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+
 .button__pritingtopdf{
     padding: 10px 20px;
     margin-left: 45%;
