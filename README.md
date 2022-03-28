@@ -7,6 +7,7 @@ Jako dodatek dodany został genrator Resume (CV) - który tworzy proste CV i poz
 Strona (oprócz generatora) jest napisana w dwóch wersjach językowych w nagłówku znajduje się switch do zmiany języka PL - polski,  EN - angielski.
 
 edit: 5.03.2022 - Do strony został dodany plik sitemap.xml
+
 edit: 28.03.2022 - Restrukturyzacja kodu pod względem wyświetlania wersji językowych.
 Dodana biblioteka react-scroll w celu dodania efektów do memu podczas skrolowania.
 
