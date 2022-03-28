@@ -7,6 +7,8 @@ Jako dodatek dodany został genrator Resume (CV) - który tworzy proste CV i poz
 Strona (oprócz generatora) jest napisana w dwóch wersjach językowych w nagłówku znajduje się switch do zmiany języka PL - polski,  EN - angielski.
 
 edit: 5.03.2022 - Do strony został dodany plik sitemap.xml
+edit: 28.03.2022 - Restrukturyzacja kodu pod względem wyświetlania wersji językowych.
+Dodana biblioteka react-scroll w celu dodania efektów do memu podczas skrolowania.
 
 ## Contribute
 
@@ -34,7 +36,9 @@ edit: 5.03.2022 - Do strony został dodany plik sitemap.xml
 
 - [react-use-keypress](https://www.npmjs.com/package/react-use-keypress) - użyte do reagowania na wciścinięcie klawisza, funkcja byłą potrzebna do ukrycia przycisku na stronie w moim CV po wciśnięciu klawisza "v" pojawia się button umożliwiający wydruk CV do PDF. 
 
--[react-cookie-consent](https://www.npmjs.com/package/react-cookie-consent) - użyte do informacji o plikach cookie komponent ładnie tworzy pasek informacyjny który można stylizwoać do własnych potrzeb.
+- [react-cookie-consent](https://www.npmjs.com/package/react-cookie-consent) - użyte do informacji o plikach cookie komponent ładnie tworzy pasek informacyjny który można stylizwoać do własnych potrzeb.
+
+- [react-scroll](https://www.npmjs.com/package/react-scroll) - użyte do efektów manu podczas skrolowania
 
 ## Author
 
