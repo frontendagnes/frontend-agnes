@@ -15,7 +15,6 @@ const menuItems = [
     id: 1,
     polish: "Kim Jestem?",
     english: "Who I am",
-
     href: "aboutme",
     isMain: true,
   },
@@ -37,7 +36,7 @@ const menuItems = [
     id: 4,
     polish: "Kontakt",
     english: "Contact",
-    href: "contact-me",
+    href: "contact",
     isMain: true,
   },
   {
@@ -60,6 +59,7 @@ const NavLink = styled(LinkScroll)`
   &.active {
     background: #1f2136;
   }
+  
 `;
 function Navbar() {
   const matches = useMediaQuery("(max-width: 850px)");
@@ -106,7 +106,7 @@ function Navbar() {
         style={!isVisible ? style.hidden : style.visible}
       >
         {menuItems.map((item) => (
-          <li key={item.id.toString()}>
+          <li key={item.id}>
             {item.isMain ? (
               <NavLink
                 onClick={closeMenu}

@@ -21,7 +21,8 @@ export const initialState = {
     message: "",
     type: "success",
   },
-  cvs: []
+  file: null,
+  cvs: [],
   // cvs: {
   //   name: "Ola Fasola",
   //   job: "Sprzedawca ram rowerowych z grawerowną powierzchnią",
@@ -57,17 +58,28 @@ export const initialState = {
 
 const reducer = (state, action) => {
   switch (action.type) {
+    //file
+    case "SET_PREVIEW":
+      return {
+        ...state,
+        file: action.item,
+      };
+    case "DELETE_PREVIEW":
+      return {
+        ...state,
+        file: null,
+      };
     //photo
     case "PHOTO_YES":
       return {
         ...state,
         isPhoto: true,
       };
-      case "PHOTO_NO":
-        return {
-          ...state,
-          isPhoto: false,
-        };
+    case "PHOTO_NO":
+      return {
+        ...state,
+        isPhoto: false,
+      };
     //cvs
     case "SET_CVS":
       return {

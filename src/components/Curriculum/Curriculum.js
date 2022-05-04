@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "./Curriculum.css";
-import { generatePDF } from "../../assets/utility/functions";
 import useKeypress from "react-use-keypress";
+import { useReactToPrint } from "react-to-print";
 import photo from "../../assets/images/me.jpg";
 //components
 import Tagline from "./Tagline/Tagline";
@@ -52,6 +52,12 @@ function Curriculum() {
     setKey(!key);
   });
 
+  const printRefmy = useRef(null);
+
+  const handlePrint = useReactToPrint({
+    content: () => printRefmy.current,
+    documentTitle: "my-resume",
+  });
   return (
     <div className="curriculum">
       <div className="curriculum__top">
@@ -61,12 +67,13 @@ function Curriculum() {
         <button
           className="button__pritingtopdf"
           type="button"
-          onClick={() => generatePDF("akprinttopdf")}
+          onClick={handlePrint}
         >
-          Drukuj do pdf
+          Drukuj
         </button>
       ) : null}
-      <ContainerCvs identifier="akprinttopdf">
+
+      <ContainerCvs identifier="akprinttopdf" ref={printRefmy}>
         <Tagline
           job="Junior Front-End Developer"
           email="zabula81@o2.pl"
@@ -75,7 +82,7 @@ function Curriculum() {
           photo={photo}
           myCv
         />
-        <ContainerContent name="Agnieszka Kamińska">
+        <ContainerContent name="inż. Agnieszka Kamińska">
           <ContainerPrint title="Doświadczenie">
             <CurriculumPoint
               data="2008-03 - 2008-06"

@@ -5,7 +5,7 @@ import SocialMedia from "../SocialMedia/SocialMedia";
 import Contact from "../Contact/Contact";
 function Footer() {
   return (
-    <div className="footer" contact-me>
+    <div className="footer">
       <SocialMedia />
       <Contact />
     </div>

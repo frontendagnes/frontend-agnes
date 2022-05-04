@@ -10,7 +10,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 function Contact() {
   return (
-    <div className="contact">
+    <div className="contact" >
       <div className="contact__left">
         <p>Agnieszka Kamińska</p>
         <p>

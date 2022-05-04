@@ -18,17 +18,17 @@ function SocialMedia() {
       </div>
       <div className="socialmedia__container">
         <div className="socialmedia__github">
-          <a href="https://github.com/frontendagnes">
+          <a href="https://github.com/frontendagnes" title="github" alt="github"> 
             <FontAwesomeIcon icon={faGithubSquare} />
           </a>
         </div>
         <div className="socialmedia__codepen">
-          <a href="https://codepen.io/agnieszka-kamiska">
+          <a href="https://codepen.io/agnieszka-kamiska" title="codepen" alt="codepen">
             <FontAwesomeIcon icon={faCodepen} />
           </a>
         </div>
-        <div className="socialmedia__facebook">
-          <a href="https://www.facebook.com/agnieszka.kaminska.5245/">
+        <div className="socialmedia__facebook" >
+          <a href="https://www.facebook.com/agnieszka.kaminska.5245/" title="facebook" alt="facebook">
             <FontAwesomeIcon icon={faFacebookSquare} />
           </a>
         </div>

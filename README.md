@@ -2,7 +2,7 @@
 
 Apliakcja zawiera projekty developera podzielone na dwa działy w jednym znajdują się wybrane projekty przy użyciu HTML, CSS oraz czystego javascript natomiast w drugim projekty wykonane za pomocą REACT .
 
-Jako dodatek dodany został genrator Resume (CV) - który tworzy proste CV i pozwala je wydrukować do pdf. Generator jest bardzo prosty w uzyciu i nie posiada połączenia z bazą danych co znaczy, że nie trzeba się logować co za tym idzie nie zapisuje żadnych danych, należy używać go ostrożenie ponieważ jedno odświeżenie strony spowoduje utratę danych. 
+Jako dodatek dodany został genrator Resume (CV) - który tworzy proste CV i pozwala je wydrukować do pdf. Generator jest bardzo prosty w użyciu i nie posiada połączenia z bazą danych co znaczy, że nie trzeba się logować co za tym idzie nie zapisuje żadnych danych, należy używać go ostrożenie ponieważ jedno odświeżenie strony spowoduje utratę danych. 
 
 Strona (oprócz generatora) jest napisana w dwóch wersjach językowych w nagłówku znajduje się switch do zmiany języka PL - polski,  EN - angielski.
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./GeneratorSidebar.css";
 import TextField from "@mui/material/TextField";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
@@ -19,7 +19,34 @@ function GeneratorSidebar({
   phone,
   setPhone,
 }) {
-  const [{ alert }, dispatch] = useStateValue();
+  const [image, setImage] = useState(null);
+  const [{ file }, dispatch] = useStateValue();
+  const fileInputRef = useRef();
+  useEffect(() => {
+    if (image) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        dispatch({ type: "SET_PREVIEW", item: reader.result });
+      };
+      reader.readAsDataURL(image);
+    } else {
+      dispatch({ type: "DELETE_PREVIEW" });
+    }
+  }, [image, dispatch]);
+
+  const handleChange = (e) => {
+    const file = e.target.files[0];
+    if (file && file.type.substr(0, 5) === "image") {
+      setImage(file);
+    } else {
+      setImage(null);
+    }
+  };
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    fileInputRef.current.click();
+  };
 
   const addSkill = () => {
     if (skill) {
@@ -40,6 +67,21 @@ function GeneratorSidebar({
           <h4>Informacje ogólne</h4>
           <div className="generatorsidebar__title">
             Dane Osobowe: (wymagane)
+          </div>
+          {/* tutaj wybór zdjęcia */}
+          <div className="generatorsidebar__photo">
+            <input
+              type="file"
+              onChange={handleChange}
+              style={{ display: "none" }}
+              ref={fileInputRef}
+              accept="image/*"
+            />
+            {file ? (
+              <img src={file} alt={name} title={name} onClick={handleClick} />
+            ) : (
+              <button onClick={handleClick}>Add Image</button>
+            )}
           </div>
           <div>
             <TextField
