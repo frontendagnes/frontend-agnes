@@ -1,7 +1,6 @@
 import React, { useState, useRef } from "react";
 import "./PrintingResume.css";
 import { useStateValue } from "../../../assets/utility/StateProvider";
-import { generatePDF } from "../../../assets/utility/functions";
 import { useReactToPrint } from "react-to-print";
 import { useNavigate } from "react-router-dom";
 //components

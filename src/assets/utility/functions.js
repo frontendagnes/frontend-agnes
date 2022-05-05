@@ -1,7 +1,5 @@
 import { nanoid } from "nanoid";
-import html2canvas from "html2canvas";
-import jsPDF from "jspdf";
-
+import { CircularProgress } from "@mui/material";
 // create id
 export const index = () => {
   return `item-${nanoid(8)}`;
@@ -36,28 +34,48 @@ export const removeSkill = (id, skills, setSkills) => {
   setSkills(newSkills);
 };
 
+export const renderLoader = () => (
+  <div
+    style={{
+      display: "flex",
+      justifyContent: "center",
+      padding: "20px",
+      alignItems: "center",
+    }}
+  >
+    <CircularProgress color="success" />
+    <span
+      style={{
+        marginLeft: "10px",
+        letterSpacing: "3px",
+      }}
+    >
+      Loading...
+    </span>
+  </div>
+);
 //generates a pdf file
-export const generatePDF = (id) => {
-  const input = document.querySelector(`#${id}`);
-  html2canvas(input).then((canvas) => {
-    const imgData = canvas.toDataURL("image/webp");
-    const doc = new jsPDF("p", "mm", "a4");
-    let width = doc.internal.pageSize.getWidth();
-    let pageHeight = doc.internal.pageSize.getHeight();
-    const imgHeight = (canvas.height * width) / canvas.width;
-    let heightLeft = imgHeight;
+// export const generatePDF = (id) => {
+//   const input = document.querySelector(`#${id}`);
+//   html2canvas(input).then((canvas) => {
+//     const imgData = canvas.toDataURL("image/webp");
+//     const doc = new jsPDF("p", "mm", "a4");
+//     let width = doc.internal.pageSize.getWidth();
+//     let pageHeight = doc.internal.pageSize.getHeight();
+//     const imgHeight = (canvas.height * width) / canvas.width;
+//     let heightLeft = imgHeight;
 
-    let position = 0;
+//     let position = 0;
 
-    doc.addImage(imgData, "WEBP", 0, position, width, imgHeight);
-    heightLeft -= pageHeight;
+//     doc.addImage(imgData, "WEBP", 0, position, width, imgHeight);
+//     heightLeft -= pageHeight;
 
-    while (heightLeft >= 0) {
-      position = heightLeft - imgHeight;
-      doc.addPage();
-      doc.addImage(imgData, "WEBP", 0, position, width, imgHeight);
-      heightLeft -= pageHeight;
-    }
-    doc.save("my-resume");
-  });
-};
+//     while (heightLeft >= 0) {
+//       position = heightLeft - imgHeight;
+//       doc.addPage();
+//       doc.addImage(imgData, "WEBP", 0, position, width, imgHeight);
+//       heightLeft -= pageHeight;
+//     }
+//     doc.save("my-resume");
+//   });
+// };

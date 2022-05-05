@@ -10,12 +10,26 @@ import instaClone from "../../assets/images/instagram-clone.webp";
 import amazonClone from "../../assets/images/amazone-clone.webp";
 import shop from "../../assets/images/shop.webp";
 import chatApp from "../../assets/images/chatApp.webp";
+import invoice from "../../assets/images/invoice.webp";
 function ReactProjects() {
   const [{ reactIcon, isEnglish }] = useStateValue();
   return (
     <div className="reactprojects">
       <ButtonBack />
       <Container>
+        <Project
+          icons={reactIcon}
+          title="Invoice 2.0"
+          img={invoice}
+          viewCode="https://github.com/frontendagnes/invoice"
+          live="https://invoice-939f8.web.app/"
+          description={
+            isEnglish
+              ? "Fully functional application to help with bookkeeping for people earning money on the basis of article 5 section 1 of the Business Law. The application uses firebase v.9 database for authorization and data storage, with the help of react-to-print plugin it is possible to print income and expenses to a pdf file. Of course for navigation we use react-router-dom v.6"
+              : "W pełni funkcjonalna aplikacja do pomocy w prowadzeniu księgowości dla osób zarabiających na podstawie art. 5 ust. 1 Prawa przedsiębiorców. W aplikacji zostałą użyta baza danych firebase v. 9 do autoryacji jak i do przechowywania danych za pomocą dodatku react-to-print została doana możliwość wydruku przychodów i kosztów do pliku pdf, oczywiście do nawigacji został użyty dodatek react-router-dom v.6"
+          }
+          isView
+        />
         <Project
           icons={reactIcon}
           title="Facebook Clone"
@@ -73,7 +87,7 @@ function ReactProjects() {
           title="ChatApp"
           img={chatApp}
           viewCode="https://github.com/frontendagnes/chatApp"
-          live="https://czatapplication.herokuapp.com/"
+          live="https://chatapp-2de74.web.app/"
           description={
             isEnglish
               ? 'My first standalone application made in React. Chat application as the name suggests is used to chat. On welcome screen we have to give user name which is saved to LacalStorage, so that after refreshing page it is not "lost". When user sees that a new message has been added, he can also search for user by name. Messages added by user can be edited and deleted. As this is my first standalone application in react, it needs some improvements, e.g. adding user verification so that there are not two users with the same name, which means adding authentication in the form of login and then changing LocalStorage to e.g. ContextApi.'

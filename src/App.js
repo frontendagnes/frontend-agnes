@@ -1,8 +1,7 @@
 import React, { lazy, Suspense } from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-// mui
-import { CircularProgress } from "@mui/material";
+import { renderLoader } from "./assets/utility/functions";
 // components
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
@@ -25,27 +24,6 @@ const Generator = lazy(() =>
 );
 
 function App() {
-  const renderLoader = () => (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        padding: "20px",
-        alignItems: "center",
-      }}
-    >
-      <CircularProgress color="success" />
-      <span
-        style={{
-          marginLeft: "10px",
-          letterSpacing: "3px",
-        }}
-      >
-        Loading...
-      </span>
-    </div>
-  );
-
   return (
     <div className="app">
       <Header />
