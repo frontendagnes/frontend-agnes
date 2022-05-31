@@ -44,7 +44,7 @@ function Curriculum() {
     "Praca z oprogramowaniem do obsługi sklepu KQS",
     "Współpraca z US i ZUS",
     "Kontakty z klientami w celu uzgodnienia warunków umowy oraz finalizacji zamówień",
-    "Pakowanie i wysyłka zamówień do kilentów",
+    "Pakowanie i wysyłka zamówień do klientów",
     "Przygotowywanie deklaracji PIT, VAT, ZUS",
   ]);
 
