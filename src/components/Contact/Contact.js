@@ -14,7 +14,7 @@ function Contact() {
       <div className="contact__left">
         <p>Agnieszka Kamińska</p>
         <p>
-          <a href="mailto:zabula81@o2.pl">zabula81@o2.pl</a>
+          <a href="mailto:frontendagnes@gmail.com">frontendagnes@gmail.com</a>
         </p>
       </div>
       <div className="contact_right">

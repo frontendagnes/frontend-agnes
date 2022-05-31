@@ -9,7 +9,9 @@ import {
   faGithubSquare,
   faCodepen,
   faFacebookSquare,
+  faLinkedin
 } from "@fortawesome/free-brands-svg-icons";
+
 function SocialMedia() {
   return (
     <div className="socialmedia">
@@ -30,6 +32,11 @@ function SocialMedia() {
         <div className="socialmedia__facebook" >
           <a href="https://www.facebook.com/agnieszka.kaminska.5245/" title="facebook" alt="facebook">
             <FontAwesomeIcon icon={faFacebookSquare} />
+          </a>
+        </div>
+        <div className="socialmedia__linkedin" >
+          <a href="https://linkedin.com/in/agnieszka-kamińska-a02583240" title="linkedin" alt="linkedin">
+          <FontAwesomeIcon icon={faLinkedin} />
           </a>
         </div>
       </div>
