@@ -8,7 +8,7 @@
     height: 100%;
     background-color: #161827c7;
     color: #ffffff;
-    padding-bottom: 60px;
+    padding-bottom: 30px;
 }
 
 .home__bottom {
@@ -27,8 +27,9 @@
 
 .home__bottom>img {
     width: 30%;
-    border-radius: 999px;
+    border-radius: 10px;
     object-fit: contain;
+    box-shadow: 5px 5px 15px 5px #5a71aa;
 }
 
 @media screen and (max-width: 850px) {

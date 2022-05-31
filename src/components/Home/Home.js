@@ -11,11 +11,11 @@ function Home() {
         <div className="home__bottom">
           <div>
             {isEnglish
-              ? `I am a self taught beginner front-end developer. I am interested
+              ? `I am a self taught front-end developer. I am interested
               in primarily in JavaScript/React. I am familiar with HTML and CSS.
               I have very high enthusiasm for work, passion and ability to learn
               quickly.`
-              : `Jestem początkującym front-end developerem samoukiem. Jestem
+              : `Jestem front-end developerem samoukiem. Jestem
               zainteresowana przede wszystkim JavaScript/React. Znam HTML i CSS.
               Mam bardzo duży zapał do pracy, pasję i umiejętność szybkiego
               uczenia się.`}
