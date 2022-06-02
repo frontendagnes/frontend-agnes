@@ -40,7 +40,7 @@ function Projects() {
           href="https://github.com/frontendagnes?tab=repositories"
           alt="All Projects"
         >
-          <div>
+          <div title="Kliknięcie przeniesie Cię na stronę GitHub">
             <ArrowDownwardIcon sx={{ fontSize: 80 }} />
             <p>More..</p>
           </div>

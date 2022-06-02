@@ -20,16 +20,16 @@ function Skills() {
           title="RWD"
           content={
             isEnglish
-              ? "Responsive web design, the website adapts to the screen resolution, which nowadays is essential"
-              : "Responsive web design, strona dopasowuje się do rozdzielczości ekranu co w dzisiejszych czasach jest podstawą"
+              ? "Responsive web design, the website adapts to the screen resolution, which nowadays is must have"
+              : "Responsive web design, strona dopasowuje się do rozdzielczości ekranu co w dzisiejszych czasach jest 'must have'"
           }
         />
         <Skill
           title="JavaScript/React"
           content={
             isEnglish
-              ? "Pages don't have to be boring, with these tools you can add interactivity to them"
-              : "Przy pomocy javascript i react można dodać do stron trochę interakcji z użytkowanikiem dzięki czemu apliakcje webowe są atrakcyjniejsze"
+              ? "With javascript and react you can add user interaction to your website, making your web applications more attractive"
+              : "Przy pomocy javascript i react można dodać do strony interakcję z użytkowanikiem dzięki czemu apliakcje webowe są atrakcyjniejsze"
           }
         />
       </div>
