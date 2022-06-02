@@ -35,7 +35,7 @@ function SocialMedia() {
           </a>
         </div>
         <div className="socialmedia__linkedin" >
-          <a href="https://linkedin.com/in/agnieszka-kamińska-a02583240" title="linkedin" alt="linkedin">
+          <a href="https://linkedin.com/in/kaminska-agnieszka/" title="linkedin" alt="linkedin">
           <FontAwesomeIcon icon={faLinkedin} />
           </a>
         </div>

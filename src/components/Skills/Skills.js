@@ -25,7 +25,7 @@ function Skills() {
           }
         />
         <Skill
-          title="JavaScript/ React"
+          title="JavaScript/React"
           content={
             isEnglish
               ? "Pages don't have to be boring, with these tools you can add interactivity to them"

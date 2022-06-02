@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import "./Curriculum.css";
 import useKeypress from "react-use-keypress";
 import { useReactToPrint } from "react-to-print";
-import photo from "../../assets/images/me.jpg";
+import photo from "../../assets/images/me-id.jpg";
 //components
 import Tagline from "./Tagline/Tagline";
 import ButtonBack from "../Global/ButtonBack/ButtonBack";
@@ -129,7 +129,7 @@ function Curriculum() {
             <CurriculumPoint
               data="2008-09 - 2008-11"
               title="Asystent ds. kadrowo płacowych + obsługa programu Płatnik"
-              content="Ośrodek Doskonalenia Zawodowego DZDZ w Złotoryji"
+              content="Dolnośląski Zakład Doskonalenia Zawodowego Oddział I we Wrocławiu"
             />
           </ContainerPrint>
           <Clause />
