@@ -7,7 +7,10 @@
     z-index: 2;
     height: 100%;
 }
-
+.navbar img {
+    width: 100%;
+    height: auto;
+}
 .navbar__link {
     display: flex;
     align-items: center;
@@ -39,13 +42,13 @@
     cursor: pointer;
 }
 
-.navbar ul {
+.navbar__list {
     background-color: #161827;
     list-style-type: none;
     height: 100%;
 }
 
-.navbar ul>li {
+.navbar__list>li {
     height: 85px;
     font-size: 1.2rem;
     font-weight: 600;
@@ -57,7 +60,9 @@
     transition: all 0.5s linear;
     cursor: pointer;
 }
-
+.navbar__lastLink{
+    padding-top: 20px;
+}
 .navbar__horizontal{
     height: 200px;
 }

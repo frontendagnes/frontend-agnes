@@ -2,7 +2,9 @@
 .header{
     height: 110px;
     z-index: 999;
+    padding-top: 60px;
 }
+
 .header__container{
     display: flex;
     justify-content: space-between;

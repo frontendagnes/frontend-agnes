@@ -2,6 +2,7 @@ import React from "react";
 import "./Home.css";
 import { useStateValue } from "../../assets/utility/StateProvider";
 import photo from "../../assets/images/me.jpg";
+
 function Home() {
   const [{ isEnglish }] = useStateValue();
   return (

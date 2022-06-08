@@ -10,6 +10,7 @@ import {
   faGithubSquare,
 } from "@fortawesome/free-brands-svg-icons";
 import Changelanguage from "../ChangeLanguage/Changelanguage";
+import logo from "../../assets/images/logo-white-cut.webp"
 function Header() {
   return (
     <header className="header">

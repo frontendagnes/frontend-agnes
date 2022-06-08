@@ -10,6 +10,7 @@ import styled from "styled-components";
 import { useMediaQuery } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 
+import logo from "../../assets/images/logo-white-cut.webp"
 const menuItems = [
   {
     id: 1,
@@ -131,6 +132,7 @@ function Navbar() {
             )}
           </li>
         ))}
+        <li className="navbar__link navbar__lastLink"><img src={logo} alt="logo" /></li>
       </ul>
     </nav>
   );

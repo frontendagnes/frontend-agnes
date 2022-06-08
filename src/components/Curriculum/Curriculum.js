@@ -20,9 +20,9 @@ function Curriculum() {
     "Komunikatywność",
     "Kreatywność",
     "Dociekliwość i chęć rozwoju zawodowego",
-    "Implementowanie responsywnych interfejsów uzytkownika",
-    "Znajomoąść HTML i CSS",
-    "Znajomoąść frameworka REACT",
+    "Implementowanie responsywnych interfejsów użytkownika",
+    "Znajomość HTML i CSS",
+    "Znajomość frameworka REACT",
   ]);
   const [alianz, setAlianz] = useState([
     "Finalizowanie sprzedaży ubezpieczeń",
@@ -76,7 +76,7 @@ function Curriculum() {
       <ContainerCvs identifier="akprinttopdf" ref={printRefmy}>
         <Tagline
           job="Junior Front-End Developer"
-          email="zabula81@o2.pl"
+          email="frontendagnes@gmail.com"
           phone="603430340"
           skills={skills}
           photo={photo}
@@ -117,7 +117,7 @@ function Curriculum() {
             <CurriculumPoint
               data="2001-09 - 2003-06"
               title="Policealne Studium Informatyki, technik informatyk"
-              content="Ośrodek Doskonalenia Zawodowego DZDZ w Złotoryji"
+              content="Ośrodek Doskonalenia Zawodowego DZDZ w Złotoryi"
             />
             <CurriculumPoint
               data="2003-10 - 2007-03"
