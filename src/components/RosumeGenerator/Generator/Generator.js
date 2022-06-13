@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom";
 import GeneratorContent from "../GeneratorContent/GeneratorContent";
 import ButtonBack from "../../Global/ButtonBack/ButtonBack";
 import ValidationError from "../ValidatinError/ValidationError";
+// mui
+import Button from '@mui/material/Button';
 
 const validate = (name, phone, email, point, education) => {
   if (!name) {
@@ -95,9 +97,9 @@ function Generator() {
         />
       </div>
       <div className="generator__button">
-        <button type="button" onClick={addResume}>
+        <Button sx={{fontSize: "18px"}} onClick={addResume}>
           Utwórz CV
-        </button>
+        </Button>
       </div>
     </div>
   );

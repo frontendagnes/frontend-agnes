@@ -1,10 +1,17 @@
 import React, { useEffect, useState, useRef } from "react";
 import "./GeneratorSidebar.css";
+//mui
 import TextField from "@mui/material/TextField";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
+import AddIcon from "@mui/icons-material/Add";
+
 import { removeSkill } from "../../../assets/utility/functions";
 import { useStateValue } from "../../../assets/utility/StateProvider";
+
 import NumberFormat from "react-number-format";
+
 function GeneratorSidebar({
   skill,
   setSkill,
@@ -66,10 +73,13 @@ function GeneratorSidebar({
         <form>
           <h4>Informacje ogólne</h4>
           <div className="generatorsidebar__title">
-            Dane Osobowe: (wymagane)
+            Dane Osobowe (wymagane): 
           </div>
           {/* tutaj wybór zdjęcia */}
           <div className="generatorsidebar__photo">
+            {!file ? (
+              <b>Tutaj możesz wybrać zdjęcie do CV (opcjonalne)</b>
+            ) : null}
             <input
               type="file"
               onChange={handleChange}
@@ -78,9 +88,32 @@ function GeneratorSidebar({
               accept="image/*"
             />
             {file ? (
-              <img src={file} alt={name} title={name} onClick={handleClick} />
+              <>
+                <div className="generatorsidebar__avatar">
+                  <div>
+                    <DeleteForeverIcon
+                      onClick={() => setImage(null)}
+                      fontSize="large"
+                      sx={{ color: "red", cursor: "pointer" }}
+                      titleAccess="Usuń zdjęcie"
+                    />
+                  </div>
+                  <img
+                    src={file}
+                    alt={name}
+                    title={name}
+                    onClick={handleClick}
+                  />
+                </div>
+                <b>Klikając na zdjęcie możesz je zmienić</b>
+              </>
             ) : (
-              <button onClick={handleClick}>Add Image</button>
+              <div
+                className="generatorsidebar__addButton"
+                onClick={handleClick}
+              >
+                <AddAPhotoIcon fontSize="large" />
+              </div>
             )}
           </div>
           <div>
@@ -137,19 +170,23 @@ function GeneratorSidebar({
             Umiejętności: (opcjonalnie)
           </div>
           <div>
-            <TextField
-              fullWidth
-              helperText="Podaj swoje umiejętności."
-              placeholder="np. prawo jazdy kat. B, umiejętność pracy w zespole, komunikatywność, kreatywność itd."
-              id="outlined-basic"
-              label="Umiejętności"
-              variant="outlined"
-              value={skill}
-              onChange={(e) => setSkill(e.target.value)}
-            />
-            <button type="button" onClick={addSkill}>
-              Dodaj umiejętność
-            </button>
+            <div className="generatorsidebar__addSkill">
+              <TextField
+                fullWidth
+                placeholder="np. prawo jazdy kat. B, umiejętność pracy w zespole, komunikatywność, kreatywność itd."
+                id="outlined-basic"
+                label="Podaj swoje umiejętności"
+                variant="outlined"
+                value={skill}
+                onChange={(e) => setSkill(e.target.value)}
+              />
+              <AddIcon
+                fontSize="large"
+                color="success"
+                onClick={addSkill}
+                sx={{ cursor: "pointer", color: "#5a71aa"}}
+              />
+            </div>
             <ul>
               {skills.map((item, index) => (
                 <li key={index}>

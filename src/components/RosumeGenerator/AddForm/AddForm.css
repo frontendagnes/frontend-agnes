@@ -1,26 +1,22 @@
 .addform form {
     padding: 20px 30px;
 }
-.addform button {
-    margin-left: 10px;
-    padding: 10px 20px;
+.addform__addButton {
     cursor: pointer;
-    transition: background 0.75s ease-in;
-    background: #3f4d70;
-    color: #ffffff;
-    letter-spacing: 1px;
-    font-weight: 600;
-    border: transparent;
-    border-radius: 10px;
+    
 }
-.addform button:hover{
-    background: #53679a;
+.addform__skills{
+    display: flex;
+    align-items: center;
+    gap: 5px
 }
+
 .addform__inputs {
     display: flex;
     flex-flow: row wrap;
     align-items: center;
     justify-content: center;
+    gap: 10px
 }
 
 .addform__date{
@@ -44,6 +40,7 @@
 .addform__inputs div {
     width: 100%;
 }
+
 .addform__inputs div button{
     margin-top: 10px;
 }

@@ -10,7 +10,7 @@ import styled from "styled-components";
 import { useMediaQuery } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 
-import logo from "../../assets/images/logo-white-cut.webp"
+import logo from "../../assets/images/logo-white-cut.webp";
 const menuItems = [
   {
     id: 1,
@@ -60,7 +60,6 @@ const NavLink = styled(LinkScroll)`
   &.active {
     background: #1f2136;
   }
-  
 `;
 function Navbar() {
   const matches = useMediaQuery("(max-width: 850px)");
@@ -132,7 +131,9 @@ function Navbar() {
             )}
           </li>
         ))}
-        <li className="navbar__link navbar__lastLink"><img src={logo} alt="logo" /></li>
+        <li className="navbar__link navbar__lastLink">
+          {matches || matchesHeight ? null : <img src={logo} alt="logo" />}
+        </li>
       </ul>
     </nav>
   );

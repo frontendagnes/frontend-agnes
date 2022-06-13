@@ -3,6 +3,8 @@ import "./AddForm.css";
 //mui
 import TextField from "@mui/material/TextField";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
+import AddIcon from "@mui/icons-material/Add";
+import Button from '@mui/material/Button';
 
 import { index } from "../../../assets/utility/functions";
 import { useStateValue } from "../../../assets/utility/StateProvider";
@@ -56,11 +58,12 @@ function AddForm({
     let yearEnd = end.getFullYear();
 
     const endDate = () => {
-      if(dateEnd){
-        return `${monthStart}-${yearStart} - ${monthEnd}-${yearEnd}`
+      if (dateEnd) {
+        return `${monthStart}-${yearStart} - ${monthEnd}-${yearEnd}`;
       } else {
-        return `${monthStart}-${yearStart} - nadal`
-      }}
+        return `${monthStart}-${yearStart} - nadal`;
+      }
+    };
 
     setDate(endDate);
   }, [dateEnd, dateStart]);
@@ -157,19 +160,23 @@ function AddForm({
             />
           </div>
           <div className="addform__skills">
-            <TextField
-              helperText="Wpisz nabyte umiejętności po kolei (opcjonalne)"
-              placeholder={placeholdSkill}
-              id="outlined-basic"
-              label="Nabyte umiejętności"
-              variant="outlined"
-              value={skill}
-              onChange={(e) => setSkill(e.target.value)}
-              fullWidth
+            <div className="addform__input">
+              <TextField
+                placeholder={placeholdSkill}
+                id="outlined-basic"
+                label="Wpisz nabyte umiejętności po kolei (opcjonalne)"
+                variant="outlined"
+                value={skill}
+                onChange={(e) => setSkill(e.target.value)}
+                fullWidth
+              />
+            </div>
+            <AddIcon
+              className="addform__addButton"
+              fontSize="large"
+              sx={{color: "#5a71aa"}}
+              onClick={addSkill}
             />
-            <button type="button" onClick={addSkill}>
-              Dodaj umiejętność
-            </button>
           </div>
           <div className="addform__descriptions">
             <ul className="addform__description">
@@ -187,9 +194,9 @@ function AddForm({
           </div>
         </div>
         <div className="addform__buttons">
-          <button type="button" onClick={saveData}>
+          <Button type="button" onClick={saveData}>
             Dodaj Punkt
-          </button>
+          </Button>
         </div>
       </form>
     </div>

@@ -11,7 +11,6 @@ import {
   faFacebookSquare,
   faLinkedin
 } from "@fortawesome/free-brands-svg-icons";
-
 function SocialMedia() {
   return (
     <div className="socialmedia">

@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap');
 .header{
-    height: 110px;
-    z-index: 999;
+    z-index: 999 ;
     padding-top: 60px;
 }
 
@@ -22,12 +21,12 @@
 }
 
 .header h1{
-    font-size: 3rem;
+    font-size: clamp(4vw, 3rem, 6vw);
     letter-spacing:4px;
-
+    padding-top: 20px;
 }
 .header h1 > span{
-    font-size: 1.5rem;
+    font-size: clamp(2vw, 1.5rem, 3vw);
     letter-spacing: 1px;
     font-family: 'ZCOOL KuaiLe', cursive;
 }
@@ -59,29 +58,6 @@
         width: 100%;
         display: flex;
         justify-content: space-between;
-        margin-bottom: -15px;
-    }
-    .header__container h1{
-        font-size: 2rem;
-    }
-}
-
-@media screen and (max-width:680px){
-    .header__container h1{
-        font-size: 1.5rem;
-    }   
-    .header__container h1 span{
-        font-size: 1rem;
-    }
-    .header__skills{
-        font-size: 2rem;
-    }
-}
-@media screen and (max-width:680px){
-    .header__container h1{
-        font-size: 1.2rem;
-    }
-    .header__container h1 span{
-        font-size: 0.8rem;
+        margin-bottom: -50px;
     }
 }
