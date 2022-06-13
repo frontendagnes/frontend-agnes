@@ -6,8 +6,8 @@ import { renderLoader } from "./assets/utility/functions";
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
 // import Cookies from "./components/Cookies/Cookies";
-const CookieInfo = lazy(() => import("./components/Cookies/CookieInfo"));
-const Snackbar = lazy(() => import("./components/Snackbar/Snackbar"));
+// const CookieInfo = lazy(() => import("./components/Cookies/CookieInfo"));
+// const Snackbar = lazy(() => import("./components/Snackbar/Snackbar"));
 const PrintingResume = lazy(() =>
   import("./components/RosumeGenerator/PrintingResume/ProintingResume")
 );
@@ -25,8 +25,8 @@ const Generator = lazy(() =>
 function App() {
   return (
     <div className="app">
-      <Header />
       <Suspense fallback={renderLoader()}>
+        <Header />
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/projects/purejs" element={<JsProjects />} />
@@ -34,12 +34,12 @@ function App() {
           <Route path="/resume-agnieszka.kaminska" element={<Curriculum />} />
           <Route path="/resume-generator" element={<Generator />} />
           <Route path="/printingresume" element={<PrintingResume />} />
-          <Route path="/cookie-info" element={<CookieInfo />} />
+          {/* <Route path="/cookie-info" element={<CookieInfo />} /> */}
           <Route path="*" element={<NoMatch />} />
         </Routes>
-        <Snackbar />
+        {/* <Snackbar /> */}
       </Suspense>
-      
+
       {/* <Cookies /> */}
     </div>
   );
