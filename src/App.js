@@ -7,7 +7,7 @@ import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
 // import Cookies from "./components/Cookies/Cookies";
 // const CookieInfo = lazy(() => import("./components/Cookies/CookieInfo"));
-// const Snackbar = lazy(() => import("./components/Snackbar/Snackbar"));
+const Snackbar = lazy(() => import("./components/Snackbar/Snackbar"));
 const PrintingResume = lazy(() =>
   import("./components/RosumeGenerator/PrintingResume/ProintingResume")
 );
@@ -21,7 +21,7 @@ const NoMatch = lazy(() => import("./components/NoMatch/NoMatch"));
 const Generator = lazy(() =>
   import("./components/RosumeGenerator/Generator/Generator")
 );
-
+const Questionare = lazy(() => import("./components/Questionare/Questionare.js"))
 function App() {
   return (
     <div className="app">
@@ -34,10 +34,11 @@ function App() {
           <Route path="/resume-agnieszka.kaminska" element={<Curriculum />} />
           <Route path="/resume-generator" element={<Generator />} />
           <Route path="/printingresume" element={<PrintingResume />} />
+          <Route path="/questionare" element={<Questionare />} />
           {/* <Route path="/cookie-info" element={<CookieInfo />} /> */}
           <Route path="*" element={<NoMatch />} />
         </Routes>
-        {/* <Snackbar /> */}
+        <Snackbar />
       </Suspense>
 
       {/* <Cookies /> */}

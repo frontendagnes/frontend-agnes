@@ -2,6 +2,7 @@ import React from "react";
 import "./Skills.css";
 import Skill from "../Skill/Skill";
 import { useStateValue } from "../../assets/utility/StateProvider";
+import { Link } from "react-router-dom";
 function Skills() {
   const [{ isEnglish }] = useStateValue();
   return (
@@ -32,6 +33,9 @@ function Skills() {
               : "Przy pomocy javascript i react można dodać do strony interakcję z użytkowanikiem dzięki czemu apliakcje webowe są atrakcyjniejsze"
           }
         />
+      </div>
+      <div className="skills__link">
+        <Link to="/questionare">Co ile i za ile :)</Link>
       </div>
     </div>
   );

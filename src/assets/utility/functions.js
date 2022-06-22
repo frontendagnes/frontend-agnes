@@ -2,7 +2,7 @@ import { nanoid } from "nanoid";
 import { CircularProgress } from "@mui/material";
 // create id
 export const index = () => {
-  return `item-${nanoid(8)}`;
+  return `val-${nanoid(8)}`;
 };
 
 // returns today's date in month-year format

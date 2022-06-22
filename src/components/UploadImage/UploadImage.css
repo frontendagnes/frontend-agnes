@@ -1,0 +1,19 @@
+.uploadImage__inputs{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+}
+.uploadImage__image{
+    height: 100px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.uploadImage__inputs img{
+    width: 150px;
+    max-height: 200px;
+}

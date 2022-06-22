@@ -22,6 +22,7 @@ export const initialState = {
     type: "success",
   },
   file: null,
+  img: null,
   cvs: [],
   // cvs: {
   //   name: "Ola Fasola",
@@ -58,6 +59,17 @@ export const initialState = {
 
 const reducer = (state, action) => {
   switch (action.type) {
+    //img
+    case "SET_IMG":
+      return {
+        ...state,
+        img: action.item,
+      };
+    case "DELETE_IMG":
+      return {
+        ...state,
+        img: null,
+      };
     //file
     case "SET_PREVIEW":
       return {
@@ -104,6 +116,16 @@ const reducer = (state, action) => {
         isEnglish: false,
       };
     //Snackbar
+    case "ALERT_SUCCESS":
+      return {
+        ...state,
+        alert: {
+          open: true,
+          message: action.item,
+          type: "success",
+        },
+      };
+
     case "ALERT_DEFAULT":
       return {
         ...state,

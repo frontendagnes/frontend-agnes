@@ -7,3 +7,9 @@
     flex-wrap: wrap;
     padding-top: 50px;
 }
+.skills__link{
+    display: flex;
+    justify-content: center;
+    padding: 10px 20px;
+    font-size: 1.3rem;
+}
