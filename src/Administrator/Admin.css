@@ -1,0 +1,21 @@
+.admin{
+   
+    height: 100%;
+}
+
+.admin__left{
+    height: 100%;
+    width: 20%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: aqua;
+    padding: 30px 20px;
+}
+
+.admin__right{
+    padding: 30px 20px;
+    height: 100%;
+    background-color: aquamarine;
+    margin-left: 20%;
+}

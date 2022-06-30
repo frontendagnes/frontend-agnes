@@ -24,41 +24,23 @@ export const initialState = {
   file: null,
   img: null,
   cvs: [],
-  // cvs: {
-  //   name: "Ola Fasola",
-  //   job: "Sprzedawca ram rowerowych z grawerowną powierzchnią",
-  //   email: "ala@faSolarPanel.pl",
-  //   phone: "678098567",
-  //   skills: ["Sprzątanie", "Mycie Okien", "JEdznie pizzy"],
-  //   work: [
-  //     {
-  //       date: "12-99 - 02-2022",
-  //       title: "Magazyn",
-  //       workplace: "Zakład kamy&kamyk",
-  //       skills: ["ala", "ola", "pola"],
-  //     },
-  //   ],
-  //   education: [
-  //     {
-  //       date: "09-2012 - 01-2022",
-  //       title: "Sklep",
-  //       workplace: "SPożywczy",
-  //       skills: ["ala", "ola", "pola"],
-  //     },
-  //   ],
-  //   courses: [
-  //     {
-  //       date: "12-99 - 02-2022",
-  //       title: "Magazyn",
-  //       workplace: "Zakład kamy&kamyk",
-  //       skills: ["ala", "ola", "pola"],
-  //     },
-  //   ],
-  // },
+  user: null,
 };
 
 const reducer = (state, action) => {
   switch (action.type) {
+    //user
+    case "SET_USER":
+      return {
+        ...state,
+        user: action.user,
+      };
+    case "DELETE_USER":
+      return {
+        ...state,
+        user: null,
+      };
+
     //img
     case "SET_IMG":
       return {

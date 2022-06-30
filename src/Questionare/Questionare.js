@@ -1,7 +1,7 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import "./Questionare.css";
 
-import { useStateValue } from "../../assets/utility/StateProvider";
+import { useStateValue } from "../assets/utility/StateProvider";
 import {
   db,
   collection,
@@ -11,11 +11,11 @@ import {
   uploadBytesResumable,
   storage,
   ref,
-} from "../../assets/utility/firebase";
+} from "../assets/utility/firebase.js";
 //components
 import QuestionareModule from "./QuestionareModule/QuestionareModule";
 import Fieldset from "./Fieldset/Fieldset";
-import UploadImage from "../UploadImage/UploadImage";
+import UploadImage from "./UploadImage/UploadImage";
 //mui
 import { Button } from "@mui/material";
 import { styled } from "@mui/material/styles";
