@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Auth.css";
 
 import { useNavigate } from "react-router-dom";
+import { useStateValue } from "../../assets/utility/StateProvider";
 import {
   signInWithEmailAndPassword,
   auth,
@@ -10,22 +11,27 @@ import {
 import { Button, TextField } from "@mui/material";
 //components
 import Fieldset from "../../Questionare/Fieldset/Fieldset";
+
 export default function Authorization() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate()
-  const signIn = (e) =>{
-    e.preventDefault()
+  const navigate = useNavigate();
+  const [{ alert }, dispatch] = useStateValue();
+
+  const signIn = (e) => {
+    e.preventDefault();
 
     signInWithEmailAndPassword(auth, email, password)
-    .then((user) => {
-      if(user){
-        console.log("user: ", user)
-      }
-      navigate("/admin")
-    })
-    .catch((error) => console.log("login error: ", error.message))
-  }
+      .then((user) => {
+        if (user) {
+          dispatch({ type: "ALERT__OK", item: user.user.email });
+        }
+        navigate("/admin");
+      })
+      .catch((error) =>
+        dispatch({ type: "ALERT__ERROR", item: error.message })
+      );
+  };
   return (
     <form className="auth" onSubmit={signIn}>
       <Fieldset legend="Logowanie">
@@ -43,7 +49,7 @@ export default function Authorization() {
             <TextField
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              type= "password"
+              type="password"
               label="Wpisz hasło"
               variant="standard"
               fullWidth
