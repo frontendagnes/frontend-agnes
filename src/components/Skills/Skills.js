@@ -35,7 +35,7 @@ function Skills() {
         />
       </div>
       <div className="skills__link">
-        <Link to="/questionare">Co ile i za ile :)</Link>
+        <Link to="/questionare">🅲🅾 🅸🅻🅴 🅸 🆉🅰 🅸🅻🅴❓ 🙂</Link>
       </div>
     </div>
   );

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Inline+Display:wght@300&family=Source+Code+Pro&display=swap');
 .skills{
     padding-bottom: 60px;
 }
@@ -10,6 +11,18 @@
 .skills__link{
     display: flex;
     justify-content: center;
-    padding: 10px 20px;
-    font-size: 1.3rem;
+    padding-top: 30px;
+    font-size: 2rem;
+    font-family: 'Source Code Pro', monospace;
+}
+.skills__link a{
+    text-decoration: none;
+    color: #ffffff;
+    text-shadow: 2px 2px 2px #000000;
+    transition: all 0.75s ease;
+}
+
+.skills__link a:hover{
+    color: #3f4d70;
+    text-shadow: 2px 2px 2px #ffffff;
 }

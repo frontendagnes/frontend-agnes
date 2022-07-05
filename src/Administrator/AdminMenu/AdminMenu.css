@@ -1,0 +1,26 @@
+.adminmenu {
+    position: relative;
+    height: 100%;
+    padding: 30px 0px 30px 5px;
+    font-size: 1.1rem;
+    background-color: #fafafafa;
+}
+
+.adminmenu__header {
+    display: flex;
+    justify-content: center;
+}
+
+.amidnmenu__header>p {
+    text-align: center;
+}
+
+.adminmenu__user {
+    font-weight: bolder;
+}
+
+.amdinmenu__button {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}

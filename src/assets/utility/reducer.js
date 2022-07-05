@@ -25,6 +25,7 @@ export const initialState = {
   img: null,
   cvs: [],
   user: null,
+  adminData: []
 };
 
 const reducer = (state, action) => {
@@ -40,7 +41,12 @@ const reducer = (state, action) => {
         ...state,
         user: null,
       };
-
+      //adminData
+    case "SET_DATA":
+      return {
+        ...state,
+        adminData: action.item
+      };
     //img
     case "SET_IMG":
       return {

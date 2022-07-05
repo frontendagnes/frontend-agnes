@@ -1,0 +1,11 @@
+.admindetails{
+    height: 100%;
+    padding: 20px 30px;
+}
+
+.admindetails h2{
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size:  2rem;
+}

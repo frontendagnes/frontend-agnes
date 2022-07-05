@@ -23,10 +23,11 @@ const NoMatch = lazy(() => import("./components/NoMatch/NoMatch"));
 const Generator = lazy(() =>
   import("./components/RosumeGenerator/Generator/Generator")
 );
-const Questionare = lazy(() => import("../src/Questionare/Questionare"));
-const Admin = lazy(() => import("../src/Administrator/Admin.js"));
-const Auth = lazy(() => import("../src/Administrator/Auth/Auth.js"));
-const AdminHome = lazy(() => import("../src/Administrator/Home/Home.js"))
+const Questionare = lazy(() => import("./Questionare/Questionare"));
+const Admin = lazy(() => import("./Administrator/Admin.js"));
+const Auth = lazy(() => import("./Administrator/Auth/Auth.js"));
+const AdminHome = lazy(() => import("./Administrator/Home/Home.js"))
+const AdminDetails = lazy(() => import("./Administrator/AdminDetails/AdminDetails.js"))
 function App() {
   const [{ user }, dispatch] = useStateValue();
   useEffect(() => {
@@ -104,9 +105,9 @@ function App() {
             }
           />
           {/* <Route path="/auth" element={<Auth />} /> */}
-          <Route path="/admin" element={<>{user ? <Admin /> : <Auth />}</>}>
-            <Route path="home" element={<AdminHome />} />
-          </Route>
+          <Route path="/admin" element={<>{user ? <Admin /> : <Auth />}</>} />
+            {/* <Route path="home" element={<AdminHome />} /> */}
+          <Route path="admin/details/:questionareId" element={<AdminDetails />} />
           {/* <Route path="/cookie-info" element={<CookieInfo />} /> */}
           <Route
             path="*"

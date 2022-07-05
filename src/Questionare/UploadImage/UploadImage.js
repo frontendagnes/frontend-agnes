@@ -15,7 +15,7 @@ function UploadImage({ progress, preview, setPreview, setImage, image }) {
     } else {
       setPreview(null);
     }
-  }, [image]);
+  }, [image, setPreview]);
   const fileImgRef = useRef();
   const handleClick = (e) => {
     e.preventDefault();

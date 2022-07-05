@@ -8,6 +8,8 @@ import {
   collection,
   onSnapshot,
   serverTimestamp,
+  orderBy,
+  query
 } from "firebase/firestore";
 import {
   getStorage,
@@ -59,5 +61,6 @@ export {
   serverTimestamp,
   onAuthStateChanged,
   signInWithEmailAndPassword,
-  signOut
+  signOut,
+  orderBy, query
 };
