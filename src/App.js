@@ -104,9 +104,7 @@ function App() {
               </>
             }
           />
-          {/* <Route path="/auth" element={<Auth />} /> */}
           <Route path="/admin" element={<>{user ? <Admin /> : <Auth />}</>} />
-            {/* <Route path="home" element={<AdminHome />} /> */}
           <Route path="admin/details/:questionareId" element={<AdminDetails />} />
           {/* <Route path="/cookie-info" element={<CookieInfo />} /> */}
           <Route

@@ -7,6 +7,7 @@ import classNames from "classnames";
 import { useReactToPrint } from "react-to-print";
 //componets
 import Details from "../Details/Details";
+import Note from "../Note/Note";
 //mui
 import Button from "@mui/material/Button";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
@@ -32,6 +33,7 @@ function AdminDetails() {
     details__image: !isClicked,
     "details__image--clicked": isClicked,
   });
+
   return (
     <div className="admindetails details">
       <Button type="button" onClick={handleNavigate}>
@@ -52,18 +54,29 @@ function AdminDetails() {
               }
             </style>
             <h2>Szczegóły projektu</h2>
-            <Details data={item.data.hosting} title="Hosting i Domena:" />
+            <div className="details__row">
+              <span className="details__title">Data zgłoszenia:</span>
+              <span className="details__content">
+                {new Date(
+                  item.data.timestamp.seconds * 1000
+                ).toLocaleDateString("pl-PL")}r
+              </span>
+            </div>
+            <Details
+              data={item.data.hosting}
+              title="Hosting i Domena:"
+            />
             <Details
               data={item.data.functionality}
               title="Funkcjonalność strony:"
             />
-            <Details data={item.data.elements} title="Dodatkowe elementy: " />
+            <Details
+              data={item.data.elements}
+              title="Dodatkowe elementy: "
+            />
             <div className="details__row">
               <span className="details__title">Dodatkowe Uwagi:</span>
               <span className="details__content">{item.data.area}</span>
-              <span className="details__notes">
-                <sup>Uwagi:</sup>
-              </span>
             </div>
             {item.data.imageUrl ? (
               <div className="details__row">
@@ -77,11 +90,14 @@ function AdminDetails() {
                     alt="Podgląd projektu"
                   />
                 </span>
-                <span className="details__notes">
-                  <sup>Uwagi:</sup>
-                </span>
               </div>
             ) : null}
+            <Note noteId={item.id} />
+            <ul className="admindetails__notes">
+              {item.data.note?.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
           </div>
         ))}
     </div>

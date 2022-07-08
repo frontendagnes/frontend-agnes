@@ -10,7 +10,6 @@ function Details({ data, title }) {
           <p key={index}>{item}</p>
         ))}
       </span>
-      <span className="details__notes"><sup>Uwagi:</sup></span>
     </div>
   );
 }
