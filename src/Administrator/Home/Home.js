@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import {
   onSnapshot,
   collection,
@@ -30,11 +30,11 @@ function AdminHome() {
       };
     }
   }, [user, dispatch]);
-
   return (
-    <div className="admin__home">
-      <div className="admin__wrapper">
-        <div className="admin__number">
+    <div className="adminhome">
+      <h2>Panel administracyjny</h2>
+      <div className="adminhome__wrapper">
+        <div className="adminhome__number">
           Łączna liczba zapytań: <b>{adminData.length}</b>
         </div>
         <ul>
@@ -47,10 +47,10 @@ function AdminHome() {
               <b>
                 {new Date(
                   item.data.timestamp.seconds * 1000
-                ).toLocaleDateString("pl-PL")}
+                ).toLocaleString("pl-PL")}
               </b>
             </li>
-          )) : "Nie ma żadnych zapytań"}
+          )) : <div>Nie ma żadnych zapytań</div>}
         </ul>
       </div>
     </div>

@@ -1,9 +1,13 @@
-.admin__home{
+.adminhome{
     height: 100%;
     padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.admin__wrapper{
+.adminhome__wrapper{
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -11,20 +15,22 @@
     align-items: center;
     height:100%;
 }
-.admin__number{
+.adminhome__number{
     font-size: 1.3rem;
     background-color: #ffffff;
 }
-.admin__wrapper ul{
+.adminhome__wrapper ul{
     list-style-type: none;
-    width: 50%;
+    width: 150%;
+    height: 70%;
+    overflow: auto;
     padding: 20px 30px;
     background-color: #ffffff;
     border-radius: 5px;
     -webkit-box-shadow: 5px 5px 15px 5px #000000; 
     box-shadow: 5px 5px 15px 5px #000000;
 }
-.admin__wrapper li{
+.adminhome__wrapper li{
     padding: 10px 20px;
     margin-bottom: 5px;
     width: 100%;

@@ -1,15 +1,20 @@
-.note__wrap{
+.note{
+    margin-bottom: 30px;
+}
+.note__wrap {
     display: flex;
     align-items: center;
+    gap: 10px;
 }
-.note__area{
-    width: 100%;
-    height: 10vh;
+
+.note__area {
     font-size: 1rem;
-    padding: 5px 0px 20px 5px;
-    border: 1px solid #ebebeb;
 }
-.note__notes{
+
+.note__notes {
     height: 100px;
     width: 100vh;
+}
+.note__input{
+    width: 100%;
 }

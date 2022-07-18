@@ -1,6 +1,15 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./AdminDetails.css";
 
+import {
+  db,
+  collection,
+  onSnapshot,
+  query,
+  orderBy,
+  deleteDoc,
+  doc,
+} from "../../assets/utility/firebase";
 import { useStateValue } from "../../assets/utility/StateProvider";
 import { useParams, useNavigate } from "react-router-dom";
 import classNames from "classnames";
@@ -12,11 +21,42 @@ import Note from "../Note/Note";
 import Button from "@mui/material/Button";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import PrintIcon from "@mui/icons-material/Print";
+import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 function AdminDetails() {
-  const [{ adminData }] = useStateValue();
+  const [notes, setNotes] = useState([]);
+  const [{ adminData }, dispatch] = useStateValue();
 
   let { questionareId } = useParams();
 
+  useEffect(() => {
+    const ref = collection(db, "questionare", questionareId, "notes");
+    const sortRef = query(ref, orderBy("timestamp", "desc"));
+    const unsb = onSnapshot(sortRef, (snap) => {
+      setNotes(
+        snap.docs.map((doc) => ({
+          id: doc.id,
+          data: doc.data(),
+        }))
+      );
+    });
+    return () => {
+      unsb();
+    };
+  }, []);
+
+  const deleteNote = async (idNote) => {
+    const ref = doc(db, "questionare", questionareId, "notes", idNote);
+    await deleteDoc(ref)
+      .then(() =>
+        dispatch({
+          type: "ALERT_SUCCESS",
+          item: "Notatka została poprawnie usunięta",
+        })
+      )
+      .catch((error) =>
+        dispatch({ type: "ALERT__ERROR", item: error.message })
+      );
+  };
   const navigate = useNavigate();
   const handleNavigate = () => {
     navigate("/admin");
@@ -46,34 +86,21 @@ function AdminDetails() {
         .filter((item) => item.id === questionareId)
         .map((item) => (
           <div key={item.id} className="details__wrapper" ref={printDetails}>
-            <style type="text/css" media="print">
-              {
-                "\
-                  @page { size: landscape; }\
-                  "
-              }
-            </style>
             <h2>Szczegóły projektu</h2>
             <div className="details__row">
               <span className="details__title">Data zgłoszenia:</span>
               <span className="details__content">
-                {new Date(
-                  item.data.timestamp.seconds * 1000
-                ).toLocaleDateString("pl-PL")}r
+                {new Date(item.data.timestamp.seconds * 1000).toLocaleString(
+                  "pl-PL"
+                )}
               </span>
             </div>
-            <Details
-              data={item.data.hosting}
-              title="Hosting i Domena:"
-            />
+            <Details data={item.data.hosting} title="Hosting i Domena:" />
             <Details
               data={item.data.functionality}
               title="Funkcjonalność strony:"
             />
-            <Details
-              data={item.data.elements}
-              title="Dodatkowe elementy: "
-            />
+            <Details data={item.data.elements} title="Dodatkowe elementy: " />
             <div className="details__row">
               <span className="details__title">Dodatkowe Uwagi:</span>
               <span className="details__content">{item.data.area}</span>
@@ -94,8 +121,24 @@ function AdminDetails() {
             ) : null}
             <Note noteId={item.id} />
             <ul className="admindetails__notes">
-              {item.data.note?.map((item) => (
-                <li>{item}</li>
+              {notes?.map((note) => (
+                <li key={note.id}>
+                  <span>
+                    {new Date(
+                      note.data.timestamp?.seconds * 1000
+                    ).toLocaleString("pl-PL")}
+                  </span>
+                  <div>
+                    <span>{note.data.note}</span>
+                    <RemoveCircleIcon
+                      sx={{ cursor: "pointer" }}
+                      titleAccess="Usuń Notatkę"
+                      color="error"
+                      fontSize="large"
+                      onClick={() => deleteNote(note.id)}
+                    />
+                  </div>
+                </li>
               ))}
             </ul>
           </div>

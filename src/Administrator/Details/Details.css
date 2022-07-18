@@ -20,13 +20,13 @@
 .details__content {
     flex: 1 1;
 }
-
 .details__image {
     width: 100px;
     height: 100px;
     cursor: pointer;
     transition: all 0.75s ease-in-out;
     cursor: pointer;
+    
 }
 
 .details__image:hover {
@@ -38,6 +38,7 @@
     cursor: pointer;
     position: absolute;
     left: 50%;
+    top: 20px;
     transform: translateX(-50%) scale(0.8);
     text-align: center;
     z-index: 3;

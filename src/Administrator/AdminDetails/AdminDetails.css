@@ -1,11 +1,31 @@
-.admindetails{
+.admindetails {
     height: 100%;
     padding: 20px 30px;
 }
 
-.admindetails h2{
+.admindetails h2 {
     padding: 20px;
     margin-bottom: 20px;
     text-align: center;
-    font-size:  2rem;
+    font-size: 2rem;
+}
+
+.admindetails__notes {
+    list-style-type: none;
+}
+
+.admindetails__notes li {
+    padding: 10px 20px;
+    margin-bottom: 5px;
+    background-color: #fafafafa;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+.admindetails__notes li > span{
+    font-size: 0.7rem;
+}
+.admindetails__notes li > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

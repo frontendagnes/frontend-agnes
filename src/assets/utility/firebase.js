@@ -9,7 +9,8 @@ import {
   onSnapshot,
   serverTimestamp,
   orderBy,
-  query
+  query,
+  deleteDoc,
 } from "firebase/firestore";
 import {
   getStorage,
@@ -22,7 +23,7 @@ import {
   getAuth,
   onAuthStateChanged,
   signInWithEmailAndPassword,
-  signOut
+  signOut,
 } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -62,5 +63,7 @@ export {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
-  orderBy, query
+  orderBy,
+  query,
+  deleteDoc,
 };
