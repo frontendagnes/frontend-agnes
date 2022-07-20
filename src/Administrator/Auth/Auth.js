@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./Auth.css";
 
+import { validate } from "../validate";
+
 import { useNavigate } from "react-router-dom";
 import { useStateValue } from "../../assets/utility/StateProvider";
 import {
@@ -15,12 +17,18 @@ import Fieldset from "../../Questionare/Fieldset/Fieldset";
 export default function Authorization() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [age, setAge] = useState("");
   const navigate = useNavigate();
   const [{ alert }, dispatch] = useStateValue();
 
   const signIn = (e) => {
     e.preventDefault();
 
+    const msg = validate(age, email, password);
+    if (msg) {
+      dispatch({ type: "ALERT__ERROR", item: msg });
+      return;
+    }
     signInWithEmailAndPassword(auth, email, password)
       .then((user) => {
         if (user) {
@@ -55,6 +63,15 @@ export default function Authorization() {
               fullWidth
             />
           </div>
+          <input
+            type="text"
+            placeholder="age"
+            name="age"
+            autocomplete="off"
+            className="auth__age"
+            value={age}
+            onChange={(e) => setAge(e.target.value)}
+          />
           <Button type="submit">Zaloguj się</Button>
         </div>
       </Fieldset>
