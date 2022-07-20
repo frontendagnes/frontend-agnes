@@ -17,6 +17,7 @@ import { useReactToPrint } from "react-to-print";
 //componets
 import Details from "../Details/Details";
 import Note from "../Note/Note";
+import Fieldset from "../../Questionare/Fieldset/Fieldset";
 //mui
 import Button from "@mui/material/Button";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
@@ -87,6 +88,7 @@ function AdminDetails() {
         .map((item) => (
           <div key={item.id} className="details__wrapper" ref={printDetails}>
             <h2>Szczegóły projektu</h2>
+            <Fieldset legend="Informacje o projekcie">
             <div className="details__row">
               <span className="details__title">Data zgłoszenia:</span>
               <span className="details__content">
@@ -119,6 +121,17 @@ function AdminDetails() {
                 </span>
               </div>
             ) : null}
+            </Fieldset>
+            <Fieldset legend="Informacje o kliencie">
+              <div className="details__row">
+                <span className="details__title">Nazwa:</span>
+                <span className="details__content">{item.data.name}</span>
+              </div>
+              <div className="details__row">
+                <span className="details__title">email:</span>
+                <span className="details__content">{item.data.email}</span>
+              </div>
+            </Fieldset>
             <Note noteId={item.id} />
             <ul className="admindetails__notes">
               {notes?.map((note) => (
