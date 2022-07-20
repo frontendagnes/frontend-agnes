@@ -1,4 +1,5 @@
-export const apiInfo = ["Hosting", "Domena"];
+export const apiInfo = ["Hosting darmowy firebase", "Hosting płatny", "Domena"];
+
 export const functionality = [
   "Galeria Zdjęć",
   "Aktualności na stronie",

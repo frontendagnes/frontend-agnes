@@ -46,6 +46,7 @@ function Questionare() {
   const [areaField, setAreaField] = useState("");
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
+  const [age, setAge] = useState(""); // spam detector
 
   // load image state
   const [progress, setProgress] = useState(0);
@@ -99,20 +100,20 @@ function Questionare() {
             // setCheckedFunctionality([])
             // setCheckedElements([])
             setAreaField("");
-            setEmail("")
-            setName("")
+            setEmail("");
+            setName("");
           })
           .catch((error) => console.log(error.message));
       }
     );
   };
 
-  const sendMailContractor = () => {
+  const sendMail = () => {
     const message = {
       to: email,
       from: "frontendagnes@gmail.com",
-      subject: `Witaj ${name}`,
-      html: "Twoje zapytanie do frontend-agens.pl zostało wysłane",
+      subject: `Witaj ${name} tu frontend-agnes.pl`,
+      html: "Twoje zapytanie do frontend-agens.pl zostało wysłane. Postaram się odpowiedzieć jak najszybciej - zwykle w ciągu 24h",
     };
 
     sgMail
@@ -121,22 +122,48 @@ function Questionare() {
       .catch((error) => console.log("Sent mail", error));
   };
   const formHandler = () => {
-    const msg = validate(email);
+    const msg = validate(age, email);
     if (msg) {
       dispatch({ type: "ALERT__ERROR", item: msg });
       return;
     }
-
-     // uploadFiles(image);
-    // sendMailContractor();
+    uploadFiles(image);
+    sendMail();
     console.log("mailsender");
-    dispatch({
-      type: "ALERT_SUCCESS",
-      item: `Ankieta została wysłana. Dziękuję ${name ? name : email}`,
-    });
+    // dispatch({
+    //   type: "ALERT_SUCCESS",
+    //   item: `Ankieta została wysłana. Dziękuję ${name ? name : email}`,
+    // });
   };
   return (
     <div className="questionare">
+      <div className="questionare__header">
+        <p>
+          Strony koduję na podstawie doręczonych przez klienta projektów
+          graficznych.
+        </p>
+        <p>
+          Masz projekt a nie potrafisz go zakodować dobrze trafiłeś, zrobię to
+          za Ciebie.
+        </p>
+        <p>
+          Jako frontend developer zajmuję się tylko wyglądem projektu, jako bazy
+          danych używam <a href="https://firebase.google.com/">firebase</a> -
+          tam również „hostinguję” projekty w czasie realizacji do podglądu dla
+          klienta.
+        </p>
+        <p>Wszystkie niezbędne grafiki (zdjęcia) powinien dostarczyć klient.</p>
+
+        <p>
+          Na podstawie poniższej ankiety będę w stanie podać Ci cenę usługi,
+          podchodzę indywidualnie do każdego projektu – nie wszystkie są takie
+          same więc cena jest zależna od oczekiwań klienta.
+        </p>
+        <p>
+          Wycena nie jest zobowiązująca. Nie będą Ci odpowiadać moje warunki po
+          prostu zakończymy współprace na tym etapie bez żadnych komplikacji.
+        </p>
+      </div>
       <form className="questionare__form">
         <QuestionareModule
           api={apiInfo}
@@ -146,7 +173,9 @@ function Questionare() {
             <>
               <p>
                 <strong>Hosting</strong> - udostępnienie miejsca na serwerze
-                (tam wgrywane są pliki żeby były widoczne w sieci)
+                (tam wgrywane są pliki żeby były widoczne w sieci) - przy
+                wyborze płatnego hostingu do ceny usługi zostanie doliczona cena
+                hostingu
               </p>
               <p>
                 <strong>Domena</strong> - adres strony intrenetowej np:{" "}
@@ -156,7 +185,8 @@ function Questionare() {
                   title="Kodowanie stron internetowych"
                 >
                   https://frontend-agnes.pl
-                </a>
+                </a>{" "}
+                - do ceny usuługi zostanie doliczona cena domeny
               </p>
             </>
           }
@@ -218,6 +248,15 @@ function Questionare() {
             </div>
           </Fieldset>
         </div>
+        <input
+          type="text"
+          placeholder="age"
+          name="age"
+          autocomplete="off"
+          className="questionare__age"
+          value={age}
+          onChange={(e) => setAge(e.target.value)}
+        />
         <div className="questionere__button">
           <FormButton type="button" onClick={formHandler}>
             Wyślij
