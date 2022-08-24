@@ -6,7 +6,7 @@
 }
 .uploadImage__image{
     height: 100px;
-    width: 150px;
+    width: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,3 +17,14 @@
     width: 150px;
     max-height: 200px;
 }
+.uploadImage__images{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+
+}
+/* .uploadImage__preview{
+    margin-left: 10px;
+} */

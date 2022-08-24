@@ -52,9 +52,11 @@ function Questionare() {
   const [progress, setProgress] = useState(0);
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState(null);
+ 
 
   const uploadFiles = (file) => {
     if (!file) return;
+
     const sotrageRef = ref(storage, `images/${file.name}`);
     const uploadTask = uploadBytesResumable(sotrageRef, file);
 
@@ -128,7 +130,7 @@ function Questionare() {
       return;
     }
     uploadFiles(image);
-    sendMail();
+    // sendMail();
     console.log("mailsender");
     // dispatch({
     //   type: "ALERT_SUCCESS",
@@ -213,7 +215,6 @@ function Questionare() {
               onChange={(e) => setAreaField(e.target.value)}
             />
           </Fieldset>
-          <p>{areaField}</p>
         </div>
         <div className="questionare__uploadImage uploadImage">
           <Fieldset legend="Dodaj projekt graficzny strony">
@@ -252,7 +253,7 @@ function Questionare() {
           type="text"
           placeholder="age"
           name="age"
-          autocomplete="off"
+          autoComplete="off"
           className="questionare__age"
           value={age}
           onChange={(e) => setAge(e.target.value)}

@@ -71,7 +71,7 @@ function AdminDetails() {
 
   const [isClicked, setIsClicked] = useState(false);
   const classImage = classNames({
-    details__image: !isClicked,
+    "details__image": !isClicked,
     "details__image--clicked": isClicked,
   });
 

@@ -34,6 +34,7 @@ const firebaseConfig = {
   authDomain: process.env.REACT_APP_AUTH_DOMAIN,
   projectId: process.env.REACT_APP_PROJRCTID,
   storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  // storageBucket: "gs://frontend-agnes.appspot.com/",
   messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
   appId: process.env.REACT_APP_APPID,
 };

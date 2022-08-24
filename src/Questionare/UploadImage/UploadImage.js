@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import './UploadImage.css'
+import "./UploadImage.css";
 //mui
 import { LinearProgress } from "@mui/material";
 import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
@@ -15,7 +15,9 @@ function UploadImage({ progress, preview, setPreview, setImage, image }) {
     } else {
       setPreview(null);
     }
+
   }, [image, setPreview]);
+
   const fileImgRef = useRef();
   const handleClick = (e) => {
     e.preventDefault();
