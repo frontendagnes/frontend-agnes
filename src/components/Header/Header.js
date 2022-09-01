@@ -18,7 +18,8 @@ function Header() {
         <div className="header__container">
           <div className="header__left">
             <h1>
-              <span>Junior</span>Front-End Developer
+              {/* <span>Junior</span> */}
+              Front-End Developer
             </h1>
           </div>
           <div className="header__skills">

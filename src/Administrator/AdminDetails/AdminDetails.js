@@ -28,6 +28,7 @@ function AdminDetails() {
   const [{ adminData }, dispatch] = useStateValue();
 
   let { questionareId } = useParams();
+  console.log("data", adminData);
 
   useEffect(() => {
     const ref = collection(db, "questionare", questionareId, "notes");
@@ -71,7 +72,7 @@ function AdminDetails() {
 
   const [isClicked, setIsClicked] = useState(false);
   const classImage = classNames({
-    "details__image": !isClicked,
+    details__image: !isClicked,
     "details__image--clicked": isClicked,
   });
 
@@ -89,38 +90,38 @@ function AdminDetails() {
           <div key={item.id} className="details__wrapper" ref={printDetails}>
             <h2>Szczegóły projektu</h2>
             <Fieldset legend="Informacje o projekcie">
-            <div className="details__row">
-              <span className="details__title">Data zgłoszenia:</span>
-              <span className="details__content">
-                {new Date(item.data.timestamp.seconds * 1000).toLocaleString(
-                  "pl-PL"
-                )}
-              </span>
-            </div>
-            <Details data={item.data.hosting} title="Hosting i Domena:" />
-            <Details
-              data={item.data.functionality}
-              title="Funkcjonalność strony:"
-            />
-            <Details data={item.data.elements} title="Dodatkowe elementy: " />
-            <div className="details__row">
-              <span className="details__title">Dodatkowe Uwagi:</span>
-              <span className="details__content">{item.data.area}</span>
-            </div>
-            {item.data.imageUrl ? (
               <div className="details__row">
-                <span className="details__title">Zdjęcie projektu:</span>
+                <span className="details__title">Data zgłoszenia:</span>
                 <span className="details__content">
-                  <img
-                    onClick={() => setIsClicked(!isClicked)}
-                    className={classImage}
-                    src={item.data?.imageUrl}
-                    title="Podgląd projektu"
-                    alt="Podgląd projektu"
-                  />
+                  {new Date(item.data.timestamp.seconds * 1000).toLocaleString(
+                    "pl-PL"
+                  )}
                 </span>
               </div>
-            ) : null}
+              <Details data={item.data.hosting} title="Hosting i Domena:" />
+              <Details
+                data={item.data.functionality}
+                title="Funkcjonalność strony:"
+              />
+              <Details data={item.data.elements} title="Dodatkowe elementy: " />
+              <div className="details__row">
+                <span className="details__title">Dodatkowe Uwagi:</span>
+                <span className="details__content">{item.data.area}</span>
+              </div>
+              {item.data.imageUrl ? (
+                <div className="details__row">
+                  <span className="details__title">Zdjęcie projektu:</span>
+                  <span className="details__content">
+                    <img
+                      onClick={() => setIsClicked(!isClicked)}
+                      className={classImage}
+                      src={item.data?.imageUrl}
+                      title="Podgląd projektu"
+                      alt="Podgląd projektu"
+                    />
+                  </span>
+                </div>
+              ) : null}
             </Fieldset>
             <Fieldset legend="Informacje o kliencie">
               <div className="details__row">

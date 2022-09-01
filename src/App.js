@@ -4,6 +4,14 @@ import { Routes, Route } from "react-router-dom";
 import { renderLoader } from "./assets/utility/functions";
 import { useStateValue } from "./assets/utility/StateProvider";
 import { auth, onAuthStateChanged } from "./assets/utility/firebase";
+// api
+import {
+  onSnapshot,
+  collection,
+  db,
+  orderBy,
+  query,
+} from "./assets/utility/firebase.js";
 // components
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
@@ -26,10 +34,11 @@ const Generator = lazy(() =>
 const Questionare = lazy(() => import("./Questionare/Questionare"));
 const Admin = lazy(() => import("./Administrator/Admin.js"));
 const Auth = lazy(() => import("./Administrator/Auth/Auth.js"));
-const AdminHome = lazy(() => import("./Administrator/Home/Home.js"))
-const AdminDetails = lazy(() => import("./Administrator/AdminDetails/AdminDetails.js"))
+const AdminDetails = lazy(() =>
+  import("./Administrator/AdminDetails/AdminDetails.js")
+);
 function App() {
-  const [{ user }, dispatch] = useStateValue();
+  const [{ user, adminData }, dispatch] = useStateValue();
   useEffect(() => {
     const authUser = onAuthStateChanged(auth, (authUser) => {
       if (authUser) {
@@ -45,6 +54,27 @@ function App() {
       authUser();
     };
   }, [dispatch]);
+
+  useEffect(() => {
+    if (user) {
+      const ref = collection(db, "questionare");
+      const sortRef = query(ref, orderBy("timestamp", "desc"));
+      const unsb = onSnapshot(sortRef, (snap) => {
+        dispatch({
+          type: "SET_DATA",
+          item: snap.docs.map((doc) => ({
+            id: doc.id,
+            data: doc.data(),
+          })),
+        });
+      });
+      return () => {
+        unsb();
+      };
+    }
+  }, [user, dispatch]);
+
+  console.log("app data", adminData);
   return (
     <div className="app">
       <Suspense fallback={renderLoader()}>
@@ -105,7 +135,10 @@ function App() {
             }
           />
           <Route path="/admin" element={<>{user ? <Admin /> : <Auth />}</>} />
-          <Route path="admin/details/:questionareId" element={<AdminDetails />} />
+          <Route
+            path="admin/details/:questionareId"
+            element={<AdminDetails />}
+          />
           {/* <Route path="/cookie-info" element={<CookieInfo />} /> */}
           <Route
             path="*"
@@ -116,7 +149,6 @@ function App() {
               </>
             }
           />
-          
         </Routes>
         <Snackbar />
       </Suspense>

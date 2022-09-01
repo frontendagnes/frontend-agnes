@@ -121,7 +121,7 @@ function Questionare() {
     sgMail
       .send(message)
       .then(() => console.log("Wiadomość została wysłana"))
-      .catch((error) => console.log("Sent mail", error));
+      .catch((error) => console.log("Send mail", error));
   };
   const formHandler = () => {
     const msg = validate(age, email);
