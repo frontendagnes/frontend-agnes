@@ -74,7 +74,6 @@ function App() {
     }
   }, [user, dispatch]);
 
-  console.log("app data", adminData);
   return (
     <div className="app">
       <Suspense fallback={renderLoader()}>

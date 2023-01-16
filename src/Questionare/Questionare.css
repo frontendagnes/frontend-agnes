@@ -35,6 +35,22 @@
     align-items: center;
 }
 
+.questionare__wrapper>button {
+    padding: 10px 20px;
+    margin-left: 45%;
+    margin-bottom: 20px;
+    border: transparent;
+    background: #3f4d70;
+    color: #ffffff;
+    font-weight: 600;
+    letter-spacing: 3px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.75s;
+}
+.questionare__wrapper>button:hover{
+    background: #a4b0cc;
+}
 .questionare__input {
     margin-bottom: 10px;
 }

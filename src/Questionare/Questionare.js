@@ -28,7 +28,7 @@ const sgMail = require("@sendgrid/mail");
 sgMail.setApiKey(process.env.REACT_APP_SANDGRID_APIKEY);
 
 const FormButton = styled(Button)`
-  background-color: #add8e6;
+  background-color: #add8e7;
   color: #000000;
   font-size: 1.2rem;
   padding: 10px 20px;
@@ -52,7 +52,41 @@ function Questionare() {
   const [progress, setProgress] = useState(0);
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState(null);
- 
+
+  const [progressOne, setProgressOne] = useState(0);
+  const [imageOne, setImageOne] = useState(null);
+  const [previewOne, setPreviewOne] = useState(null);
+
+  const [progressTwo, setProgressTwo] = useState(0);
+  const [imageTwo, setImageTwo] = useState(null);
+  const [previewTwo, setPreviewTwo] = useState(null);
+
+  const [photos, setPhotos] = useState(null)
+
+  const approvePhoto = (image, progress, preview, setProgress) => {
+    if(image) return
+
+    const sotrageRef = ref(storage, `images/${image.name}`);
+    const uploadTask = uploadBytesResumable(sotrageRef, image);
+
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const prog = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+        setProgress(prog);
+      },
+      (error) => console.log("Error Photo", error),
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref)
+        .then(async url => {
+          setPhotos([...photos, url])
+        })
+        .catch((error) => console.log("Send Photo Error", error))
+      }
+    )
+  }
 
   const uploadFiles = (file) => {
     if (!file) return;
@@ -218,13 +252,36 @@ function Questionare() {
         </div>
         <div className="questionare__uploadImage uploadImage">
           <Fieldset legend="Dodaj projekt graficzny strony">
-            <UploadImage
-              progress={progress}
-              preview={preview}
-              setPreview={setPreview}
-              image={image}
-              setImage={setImage}
-            />
+            <div className="questionare__wrapper">
+              <UploadImage
+                progress={progress}
+                preview={preview}
+                setPreview={setPreview}
+                image={image}
+                setImage={setImage}
+              />
+              <Button>Zatwierdź zdjęcie</Button>
+            </div>
+            <div className="questionare__wrapper">
+              <UploadImage
+                progress={progressOne}
+                preview={previewOne}
+                setPreview={setPreviewOne}
+                image={imageOne}
+                setImage={setImageOne}
+              />
+              <Button>Zatwierdź zdjęcie</Button>
+            </div>
+            <div className="questionare__wrapper">
+              <UploadImage
+                progress={progressTwo}
+                preview={previewTwo}
+                setPreview={setPreviewTwo}
+                image={imageTwo}
+                setImage={setImageTwo}
+              />
+              <Button>Zatwierdź zdjęcie</Button>
+            </div>
           </Fieldset>
         </div>
         <div className="questionare__adress">
