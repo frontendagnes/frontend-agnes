@@ -52,7 +52,7 @@ function Questionare() {
   const [progress, setProgress] = useState(0);
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState(null);
-
+  
   const [progressOne, setProgressOne] = useState(0);
   const [imageOne, setImageOne] = useState(null);
   const [previewOne, setPreviewOne] = useState(null);
