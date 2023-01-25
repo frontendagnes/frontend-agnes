@@ -34,11 +34,22 @@
     justify-content: center;
     align-items: center;
 }
-
-.questionare__wrapper>button {
-    padding: 10px 20px;
-    margin-left: 45%;
+.questionare__wrapper{
     margin-bottom: 20px;
+}
+.questionare__buttonsGroup{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.questionare__buttonsGroup > div{
+    width: 20%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.questionare__buttonsGroup>button {
+    padding: 10px 20px;
     border: transparent;
     background: #3f4d70;
     color: #ffffff;
@@ -48,7 +59,7 @@
     cursor: pointer;
     transition: background 0.75s;
 }
-.questionare__wrapper>button:hover{
+.questionare__buttonsGroup>button:hover{
     background: #a4b0cc;
 }
 .questionare__input {
@@ -57,4 +68,5 @@
 
 .questionare__age {
     display: none;
+    color: #ff0000;
 }

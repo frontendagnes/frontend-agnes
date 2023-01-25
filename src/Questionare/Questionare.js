@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Questionare.css";
 
 import { validate } from "./FormValidation";
@@ -18,8 +18,14 @@ import {
 import QuestionareModule from "./QuestionareModule/QuestionareModule";
 import Fieldset from "./Fieldset/Fieldset";
 import UploadImage from "./UploadImage/UploadImage";
+import AddPhoto from "./AddPhoto/AddPhoto";
 //mui
 import { Button, TextField } from "@mui/material";
+import AddCardIcon from "@mui/icons-material/AddCard";
+import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
+import DoneIcon from "@mui/icons-material/Done";
+import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
+import AddToPhotosIcon from '@mui/icons-material/AddToPhotos';
 import { styled } from "@mui/material/styles";
 //data
 import { apiInfo, functionality, otherElements } from "./data.js";
@@ -52,19 +58,22 @@ function Questionare() {
   const [progress, setProgress] = useState(0);
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState(null);
-  
+  const [imageVisible, setImageVisible] = useState(true);
+
   const [progressOne, setProgressOne] = useState(0);
   const [imageOne, setImageOne] = useState(null);
   const [previewOne, setPreviewOne] = useState(null);
+  const [imageVisibleOne, setImageVisibleOne] = useState(false);
 
   const [progressTwo, setProgressTwo] = useState(0);
   const [imageTwo, setImageTwo] = useState(null);
   const [previewTwo, setPreviewTwo] = useState(null);
+  const [imageVisibleTwo, setImageVisibleTwo] = useState(false);
 
-  const [photos, setPhotos] = useState(null)
+  const [photos, setPhotos] = useState([]);
 
   const approvePhoto = (image, progress, preview, setProgress) => {
-    if(image) return
+    if (!image) return;
 
     const sotrageRef = ref(storage, `images/${image.name}`);
     const uploadTask = uploadBytesResumable(sotrageRef, image);
@@ -80,13 +89,13 @@ function Questionare() {
       (error) => console.log("Error Photo", error),
       () => {
         getDownloadURL(uploadTask.snapshot.ref)
-        .then(async url => {
-          setPhotos([...photos, url])
-        })
-        .catch((error) => console.log("Send Photo Error", error))
+          .then(async (url) => {
+            setPhotos([...photos, url]);
+          })
+          .catch((error) => console.log("Send Photo Error", error));
       }
-    )
-  }
+    );
+  };
 
   const uploadFiles = (file) => {
     if (!file) return;
@@ -108,7 +117,7 @@ function Questionare() {
           .then(async (url) => {
             await addDoc(collection(db, "questionare"), {
               timestamp: serverTimestamp(),
-              imageUrl: url,
+              imageUrls: photos,
               hosting: checkedApi,
               functionality: checkedFunctionality,
               elements: checkedElements,
@@ -260,28 +269,77 @@ function Questionare() {
                 image={image}
                 setImage={setImage}
               />
-              <Button>Zatwierdź zdjęcie</Button>
+              <div className="questionare__buttonsGroup">
+                <div></div>
+                <AddPhoto 
+                  imageVisible={imageVisibleOne}
+                  setImageVisible={setImageVisibleOne}
+                  approvePhoto={() => approvePhoto(image, progress, preview, setProgress)}
+                  image={image}
+                  progress={progress}
+                  preview={preview}
+                  setProgress={setProgress}
+                />
+              </div>
             </div>
-            <div className="questionare__wrapper">
-              <UploadImage
-                progress={progressOne}
-                preview={previewOne}
-                setPreview={setPreviewOne}
-                image={imageOne}
-                setImage={setImageOne}
-              />
-              <Button>Zatwierdź zdjęcie</Button>
-            </div>
-            <div className="questionare__wrapper">
-              <UploadImage
-                progress={progressTwo}
-                preview={previewTwo}
-                setPreview={setPreviewTwo}
-                image={imageTwo}
-                setImage={setImageTwo}
-              />
-              <Button>Zatwierdź zdjęcie</Button>
-            </div>
+            {imageVisibleOne ? (
+              <div className="questionare__wrapper">
+                <UploadImage
+                  progress={progressOne}
+                  preview={previewOne}
+                  setPreview={setPreviewOne}
+                  image={imageOne}
+                  setImage={setImageOne}
+                />
+                <div className="questionare__buttonsGroup">
+                <AddPhoto 
+                  imageVisible={imageVisibleOne}
+                  setImageVisible={setImageVisibleOne}
+                  approvePhoto={() => approvePhoto(imageOne, progressOne, previewOne, setProgressOne)}
+                  image={imageOne}
+                  progress={progressOne}
+                  preview={previewOne}
+                  setProgress={setProgressOne}
+                />
+                </div>
+              </div>
+            ) : null}
+            {imageVisibleTwo ? (
+              <div className="questionare__wrapper">
+                <UploadImage
+                  progress={progressTwo}
+                  preview={previewTwo}
+                  setPreview={setPreviewTwo}
+                  image={imageTwo}
+                  setImage={setImageTwo}
+                />
+                <div className="questionare__buttonsGroup">
+                  <Button
+                    type="button"
+                    onClick={() =>
+                      approvePhoto(
+                        imageTwo,
+                        progressTwo,
+                        previewTwo,
+                        setProgressTwo
+                      )
+                    }
+                  >
+                    Zatwierdź zdjęcie
+                  </Button>
+                  <div>
+                    <RemoveCircleIcon
+                      onClick={() => setImageVisibleTwo(false)}
+                      sx={{
+                        cursor: "pointer",
+                        fontSize: "36px",
+                        color: "#ff0000",
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
+            ) : null}
           </Fieldset>
         </div>
         <div className="questionare__adress">
