@@ -39,14 +39,11 @@
 }
 .questionare__buttonsGroup{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 }
-.questionare__buttonsGroup > div{
-    width: 20%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+.questionare__buttonsGroup > svg{
+    margin-right: 50px;
 }
 .questionare__buttonsGroup>button {
     padding: 10px 20px;

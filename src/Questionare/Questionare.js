@@ -18,15 +18,12 @@ import {
 import QuestionareModule from "./QuestionareModule/QuestionareModule";
 import Fieldset from "./Fieldset/Fieldset";
 import UploadImage from "./UploadImage/UploadImage";
-import AddPhoto from "./AddPhoto/AddPhoto";
+import AddPhotoButton from "./AddPhotoButton/AddPhotoButton";
 //mui
 import { Button, TextField } from "@mui/material";
+import { styled } from "@mui/material/styles";
 import AddCardIcon from "@mui/icons-material/AddCard";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
-import DoneIcon from "@mui/icons-material/Done";
-import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
-import AddToPhotosIcon from '@mui/icons-material/AddToPhotos';
-import { styled } from "@mui/material/styles";
 //data
 import { apiInfo, functionality, otherElements } from "./data.js";
 
@@ -58,7 +55,6 @@ function Questionare() {
   const [progress, setProgress] = useState(0);
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState(null);
-  const [imageVisible, setImageVisible] = useState(true);
 
   const [progressOne, setProgressOne] = useState(0);
   const [imageOne, setImageOne] = useState(null);
@@ -69,6 +65,7 @@ function Questionare() {
   const [imageTwo, setImageTwo] = useState(null);
   const [previewTwo, setPreviewTwo] = useState(null);
   const [imageVisibleTwo, setImageVisibleTwo] = useState(false);
+
 
   const [photos, setPhotos] = useState([]);
 
@@ -270,11 +267,20 @@ function Questionare() {
                 setImage={setImage}
               />
               <div className="questionare__buttonsGroup">
-                <div></div>
-                <AddPhoto 
-                  imageVisible={imageVisibleOne}
-                  setImageVisible={setImageVisibleOne}
-                  approvePhoto={() => approvePhoto(image, progress, preview, setProgress)}
+                {!imageVisibleOne ? (
+                  <AddCardIcon
+                    sx={{
+                      cursor: "pointer",
+                      fontSize: "36px",
+                      color: "#008000",
+                    }}
+                    onClick={() => setImageVisibleOne(true)}
+                  />
+                ) : null}
+                <AddPhotoButton
+                  approvePhoto={() =>
+                    approvePhoto(image, progress, preview, setProgress)
+                  }
                   image={image}
                   progress={progress}
                   preview={preview}
@@ -292,15 +298,36 @@ function Questionare() {
                   setImage={setImageOne}
                 />
                 <div className="questionare__buttonsGroup">
-                <AddPhoto 
-                  imageVisible={imageVisibleOne}
-                  setImageVisible={setImageVisibleOne}
-                  approvePhoto={() => approvePhoto(imageOne, progressOne, previewOne, setProgressOne)}
-                  image={imageOne}
-                  progress={progressOne}
-                  preview={previewOne}
-                  setProgress={setProgressOne}
-                />
+                  <AddCardIcon
+                    sx={{
+                      cursor: "pointer",
+                      fontSize: "36px",
+                      color: "#008022",
+                    }}
+                    onClick={() => setImageVisibleTwo(true)}
+                  />
+                  <RemoveCircleIcon
+                    onClick={() => setImageVisibleOne(false)}
+                    sx={{
+                      cursor: "pointer",
+                      fontSize: "36px",
+                      color: "#ff0000",
+                    }}
+                  />
+                  <AddPhotoButton
+                    approvePhoto={() =>
+                      approvePhoto(
+                        imageOne,
+                        progressOne,
+                        previewOne,
+                        setProgressOne
+                      )
+                    }
+                    image={imageOne}
+                    progress={progressOne}
+                    preview={previewOne}
+                    setProgress={setProgressOne}
+                  />
                 </div>
               </div>
             ) : null}
@@ -309,14 +336,23 @@ function Questionare() {
                 <UploadImage
                   progress={progressTwo}
                   preview={previewTwo}
+                  imageVivibleR={imageVisibleTwo}
+                  setImageVisibleR={setImageVisibleTwo}
                   setPreview={setPreviewTwo}
                   image={imageTwo}
                   setImage={setImageTwo}
                 />
                 <div className="questionare__buttonsGroup">
-                  <Button
-                    type="button"
-                    onClick={() =>
+                  <RemoveCircleIcon
+                    onClick={() => setImageVisibleTwo(false)}
+                    sx={{
+                      cursor: "pointer",
+                      fontSize: "36px",
+                      color: "#ff0000",
+                    }}
+                  />
+                  <AddPhotoButton
+                    approvePhoto={() =>
                       approvePhoto(
                         imageTwo,
                         progressTwo,
@@ -324,19 +360,11 @@ function Questionare() {
                         setProgressTwo
                       )
                     }
-                  >
-                    Zatwierdź zdjęcie
-                  </Button>
-                  <div>
-                    <RemoveCircleIcon
-                      onClick={() => setImageVisibleTwo(false)}
-                      sx={{
-                        cursor: "pointer",
-                        fontSize: "36px",
-                        color: "#ff0000",
-                      }}
-                    />
-                  </div>
+                    image={imageTwo}
+                    progress={progressTwo}
+                    preview={previewTwo}
+                    setProgress={setProgressTwo}
+                  />
                 </div>
               </div>
             ) : null}
