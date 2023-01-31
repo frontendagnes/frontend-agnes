@@ -66,11 +66,16 @@ function Questionare() {
   const [previewTwo, setPreviewTwo] = useState(null);
   const [imageVisibleTwo, setImageVisibleTwo] = useState(false);
 
-
   const [photos, setPhotos] = useState([]);
 
   const approvePhoto = (image, progress, preview, setProgress) => {
-    if (!image) return;
+    if (!image) {
+      dispatch({
+        type: "ALERT__ERROR",
+        item: `Żadne zdjęcie nie zostało dodane!`,
+      });
+      return;
+    }
 
     const sotrageRef = ref(storage, `images/${image.name}`);
     const uploadTask = uploadBytesResumable(sotrageRef, image);
@@ -111,7 +116,7 @@ function Questionare() {
       (error) => console.log("snap>>", error),
       () => {
         getDownloadURL(uploadTask.snapshot.ref)
-          .then(async (url) => {
+          .then(async () => {
             await addDoc(collection(db, "questionare"), {
               timestamp: serverTimestamp(),
               imageUrls: photos,
@@ -163,6 +168,7 @@ function Questionare() {
       .then(() => console.log("Wiadomość została wysłana"))
       .catch((error) => console.log("Send mail", error));
   };
+
   const formHandler = () => {
     const msg = validate(age, email);
     if (msg) {
@@ -217,7 +223,7 @@ function Questionare() {
                 <strong>Hosting</strong> - udostępnienie miejsca na serwerze
                 (tam wgrywane są pliki żeby były widoczne w sieci) - przy
                 wyborze płatnego hostingu do ceny usługi zostanie doliczona cena
-                hostingu
+                hostingu (na rok)
               </p>
               <p>
                 <strong>Domena</strong> - adres strony intrenetowej np:{" "}
@@ -228,7 +234,7 @@ function Questionare() {
                 >
                   https://frontend-agnes.pl
                 </a>{" "}
-                - do ceny usuługi zostanie doliczona cena domeny
+                - do ceny usuługi zostanie doliczona cena domeny (na rok)
               </p>
             </>
           }
@@ -298,22 +304,26 @@ function Questionare() {
                   setImage={setImageOne}
                 />
                 <div className="questionare__buttonsGroup">
-                  <AddCardIcon
-                    sx={{
-                      cursor: "pointer",
-                      fontSize: "36px",
-                      color: "#008022",
-                    }}
-                    onClick={() => setImageVisibleTwo(true)}
-                  />
-                  <RemoveCircleIcon
-                    onClick={() => setImageVisibleOne(false)}
-                    sx={{
-                      cursor: "pointer",
-                      fontSize: "36px",
-                      color: "#ff0000",
-                    }}
-                  />
+                  {!imageVisibleTwo ? (
+                    <AddCardIcon
+                      sx={{
+                        cursor: "pointer",
+                        fontSize: "36px",
+                        color: "#008022",
+                      }}
+                      onClick={() => setImageVisibleTwo(true)}
+                    />
+                  ) : null}
+                  {progressOne < 100 ? (
+                    <RemoveCircleIcon
+                      onClick={() => setImageVisibleOne(false)}
+                      sx={{
+                        cursor: "pointer",
+                        fontSize: "36px",
+                        color: "#ff0000",
+                      }}
+                    />
+                  ) : null}
                   <AddPhotoButton
                     approvePhoto={() =>
                       approvePhoto(
@@ -343,14 +353,16 @@ function Questionare() {
                   setImage={setImageTwo}
                 />
                 <div className="questionare__buttonsGroup">
-                  <RemoveCircleIcon
-                    onClick={() => setImageVisibleTwo(false)}
-                    sx={{
-                      cursor: "pointer",
-                      fontSize: "36px",
-                      color: "#ff0000",
-                    }}
-                  />
+                  {progressTwo < 100 ? (
+                    <RemoveCircleIcon
+                      onClick={() => setImageVisibleTwo(false)}
+                      sx={{
+                        cursor: "pointer",
+                        fontSize: "36px",
+                        color: "#ff0000",
+                      }}
+                    />
+                  ) : null}
                   <AddPhotoButton
                     approvePhoto={() =>
                       approvePhoto(

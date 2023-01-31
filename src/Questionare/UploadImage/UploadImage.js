@@ -49,14 +49,21 @@ function UploadImage({ progress, preview, setPreview, setImage, image }) {
           ref={fileImgRef}
           style={{ display: "none" }}
         />
-
-        <div className="uploadImage__image" onClick={handleClick}>
-          {!preview ? (
-            <AddAPhotoIcon sx={{ fontSize: "52px" }} titleAccess="Dodaj obraz" />
-          ) : (
-            <ChangeCircleIcon sx={{ fontSize: "52px" }} titleAccess="Zmień obraz" />
-          )}
-        </div>
+        {progress < 100 ? (
+          <div className="uploadImage__image" onClick={handleClick}>
+            {!preview ? (
+              <AddAPhotoIcon
+                sx={{ fontSize: "52px" }}
+                titleAccess="Dodaj obraz"
+              />
+            ) : (
+              <ChangeCircleIcon
+                sx={{ fontSize: "52px" }}
+                titleAccess="Zmień obraz"
+              />
+            )}
+          </div>
+        ) : null}
         {preview ? (
           <div className="uploadImage__preview">
             <img src={preview} alt="Podgląd projektu" title="Podgląd" />
