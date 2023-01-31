@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./AdminDetails.css";
 
+import { ImageViewer } from "react-image-viewer-dv";
 import {
   db,
   collection,
@@ -12,7 +13,6 @@ import {
 } from "../../assets/utility/firebase";
 import { useStateValue } from "../../assets/utility/StateProvider";
 import { useParams, useNavigate } from "react-router-dom";
-import classNames from "classnames";
 import { useReactToPrint } from "react-to-print";
 //componets
 import Details from "../Details/Details";
@@ -23,12 +23,12 @@ import Button from "@mui/material/Button";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import PrintIcon from "@mui/icons-material/Print";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
+
 function AdminDetails() {
   const [notes, setNotes] = useState([]);
   const [{ adminData }, dispatch] = useStateValue();
 
   let { questionareId } = useParams();
-  console.log("data", adminData);
 
   useEffect(() => {
     const ref = collection(db, "questionare", questionareId, "notes");
@@ -70,12 +70,6 @@ function AdminDetails() {
     documentTitle: "details-pricing",
   });
 
-  const [isClicked, setIsClicked] = useState(false);
-  const classImage = classNames({
-    details__image: !isClicked,
-    "details__image--clicked": isClicked,
-  });
-
   return (
     <div className="admindetails details">
       <Button type="button" onClick={handleNavigate}>
@@ -112,16 +106,34 @@ function AdminDetails() {
                 <div className="details__row">
                   <span className="details__title">Zdjęcie projektu:</span>
                   <span className="details__content">
-                    <img
-                      onClick={() => setIsClicked(!isClicked)}
-                      className={classImage}
-                      src={item.data?.imageUrl}
-                      title="Podgląd projektu"
-                      alt="Podgląd projektu"
-                    />
+                    <ImageViewer>
+                      <img
+                        className="details__image"
+                        src={item.data?.imageUrl}
+                        title="Podgląd projektu"
+                        alt="Podgląd projektu"
+                      />
+                    </ImageViewer>
                   </span>
                 </div>
               ) : null}
+              <div className="details__row">
+                <span className="details__title">Zdjęcia:</span>
+                {item.data.imageUrls
+                  ? item.data.imageUrls.map((item, index) => (
+                      <span className="details__content" key={index}>
+                        <ImageViewer>
+                          <img
+                            className="details__image"
+                            src={item}
+                            title="Podgląd projektu"
+                            alt="Podgląd projektu"
+                          />
+                        </ImageViewer>
+                      </span>
+                    ))
+                  : null}
+              </div>
             </Fieldset>
             <Fieldset legend="Informacje o kliencie">
               <div className="details__row">
