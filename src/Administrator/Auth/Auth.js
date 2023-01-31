@@ -67,7 +67,7 @@ export default function Authorization() {
             type="text"
             placeholder="age"
             name="age"
-            autocomplete="off"
+            autoComplete="off"
             className="auth__age"
             value={age}
             onChange={(e) => setAge(e.target.value)}
