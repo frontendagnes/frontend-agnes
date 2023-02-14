@@ -59,7 +59,7 @@ function UploadImage({ progress, preview, setPreview, setImage, image }) {
             ) : (
               <ChangeCircleIcon
                 sx={{ fontSize: "52px" }}
-                titleAccess="Zmień obraz"
+                titleAccess="Zmień obraz" 
               />
             )}
           </div>

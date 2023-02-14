@@ -1,0 +1,56 @@
+.image__fullScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.image__img {
+    width: 150px;
+    height: auto;
+    cursor: pointer;
+    transition: all 0.75s ease-in-out;
+    cursor: pointer;
+}
+
+.image__close {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    color: #ffffff;
+    align-self: flex-end;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    transition: color 0.75s ease;
+    background-color: #000000;
+    animation: zoom 0.5s linear;
+}
+
+.image__close:hover {
+    color: #808080;
+}
+
+.image__fullScreen>img {
+    animation: zoom 0.5s linear;
+}
+
+@keyframes zoom {
+    0% {
+        -webkit-transform: scale(0);
+        -ms-transform: scale(0);
+        transform: scale(0);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+}

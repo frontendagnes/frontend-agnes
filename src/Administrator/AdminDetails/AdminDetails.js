@@ -18,6 +18,7 @@ import { useReactToPrint } from "react-to-print";
 import Details from "../Details/Details";
 import Note from "../Note/Note";
 import Fieldset from "../../Questionare/Fieldset/Fieldset";
+import Image from "../Image/Image";
 //mui
 import Button from "@mui/material/Button";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
@@ -122,14 +123,15 @@ function AdminDetails() {
                 {item.data.imageUrls
                   ? item.data.imageUrls.map((item, index) => (
                       <span className="details__content" key={index}>
-                        <ImageViewer>
+                        {/* <ImageViewer>
                           <img
                             className="details__image"
                             src={item}
                             title="Podgląd projektu"
                             alt="Podgląd projektu"
                           />
-                        </ImageViewer>
+                        </ImageViewer> */}
+                        <Image url={item} />
                       </span>
                     ))
                   : null}
