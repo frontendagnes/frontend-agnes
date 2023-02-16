@@ -1,28 +1,28 @@
 import React, { useState } from "react";
-import "./Image.css";
+import "./ImageZoom.css";
 
 //mui
 import CloseIcon from "@mui/icons-material/Close";
 
-function Image({ url }) {
+function ImageZoom({ url }) {
   const [viewImage, setViewImage] = useState(false);
 
   const onClickImage = () => {
     setViewImage(!viewImage);
   };
   return (
-    <div className="image">
+    <div className="imageZoom">
       <img
         onClick={onClickImage}
-        className="image__img"
+        className="imageZoom__img"
         src={url}
         title="Podgląd projektu"
         alt="Podgląd projektu"
       />
       {viewImage ? (
-        <div className="image__fullScreen">
+        <div className="imageZoom__fullScreen">
           <CloseIcon
-            className="image__close"
+            className="imageZoom__close"
             onClick={onClickImage}
             fontSize="large"
             sx={{ cursor: "pointer" }}
@@ -34,4 +34,4 @@ function Image({ url }) {
   );
 }
 
-export default Image;
+export default ImageZoom;

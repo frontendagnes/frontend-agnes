@@ -18,12 +18,13 @@ import { useReactToPrint } from "react-to-print";
 import Details from "../Details/Details";
 import Note from "../Note/Note";
 import Fieldset from "../../Questionare/Fieldset/Fieldset";
-import Image from "../Image/Image";
+import ImageZoom from "../ImageZoom/ImageZoom";
 //mui
 import Button from "@mui/material/Button";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import PrintIcon from "@mui/icons-material/Print";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
+import ImageZoom from "../ImageZoom/ImageZoom";
 
 function AdminDetails() {
   const [notes, setNotes] = useState([]);
@@ -131,7 +132,7 @@ function AdminDetails() {
                             alt="Podgląd projektu"
                           />
                         </ImageViewer> */}
-                        <Image url={item} />
+                        <ImageZoom url={item} />
                       </span>
                     ))
                   : null}

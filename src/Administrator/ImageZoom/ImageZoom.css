@@ -1,4 +1,4 @@
-.image__fullScreen {
+.imageZoom__fullScreen {
     position: fixed;
     top: 0;
     left: 0;
@@ -11,7 +11,7 @@
     flex-direction: column;
 }
 
-.image__img {
+.imageZoom__img {
     width: 150px;
     height: auto;
     cursor: pointer;
@@ -19,7 +19,7 @@
     cursor: pointer;
 }
 
-.image__close {
+.imageZoom__close {
     position: absolute;
     top: 40px;
     right: 40px;
@@ -33,11 +33,11 @@
     animation: zoom 0.5s linear;
 }
 
-.image__close:hover {
+.imageZoom__close:hover {
     color: #808080;
 }
 
-.image__fullScreen>img {
+.imageZoom__fullScreen>img {
     animation: zoom 0.5s linear;
 }
 
