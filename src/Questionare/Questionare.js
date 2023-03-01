@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Questionare.css";
+
+import { useNavigate } from "react-router-dom";
 
 import { validate } from "./FormValidation";
 
@@ -19,6 +21,8 @@ import QuestionareModule from "./QuestionareModule/QuestionareModule";
 import Fieldset from "./Fieldset/Fieldset";
 import UploadImage from "./UploadImage/UploadImage";
 import AddPhotoButton from "./AddPhotoButton/AddPhotoButton";
+//img
+import aPhoto from "../assets/images/open-graph.jpg";
 //mui
 import { Button, TextField } from "@mui/material";
 import { styled } from "@mui/material/styles";
@@ -27,8 +31,8 @@ import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 //data
 import { apiInfo, functionality, otherElements } from "./data.js";
 
-const sgMail = require("@sendgrid/mail");
-sgMail.setApiKey(process.env.REACT_APP_SANDGRID_APIKEY);
+// const sgMail = require("@sendgrid/mail");
+// sgMail.setApiKey(process.env.REACT_APP_SANDGRID_APIKEY);
 
 const FormButton = styled(Button)`
   background-color: #add8e7;
@@ -37,6 +41,32 @@ const FormButton = styled(Button)`
   padding: 10px 20px;
   margin-bottom: 20px;
 `;
+const Emoji = (props) => (
+  <span
+    className="emoji"
+    role="img"
+    aria-label={props.label ? props.label : ""}
+    aria-hidden={props.label ? "false" : "true"}
+  >
+    {props.symbol}
+  </span>
+);
+
+const sendMail = (subject, body, mail) => {
+  window.Email.send({
+    Host: process.env.REACT_APP_SMTP_HOST,
+    Username: process.env.REACT_APP_SMTP_USERNAME,
+    Password: process.env.REACT_APP_SMTP_KEY,
+    To: mail,
+    From: process.env.REACT_APP_SMTP_USERNAME,
+    Subject: subject,
+    Body: body,
+  });
+  // .then(() =>
+  //   dispatch({ type: "ALERT_SUCCESS", item: "Wiadomość została wysłana" })
+  // )
+  // .catch((error) => console.log("SMTP Error", error));
+};
 
 function Questionare() {
   //global state
@@ -68,7 +98,9 @@ function Questionare() {
 
   const [photos, setPhotos] = useState([]);
 
-  const approvePhoto = (image, progress, preview, setProgress) => {
+  const history = useNavigate();
+
+  const approvePhoto = (image, setProgress) => {
     if (!image) {
       dispatch({
         type: "ALERT__ERROR",
@@ -135,6 +167,18 @@ function Questionare() {
                   }`,
                 });
               })
+              .then(() => {
+                sendMail(
+                  "Wiadomość wysłane ze strony frontend-ganes.pl",
+                  "Właśnie złożyłeś zpytanie na stronie frontend-agnes.pl. Postaram się odpowiedzieć jak najszybciej zazwyczaj w ciągu 48h, jeżeli ten czas będzie miał sie przedłużyć poinformuję Cię o tym w osobnej wiadomości. pozdrawiam Agnieszka Kamińska",
+                  email
+                );
+                sendMail(
+                  "Nowe zapytanie w sprawi oferty",
+                  "Masz nowe zapytanie w sprawie oferty",
+                  process.env.REACT_APP_SMTP_USERNAME
+                );
+              })
               .catch((error) =>
                 dispatch({
                   type: "ALERT__ERROR",
@@ -143,9 +187,6 @@ function Questionare() {
               );
             setProgress(0);
             setImage(null);
-            // setCheckedApi([])
-            // setCheckedFunctionality([])
-            // setCheckedElements([])
             setAreaField("");
             setEmail("");
             setName("");
@@ -155,20 +196,6 @@ function Questionare() {
     );
   };
 
-  const sendMail = () => {
-    const message = {
-      to: email,
-      from: "frontendagnes@gmail.com",
-      subject: `Witaj ${name} tu frontend-agnes.pl`,
-      html: "Twoje zapytanie do frontend-agens.pl zostało wysłane. Postaram się odpowiedzieć jak najszybciej - zwykle w ciągu 24h",
-    };
-
-    sgMail
-      .send(message)
-      .then(() => console.log("Wiadomość została wysłana"))
-      .catch((error) => console.log("Send mail", error));
-  };
-
   const formHandler = () => {
     const msg = validate(age, email);
     if (msg) {
@@ -176,41 +203,50 @@ function Questionare() {
       return;
     }
     uploadFiles(image);
-    // sendMail();
     console.log("mailsender");
-    // dispatch({
-    //   type: "ALERT_SUCCESS",
-    //   item: `Ankieta została wysłana. Dziękuję ${name ? name : email}`,
-    // });
+    history("/");
   };
   return (
     <div className="questionare">
       <div className="questionare__header">
-        <p>
-          Strony koduję na podstawie doręczonych przez klienta projektów
-          graficznych.
-        </p>
-        <p>
-          Masz projekt a nie potrafisz go zakodować dobrze trafiłeś, zrobię to
-          za Ciebie.
-        </p>
-        <p>
-          Jako frontend developer zajmuję się tylko wyglądem projektu, jako bazy
-          danych używam <a href="https://firebase.google.com/">firebase</a> -
-          tam również „hostinguję” projekty w czasie realizacji do podglądu dla
-          klienta.
-        </p>
-        <p>Wszystkie niezbędne grafiki (zdjęcia) powinien dostarczyć klient.</p>
-
-        <p>
-          Na podstawie poniższej ankiety będę w stanie podać Ci cenę usługi,
-          podchodzę indywidualnie do każdego projektu – nie wszystkie są takie
-          same więc cena jest zależna od oczekiwań klienta.
-        </p>
-        <p>
-          Wycena nie jest zobowiązująca. Nie będą Ci odpowiadać moje warunki po
-          prostu zakończymy współprace na tym etapie bez żadnych komplikacji.
-        </p>
+        <img src={aPhoto} loading="lazy" title="web design" alt="web design" />
+        <div>
+          <p>
+            Strony koduję na podstawie doręczonych przez klienta projektów
+            graficznych.
+          </p>
+          <p>
+            Masz projekt a nie potrafisz go zakodować dobrze trafiłeś, zrobię to
+            za Ciebie.
+          </p>
+          <p>
+            Jako frontend developer zajmuję się tylko wyglądem projektu, jako
+            bazy danych używam{" "}
+            <a href="https://firebase.google.com/">firebase</a> - tam również
+            „hostinguję” projekty w czasie realizacji do podglądu dla klienta.
+          </p>
+          <p>
+            Wszystkie niezbędne grafiki (zdjęcia) powinien dostarczyć klient.
+          </p>
+          <p>
+            Na podstawie załączonej ankiety będę w stanie podać Ci cenę usługi.
+            Podchodzę indywidualnie do każdego projektu – nie wszystkie są takie
+            same więc cena jest zależna od oczekiwań klienta.
+          </p>
+          <p>
+            Jeżeli nie chcesz kodowac całej strony a chcesz zmienić tylko jedną
+            rzecz np. nagłówek lub menu nie wypełniaj formularza opisz wszystko
+            w dodatkowych informacjach na dole strony i załącz projekt.
+          </p>
+          <p>
+            Nie masz projektu też możesz napisać - może razem coś wymyślimy{" "}
+            <Emoji label="smile" symbol="😀" />
+          </p>
+          <p>
+            Wycena nie jest zobowiązująca. Nie będą Ci odpowiadać moje warunki
+            po prostu zakończymy wspópracę na tym etapie.
+          </p>
+        </div>
       </div>
       <form className="questionare__form">
         <QuestionareModule
@@ -284,9 +320,7 @@ function Questionare() {
                   />
                 ) : null}
                 <AddPhotoButton
-                  approvePhoto={() =>
-                    approvePhoto(image, progress, preview, setProgress)
-                  }
+                  approvePhoto={() => approvePhoto(image, setProgress)}
                   image={image}
                   progress={progress}
                   preview={preview}
@@ -325,14 +359,7 @@ function Questionare() {
                     />
                   ) : null}
                   <AddPhotoButton
-                    approvePhoto={() =>
-                      approvePhoto(
-                        imageOne,
-                        progressOne,
-                        previewOne,
-                        setProgressOne
-                      )
-                    }
+                    approvePhoto={() => approvePhoto(imageOne, setProgressOne)}
                     image={imageOne}
                     progress={progressOne}
                     preview={previewOne}
@@ -364,14 +391,7 @@ function Questionare() {
                     />
                   ) : null}
                   <AddPhotoButton
-                    approvePhoto={() =>
-                      approvePhoto(
-                        imageTwo,
-                        progressTwo,
-                        previewTwo,
-                        setProgressTwo
-                      )
-                    }
+                    approvePhoto={() => approvePhoto(imageTwo, setProgressTwo)}
                     image={imageTwo}
                     progress={progressTwo}
                     preview={previewTwo}

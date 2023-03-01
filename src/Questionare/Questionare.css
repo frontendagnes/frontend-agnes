@@ -1,12 +1,14 @@
 .questionare {
     padding-top: 100px;
+    padding-right: 20px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    flex-direction: row;
     background-color: #ebebeb;
 }
-
+.questionare img{
+    width: 100%;
+}
 .questionare__header {
     margin-bottom: 50px;
     text-align: center;
@@ -15,10 +17,12 @@
     color: #272727;
     text-shadow: 2px 2px 2px #ffffff;
     font-weight: 600;
+    width: 40%;
 }
 
 .questionare__header p {
     margin-bottom: 20px;
+    line-height: 40px;
 }
 
 .questionare__textarea {
@@ -67,4 +71,15 @@
 .questionare__age {
     display: none;
     color: #ff0000;
+}
+
+@media only screen and (max-width: 800px){
+    .questionare{
+        flex-direction: column;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .questionare__header{
+        width: 100%;
+    }
 }

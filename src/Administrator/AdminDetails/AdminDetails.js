@@ -24,7 +24,6 @@ import Button from "@mui/material/Button";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import PrintIcon from "@mui/icons-material/Print";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
-import ImageZoom from "../ImageZoom/ImageZoom";
 
 function AdminDetails() {
   const [notes, setNotes] = useState([]);
@@ -123,15 +122,7 @@ function AdminDetails() {
                 <span className="details__title">Zdjęcia:</span>
                 {item.data.imageUrls
                   ? item.data.imageUrls.map((item, index) => (
-                      <span className="details__content" key={index}>
-                        {/* <ImageViewer>
-                          <img
-                            className="details__image"
-                            src={item}
-                            title="Podgląd projektu"
-                            alt="Podgląd projektu"
-                          />
-                        </ImageViewer> */}
+                      <span className="details__content" key={item}>
                         <ImageZoom url={item} />
                       </span>
                     ))
