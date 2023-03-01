@@ -35,7 +35,8 @@ function Skills() {
         />
       </div>
       <div className="skills__link">
-        <Link to="/questionare">🅲🅾 🅸🅻🅴 🅸 🆉🅰 🅸🅻🅴❓ 🙂</Link>
+        Koduję strony internetowe na podstawię dostarzonego projektu graficznego - więcej informacji znajdziesz
+        <Link to="/questionare"> tutaj 🙂</Link>
       </div>
     </div>
   );

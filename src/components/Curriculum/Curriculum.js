@@ -44,7 +44,6 @@ function Curriculum() {
     "Praca z oprogramowaniem do obsługi sklepu KQS",
     "Współpraca z US i ZUS",
     "Kontakty z klientami w celu uzgodnienia warunków umowy oraz finalizacji zamówień",
-    "Pakowanie i wysyłka zamówień do klientów",
     "Przygotowywanie deklaracji PIT, VAT, ZUS",
   ]);
 
@@ -75,7 +74,7 @@ function Curriculum() {
 
       <ContainerCvs identifier="akprinttopdf" ref={printRefmy}>
         <Tagline
-          job="Junior Front-End Developer"
+          job="Junior Frontend Developer"
           email="frontendagnes@gmail.com"
           phone="603430340"
           skills={skills}
