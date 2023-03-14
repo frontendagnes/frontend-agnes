@@ -21,6 +21,7 @@ import QuestionareModule from "./QuestionareModule/QuestionareModule";
 import Fieldset from "./Fieldset/Fieldset";
 import UploadImage from "./UploadImage/UploadImage";
 import AddPhotoButton from "./AddPhotoButton/AddPhotoButton";
+import ButtonBack from "../components/Global/ButtonBack/ButtonBack"
 //img
 import aPhoto from "../assets/images/open-graph.jpg";
 //mui
@@ -61,16 +62,12 @@ const sendMail = (subject, body, mail) => {
     From: process.env.REACT_APP_SMTP_USERNAME,
     Subject: subject,
     Body: body,
-  });
-  // .then(() =>
-  //   dispatch({ type: "ALERT_SUCCESS", item: "Wiadomość została wysłana" })
-  // )
-  // .catch((error) => console.log("SMTP Error", error));
+  }).catch((error) => console.log("SMTP Error", error));
 };
 
 function Questionare() {
   //global state
-  const [{ alert }, dispatch] = useStateValue();
+  const [{ isEnglish }, dispatch] = useStateValue();
 
   // aplication state
   const [checkedApi, setCheckedApi] = useState([]);
@@ -208,6 +205,9 @@ function Questionare() {
   };
   return (
     <div className="questionare">
+      <ButtonBack />
+      {isEnglish ? <div className="questionare__isEnglish">This page has no translation yet</div> : null}
+      <div className="questionare__wrapper">
       <div className="questionare__header">
         <img src={aPhoto} loading="lazy" title="web design" alt="web design" />
         <div>
@@ -439,6 +439,7 @@ function Questionare() {
           </FormButton>
         </div>
       </form>
+    </div>
     </div>
   );
 }
