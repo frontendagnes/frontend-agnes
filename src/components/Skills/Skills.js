@@ -36,9 +36,9 @@ function Skills() {
       </div>
       <div className="skills__link">
         {isEnglish
-          ? "I code websites for the basics of the voucrated graphic project - more information can be found here"
-          : "Koduję strony internetowe na podstawię dostarzonego projektu graficznego - więcej informacji znajdziesz tutaj"}
-        <Link to="/questionare"> 🙂</Link>
+          ? "I code websites for the basics of the voucrated graphic project - more information can be found"
+          : "Koduję strony internetowe na podstawię dostarzonego projektu graficznego - więcej informacji znajdziesz"}
+        <Link to="/questionare">{isEnglish ? " here" : " tutaj"}🙂</Link>
       </div>
     </div>
   );
