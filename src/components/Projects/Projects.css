@@ -1,7 +1,9 @@
 .projects {
     padding-bottom: 60px;
 }
-
+.projects h3 {
+    padding-top: 0;
+}
 .projects__container {
     padding-bottom: 30px;
     display: flex;

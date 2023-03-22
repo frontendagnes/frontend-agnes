@@ -167,11 +167,11 @@ function Questionare() {
               .then(() => {
                 sendMail(
                   "Wiadomość wysłane ze strony frontend-ganes.pl",
-                  "Właśnie złożyłeś zpytanie na stronie frontend-agnes.pl. Postaram się odpowiedzieć jak najszybciej zazwyczaj w ciągu 48h, jeżeli ten czas będzie miał sie przedłużyć poinformuję Cię o tym w osobnej wiadomości. pozdrawiam Agnieszka Kamińska",
+                  "Właśnie złożyłeś zapytanie na stronie frontend-agnes.pl. Postaram się odpowiedzieć jak najszybciej zazwyczaj w ciągu 48h, jeżeli ten czas będzie miał sie przedłużyć poinformuję Cię o tym w osobnej wiadomości. pozdrawiam Agnieszka Kamińska",
                   email
                 );
                 sendMail(
-                  "Nowe zapytanie w sprawi oferty",
+                  "Nowe zapytanie w sprawie oferty",
                   "Masz nowe zapytanie w sprawie oferty",
                   process.env.REACT_APP_SMTP_USERNAME
                 );

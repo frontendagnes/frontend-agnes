@@ -25,7 +25,7 @@ function Projects() {
         />
         <Project
           icons={pureIcons}
-          title="Projekty JS, HTML, CSS"
+          title="Projekty HTML, CSS, JavaScript"
           img={jsAll}
           url="/projects/purejs"
           description={

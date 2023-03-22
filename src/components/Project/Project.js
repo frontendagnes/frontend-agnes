@@ -1,41 +1,35 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Project.css";
 import { index } from "../../assets/utility/functions";
-import { Link } from 'react-router-dom'
-import classNames from 'classnames';
-function Project({ icons, title, img, isView, description, url, viewCode, live }) {
-  const styles = {
-    alignJustify:{
-      justifyContent: "space-around",
-    },
-    alignCenter:{
-      justifyContent: "center",
-    },
-  }
-
-  const [isClicked, setIsClicked] = useState(false)
-  const clickedImage = () => {
-    setIsClicked(!isClicked)
-  }
-  const classValue = classNames({
-    'project__image': !isClicked,
-    'project__image--clicked': isClicked
-  })
-
+import { Link } from "react-router-dom";
+function Project({
+  icons,
+  title,
+  img,
+  isView,
+  description,
+  url,
+  viewCode,
+  live,
+}) {
   return (
     <div className="project">
       <div className="project__top">
-        {icons.map((item) => (
-          <span key={index()}>{item}</span>
-        ))}
+        <div>
+          {icons.map((item) => (
+            <span key={index()}>{item}</span>
+          ))}
+        </div>
+        <p>{title}</p>
       </div>
       <div className="project__middle">
-        <p>{title}</p>
-        <img src={img} alt="" name="contact" className={classValue} onClick={clickedImage} />
+        <Link to={url}>
+          <img src={img} alt="" name="contact" className="project__image" />
+        </Link>
       </div>
       <div className="project__bottom">
         {isView ? (
-          <div className="project__links" style={styles.alignJustify}>
+          <div className="project__links project__alignJustify">
             <a href={viewCode} alt="">
               <span className="project__code"> &lt; </span>
               <span className="project__tag"> &nbsp; View Code &nbsp; </span>
@@ -49,11 +43,11 @@ function Project({ icons, title, img, isView, description, url, viewCode, live }
           </div>
         ) : (
           <Link to={url}>
-          <div className="project__links project__hover" style={styles.alignCenter}>
-            <span className="project__code"> &lt; </span>
-            <span className="project__tag"> &nbsp; View &nbsp;</span>
-            <span className="project__code"> /&gt; </span>
-          </div>
+            <div className="project__links project__hover project__alignCenter">
+              <span className="project__code"> &lt; </span>
+              <span className="project__tag"> &nbsp; View &nbsp;</span>
+              <span className="project__code"> /&gt; </span>
+            </div>
           </Link>
         )}
         <div className="project__description">{description}</div>
