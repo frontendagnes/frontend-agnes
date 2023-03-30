@@ -39,7 +39,7 @@ function UploadImage({ progress, preview, setPreview, setImage, image }) {
         color="success"
         variant="determinate"
         value={progress}
-        sx={{ height: "10px", borderRadius: "999px" }}
+        sx={{ height: "10px", borderRadius: "999px"}}
       />
       <div className="uploadImage__inputs">
         <input

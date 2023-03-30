@@ -3,7 +3,7 @@ import "./AddPhotoButton.css";
 // mui
 import { Button } from "@mui/material";
 import DoneIcon from "@mui/icons-material/Done";
-
+import SendIcon from "@mui/icons-material/Send";
 
 function AddPhotoButton({
   approvePhoto,
@@ -16,9 +16,13 @@ function AddPhotoButton({
     <div className="addPhotoButton">
       {progress < 100 ? (
         <Button
+          variant="contained"
+          endIcon={<SendIcon />}
+          color="secondary"
+          size="small"
           onClick={() => approvePhoto(image, progress, preview, setProgress)}
         >
-          Zatwierdź
+          Wyślij
         </Button>
       ) : (
         <DoneIcon

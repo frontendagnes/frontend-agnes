@@ -22,13 +22,14 @@ import Fieldset from "./Fieldset/Fieldset";
 import UploadImage from "./UploadImage/UploadImage";
 import AddPhotoButton from "./AddPhotoButton/AddPhotoButton";
 import ButtonBack from "../components/Global/ButtonBack/ButtonBack";
+import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
 //img
 import aPhoto from "../assets/images/open-graph.jpg";
 //mui
 import { Button, TextField } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import AddCardIcon from "@mui/icons-material/AddCard";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
+import SendIcon from "@mui/icons-material/Send";
 //data
 import { apiInfo, functionality, otherElements } from "./data.js";
 
@@ -98,101 +99,96 @@ function Questionare() {
   const history = useNavigate();
 
   const approvePhoto = (image, setProgress) => {
-    if (!image) {
-      dispatch({
-        type: "ALERT__ERROR",
-        item: `Żadne zdjęcie nie zostało dodane!`,
-      });
-      return;
-    }
-
-    const sotrageRef = ref(storage, `images/${image.name}`);
-    const uploadTask = uploadBytesResumable(sotrageRef, image);
-
-    uploadTask.on(
-      "state_changed",
-      (snapshot) => {
-        const prog = Math.round(
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-        );
-        setProgress(prog);
-      },
-      (error) => console.log("Error Photo", error),
-      () => {
-        getDownloadURL(uploadTask.snapshot.ref)
-          .then(async (url) => {
-            setPhotos([...photos, url]);
-          })
-          .catch((error) => console.log("Send Photo Error", error));
+      if (!image) {
+        dispatch({
+          type: "ALERT__ERROR",
+          item: `Żadne zdjęcie nie zostało dodane!`,
+        });
+        return;
       }
-    );
-  };
-
+  
+      const storageRef = ref(storage, `images/${image.name}`);
+      const uploadTask = uploadBytesResumable(storageRef, image);
+  
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          const progress = Math.round(
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          );
+          setProgress(progress);
+        },
+        (error) => console.log("Error Photo", error),
+        () => {
+          getDownloadURL(uploadTask.snapshot.ref)
+            .then(async (url) => {
+              setPhotos([...photos, url]);
+            })
+            .catch((error) => console.log("Send Photo Error", error));
+        }
+      );
+    };
+  //factoring chatgpt
   const uploadFiles = (file) => {
     if (!file) return;
 
-    const sotrageRef = ref(storage, `images/${file.name}`);
-    const uploadTask = uploadBytesResumable(sotrageRef, file);
+    const storageRef = ref(storage, `images/${file.name}`);
+    const uploadTask = uploadBytesResumable(storageRef, file);
 
     uploadTask.on(
       "state_changed",
       (snapshot) => {
-        const prog = Math.round(
+        const progress = Math.round(
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100
         );
-        setProgress(prog);
+        setProgress(progress);
       },
       (error) => console.log("snap>>", error),
-      () => {
-        getDownloadURL(uploadTask.snapshot.ref)
-          .then(async () => {
-            await addDoc(collection(db, "questionare"), {
-              timestamp: serverTimestamp(),
-              imageUrls: photos,
-              hosting: checkedApi,
-              functionality: checkedFunctionality,
-              elements: checkedElements,
-              area: areaField,
-              email: email,
-              name: name,
-            })
-              .then(() => {
-                dispatch({
-                  type: "ALERT_SUCCESS",
-                  item: `Ankieta została wysłana. Dziękuję ${
-                    name ? name : email
-                  }`,
-                });
-              })
-              .then(() => {
-                sendMail(
-                  "Wiadomość wysłane ze strony frontend-ganes.pl",
-                  "Właśnie złożyłeś zapytanie na stronie frontend-agnes.pl. Postaram się odpowiedzieć jak najszybciej zazwyczaj w ciągu 48h, jeżeli ten czas będzie miał sie przedłużyć poinformuję Cię o tym w osobnej wiadomości. pozdrawiam Agnieszka Kamińska",
-                  email
-                );
-                sendMail(
-                  "Nowe zapytanie w sprawie oferty",
-                  "Masz nowe zapytanie w sprawie oferty",
-                  process.env.REACT_APP_SMTP_USERNAME
-                );
-              })
-              .catch((error) =>
-                dispatch({
-                  type: "ALERT__ERROR",
-                  item: error.message,
-                })
-              );
-            setProgress(0);
-            setImage(null);
-            setAreaField("");
-            setEmail("");
-            setName("");
+      async () => {
+        const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+
+        await addDoc(collection(db, "questionare"), {
+          timestamp: serverTimestamp(),
+          imageUrls: photos,
+          hosting: checkedApi,
+          functionality: checkedFunctionality,
+          elements: checkedElements,
+          area: areaField,
+          email: email,
+          name: name,
+        })
+          .then(() => {
+            dispatch({
+              type: "ALERT_SUCCESS",
+              item: `Ankieta została wysłana. Dziękuję ${name ? name : email}`,
+            });
           })
-          .catch((error) => console.log(error.message));
+          .then(() => {
+            sendMail(
+              "Wiadomość wysłane ze strony frontend-ganes.pl",
+              "Właśnie złożyłeś zapytanie na stronie frontend-agnes.pl. Postaram się odpowiedzieć jak najszybciej zazwyczaj w ciągu 48h, jeżeli ten czas będzie miał sie przedłużyć poinformuję Cię o tym w osobnej wiadomości. pozdrawiam Agnieszka Kamińska",
+              email
+            );
+            sendMail(
+              "Nowe zapytanie w sprawie oferty",
+              "Masz nowe zapytanie w sprawie oferty",
+              process.env.REACT_APP_SMTP_USERNAME
+            );
+          })
+          .catch((error) =>
+            dispatch({
+              type: "ALERT__ERROR",
+              item: error.message,
+            })
+          );
+        setProgress(0);
+        setImage(null);
+        setAreaField("");
+        setEmail("");
+        setName("");
       }
     );
   };
-
   const formHandler = () => {
     const msg = validate(age, email);
     if (msg) {
@@ -311,7 +307,7 @@ function Questionare() {
           </div>
           <div className="questionare__uploadImage uploadImage">
             <Fieldset legend="Dodaj projekt graficzny strony">
-              <div className="questionare__wrapper">
+              <div className="questionare__photoWrapper">
                 <UploadImage
                   progress={progress}
                   preview={preview}
@@ -320,16 +316,19 @@ function Questionare() {
                   setImage={setImage}
                 />
                 <div className="questionare__buttonsGroup">
-                  {!imageVisibleOne ? (
-                    <AddCardIcon
-                      sx={{
-                        cursor: "pointer",
-                        fontSize: "36px",
-                        color: "#008000",
-                      }}
-                      onClick={() => setImageVisibleOne(true)}
-                    />
-                  ) : null}
+                  <div className="questionere__settingsBtn">
+                    {!imageVisibleOne ? (
+                      <AddPhotoAlternateIcon
+                        sx={{
+                          cursor: "pointer",
+                          fontSize: "36px",
+                          color: "#008000",
+                        }}
+                        titleAccess="Dodaj kolejne zdjęcie"
+                        onClick={() => setImageVisibleOne(true)}
+                      />
+                    ) : null}
+                  </div>
                   <AddPhotoButton
                     approvePhoto={() => approvePhoto(image, setProgress)}
                     image={image}
@@ -340,7 +339,7 @@ function Questionare() {
                 </div>
               </div>
               {imageVisibleOne ? (
-                <div className="questionare__wrapper">
+                <div className="questionare__photoWrapper">
                   <UploadImage
                     progress={progressOne}
                     preview={previewOne}
@@ -349,26 +348,30 @@ function Questionare() {
                     setImage={setImageOne}
                   />
                   <div className="questionare__buttonsGroup">
-                    {!imageVisibleTwo ? (
-                      <AddCardIcon
-                        sx={{
-                          cursor: "pointer",
-                          fontSize: "36px",
-                          color: "#008022",
-                        }}
-                        onClick={() => setImageVisibleTwo(true)}
-                      />
-                    ) : null}
-                    {progressOne < 100 ? (
-                      <RemoveCircleIcon
-                        onClick={() => setImageVisibleOne(false)}
-                        sx={{
-                          cursor: "pointer",
-                          fontSize: "36px",
-                          color: "#ff0000",
-                        }}
-                      />
-                    ) : null}
+                    <div className="questionere__settingsBtn">
+                      {!imageVisibleTwo ? (
+                        <AddPhotoAlternateIcon
+                          sx={{
+                            cursor: "pointer",
+                            fontSize: "36px",
+                            color: "#008022",
+                          }}
+                          titleAccess="Dodaj kolejne zdjęcie"
+                          onClick={() => setImageVisibleTwo(true)}
+                        />
+                      ) : null}
+                      {progressOne < 100 ? (
+                        <RemoveCircleIcon
+                          onClick={() => setImageVisibleOne(false)}
+                          sx={{
+                            cursor: "pointer",
+                            fontSize: "36px",
+                            color: "#ff0000",
+                          }}
+                          titleAccess="Usuń"
+                        />
+                      ) : null}
+                    </div>
                     <AddPhotoButton
                       approvePhoto={() =>
                         approvePhoto(imageOne, setProgressOne)
@@ -382,7 +385,7 @@ function Questionare() {
                 </div>
               ) : null}
               {imageVisibleTwo ? (
-                <div className="questionare__wrapper">
+                <div className="questionare__photoWrapper">
                   <UploadImage
                     progress={progressTwo}
                     preview={previewTwo}
@@ -393,16 +396,19 @@ function Questionare() {
                     setImage={setImageTwo}
                   />
                   <div className="questionare__buttonsGroup">
-                    {progressTwo < 100 ? (
-                      <RemoveCircleIcon
-                        onClick={() => setImageVisibleTwo(false)}
-                        sx={{
-                          cursor: "pointer",
-                          fontSize: "36px",
-                          color: "#ff0000",
-                        }}
-                      />
-                    ) : null}
+                    <div className="questionere__settingsBtn">
+                      {progressTwo < 100 ? (
+                        <RemoveCircleIcon
+                          onClick={() => setImageVisibleTwo(false)}
+                          sx={{
+                            cursor: "pointer",
+                            fontSize: "36px",
+                            color: "#ff0000",
+                          }}
+                          titleAccess="Usuń"
+                        />
+                      ) : null}
+                    </div>
                     <AddPhotoButton
                       approvePhoto={() =>
                         approvePhoto(imageTwo, setProgressTwo)
@@ -449,9 +455,14 @@ function Questionare() {
             onChange={(e) => setAge(e.target.value)}
           />
           <div className="questionere__button">
-            <FormButton type="button" onClick={formHandler}>
-              Wyślij
-            </FormButton>
+            <Button
+              variant="contained"
+              endIcon={<SendIcon />}
+              onClick={formHandler}
+              size="large"
+            >
+              Wyślij Fromularz
+            </Button>
           </div>
         </form>
       </div>

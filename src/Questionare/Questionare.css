@@ -45,6 +45,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-bottom: 20px;
 }
 
 .questionare__buttonsGroup{
@@ -68,6 +69,12 @@
 }
 .questionare__buttonsGroup>button:hover{
     background: #a4b0cc;
+}
+.questionere__settingsBtn{
+    flex: 1;
+}
+.questionere__settingsBtn svg{
+    margin-left: 20px;
 }
 .questionare__input {
     margin-bottom: 10px;

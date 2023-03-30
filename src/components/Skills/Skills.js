@@ -7,7 +7,7 @@ function Skills() {
   const [{ isEnglish }] = useStateValue();
   return (
     <div className="skills" name="information">
-      <h3>{!isEnglish ? "W czym mogę pomóc?" : "How I can help?"} </h3>
+      <h2>{!isEnglish ? "W czym mogę pomóc?" : "How I can help?"} </h2>
       <div className="skills__container">
         <Skill
           title="HTML, CSS"

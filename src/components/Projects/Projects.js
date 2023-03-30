@@ -10,7 +10,7 @@ function Projects() {
   const [{ reactIcon, pureIcons, isEnglish }] = useStateValue();
   return (
     <div className="projects" name="my-projects">
-      {!isEnglish ? <h3>Moje Projekty</h3> : <h3>My Projects</h3>}
+      <h2>{!isEnglish ? "Moje Projekty" : "My Projects"}</h2>
       <div className="projects__container">
         <Project
           icons={reactIcon}

@@ -10,7 +10,7 @@ html, body{
 html{
     scroll-behavior: smooth;
 }
-h3{
+h3,h2{
     color: #ffffff;
     font-size: 3rem;
     text-align: center;

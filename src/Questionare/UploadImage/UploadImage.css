@@ -1,3 +1,6 @@
+.uploadImage__image{
+    width: 100%;
+}
 .uploadImage__inputs{
     display: flex;
     justify-content: space-around;
@@ -23,8 +26,4 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 10px;
-
 }
-/* .uploadImage__preview{
-    margin-left: 10px;
-} */

@@ -7,10 +7,12 @@
     z-index: 2;
     height: 100%;
 }
+
 .navbar img {
     width: 100%;
     height: auto;
 }
+
 .navbar__link {
     display: flex;
     align-items: center;
@@ -22,9 +24,11 @@
     background: #3f4d70;
     transition: all 0.5s linear;
 }
-.navbar a:hover{
+
+.navbar a:hover {
     background: #1f2136;
 }
+
 .navbar__icon {
     background-color: #161827;
     padding: 10px 20px;
@@ -60,16 +64,20 @@
     transition: all 0.5s linear;
     cursor: pointer;
 }
-.navbar__lastLink{
+
+.navbar__lastLink {
     padding-top: 20px;
+
 }
-.navbar__horizontal{
+.navbar__horizontal {
     height: 200px;
 }
-.navbar__vertical{
+
+.navbar__vertical {
     height: 100%;
 }
-.navbar__null{
+
+.navbar__null {
     height: 0;
 }
 
@@ -107,7 +115,7 @@
         height: 100%;
     }
 
-    .navbar ul>li  {
+    .navbar ul>li {
         width: 30%;
         height: 60px;
     }

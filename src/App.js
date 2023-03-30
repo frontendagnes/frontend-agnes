@@ -15,8 +15,8 @@ import {
 // components
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
-// import Cookies from "./components/Cookies/Cookies";
-// const CookieInfo = lazy(() => import("./components/Cookies/CookieInfo"));
+import Cookies from "./components/Cookies/Cookies";
+const CookieInfo = lazy(() => import("./components/Cookies/CookieInfo"));
 const Snackbar = lazy(() => import("./components/Snackbar/Snackbar"));
 const PrintingResume = lazy(() =>
   import("./components/RosumeGenerator/PrintingResume/ProintingResume")
@@ -138,7 +138,7 @@ function App() {
             path="admin/details/:questionareId"
             element={<AdminDetails />}
           />
-          {/* <Route path="/cookie-info" element={<CookieInfo />} /> */}
+          <Route path="/cookie-info" element={<CookieInfo />} />
           <Route
             path="*"
             element={
@@ -152,7 +152,7 @@ function App() {
         <Snackbar />
       </Suspense>
 
-      {/* <Cookies /> */}
+      <Cookies />
     </div>
   );
 }

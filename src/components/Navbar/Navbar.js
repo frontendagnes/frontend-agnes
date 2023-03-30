@@ -132,7 +132,9 @@ function Navbar() {
           </li>
         ))}
         <li className="navbar__link navbar__lastLink">
-          {matches || matchesHeight ? null : <img src={logo} alt="logo" />}
+          {matches || matchesHeight ? null : (
+            <img src={logo} alt="logo" loading="lazy" />
+          )}
         </li>
       </ul>
     </nav>

@@ -8,7 +8,7 @@ function Home() {
   return (
     <div className="home" name="aboutme">
       <div className="home__container">
-        <h3>{isEnglish ? "Who I am?" : "Kim Jestem?"}</h3>
+        <h2>{isEnglish ? "Who I am?" : "Kim Jestem?"}</h2>
         <div className="home__bottom">
           <div>
             {isEnglish
@@ -21,7 +21,7 @@ function Home() {
               Mam bardzo duży zapał do pracy, pasję i umiejętność szybkiego
               uczenia się.`}
           </div>
-          <img src={photo} alt="Agnieszka Kamińska" />
+          <img src={photo} alt="Agnieszka Kamińska" name="My Photo"loading="lazy"/>
         </div>
       </div>
     </div>
