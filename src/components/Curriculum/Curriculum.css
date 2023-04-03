@@ -5,3 +5,11 @@
 .curriculum__top {
     padding-top: 20px;
 }
+
+.curriculum__print{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: #3f4d70;
+}

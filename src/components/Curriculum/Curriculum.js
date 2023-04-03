@@ -3,6 +3,9 @@ import "./Curriculum.css";
 import useKeypress from "react-use-keypress";
 import { useReactToPrint } from "react-to-print";
 import photo from "../../assets/images/me-id.jpg";
+//mui
+import PrintIcon from "@mui/icons-material/Print";
+import Button from "@mui/material/Button";
 //components
 import Tagline from "./Tagline/Tagline";
 import ButtonBack from "../Global/ButtonBack/ButtonBack";
@@ -11,41 +14,11 @@ import CurriculumPoint from "./CurriculumPoint/CurriculumPoint";
 import ContainerPrint from "../Global/ContainerPrint/ContainerPrint";
 import ContainerContent from "../Global/ContainerContent/ContainerContent";
 import Clause from "../Global/Clause";
+//data
+import { arr } from "./mySkills";
 
 function Curriculum() {
   const [key, setKey] = useState(false);
-  const [skills, setSkills] = useState([
-    "Prawo jazdy kat. B",
-    "Umiejętność pracy w zespole",
-    "Komunikatywność",
-    "Kreatywność",
-    "Dociekliwość i chęć rozwoju zawodowego",
-    "Implementowanie responsywnych interfejsów użytkownika",
-    "Znajomość HTML i CSS",
-    "Znajomość frameworka REACT",
-  ]);
-  const [alianz, setAlianz] = useState([
-    "Finalizowanie sprzedaży ubezpieczeń",
-    "Budowanie długoterminowej relacji z klientem",
-    "Negocjowanie warunków oraz podpisywanie umów",
-    "Dopasowanie produktów do potrzeb i oczekiwań klientów",
-    "Realizacja indywidualnych planów sprzedaży, aktywne pozyskiwanie klientów",
-    "Przedstawianie ofert ubezpieczeniowych zgodnie z oczekiwaniami odbiorcy",
-    "Kontakt z klientami",
-  ]);
-  const [atom, setAtom] = useState([
-    "Prowadzenie dokumentacji związanej z zatrudnianiem pracowników",
-    "Współpraca z US i ZUS",
-    "Księgowanie faktur zakupu i kontrola obiegu dokumentów",
-    "Przygotowywanie deklaracji PIT, VAT, ZUS",
-  ]);
-  const [agnes, setAgnes] = useState([
-    "Tworzenie strony internetowej (sklepu) do obsługi klienta(HTML, CSS, JavaScript)",
-    "Praca z oprogramowaniem do obsługi sklepu KQS",
-    "Współpraca z US i ZUS",
-    "Kontakty z klientami w celu uzgodnienia warunków umowy oraz finalizacji zamówień",
-    "Przygotowywanie deklaracji PIT, VAT, ZUS",
-  ]);
 
   useKeypress("v", () => {
     setKey(!key);
@@ -63,13 +36,10 @@ function Curriculum() {
         <ButtonBack />
       </div>
       {key ? (
-        <button
-          className="button__pritingtopdf"
-          type="button"
-          onClick={handlePrint}
-        >
-          Drukuj
-        </button>
+        <div className="curriculum__print" onClick={handlePrint}>
+          <Button>Drukuj</Button>
+          <PrintIcon />
+        </div>
       ) : null}
 
       <ContainerCvs identifier="akprinttopdf" ref={printRefmy}>
@@ -77,7 +47,7 @@ function Curriculum() {
           job="Junior Frontend Developer"
           email="frontendagnes@gmail.com"
           phone="603430340"
-          skills={skills}
+          skills={arr.skills}
           photo={photo}
           myCv
         />
@@ -92,19 +62,19 @@ function Curriculum() {
               data="2008-11 - 2010-03"
               title="Agent Ubezpieczeniowy Allianz"
               content="AK Agnieszka Kamińska, Wojcieszów (Agencja AWA s.c. Jelenia Góra)"
-              arr={alianz}
+              arr={arr.alianz}
             />
             <CurriculumPoint
               data="2011-06 - 2012-02"
               title="Księgowa"
               content="ATOM Maria Syrek, Sokołowiec"
-              arr={atom}
+              arr={arr.atom}
             />
             <CurriculumPoint
               data="2012-03 - 2021-12"
               title="Właściciel Jednoosobowa Działalność Gospodarcza"
               content="AGNES Agnieszka Kamińska (księgarnia internetowa), Wojcieszów"
-              arr={agnes}
+              arr={arr.agnes}
             />
           </ContainerPrint>
           <ContainerPrint title="Wykrztałcenie">
