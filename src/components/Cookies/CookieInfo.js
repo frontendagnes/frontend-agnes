@@ -2,71 +2,79 @@ import React from "react";
 import "./Cookies.css";
 import { useStateValue } from "../../assets/utility/StateProvider";
 import CookieIcon from "@mui/icons-material/Cookie";
-import ButtonBack from "../Global/ButtonBack/ButtonBack"
+//components
+import Header from "../Header/Header";
+import ButtonBack from "../Global/ButtonBack/ButtonBack";
 function CookieInfo() {
   const [{ isEnglish }] = useStateValue();
   return (
     <div>
-        <ButtonBack />
+      <Header />
+      <ButtonBack />
       {!isEnglish ? (
         <div className="cookiesInfo">
           <div className="cookiesInfo__header">
             <h2>Polityka Ciasteczek</h2>
-            <CookieIcon sx={{ fontSize: "56px", color: "#3f4d70" }} />
+            <CookieIcon sx={{ fontSize: "62px", color: "#3f4d70" }} />
           </div>
-          <div>
-            Strona internetowa{" "}
-            <strong>
-              <a href="https://frontend-agnes.pl">https://frontend-agnes.pl</a>{" "}
-            </strong>
-            nie zbiera w sposób automatyczny żadnych informacji, z wyjątkiem
-            informacji zawartych w plikach cookies. Pliki cookies (tzw.
-            „ciasteczka”) stanowią dane informatyczne, w szczególności pliki
-            tekstowe, które przechowywane są w urządzeniu końcowym Użytkownika
-            Serwisu i przeznaczone są do korzystania ze stron internetowych
-            Serwisu. Cookies zazwyczaj zawierają nazwę strony internetowej, z
-            której pochodzą, czas przechowywania ich na urządzeniu końcowym oraz
-            unikalny numer. Podmiotem zamieszczającym na urządzeniu końcowym
-            Użytkownika Serwisu pliki cookies oraz uzyskującym do nich dostęp
-            jest operator Serwisu z siedzibą pod adresem Sadowa 4, 59-550
-            Wojcieszów.
-            <p>Pliki cookies wykorzystywane są w celu:</p>
-            dostosowania zawartości stron internetowych Serwisu do preferencji
-            Użytkownika oraz optymalizacji korzystania ze stron internetowych; w
-            szczególności pliki te pozwalają rozpoznać urządzenie Użytkownika
-            Serwisu i odpowiednio wyświetlić stronę internetową, dostosowaną do
-            jego indywidualnych potrzeb; tworzenia statystyk, które pomagają
-            zrozumieć, w jaki sposób Użytkownicy Serwisu korzystają ze stron
-            internetowych, co umożliwia ulepszanie ich struktury i zawartości;
-            utrzymanie sesji Użytkownika Serwisu (po zalogowaniu), dzięki której
-            Użytkownik nie musi na każdej podstronie Serwisu ponownie wpisywać
-            loginu i hasła; W ramach Serwisu stosowane są dwa zasadnicze rodzaje
-            plików cookies: „sesyjne” (session cookies) oraz „stałe” (persistent
-            cookies). Cookies „sesyjne” są plikami tymczasowymi, które
-            przechowywane są w urządzeniu końcowym Użytkownika do czasu
-            wylogowania, opuszczenia strony internetowej lub wyłączenia
-            oprogramowania (przeglądarki internetowej). „Stałe” pliki cookies
-            przechowywane są w urządzeniu końcowym Użytkownika przez czas
-            określony w parametrach plików cookies lub do czasu ich usunięcia
-            przez Użytkownika. W ramach Serwisu stosowane są „niezbędne” pliki
-            cookies, umożliwiające korzystanie z usług dostępnych w ramach
-            Serwisu, np. uwierzytelniające pliki cookies wykorzystywane do usług
-            wymagających uwierzytelniania w ramach Serwisu; W wielu przypadkach
-            oprogramowanie służące do przeglądania stron internetowych
-            (przeglądarka internetowa) domyślnie dopuszcza przechowywanie plików
-            cookies w urządzeniu końcowym Użytkownika. Użytkownicy Serwisu mogą
-            dokonać w każdym czasie zmiany ustawień dotyczących plików cookies.
-            Ustawienia te mogą zostać zmienione w szczególności w taki sposób,
-            aby blokować automatyczną obsługę plików cookies w ustawieniach
-            przeglądarki internetowej bądź informować o ich każdorazowym
-            zamieszczeniu w urządzeniu Użytkownika Serwisu. Szczegółowe
-            informacje o możliwości i sposobach obsługi plików cookies dostępne
-            są w ustawieniach oprogramowania (przeglądarki internetowej).
-            Operator Serwisu informuje, że ograniczenia stosowania plików
-            cookies mogą wpłynąć na niektóre funkcjonalności dostępne na
-            stronach internetowych Serwisu. Więcej informacji na temat plików
-            cookies dostępnych jest w sekcji „Pomoc” w menu przeglądarki
-            internetowej.
+          <div className="cookiesInfo__body">
+            <div>
+              Strona internetowa{" "}
+              <strong>
+                <a href="https://frontend-agnes.pl">
+                  https://frontend-agnes.pl
+                </a>{" "}
+              </strong>
+              nie zbiera w sposób automatyczny żadnych informacji, z wyjątkiem
+              informacji zawartych w plikach cookies. Pliki cookies (tzw.
+              „ciasteczka”) stanowią dane informatyczne, w szczególności pliki
+              tekstowe, które przechowywane są w urządzeniu końcowym Użytkownika
+              Serwisu i przeznaczone są do korzystania ze stron internetowych
+              Serwisu. Cookies zazwyczaj zawierają nazwę strony internetowej, z
+              której pochodzą, czas przechowywania ich na urządzeniu końcowym
+              oraz unikalny numer. Podmiotem zamieszczającym na urządzeniu
+              końcowym Użytkownika Serwisu pliki cookies oraz uzyskującym do
+              nich dostęp jest operator Serwisu z siedzibą pod adresem Sadowa 4,
+              59-550 Wojcieszów.
+              <p>Pliki cookies wykorzystywane są w celu:</p>
+              dostosowania zawartości stron internetowych Serwisu do preferencji
+              Użytkownika oraz optymalizacji korzystania ze stron internetowych;
+              w szczególności pliki te pozwalają rozpoznać urządzenie
+              Użytkownika Serwisu i odpowiednio wyświetlić stronę internetową,
+              dostosowaną do jego indywidualnych potrzeb; tworzenia statystyk,
+              które pomagają zrozumieć, w jaki sposób Użytkownicy Serwisu
+              korzystają ze stron internetowych, co umożliwia ulepszanie ich
+              struktury i zawartości; utrzymanie sesji Użytkownika Serwisu (po
+              zalogowaniu), dzięki której Użytkownik nie musi na każdej
+              podstronie Serwisu ponownie wpisywać loginu i hasła; W ramach
+              Serwisu stosowane są dwa zasadnicze rodzaje plików cookies:
+              „sesyjne” (session cookies) oraz „stałe” (persistent cookies).
+              Cookies „sesyjne” są plikami tymczasowymi, które przechowywane są
+              w urządzeniu końcowym Użytkownika do czasu wylogowania,
+              opuszczenia strony internetowej lub wyłączenia oprogramowania
+              (przeglądarki internetowej). „Stałe” pliki cookies przechowywane
+              są w urządzeniu końcowym Użytkownika przez czas określony w
+              parametrach plików cookies lub do czasu ich usunięcia przez
+              Użytkownika. W ramach Serwisu stosowane są „niezbędne” pliki
+              cookies, umożliwiające korzystanie z usług dostępnych w ramach
+              Serwisu, np. uwierzytelniające pliki cookies wykorzystywane do
+              usług wymagających uwierzytelniania w ramach Serwisu; W wielu
+              przypadkach oprogramowanie służące do przeglądania stron
+              internetowych (przeglądarka internetowa) domyślnie dopuszcza
+              przechowywanie plików cookies w urządzeniu końcowym Użytkownika.
+              Użytkownicy Serwisu mogą dokonać w każdym czasie zmiany ustawień
+              dotyczących plików cookies. Ustawienia te mogą zostać zmienione w
+              szczególności w taki sposób, aby blokować automatyczną obsługę
+              plików cookies w ustawieniach przeglądarki internetowej bądź
+              informować o ich każdorazowym zamieszczeniu w urządzeniu
+              Użytkownika Serwisu. Szczegółowe informacje o możliwości i
+              sposobach obsługi plików cookies dostępne są w ustawieniach
+              oprogramowania (przeglądarki internetowej). Operator Serwisu
+              informuje, że ograniczenia stosowania plików cookies mogą wpłynąć
+              na niektóre funkcjonalności dostępne na stronach internetowych
+              Serwisu. Więcej informacji na temat plików cookies dostępnych jest
+              w sekcji „Pomoc” w menu przeglądarki internetowej.
+            </div>
           </div>
         </div>
       ) : (

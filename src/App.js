@@ -138,7 +138,7 @@ function App() {
             path="admin/details/:questionareId"
             element={<AdminDetails />}
           />
-          <Route path="/cookie-info" element={<CookieInfo />} />
+          <Route path="/cookies-info" element={<CookieInfo />} />
           <Route
             path="*"
             element={
@@ -151,8 +151,7 @@ function App() {
         </Routes>
         <Snackbar />
       </Suspense>
-
-      <Cookies />
+        <Cookies />
     </div>
   );
 }

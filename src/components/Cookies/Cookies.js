@@ -2,7 +2,7 @@ import React from "react";
 import "./Cookies.css";
 import CookieConsent from "react-cookie-consent";
 import { useStateValue } from "../../assets/utility/StateProvider";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 function Cookies() {
   const [{ isEnglish }] = useStateValue();
   return (
@@ -26,12 +26,13 @@ function Cookies() {
       {!isEnglish ? (
         <div className="cookie">
           Strona wykorzystuje pliki cookies. Korzystając ze strony wyrażasz
-          zgodę na wykorzystywanie plików cookies, <Link to="/cookie-info">czytaj...</Link>
+          zgodę na wykorzystywanie plików cookies,{" "}
+          <Link to="/cookies-info">czytaj...</Link>
         </div>
       ) : (
         <div className="cookie">
           This site uses cookies. By using the site you agree to the use of
-          cookies, <Link to="/cookie-info">more...</Link>
+          cookies, <Link to="/cookies-info">more...</Link>
         </div>
       )}
     </CookieConsent>
