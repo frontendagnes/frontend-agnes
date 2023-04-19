@@ -151,7 +151,7 @@ function App() {
         </Routes>
         <Snackbar />
       </Suspense>
-        <Cookies />
+      <Cookies />
     </div>
   );
 }

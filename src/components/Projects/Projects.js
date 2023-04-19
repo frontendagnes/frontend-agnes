@@ -1,8 +1,10 @@
 import React from "react";
 import "./Projects.css";
 import { useStateValue } from "../../assets/utility/StateProvider";
-import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+//components
 import Project from "../Project/Project";
+import Bottom from "./Bottom";
+import Title from "../../Global/Title/Title";
 //images
 import reactAll from "../../assets/images/react-all.webp";
 import jsAll from "../../assets/images/ja-all.webp";
@@ -10,7 +12,7 @@ function Projects() {
   const [{ reactIcon, pureIcons, isEnglish }] = useStateValue();
   return (
     <div className="projects" name="my-projects">
-      <h2>{!isEnglish ? "Moje Projekty" : "My Projects"}</h2>
+      <Title polish="Moje Pojekty" english="My Projects" />
       <div className="projects__container">
         <Project
           icons={reactIcon}
@@ -36,15 +38,7 @@ function Projects() {
         />
       </div>
       <div className="projects__bottom">
-        <a
-          href="https://github.com/frontendagnes?tab=repositories"
-          alt="All Projects"
-        >
-          <div title="Kliknięcie przeniesie Cię na stronę GitHub">
-            <ArrowDownwardIcon sx={{ fontSize: 80 }} />
-            <p>More..</p>
-          </div>
-        </a>
+        <Bottom />
       </div>
     </div>
   );

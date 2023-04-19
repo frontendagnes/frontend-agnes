@@ -2,13 +2,13 @@ import React from "react";
 import "./Home.css";
 import { useStateValue } from "../../assets/utility/StateProvider";
 import photo from "../../assets/images/me.jpg";
-
+import Title from "../../Global/Title/Title";
 function Home() {
   const [{ isEnglish }] = useStateValue();
   return (
     <div className="home" name="aboutme">
       <div className="home__container">
-        <h2>{isEnglish ? "Who I am?" : "Kim Jestem?"}</h2>
+        <Title polish="Kim Jestem" english="Who I am" />
         <div className="home__bottom">
           <div>
             {isEnglish
@@ -21,7 +21,12 @@ function Home() {
               Mam bardzo duży zapał do pracy, pasję i umiejętność szybkiego
               uczenia się.`}
           </div>
-          <img src={photo} alt="Agnieszka Kamińska" name="My Photo"loading="lazy"/>
+          <img
+            src={photo}
+            alt="Agnieszka Kamińska"
+            name="My Photo"
+            loading="lazy"
+          />
         </div>
       </div>
     </div>

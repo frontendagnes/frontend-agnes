@@ -24,7 +24,13 @@ function Project({
       </div>
       <div className="project__middle">
         <Link to={url} name={url}>
-          <img src={img} alt={url} name="contact" className="project__image" loading="lazy"/>
+          <img
+            src={img}
+            alt={url}
+            name="contact"
+            className="project__image"
+            loading="lazy"
+          />
         </Link>
       </div>
       <div className="project__bottom">

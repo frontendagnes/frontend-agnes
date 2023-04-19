@@ -10,13 +10,6 @@ html, body{
 html{
     scroll-behavior: smooth;
 }
-h3,h2{
-    color: #ffffff;
-    font-size: 3rem;
-    text-align: center;
-    padding-top: 60px;
-    letter-spacing: 5px;
-}
 .app{
     height: 100%;
 }
@@ -45,10 +38,5 @@ h3,h2{
 @media screen and (max-height: 700px){
     .app__container{
         width: 100%;
-    }
-}
-@media screen and (max-width:500px){
-    h3{
-        font-size: 2rem;
     }
 }

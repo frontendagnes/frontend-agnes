@@ -1,13 +1,15 @@
 import React from "react";
 import "./Skills.css";
-import Skill from "../Skill/Skill";
 import { useStateValue } from "../../assets/utility/StateProvider";
 import { Link } from "react-router-dom";
+//components
+import Skill from "../Skill/Skill";
+import Title from "../../Global/Title/Title";
 function Skills() {
   const [{ isEnglish }] = useStateValue();
   return (
     <div className="skills" name="information">
-      <h2>{!isEnglish ? "W czym mogę pomóc?" : "How I can help?"} </h2>
+      <Title polish="W czym mogę pomóc" english="How i can help" />
       <div className="skills__container">
         <Skill
           title="HTML, CSS"
