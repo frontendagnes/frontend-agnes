@@ -2,8 +2,8 @@ import React from "react";
 import "./JsProjects.css";
 import { useStateValue } from "../../assets/utility/StateProvider";
 //components
-import Container from "../Global/Container/Container";
-import ButtonBack from "../Global/ButtonBack/ButtonBack";
+import Container from "../../Global/Container/Container";
+import ButtonBack from "../../Global/ButtonBack/ButtonBack";
 import Project from "../Project/Project";
 //images
 import slider from "../../assets/images/slider.webp";
@@ -12,6 +12,7 @@ import site from "../../assets/images/challenge5.webp";
 import snake from "../../assets/images/snake.webp";
 import tictactoe from "../../assets/images/tictactoe.webp";
 import memory from "../../assets/images/memory.webp";
+
 function JsProjects() {
   const [{ pureIcons }] = useStateValue();
   return (

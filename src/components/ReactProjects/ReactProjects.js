@@ -2,8 +2,8 @@ import React from "react";
 import "./ReactProjects.css";
 import { useStateValue } from "../../assets/utility/StateProvider";
 import Project from "../Project/Project";
-import Container from "../Global/Container/Container";
-import ButtonBack from "../Global/ButtonBack/ButtonBack";
+import Container from "../../Global/Container/Container";
+import ButtonBack from "../../Global/ButtonBack/ButtonBack";
 //images
 import fbClone from "../../assets/images/fb-clone.webp";
 import instaClone from "../../assets/images/instagram-clone.webp";

@@ -8,12 +8,12 @@ import PrintIcon from "@mui/icons-material/Print";
 import Button from "@mui/material/Button";
 //components
 import Tagline from "./Tagline/Tagline";
-import ButtonBack from "../Global/ButtonBack/ButtonBack";
-import ContainerCvs from "../Global/ConatinerCvs/ContainerCvs";
+import ButtonBack from "../../Global/ButtonBack/ButtonBack";
+import ContainerCvs from "../../Global/ConatinerCvs/ContainerCvs";
 import CurriculumPoint from "./CurriculumPoint/CurriculumPoint";
-import ContainerPrint from "../Global/ContainerPrint/ContainerPrint";
-import ContainerContent from "../Global/ContainerContent/ContainerContent";
-import Clause from "../Global/Clause";
+import ContainerPrint from "../../Global/ContainerPrint/ContainerPrint";
+import ContainerContent from "../../Global/ContainerContent/ContainerContent";
+import Clause from "../../Global/Clause";
 //data
 import { arr } from "./mySkills";
 

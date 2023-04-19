@@ -21,7 +21,7 @@ import QuestionareModule from "./QuestionareModule/QuestionareModule";
 import Fieldset from "./Fieldset/Fieldset";
 import UploadImage from "./UploadImage/UploadImage";
 import AddPhotoButton from "./AddPhotoButton/AddPhotoButton";
-import ButtonBack from "../components/Global/ButtonBack/ButtonBack";
+import ButtonBack from "../Global/ButtonBack/ButtonBack";
 import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
 //img
 import aPhoto from "../assets/images/open-graph.jpg";

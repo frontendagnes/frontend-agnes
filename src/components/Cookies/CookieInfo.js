@@ -4,7 +4,7 @@ import { useStateValue } from "../../assets/utility/StateProvider";
 import CookieIcon from "@mui/icons-material/Cookie";
 //components
 import Header from "../Header/Header";
-import ButtonBack from "../Global/ButtonBack/ButtonBack";
+import ButtonBack from "../../Global/ButtonBack/ButtonBack";
 function CookieInfo() {
   const [{ isEnglish }] = useStateValue();
   return (

@@ -38,7 +38,7 @@ const AdminDetails = lazy(() =>
   import("./Administrator/AdminDetails/AdminDetails.js")
 );
 function App() {
-  const [{ user, adminData }, dispatch] = useStateValue();
+  const [{ user }, dispatch] = useStateValue();
   useEffect(() => {
     const authUser = onAuthStateChanged(auth, (authUser) => {
       if (authUser) {

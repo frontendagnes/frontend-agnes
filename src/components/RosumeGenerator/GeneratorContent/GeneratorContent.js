@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 //components
 import AddForm from "../AddForm/AddForm";
 import CurriculumPoint from "../../Curriculum/CurriculumPoint/CurriculumPoint";
-import TabGenerator from "../../Global/TabGenerator/TabGenerator";
+import TabGenerator from "../../../Global/TabGenerator/TabGenerator";
 import GeneratorSidebar from "../GeneratorSidebar/GeneratorSidebar";
 function GeneratorContent({
   point,

@@ -1,12 +1,13 @@
-.curriculum{
+.curriculum {
     background: #e7e7e7fa;
     padding-top: 50px;
 }
+
 .curriculum__top {
     padding-top: 20px;
 }
 
-.curriculum__print{
+.curriculum__print {
     display: flex;
     justify-content: center;
     align-items: center;

@@ -5,7 +5,7 @@ import { useStateValue } from "../../../assets/utility/StateProvider";
 import { useNavigate } from "react-router-dom";
 //components
 import GeneratorContent from "../GeneratorContent/GeneratorContent";
-import ButtonBack from "../../Global/ButtonBack/ButtonBack";
+import ButtonBack from "../../../Global/ButtonBack/ButtonBack";
 import ValidationError from "../ValidatinError/ValidationError";
 // mui
 import Button from '@mui/material/Button';

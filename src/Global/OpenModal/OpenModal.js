@@ -1,7 +1,7 @@
 import React from "react";
 import "./OpenModal.css";
 import Modal from "@mui/material/Modal";
-function OpenModal( {text, handleClickNo, handleClickYes, open, setOpen} ) {
+function OpenModal( {text, handleClickNo, handleClickYes, open } ) {
 
   return (
     <Modal open={open}>

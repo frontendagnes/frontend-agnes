@@ -4,14 +4,14 @@ import { useStateValue } from "../../../assets/utility/StateProvider";
 import { useReactToPrint } from "react-to-print";
 import { useNavigate } from "react-router-dom";
 //components
-import ContainerCvs from "../../Global/ConatinerCvs/ContainerCvs";
+import ContainerCvs from "../../../Global/ConatinerCvs/ContainerCvs";
 import Tagline from "../../Curriculum/Tagline/Tagline";
 import CurriculumPoint from "../../Curriculum/CurriculumPoint/CurriculumPoint";
-import ContainerPrint from "../../Global/ContainerPrint/ContainerPrint";
-import ContainerContent from "../../Global/ContainerContent/ContainerContent";
-import Clause from "../../Global/Clause";
-import OpenModal from "../../Global/OpenModal/OpenModal";
-import ButtonBack from "../../Global/ButtonBack/ButtonBack";
+import ContainerPrint from "../../../Global/ContainerPrint/ContainerPrint";
+import ContainerContent from "../../../Global/ContainerContent/ContainerContent";
+import Clause from "../../../Global/Clause";
+import OpenModal from "../../../Global/OpenModal/OpenModal";
+import ButtonBack from "../../../Global/ButtonBack/ButtonBack";
 
 function PrintingResume() {
   const history = useNavigate();
