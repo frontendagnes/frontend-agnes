@@ -64,7 +64,9 @@
     transition: all 0.5s linear;
     cursor: pointer;
 }
-
+.navabar__activeLink{
+    background: #1f2136;
+}
 .navbar__lastLink {
     padding-top: 20px;
 
