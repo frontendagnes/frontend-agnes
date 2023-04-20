@@ -25,45 +25,6 @@
     letter-spacing: 2px;
 }
 
-.generatorsidebar__addSkill {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.generatorsidebar__photo {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    padding: 20px 0 20px 0;
-    background-color: #fafafa;
-    position: relative;
-}
-
-.generatorsidebar__photo img {
-    width: 200px;
-    cursor: pointer;
-}
-
-.generatorsidebar__avatar>div {
-    position: absolute;
-    z-index: 10;
-}
-
-.generatorsidebar__addButton {
-    cursor: pointer;
-    height: 100px;
-    width: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #797979;
-    color: #ffffff;
-    border-radius: 5px;
-}
-
 .generatorsidebar ul {
     list-style-type: none;
 }

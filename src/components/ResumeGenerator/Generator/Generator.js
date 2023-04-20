@@ -7,29 +7,12 @@ import { useNavigate } from "react-router-dom";
 import GeneratorContent from "../GeneratorContent/GeneratorContent";
 import ButtonBack from "../../../Global/ButtonBack/ButtonBack";
 import ValidationError from "../ValidatinError/ValidationError";
+import { validate } from "./vialidate";
 // mui
-import Button from '@mui/material/Button';
+import Button from "@mui/material/Button";
 
-const validate = (name, phone, email, point, education) => {
-  if (!name) {
-    return "Wpisz imię i nazwisko";
-  }
-  if (!email) {
-    return "Wpisz adres email";
-  } else if (!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(email)) {
-    return "Zły format e-mail";
-  }
-  if (!phone) {
-    return "Wpisz numer telefonu";
-  }
-  if (!point.length) {
-    return "Sprawdź czy dodałeś doświadczenie ";
-  }
-  if (!education.length) {
-    return "Sprawdź czy dodałeś szkołę";
-  }
-};
 function Generator() {
+  // eslint-disable-next-line
   const [{ cvs }, dispatch] = useStateValue();
 
   const [error, setError] = useState("");
@@ -97,7 +80,7 @@ function Generator() {
         />
       </div>
       <div className="generator__button">
-        <Button sx={{fontSize: "18px"}} onClick={addResume}>
+        <Button sx={{ fontSize: "18px" }} onClick={addResume}>
           Utwórz CV
         </Button>
       </div>

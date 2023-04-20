@@ -2,30 +2,16 @@ import React, { useState, useEffect } from "react";
 import "./AddForm.css";
 //mui
 import TextField from "@mui/material/TextField";
-import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
-import AddIcon from "@mui/icons-material/Add";
-import Button from '@mui/material/Button';
+import Button from "@mui/material/Button";
 
 import { index } from "../../../assets/utility/functions";
 import { useStateValue } from "../../../assets/utility/StateProvider";
 import { removeSkill } from "../../../assets/utility/functions";
 //components
 import ValidationError from "../ValidatinError/ValidationError";
-
-const validate = (dateStart, title, workplace) => {
-  if (!dateStart) {
-    return "Sprawdź datę rozpoczęcia";
-  }
-
-  if (!title) {
-    return "Sprawdź nazwę";
-  }
-  if (!workplace) {
-    return "Sprawdź miejsce";
-  }
-
-  return null;
-};
+import SkillItem from "../SkillItem/SkillItem";
+import AddSkill from "../AddSkill/AddSkill";
+import { validate } from "./validate";
 
 function AddForm({
   setPoint,
@@ -46,6 +32,7 @@ function AddForm({
   const [skill, setSkill] = useState("");
   const [skills, setSkills] = useState([]);
   const [error, setError] = useState("");
+  // eslint-disable-next-line
   const [{ alert }, dispatch] = useStateValue();
 
   useEffect(() => {
@@ -159,38 +146,25 @@ function AddForm({
               fullWidth
             />
           </div>
-          <div className="addform__skills">
-            <div className="addform__input">
-              <TextField
-                placeholder={placeholdSkill}
-                id="outlined-basic"
-                label="Wpisz nabyte umiejętności po kolei (opcjonalne)"
-                variant="outlined"
-                value={skill}
-                onChange={(e) => setSkill(e.target.value)}
-                fullWidth
-              />
-            </div>
-            <AddIcon
-              className="addform__addButton"
-              fontSize="large"
-              sx={{color: "#5a71aa"}}
-              onClick={addSkill}
-            />
-          </div>
+          <AddSkill
+            placeholder={placeholdSkill}
+            addSkill={addSkill}
+            skill={skill}
+            setSkill={setSkill}
+          />
           <div className="addform__descriptions">
             <ul className="addform__description">
               {skills?.map((item, index) => (
-                <li key={index}>
-                  <span>{item}</span>
-                  <RemoveCircleIcon
-                    color="error"
-                    onClick={() => removeSkill(index, skills, setSkills)}
-                  />
-                </li>
+                <SkillItem
+                  key={index}
+                  index={index}
+                  item={item}
+                  skills={skill}
+                  setSkills={setSkills}
+                  removeSkill={() => removeSkill(index, skills, setSkills)}
+                />
               ))}
             </ul>
-            <p></p>
           </div>
         </div>
         <div className="addform__buttons">
