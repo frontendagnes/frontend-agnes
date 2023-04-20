@@ -1,12 +1,9 @@
 import React from "react";
 
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
-function Bottom() {
+function Bottom({ href }) {
   return (
-    <a
-      href="https://github.com/frontendagnes?tab=repositories"
-      alt="All Projects"
-    >
+    <a href={href} alt="All Projects">
       <div title="Kliknięcie przeniesie Cię na stronę GitHub">
         <ArrowDownwardIcon sx={{ fontSize: 80 }} />
         <p>More..</p>

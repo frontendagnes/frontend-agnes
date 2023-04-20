@@ -38,7 +38,7 @@ function Projects() {
         />
       </div>
       <div className="projects__bottom">
-        <Bottom />
+        <Bottom href="https://github.com/frontendagnes?tab=repositories" />
       </div>
     </div>
   );

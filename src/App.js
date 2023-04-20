@@ -19,7 +19,7 @@ import Cookies from "./components/Cookies/Cookies";
 const CookieInfo = lazy(() => import("./components/Cookies/CookieInfo"));
 const Snackbar = lazy(() => import("./components/Snackbar/Snackbar"));
 const PrintingResume = lazy(() =>
-  import("./components/RosumeGenerator/PrintingResume/ProintingResume")
+  import("./components/ResumeGenerator/PrintingResume/ProintingResume")
 );
 const ReactProjects = lazy(() =>
   import("./components/ReactProjects/ReactProjects")
@@ -29,7 +29,7 @@ const JsProjects = lazy(() => import("./components/JsProjects/JsProjects"));
 const Curriculum = lazy(() => import("./components/Curriculum/Curriculum"));
 const NoMatch = lazy(() => import("./components/NoMatch/NoMatch"));
 const Generator = lazy(() =>
-  import("./components/RosumeGenerator/Generator/Generator")
+  import("./components/ResumeGenerator/Generator/Generator")
 );
 const Questionare = lazy(() => import("./Questionare/Questionare"));
 const Admin = lazy(() => import("./Administrator/Admin.js"));

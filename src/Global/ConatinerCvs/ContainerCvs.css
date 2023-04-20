@@ -1,14 +1,13 @@
-.containercvs{
+.containercvs {
     display: flex;
     justify-content: center;
 
 }
-.containercvs__wrapper{
+
+.containercvs__wrapper {
     box-sizing: border-box;
-    /* width: 595px; */
     width: 794px;
-    /* min-height: 1123px; */
-    min-height: 842px;
+    min-height: 1123px;
     height: 100%;
     display: flex;
     flex-flow: row-reverse wrap;
