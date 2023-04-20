@@ -3,7 +3,6 @@ import "./UploadImage.css";
 //mui
 import { LinearProgress } from "@mui/material";
 import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
-import DeleteIcon from "@mui/icons-material/Delete";
 import ChangeCircleIcon from "@mui/icons-material/ChangeCircle";
 function UploadImage({ progress, preview, setPreview, setImage, image }) {
   useEffect(() => {
@@ -16,8 +15,6 @@ function UploadImage({ progress, preview, setPreview, setImage, image }) {
     } else {
       setPreview(null);
     }
-    // console.log("ImageUP", image)
-    // console.log("PreviewUP", preview)
   }, [image, setPreview, preview]);
 
   const fileImgRef = useRef();
@@ -39,7 +36,7 @@ function UploadImage({ progress, preview, setPreview, setImage, image }) {
         color="success"
         variant="determinate"
         value={progress}
-        sx={{ height: "10px", borderRadius: "999px"}}
+        sx={{ height: "10px", borderRadius: "999px" }}
       />
       <div className="uploadImage__inputs">
         <input
@@ -59,7 +56,7 @@ function UploadImage({ progress, preview, setPreview, setImage, image }) {
             ) : (
               <ChangeCircleIcon
                 sx={{ fontSize: "52px" }}
-                titleAccess="Zmień obraz" 
+                titleAccess="Zmień obraz"
               />
             )}
           </div>
@@ -67,15 +64,6 @@ function UploadImage({ progress, preview, setPreview, setImage, image }) {
         {preview ? (
           <div className="uploadImage__preview">
             <img src={preview} alt="Podgląd projektu" title="Podgląd" />
-            {/* {progress < 100 ? ( 
-              <DeleteIcon
-                fontSize="large"
-                color="error"
-                sx={{ cursor: "pointer" }}
-                onClick={() => setPreview(null)}
-                titleAccess="Wyczyść Podgląd"
-              />
-            ) : null}  */}
           </div>
         ) : null}
       </div>

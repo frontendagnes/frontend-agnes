@@ -8,7 +8,7 @@ import { useStateValue } from "../../../assets/utility/StateProvider";
 
 import NumberFormat from "react-number-format";
 //components
-import UploadImage from "./UploadImage/UploadImage";
+import UploadPhoto from "./UploadPhoto/UploadPhoto";
 import SkillItem from "../SkillItem/SkillItem";
 import AddSkill from "../AddSkill/AddSkill";
 function GeneratorSidebar({
@@ -48,7 +48,7 @@ function GeneratorSidebar({
             Dane Osobowe (wymagane):
           </div>
           {/* tutaj wybór zdjęcia */}
-          <UploadImage name={name} />
+          <UploadPhoto name={name} />
           <div>
             <TextField
               fullWidth

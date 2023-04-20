@@ -1,4 +1,4 @@
-.uploadImage {
+.uploadPhoto {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -9,12 +9,12 @@
     position: relative;
 }
 
-.uploadImage img {
+.uploadPhoto  img {
     width: 200px;
     cursor: pointer;
 }
 
-.uploadImage__addButton {
+.uploadPhoto__addButton {
     cursor: pointer;
     height: 100px;
     width: 100px;
@@ -25,7 +25,7 @@
     color: #ffffff;
     border-radius: 5px;
 }
-.uploadImage__avatar>div {
+.uploadPhoto__avatar>div {
     position: absolute;
     z-index: 10;
 }

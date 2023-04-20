@@ -36,13 +36,13 @@ import { apiInfo, functionality, otherElements } from "./data.js";
 // const sgMail = require("@sendgrid/mail");
 // sgMail.setApiKey(process.env.REACT_APP_SANDGRID_APIKEY);
 
-const FormButton = styled(Button)`
-  background-color: #add8e7;
-  color: #000000;
-  font-size: 1.2rem;
-  padding: 10px 20px;
-  margin-bottom: 20px;
-`;
+// const FormButton = styled(Button)`
+//   background-color: #add8e7;
+//   color: #000000;
+//   font-size: 1.2rem;
+//   padding: 10px 20px;
+//   margin-bottom: 20px;
+// `;
 const Emoji = (props) => (
   <span
     className="emoji"

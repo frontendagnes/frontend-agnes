@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useRef } from "react";
-import "./UploadImage.css"
+import "./UploadPhoto.css"
 
 import { useStateValue } from "../../../../assets/utility/StateProvider";
 //mui
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
-function UploadImage({ name }) {
+function UploadPhoto({ name }) {
   const [image, setImage] = useState(null);
   const [{ file }, dispatch] = useStateValue();
   const fileInputRef = useRef();
@@ -35,7 +35,7 @@ function UploadImage({ name }) {
     fileInputRef.current.click();
   };
   return (
-    <div className="uploadImage">
+    <div className="uploadPhoto">
       {!file ? <b>Tutaj możesz wybrać zdjęcie do CV (opcjonalne)</b> : null}
       <input
         type="file"
@@ -46,7 +46,7 @@ function UploadImage({ name }) {
       />
       {file ? (
         <>
-          <div className="uploadImage__avatar">
+          <div className="uploadPhoto__avatar">
             <div>
               <DeleteForeverIcon
                 onClick={() => setImage(null)}
@@ -60,7 +60,7 @@ function UploadImage({ name }) {
           <b>Klikając na zdjęcie możesz je zmienić</b>
         </>
       ) : (
-        <div className="uploadImage__addButton" onClick={handleClick}>
+        <div className="uploadPhoto__addButton" onClick={handleClick}>
           <AddAPhotoIcon fontSize="large" />
         </div>
       )}
@@ -68,4 +68,4 @@ function UploadImage({ name }) {
   );
 }
 
-export default UploadImage;
+export default UploadPhoto;
