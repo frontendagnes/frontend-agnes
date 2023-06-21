@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./AdminDetails.css";
 
-import { ImageViewer } from "react-image-viewer-dv";
 import {
   db,
   collection,
@@ -17,13 +16,14 @@ import { useReactToPrint } from "react-to-print";
 //componets
 import Details from "../Details/Details";
 import Note from "../Note/Note";
+import NoteItem from "../NoteItem/NoteItem";
 import Fieldset from "../../Questionare/Fieldset/Fieldset";
 import ImageZoom from "../ImageZoom/ImageZoom";
+import ClientInfo from "../ClientInfo/ClientInfo";
 //mui
 import Button from "@mui/material/Button";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import PrintIcon from "@mui/icons-material/Print";
-import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 
 function AdminDetails() {
   const [notes, setNotes] = useState([]);
@@ -103,21 +103,6 @@ function AdminDetails() {
                 <span className="details__title">Dodatkowe Uwagi:</span>
                 <span className="details__content">{item.data.area}</span>
               </div>
-              {item.data.imageUrl ? (
-                <div className="details__row">
-                  <span className="details__title">Zdjęcie projektu:</span>
-                  <span className="details__content">
-                    <ImageViewer>
-                      <img
-                        className="details__image"
-                        src={item.data?.imageUrl}
-                        title="Podgląd projektu"
-                        alt="Podgląd projektu"
-                      />
-                    </ImageViewer>
-                  </span>
-                </div>
-              ) : null}
               <div className="details__row">
                 <span className="details__title">Zdjęcia:</span>
                 {item.data.imageUrls
@@ -129,36 +114,11 @@ function AdminDetails() {
                   : null}
               </div>
             </Fieldset>
-            <Fieldset legend="Informacje o kliencie">
-              <div className="details__row">
-                <span className="details__title">Nazwa:</span>
-                <span className="details__content">{item.data.name}</span>
-              </div>
-              <div className="details__row">
-                <span className="details__title">email:</span>
-                <span className="details__content">{item.data.email}</span>
-              </div>
-            </Fieldset>
+            <ClientInfo item={item} />
             <Note noteId={item.id} />
             <ul className="admindetails__notes">
               {notes?.map((note) => (
-                <li key={note.id}>
-                  <span>
-                    {new Date(
-                      note.data.timestamp?.seconds * 1000
-                    ).toLocaleString("pl-PL")}
-                  </span>
-                  <div>
-                    <span>{note.data.note}</span>
-                    <RemoveCircleIcon
-                      sx={{ cursor: "pointer" }}
-                      titleAccess="Usuń Notatkę"
-                      color="error"
-                      fontSize="large"
-                      onClick={() => deleteNote(note.id)}
-                    />
-                  </div>
-                </li>
+                <NoteItem note={note} deleteNote={deleteNote} />
               ))}
             </ul>
           </div>

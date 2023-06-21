@@ -1,7 +1,7 @@
 import React from "react";
 import "./Skills.css";
 import { useStateValue } from "../../assets/utility/StateProvider";
-import { Link } from "react-router-dom";
+
 //components
 import Skill from "../Skill/Skill";
 import Title from "../../Global/Title/Title";
@@ -35,12 +35,6 @@ function Skills() {
               : "Przy pomocy javascript i react można dodać do strony interakcję z użytkowanikiem dzięki czemu apliakcje webowe są atrakcyjniejsze"
           }
         />
-      </div>
-      <div className="skills__link">
-        {isEnglish
-          ? "I code websites on the basis of the graphic design provided - more information can be found"
-          : "Koduję strony internetowe na podstawię dostaczonego projektu graficznego - więcej informacji znajdziesz"}
-        <Link to="/questionare">{isEnglish ? " here" : " tutaj"}🙂</Link>
       </div>
     </div>
   );
