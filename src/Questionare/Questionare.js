@@ -23,11 +23,11 @@ import UploadImage from "./UploadImage/UploadImage";
 import AddPhotoButton from "./AddPhotoButton/AddPhotoButton";
 import ButtonBack from "../Global/ButtonBack/ButtonBack";
 import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
+import Upload from "../Global/Upload/Upload";
 //img
 import aPhoto from "../assets/images/open-graph.jpg";
 //mui
 import { Button, TextField } from "@mui/material";
-import { styled } from "@mui/material/styles";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import SendIcon from "@mui/icons-material/Send";
 //data
@@ -99,35 +99,35 @@ function Questionare() {
   const history = useNavigate();
 
   const approvePhoto = (image, setProgress) => {
-      if (!image) {
-        dispatch({
-          type: "ALERT__ERROR",
-          item: `Żadne zdjęcie nie zostało dodane!`,
-        });
-        return;
+    if (!image) {
+      dispatch({
+        type: "ALERT__ERROR",
+        item: `Żadne zdjęcie nie zostało dodane!`,
+      });
+      return;
+    }
+
+    const storageRef = ref(storage, `images/${image.name}`);
+    const uploadTask = uploadBytesResumable(storageRef, image);
+
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const progress = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+        setProgress(progress);
+      },
+      (error) => console.log("Error Photo", error),
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref)
+          .then(async (url) => {
+            setPhotos([...photos, url]);
+          })
+          .catch((error) => console.log("Send Photo Error", error));
       }
-  
-      const storageRef = ref(storage, `images/${image.name}`);
-      const uploadTask = uploadBytesResumable(storageRef, image);
-  
-      uploadTask.on(
-        "state_changed",
-        (snapshot) => {
-          const progress = Math.round(
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-          );
-          setProgress(progress);
-        },
-        (error) => console.log("Error Photo", error),
-        () => {
-          getDownloadURL(uploadTask.snapshot.ref)
-            .then(async (url) => {
-              setPhotos([...photos, url]);
-            })
-            .catch((error) => console.log("Send Photo Error", error));
-        }
-      );
-    };
+    );
+  };
   //factoring chatgpt
   const uploadFiles = (file) => {
     if (!file) return;
@@ -306,6 +306,9 @@ function Questionare() {
             </Fieldset>
           </div>
           <div className="questionare__uploadImage uploadImage">
+            <Fieldset>
+              <Upload photos={photos} setPhotos={setPhotos}/>
+            </Fieldset>
             <Fieldset legend="Dodaj projekt graficzny strony">
               <div className="questionare__photoWrapper">
                 <UploadImage
