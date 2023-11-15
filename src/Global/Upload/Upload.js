@@ -21,7 +21,7 @@ import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import AddPhotoButton from "../../Questionare/AddPhotoButton/AddPhotoButton";
 function LinearProgressWithLabel(props) {
   return (
-    <Box sx={{ display: "flex", alignItems: "center" }}>
+    <Box sx={{ display: "flex", alignItems: "center", width: "100%" }}>
       <Box sx={{ width: "100%", mr: 1 }}>
         <LinearProgress variant="determinate" {...props} />
       </Box>
@@ -111,7 +111,16 @@ function Upload({ setPhotos, photos }) {
     setProgress(0);
   };
   return (
-    <div className="upload">
+    <div
+      className="upload"
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+        width: "100%",
+      }}
+    >
       <div
         style={{
           display: "flex",
@@ -119,6 +128,7 @@ function Upload({ setPhotos, photos }) {
           alignItems: "center",
           flexDirection: "column",
           gap: "5px",
+          width: "100%",
         }}
       >
         {preview ? (
@@ -126,7 +136,7 @@ function Upload({ setPhotos, photos }) {
             <Stack
               sx={{
                 width: "80%",
-                color: "grey.500",
+                color: "grey",
                 marginTop: "20px",
                 display: "flex",
               }}
@@ -183,32 +193,6 @@ function Upload({ setPhotos, photos }) {
           setProgress={setProgress}
           approvePhoto={formHandler}
         />
-
-        {photos.length > 0 ? (
-          <div>W razie potrzeby dodaj kolejne zdjęcie</div>
-        ) : null}
-
-        <div
-          className="upload__gallery"
-          style={{
-            display: "flex",
-            width: "100%",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          {photos.length > 0
-            ? photos.map((item, index) => (
-                <img
-                  width="100px"
-                  height="100%"
-                  src={item}
-                  title={`Obraz nr ${index + 1}`}
-                  alt={`Obraz nr ${index + 1}`}
-                />
-              ))
-            : null}
-        </div>
       </div>
     </div>
   );

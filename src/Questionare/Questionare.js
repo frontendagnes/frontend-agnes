@@ -19,16 +19,13 @@ import {
 //components
 import QuestionareModule from "./QuestionareModule/QuestionareModule";
 import Fieldset from "./Fieldset/Fieldset";
-import UploadImage from "./UploadImage/UploadImage";
-import AddPhotoButton from "./AddPhotoButton/AddPhotoButton";
 import ButtonBack from "../Global/ButtonBack/ButtonBack";
-import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
 import Upload from "../Global/Upload/Upload";
+import ImageZoom from "../Global/ImageZoom/ImageZoom.js";
 //img
 import aPhoto from "../assets/images/open-graph.jpg";
 //mui
 import { Button, TextField } from "@mui/material";
-import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import SendIcon from "@mui/icons-material/Send";
 //data
 import { apiInfo, functionality, otherElements } from "./data.js";
@@ -82,25 +79,14 @@ function Questionare() {
   // load image state
   const [progress, setProgress] = useState(0);
   const [image, setImage] = useState(null);
-  const [preview, setPreview] = useState(null);
-
-  const [progressOne, setProgressOne] = useState(0);
-  const [imageOne, setImageOne] = useState(null);
-  const [previewOne, setPreviewOne] = useState(null);
-  const [imageVisibleOne, setImageVisibleOne] = useState(false);
-
-  const [progressTwo, setProgressTwo] = useState(0);
-  const [imageTwo, setImageTwo] = useState(null);
-  const [previewTwo, setPreviewTwo] = useState(null);
-  const [imageVisibleTwo, setImageVisibleTwo] = useState(false);
 
   const [photos, setPhotos] = useState([]);
 
   const history = useNavigate();
 
-  useEffect(() =>{
-      console.log("Photos>>", photos);
-  }, [photos])
+  useEffect(() => {
+    console.log("Photos>>", photos);
+  }, [photos]);
 
   const approvePhoto = (image, setProgress) => {
     if (!image) {
@@ -312,134 +298,12 @@ function Questionare() {
           <div className="questionare__uploadImage uploadImage">
             <Fieldset legend="Dodaj projekt graficzny strony">
               <Upload photos={photos} setPhotos={setPhotos} />
-              {/* {photos.length > 0
-                ? photos.map((item, index) => (
-                    <img
-                      width="150px"
-                      height="100%"
-                      src={item}
-                      title={`Obraz nr ${index + 1}`}
-                      alt={`Obraz nr ${index + 1}`}
-                    />
-                  ))
-                : null} */}
-            </Fieldset>
-            {/* <Fieldset legend="Dodaj projekt graficzny strony">
-              <div className="questionare__photoWrapper">
-                <UploadImage
-                  progress={progress}
-                  preview={preview}
-                  setPreview={setPreview}
-                  image={image}
-                  setImage={setImage}
-                />
-                <div className="questionare__buttonsGroup">
-                  <div className="questionere__settingsBtn">
-                    {!imageVisibleOne ? (
-                      <AddPhotoAlternateIcon
-                        sx={{
-                          cursor: "pointer",
-                          fontSize: "36px",
-                          color: "#008000",
-                        }}
-                        titleAccess="Dodaj kolejne zdjęcie"
-                        onClick={() => setImageVisibleOne(true)}
-                      />
-                    ) : null}
-                  </div>
-                  <AddPhotoButton
-                    approvePhoto={() => approvePhoto(image, setProgress)}
-                    image={image}
-                    progress={progress}
-                    preview={preview}
-                    setProgress={setProgress}
-                  />
-                </div>
+              <div className="questionare__gallery">
+                {photos.length > 0
+                  ? photos.map((item) => <ImageZoom url={item} key={item} />)
+                  : null}
               </div>
-              {imageVisibleOne ? (
-                <div className="questionare__photoWrapper">
-                  <UploadImage
-                    progress={progressOne}
-                    preview={previewOne}
-                    setPreview={setPreviewOne}
-                    image={imageOne}
-                    setImage={setImageOne}
-                  />
-                  <div className="questionare__buttonsGroup">
-                    <div className="questionere__settingsBtn">
-                      {!imageVisibleTwo ? (
-                        <AddPhotoAlternateIcon
-                          sx={{
-                            cursor: "pointer",
-                            fontSize: "36px",
-                            color: "#008022",
-                          }}
-                          titleAccess="Dodaj kolejne zdjęcie"
-                          onClick={() => setImageVisibleTwo(true)}
-                        />
-                      ) : null}
-                      {progressOne < 100 ? (
-                        <RemoveCircleIcon
-                          onClick={() => setImageVisibleOne(false)}
-                          sx={{
-                            cursor: "pointer",
-                            fontSize: "36px",
-                            color: "#ff0000",
-                          }}
-                          titleAccess="Usuń"
-                        />
-                      ) : null}
-                    </div>
-                    <AddPhotoButton
-                      approvePhoto={() =>
-                        approvePhoto(imageOne, setProgressOne)
-                      }
-                      image={imageOne}
-                      progress={progressOne}
-                      preview={previewOne}
-                      setProgress={setProgressOne}
-                    />
-                  </div>
-                </div>
-              ) : null}
-              {imageVisibleTwo ? (
-                <div className="questionare__photoWrapper">
-                  <UploadImage
-                    progress={progressTwo}
-                    preview={previewTwo}
-                    imageVivibleR={imageVisibleTwo}
-                    setImageVisibleR={setImageVisibleTwo}
-                    setPreview={setPreviewTwo}
-                    image={imageTwo}
-                    setImage={setImageTwo}
-                  />
-                  <div className="questionare__buttonsGroup">
-                    <div className="questionere__settingsBtn">
-                      {progressTwo < 100 ? (
-                        <RemoveCircleIcon
-                          onClick={() => setImageVisibleTwo(false)}
-                          sx={{
-                            cursor: "pointer",
-                            fontSize: "36px",
-                            color: "#ff0000",
-                          }}
-                          titleAccess="Usuń"
-                        />
-                      ) : null}
-                    </div>
-                    <AddPhotoButton
-                      approvePhoto={() =>
-                        approvePhoto(imageTwo, setProgressTwo)
-                      }
-                      image={imageTwo}
-                      progress={progressTwo}
-                      preview={previewTwo}
-                      setProgress={setProgressTwo}
-                    />
-                  </div>
-                </div>
-              ) : null}
-            </Fieldset> */}
+            </Fieldset>
           </div>
           <div className="questionare__adress">
             <Fieldset legend="Podaj dane do kontaktu">

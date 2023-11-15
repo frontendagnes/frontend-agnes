@@ -79,7 +79,17 @@
 .questionare__input {
     margin-bottom: 10px;
 }
-
+.questionare__gallery{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+}
+.questionare__uploadImage img{
+    width: 100px;
+    height: auto;
+    margin-left: 20px;
+}
 .questionare__age {
     display: none;
     color: #ff0000;
