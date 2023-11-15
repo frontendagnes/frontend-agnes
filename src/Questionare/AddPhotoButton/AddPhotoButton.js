@@ -20,9 +20,10 @@ function AddPhotoButton({
           endIcon={<SendIcon />}
           color="secondary"
           size="small"
+          sx={{letterSpacing: "3px"}}
           onClick={() => approvePhoto(image, progress, preview, setProgress)}
         >
-          Wyślij
+          Dodaj zdjęcie
         </Button>
       ) : (
         <DoneIcon

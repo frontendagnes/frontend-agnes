@@ -7,16 +7,39 @@ import {
   storage,
   ref,
 } from "../../assets/utility/firebase";
+
+import { useStateValue } from "../../assets/utility/StateProvider";
 //mui
 import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
+import LinearProgress from "@mui/material/LinearProgress";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 // import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 //componetns
 import AddPhotoButton from "../../Questionare/AddPhotoButton/AddPhotoButton";
+function LinearProgressWithLabel(props) {
+  return (
+    <Box sx={{ display: "flex", alignItems: "center" }}>
+      <Box sx={{ width: "100%", mr: 1 }}>
+        <LinearProgress variant="determinate" {...props} />
+      </Box>
+      <Box sx={{ minWidth: 35 }}>
+        <Typography variant="body2" color="text.secondary">{`${Math.round(
+          props.value
+        )}%`}</Typography>
+      </Box>
+    </Box>
+  );
+}
+
 function Upload({ setPhotos, photos }) {
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState(null);
   const [progress, setProgress] = useState(0);
+
+  const [{ alert }, dispatch] = useStateValue();
   const fileImgRef = useRef();
   useEffect(() => {
     if (image) {
@@ -43,14 +66,14 @@ function Upload({ setPhotos, photos }) {
     }
   };
   const uploadFile = () => {
-    // if (!image) {
-    //   dispatch({
-    //     type: "ALERT__ERROR",
-    //     item: `Żadne zdjęcie nie zostało dodane!`,
-    //   });
-    //   return;
-    // }
-    if (!image) return;
+    if (!image) {
+      dispatch({
+        type: "ALERT__ERROR",
+        item: `Żadne zdjęcie nie zostało dodane!`,
+      });
+      return;
+    }
+    // if (!image) return;
     const storageRef = ref(storage, `images/${image.name}`);
     const uploadTask = uploadBytesResumable(storageRef, image);
 
@@ -67,6 +90,12 @@ function Upload({ setPhotos, photos }) {
         getDownloadURL(uploadTask.snapshot.ref)
           .then(async (url) => {
             setPhotos([...photos, url]);
+          })
+          .then(() => {
+            setImage(null);
+            setPreview(null);
+            setProgress(0);
+            console.log("PH", photos);
           })
           .catch((error) => console.log("Send Photo Error", error));
       }
@@ -89,15 +118,27 @@ function Upload({ setPhotos, photos }) {
           justifyContent: "center",
           alignItems: "center",
           flexDirection: "column",
-          gap: "20px",
+          gap: "5px",
         }}
       >
         {preview ? (
           <>
-            <div className="upload__progress">
-              <progress value={progress} style={{ color: "green" }} />
-              {progress}%
-            </div>
+            <Stack
+              sx={{
+                width: "80%",
+                color: "grey.500",
+                marginTop: "20px",
+                display: "flex",
+              }}
+              spacing={1}
+            >
+              <LinearProgressWithLabel
+                variant="determinate"
+                value={progress}
+                color="secondary"
+                width="100%"
+              />
+            </Stack>
             <div style={{ display: "flex" }}>
               <img
                 src={preview}
@@ -111,12 +152,12 @@ function Upload({ setPhotos, photos }) {
                 titleAccess="Usuń"
                 sx={{
                   color: "red",
-                  fontSize:"32px",
+                  fontSize: "32px",
                   cursor: "pointer",
                   marginLeft: "-30px",
                   padding: "3px 5px",
                   backgroundColor: "#ffffff",
-                  borderRadius: "10px"
+                  borderRadius: "10px",
                 }}
               />
             </div>
@@ -142,20 +183,33 @@ function Upload({ setPhotos, photos }) {
           setProgress={setProgress}
           approvePhoto={formHandler}
         />
+
+        {photos.length > 0 ? (
+          <div>W razie potrzeby dodaj kolejne zdjęcie</div>
+        ) : null}
+
+        <div
+          className="upload__gallery"
+          style={{
+            display: "flex",
+            width: "100%",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          {photos.length > 0
+            ? photos.map((item, index) => (
+                <img
+                  width="100px"
+                  height="100%"
+                  src={item}
+                  title={`Obraz nr ${index + 1}`}
+                  alt={`Obraz nr ${index + 1}`}
+                />
+              ))
+            : null}
+        </div>
       </div>
-      {/* <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          // flexDirection: "column",
-          gap: "10px",
-        }}
-      >
-        <button type="button" onClick={formHandler} style={{padding: "10px 20px"}}>
-          Wyślji
-        </button>
-      </div> */}
     </div>
   );
 }

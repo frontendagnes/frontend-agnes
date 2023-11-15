@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Questionare.css";
 
 import { useNavigate } from "react-router-dom";
@@ -97,6 +97,10 @@ function Questionare() {
   const [photos, setPhotos] = useState([]);
 
   const history = useNavigate();
+
+  useEffect(() =>{
+      console.log("Photos>>", photos);
+  }, [photos])
 
   const approvePhoto = (image, setProgress) => {
     if (!image) {
@@ -285,7 +289,7 @@ function Questionare() {
           />
           <QuestionareModule
             api={functionality}
-            legend="funkcjonalność strony"
+            legend="Funkcjonalność strony"
             checked={checkedFunctionality}
             setChecked={setCheckedFunctionality}
           />
@@ -306,10 +310,21 @@ function Questionare() {
             </Fieldset>
           </div>
           <div className="questionare__uploadImage uploadImage">
-            <Fieldset>
-              <Upload photos={photos} setPhotos={setPhotos}/>
-            </Fieldset>
             <Fieldset legend="Dodaj projekt graficzny strony">
+              <Upload photos={photos} setPhotos={setPhotos} />
+              {/* {photos.length > 0
+                ? photos.map((item, index) => (
+                    <img
+                      width="150px"
+                      height="100%"
+                      src={item}
+                      title={`Obraz nr ${index + 1}`}
+                      alt={`Obraz nr ${index + 1}`}
+                    />
+                  ))
+                : null} */}
+            </Fieldset>
+            {/* <Fieldset legend="Dodaj projekt graficzny strony">
               <div className="questionare__photoWrapper">
                 <UploadImage
                   progress={progress}
@@ -424,7 +439,7 @@ function Questionare() {
                   </div>
                 </div>
               ) : null}
-            </Fieldset>
+            </Fieldset> */}
           </div>
           <div className="questionare__adress">
             <Fieldset legend="Podaj dane do kontaktu">
