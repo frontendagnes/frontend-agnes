@@ -11,10 +11,6 @@ import {
   collection,
   addDoc,
   serverTimestamp,
-  getDownloadURL,
-  uploadBytesResumable,
-  storage,
-  ref,
 } from "../assets/utility/firebase.js";
 //components
 import QuestionareModule from "./QuestionareModule/QuestionareModule";
@@ -124,16 +120,6 @@ function Questionare() {
         })
       );
   };
-  // const formHandler = () => {
-  //   const msg = validate(age, email);
-  //   if (msg) {
-  //     dispatch({ type: "ALERT__ERROR", item: msg });
-  //     return;
-  //   }
-  //   uploadFiles();
-  //   console.log("mailsender");
-  //   // history("/");
-  // };
   return (
     <div className="questionare">
       <ButtonBack />
