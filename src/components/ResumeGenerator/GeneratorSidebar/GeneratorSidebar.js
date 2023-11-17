@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./GeneratorSidebar.css";
 //mui
 import TextField from "@mui/material/TextField";
@@ -9,6 +9,7 @@ import { useStateValue } from "../../../assets/utility/StateProvider";
 import NumberFormat from "react-number-format";
 //components
 import UploadPhoto from "./UploadPhoto/UploadPhoto";
+import Upload from "../../../Global/Upload/Upload";
 import SkillItem from "../SkillItem/SkillItem";
 import AddSkill from "../AddSkill/AddSkill";
 function GeneratorSidebar({
@@ -25,8 +26,12 @@ function GeneratorSidebar({
   phone,
   setPhone,
 }) {
-  // eslint-disable-next-line
+  // eslint-di sable-next-line
   const [{ file }, dispatch] = useStateValue();
+
+  useEffect(() => {
+    console.log("File>>>", file);
+  }, [file]);
   const addSkill = () => {
     if (skill) {
       setSkills([skill, ...skills]);

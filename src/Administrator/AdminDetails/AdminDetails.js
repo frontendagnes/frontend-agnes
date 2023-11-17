@@ -18,7 +18,7 @@ import Details from "../Details/Details";
 import Note from "../Note/Note";
 import NoteItem from "../NoteItem/NoteItem";
 import Fieldset from "../../Questionare/Fieldset/Fieldset";
-import ImageZoom from "../ImageZoom/ImageZoom";
+import ImageZoom from "../../Global/ImageZoom/ImageZoom"
 import ClientInfo from "../ClientInfo/ClientInfo";
 //mui
 import Button from "@mui/material/Button";

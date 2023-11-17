@@ -11,6 +11,7 @@ function AddPhotoButton({
   progress,
   preview,
   setProgress,
+  message
 }) {
   return (
     <div className="addPhotoButton">
@@ -23,7 +24,7 @@ function AddPhotoButton({
           sx={{letterSpacing: "3px"}}
           onClick={() => approvePhoto(image, progress, preview, setProgress)}
         >
-          Dodaj zdjęcie
+          {message}
         </Button>
       ) : (
         <DoneIcon

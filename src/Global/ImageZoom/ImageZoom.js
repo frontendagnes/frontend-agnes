@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./ImageZoom.css";
+import "./ImageZoom.css"
 
 //mui
 import CloseIcon from "@mui/icons-material/Close";

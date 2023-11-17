@@ -76,119 +76,64 @@ function Questionare() {
   const [name, setName] = useState("");
   const [age, setAge] = useState(""); // spam detector
 
-  // load image state
-  const [progress, setProgress] = useState(0);
-  const [image, setImage] = useState(null);
-
   const [photos, setPhotos] = useState([]);
-
   const history = useNavigate();
 
-  useEffect(() => {
-    console.log("Photos>>", photos);
-  }, [photos]);
-
-  const approvePhoto = (image, setProgress) => {
-    if (!image) {
-      dispatch({
-        type: "ALERT__ERROR",
-        item: `Żadne zdjęcie nie zostało dodane!`,
-      });
-      return;
-    }
-
-    const storageRef = ref(storage, `images/${image.name}`);
-    const uploadTask = uploadBytesResumable(storageRef, image);
-
-    uploadTask.on(
-      "state_changed",
-      (snapshot) => {
-        const progress = Math.round(
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-        );
-        setProgress(progress);
-      },
-      (error) => console.log("Error Photo", error),
-      () => {
-        getDownloadURL(uploadTask.snapshot.ref)
-          .then(async (url) => {
-            setPhotos([...photos, url]);
-          })
-          .catch((error) => console.log("Send Photo Error", error));
-      }
-    );
-  };
   //factoring chatgpt
-  const uploadFiles = (file) => {
-    if (!file) return;
-
-    const storageRef = ref(storage, `images/${file.name}`);
-    const uploadTask = uploadBytesResumable(storageRef, file);
-
-    uploadTask.on(
-      "state_changed",
-      (snapshot) => {
-        const progress = Math.round(
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-        );
-        setProgress(progress);
-      },
-      (error) => console.log("snap>>", error),
-      async () => {
-        const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
-
-        await addDoc(collection(db, "questionare"), {
-          timestamp: serverTimestamp(),
-          imageUrls: photos,
-          hosting: checkedApi,
-          functionality: checkedFunctionality,
-          elements: checkedElements,
-          area: areaField,
-          email: email,
-          name: name,
-        })
-          .then(() => {
-            dispatch({
-              type: "ALERT_SUCCESS",
-              item: `Ankieta została wysłana. Dziękuję ${name ? name : email}`,
-            });
-          })
-          .then(() => {
-            sendMail(
-              "Wiadomość wysłane ze strony frontend-ganes.pl",
-              "Właśnie złożyłeś zapytanie na stronie frontend-agnes.pl. Postaram się odpowiedzieć jak najszybciej zazwyczaj w ciągu 48h, jeżeli ten czas będzie miał sie przedłużyć poinformuję Cię o tym w osobnej wiadomości. pozdrawiam Agnieszka Kamińska",
-              email
-            );
-            sendMail(
-              "Nowe zapytanie w sprawie oferty",
-              "Masz nowe zapytanie w sprawie oferty",
-              process.env.REACT_APP_SMTP_USERNAME
-            );
-          })
-          .catch((error) =>
-            dispatch({
-              type: "ALERT__ERROR",
-              item: error.message,
-            })
-          );
-        setProgress(0);
-        setImage(null);
-        setAreaField("");
-        setEmail("");
-        setName("");
-      }
-    );
-  };
-  const formHandler = () => {
+  const formHandler = async () => {
     const msg = validate(age, email);
     if (msg) {
       dispatch({ type: "ALERT__ERROR", item: msg });
       return;
     }
-    uploadFiles(image);
-    console.log("mailsender");
-    history("/");
+    await addDoc(collection(db, "questionare"), {
+      timestamp: serverTimestamp(),
+      imageUrls: photos,
+      hosting: checkedApi,
+      functionality: checkedFunctionality,
+      elements: checkedElements,
+      area: areaField,
+      email: email,
+      name: name,
+    })
+      .then(() => {
+        dispatch({
+          type: "ALERT_SUCCESS",
+          item: `Ankieta została wysłana. Dziękuję ${name ? name : email}`,
+        });
+      })
+      .then(() => {
+        sendMail(
+          "Wiadomość wysłane ze strony frontend-ganes.pl",
+          "Właśnie złożyłeś zapytanie na stronie frontend-agnes.pl. Postaram się odpowiedzieć jak najszybciej zazwyczaj w ciągu 48h, jeżeli ten czas będzie miał sie przedłużyć poinformuję Cię o tym w osobnej wiadomości. pozdrawiam Agnieszka Kamińska",
+          email
+        );
+        sendMail(
+          "Nowe zapytanie w sprawie oferty",
+          "Masz nowe zapytanie w sprawie oferty",
+          process.env.REACT_APP_SMTP_USERNAME
+        );
+      })
+      .then(() => {
+        history("/");
+      })
+      .catch((error) =>
+        dispatch({
+          type: "ALERT__ERROR",
+          item: error.message,
+        })
+      );
   };
+  // const formHandler = () => {
+  //   const msg = validate(age, email);
+  //   if (msg) {
+  //     dispatch({ type: "ALERT__ERROR", item: msg });
+  //     return;
+  //   }
+  //   uploadFiles();
+  //   console.log("mailsender");
+  //   // history("/");
+  // };
   return (
     <div className="questionare">
       <ButtonBack />
@@ -297,9 +242,19 @@ function Questionare() {
           </div>
           <div className="questionare__uploadImage uploadImage">
             <Fieldset legend="Dodaj projekt graficzny strony">
-              <Upload photos={photos} setPhotos={setPhotos} />
+              <div
+                style={{
+                  fontFamily: "arial",
+                  marginBottom: "20px",
+                  marginTop: "-10px",
+                }}
+              >
+                Proszę o dodanie zdjęć pojedynczo, pamiętając żeby każdorazowo
+                kliknąć przycisk "Dodaj Zdjęcie"
+              </div>
+              <Upload photos={photos} setPhotos={setPhotos} isGallery />
               <div className="questionare__gallery">
-                {photos.length > 0
+                {photos.length
                   ? photos.map((item) => <ImageZoom url={item} key={item} />)
                   : null}
               </div>

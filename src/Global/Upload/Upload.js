@@ -39,7 +39,7 @@ function Upload({ setPhotos, photos }) {
   const [preview, setPreview] = useState(null);
   const [progress, setProgress] = useState(0);
 
-  const [{ alert }, dispatch] = useStateValue();
+  const [{ file }, dispatch] = useStateValue();
   const fileImgRef = useRef();
   useEffect(() => {
     if (image) {
@@ -49,7 +49,9 @@ function Upload({ setPhotos, photos }) {
       };
       reader.readAsDataURL(image);
     } else {
-      setPreview(null);
+      {
+        setPreview(null);
+      }
     }
   }, [image, preview]);
 
@@ -192,6 +194,7 @@ function Upload({ setPhotos, photos }) {
           preview={preview}
           setProgress={setProgress}
           approvePhoto={formHandler}
+          message="Dodaj zdjęcie"
         />
       </div>
     </div>
