@@ -58,7 +58,7 @@
 }
 
 .project__links a:hover {
-  transform: translateY(10px);
+  transform: scale(1.5);
 }
 
 .project__description {
@@ -69,7 +69,7 @@
 }
 
 .project__hover:hover {
-  transform: translateY(10px);
+  transform: scale(1.5);
 }
 
 .project__alignJustify {
