@@ -22,7 +22,7 @@
     transition: transform 0.5s ease-in;
 }
 .socialmedia > .socialmedia__container svg:hover{
-    transform: translateY(20px);
+    transform: scale(1.5);
 }
 .socialmedia__left > svg {
     animation: moveRight 2s ease infinite;
