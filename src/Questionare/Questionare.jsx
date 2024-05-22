@@ -1,28 +1,28 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./Questionare.css";
 
 import { useNavigate } from "react-router-dom";
 
-import { validate } from "./FormValidation";
+import { validate } from "./FormValidation.jsx";
 
-import { useStateValue } from "../assets/utility/StateProvider";
+import { useStateValue } from "../assets/utility/StateProvider.jsx";
 import {
-  db,
-  collection,
   addDoc,
+  collection,
+  db,
   serverTimestamp,
-} from "../assets/utility/firebase.js";
+} from "../assets/utility/firebase.jsx";
 //components
-import QuestionareModule from "./QuestionareModule/QuestionareModule";
-import Fieldset from "./Fieldset/Fieldset";
-import ButtonBack from "../Global/ButtonBack/ButtonBack";
-import Upload from "../Global/Upload/Upload";
-import ImageZoom from "../Global/ImageZoom/ImageZoom.js";
+import ButtonBack from "../Global/ButtonBack/ButtonBack.jsx";
+import ImageZoom from "../Global/ImageZoom/ImageZoom.jsx";
+import Upload from "../Global/Upload/Upload.jsx";
+import Fieldset from "./Fieldset/Fieldset.jsx";
+import QuestionareModule from "./QuestionareModule/QuestionareModule.jsx";
 //img
 import aPhoto from "../assets/images/open-graph.jpg";
 //mui
-import { Button, TextField } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
+import { Button, TextField } from "@mui/material";
 //data
 import { apiInfo, functionality, otherElements } from "./data.js";
 
@@ -49,11 +49,11 @@ const Emoji = (props) => (
 
 const sendMail = (subject, body, mail) => {
   window.Email.send({
-    Host: process.env.REACT_APP_SMTP_HOST,
-    Username: process.env.REACT_APP_SMTP_USERNAME,
-    Password: process.env.REACT_APP_SMTP_KEY,
+    Host: import.meta.env.REACT_APP_SMTP_HOST,
+    Username: import.meta.env.REACT_APP_SMTP_USERNAME,
+    Password: import.meta.env.REACT_APP_SMTP_KEY,
     To: mail,
-    From: process.env.REACT_APP_SMTP_USERNAME,
+    From: import.meta.env.REACT_APP_SMTP_USERNAME,
     Subject: subject,
     Body: body,
   }).catch((error) => console.log("SMTP Error", error));
@@ -107,7 +107,7 @@ function Questionare() {
         sendMail(
           "Nowe zapytanie w sprawie oferty",
           "Masz nowe zapytanie w sprawie oferty",
-          process.env.REACT_APP_SMTP_USERNAME
+          import.meta.env.REACT_APP_SMTP_USERNAME
         );
       })
       .then(() => {

@@ -7,7 +7,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import { icons } from "./data.js";
-import SocialElement from "./SocialElement.js";
+import SocialElement from "./SocialElement.jsx";
 function SocialMedia() {
   return (
     <div className="socialmedia">

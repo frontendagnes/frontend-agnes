@@ -1,11 +1,11 @@
 import React from "react";
 import "./Main.css";
-import Navbar from "../Navbar/Navbar";
-import Home from "../Home/Home";
-import Information from "../../Administrator/Information/Information";
-import Skills from "../Skills/Skills";
-import Projects from "../Projects/Projects";
-import Footer from "../Footer/Footer";
+import Navbar from "../Navbar/Navbar.jsx";
+import Home from "../Home/Home.jsx";
+import Information from "../../Administrator/Information/Information.jsx";
+import Skills from "../Skills/Skills.jsx";
+import Projects from "../Projects/Projects.jsx";
+import Footer from "../Footer/Footer.jsx";
 
 function Main() {
   return (

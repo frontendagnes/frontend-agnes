@@ -1,41 +1,41 @@
 import React, { lazy, Suspense, useEffect } from "react";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
-import { renderLoader } from "./assets/utility/functions";
-import { useStateValue } from "./assets/utility/StateProvider";
-import { auth, onAuthStateChanged } from "./assets/utility/firebase";
+import { auth, onAuthStateChanged } from "./assets/utility/firebase.jsx";
+import { renderLoader } from "./assets/utility/functions.jsx";
+import { useStateValue } from "./assets/utility/StateProvider.jsx";
 // api
 import {
-  onSnapshot,
   collection,
   db,
+  onSnapshot,
   orderBy,
   query,
-} from "./assets/utility/firebase.js";
+} from "./assets/utility/firebase.jsx";
 // components
-import Header from "./components/Header/Header";
-import Main from "./components/Main/Main";
-import Cookies from "./components/Cookies/Cookies";
-const CookieInfo = lazy(() => import("./components/Cookies/CookieInfo"));
-const Snackbar = lazy(() => import("./components/Snackbar/Snackbar"));
+import Cookies from "./components/Cookies/Cookies.jsx";
+import Header from "./components/Header/Header.jsx";
+import Main from "./components/Main/Main.jsx";
+const CookieInfo = lazy(() => import("./components/Cookies/CookieInfo.jsx"));
+const Snackbar = lazy(() => import("./components/Snackbar/Snackbar.jsx"));
 const PrintingResume = lazy(() =>
-  import("./components/ResumeGenerator/PrintingResume/ProintingResume")
+  import("./components/ResumeGenerator/PrintingResume/ProintingResume.jsx")
 );
 const ReactProjects = lazy(() =>
-  import("./components/ReactProjects/ReactProjects")
+  import("./components/ReactProjects/ReactProjects.jsx")
 );
 
-const JsProjects = lazy(() => import("./components/JsProjects/JsProjects"));
-const Curriculum = lazy(() => import("./components/Curriculum/Curriculum"));
-const NoMatch = lazy(() => import("./components/NoMatch/NoMatch"));
+const JsProjects = lazy(() => import("./components/JsProjects/JsProjects.jsx"));
+const Curriculum = lazy(() => import("./components/Curriculum/Curriculum.jsx"));
+const NoMatch = lazy(() => import("./components/NoMatch/NoMatch.jsx"));
 const Generator = lazy(() =>
-  import("./components/ResumeGenerator/Generator/Generator")
+  import("./components/ResumeGenerator/Generator/Generator.jsx")
 );
-const Questionare = lazy(() => import("./Questionare/Questionare"));
-const Admin = lazy(() => import("./Administrator/Admin.js"));
-const Auth = lazy(() => import("./Administrator/Auth/Auth.js"));
+const Questionare = lazy(() => import("./Questionare/Questionare.jsx"));
+const Admin = lazy(() => import("./Administrator/Admin.jsx"));
+const Auth = lazy(() => import("./Administrator/Auth/Auth.jsx"));
 const AdminDetails = lazy(() =>
-  import("./Administrator/AdminDetails/AdminDetails.js")
+  import("./Administrator/AdminDetails/AdminDetails.jsx")
 );
 function App() {
   const [{ user }, dispatch] = useStateValue();
