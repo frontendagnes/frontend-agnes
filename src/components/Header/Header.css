@@ -18,6 +18,7 @@
     position: fixed;
     top: 0;
     height: 110px;
+    z-index: 4;
 }
 .header__left{
     z-index: 1;

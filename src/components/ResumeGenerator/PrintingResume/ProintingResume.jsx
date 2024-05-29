@@ -16,7 +16,7 @@ import ButtonBack from "../../../Global/ButtonBack/ButtonBack";
 function PrintingResume() {
   const history = useNavigate();
 
-  const [{ cvs } ] = useStateValue();
+  const [{ cvs }] = useStateValue();
 
   const [openWarring, setOpenWarrning] = useState(false);
 
@@ -26,8 +26,6 @@ function PrintingResume() {
     content: () => printRef.current,
     documentTitle: "my-resume",
   });
-
-
 
   const warriningNo = () => {
     setOpenWarrning(false);
@@ -72,9 +70,10 @@ function PrintingResume() {
           job={cvs.job}
           email={cvs.email}
           phone={cvs.phone}
-          skills={cvs.skills}
+          // skills={cvs.skills}
         />
-        <ContainerContent name={cvs.name}>
+        {/* <ContainerContent name={cvs.name}> */}
+        <ContainerContent>
           <ContainerPrint title="Doświadczenie">
             {cvs.work?.map((item, index) => (
               <CurriculumPoint
@@ -108,6 +107,11 @@ function PrintingResume() {
                   arr={item.skills}
                 />
               ))}
+            </ContainerPrint>
+          ) : null}
+          {cvs.skills.length ? (
+            <ContainerPrint title="Umiejętności">
+              <CurriculumPoint arr={cvs.skills} />
             </ContainerPrint>
           ) : null}
           <Clause />

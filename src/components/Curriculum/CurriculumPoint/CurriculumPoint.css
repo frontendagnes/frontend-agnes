@@ -1,7 +1,8 @@
 .curriculumpoint{
-    margin-top: 20px;
+    margin-bottom: 20px;
     display: flex;
 }
+
 .curriculumpoint button{
     padding: 10px 20px;
     height: 50%;

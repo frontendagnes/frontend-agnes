@@ -1,0 +1,23 @@
+@page {
+    margin: 0;
+}
+
+@page :first {
+    margin-top: 0;
+    margin-bottom: 0.5in;
+}
+
+@media print {
+    body {
+        margin: 0;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+
+    @page {
+        size: auto;
+        margin-top: 0.5in;
+        margin-bottom: 0.5in;
+    }
+
+}

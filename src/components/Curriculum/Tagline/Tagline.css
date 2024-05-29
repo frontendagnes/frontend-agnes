@@ -1,5 +1,6 @@
 .tagline {
-  width: 25%;
+  width: 100%;
+  padding-right: 5px;
   color: #000000;
   margin: 0 auto;
 }
@@ -27,8 +28,10 @@
 }
 
 .tagline__personal ul li>span {
-  font-weight: 600;
-  padding: 10px 10px 5px 0px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 0px 5px 0px;
 }
 
 .tagline__skills ul li {
@@ -50,8 +53,9 @@
   margin: 0 auto;
   object-fit: contain;
   cursor: pointer;
-  -webkit-box-shadow: 0px -5px 10px 0px #000000;
-  box-shadow: 0px -5px 10px 0px #000000;
+  border: 1px #000000 solid;
+  /* -webkit-box-shadow: 0px -5px 10px 0px #000000;
+  box-shadow: 0px -5px 10px 0px #000000; */
 }
 
 .taglline__iamge>button {
@@ -73,12 +77,15 @@
 
 .tagline__title {
   /* background-color: #3c4269b9; */
-  padding: 10px 10px;
+  padding: 5px 10px;
   font-weight: 600;
   letter-spacing: 3px;
   font-size: 1rem;
+  border-bottom: 1px #000000 solid;
+  border-bottom-style: double;
+  border-bottom-width: 5px;
   /* border: 1px solid #000000; */
-  box-shadow: 5px 5px 10px 5px #000000;
+  /* box-shadow: 5px 5px 10px 5px #000000; */
 }
 
 @media screen and (max-width: 800px) {

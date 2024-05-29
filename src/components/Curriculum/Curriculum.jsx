@@ -2,10 +2,14 @@ import React, { useState, useRef } from "react";
 import "./Curriculum.css";
 import useKeypress from "react-use-keypress";
 import { useReactToPrint } from "react-to-print";
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
+
 import photo from "../../assets/images/me-id.jpg";
 //mui
 import PrintIcon from "@mui/icons-material/Print";
 import Button from "@mui/material/Button";
+
 //components
 import Tagline from "./Tagline/Tagline";
 import ButtonBack from "../../Global/ButtonBack/ButtonBack";
@@ -28,8 +32,9 @@ function Curriculum() {
 
   const handlePrint = useReactToPrint({
     content: () => printRefmy.current,
-    documentTitle: "my-resume",
+    documentTitle: "Agnieszka Kamińska",
   });
+
   return (
     <div className="curriculum">
       <div className="curriculum__top">
@@ -41,7 +46,6 @@ function Curriculum() {
           <PrintIcon />
         </div>
       ) : null}
-
       <ContainerCvs identifier="akprinttopdf" ref={printRefmy}>
         <Tagline
           job="Junior Frontend Developer"
@@ -49,9 +53,11 @@ function Curriculum() {
           phone="603430340"
           skills={arr.skills}
           photo={photo}
+          name={arr.name}
           myCv
         />
-        <ContainerContent name="inż. Agnieszka Kamińska">
+        {/* <ContainerContent name="inż. Agnieszka Kamińska"> */}
+        <ContainerContent>
           <ContainerPrint title="Doświadczenie">
             <CurriculumPoint
               data="2008-03 - 2008-06"
@@ -101,6 +107,12 @@ function Curriculum() {
               content="Dolnośląski Zakład Doskonalenia Zawodowego Oddział I we Wrocławiu"
             />
           </ContainerPrint>
+          {arr.skills.length ? (
+            <ContainerPrint title="Umiejętności">
+              <CurriculumPoint arr={arr.skills} />
+            </ContainerPrint>
+          ) : null}
+
           <Clause />
         </ContainerContent>
       </ContainerCvs>

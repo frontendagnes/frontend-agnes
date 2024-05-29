@@ -1,0 +1,60 @@
+.tagline {
+    padding: 30px 30px 0px 30px;
+    position: relative;
+    /* border: 1px solid black; */
+    /* display: flex;
+    gap: 20px; */
+}
+
+
+.tagline__top {
+    display: flex;
+    gap: 20px;
+}
+
+.tagline__top img {
+    width: 200px;
+    border-radius:50%;
+    /* filter: grayscale(100%) brightness(90%); */
+}
+
+.tagline__description {
+    display: flex;
+    flex-direction: column;
+}
+
+.tagline__name,
+.tagline__profession {
+    font-weight: 600;
+    align-self: flex-v;
+}
+
+.tagline__name {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.tagline__profession {
+    font-size: 1.5rem;
+}
+
+.tagline__personal {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    /* position: absolute;
+    top: 150px;
+    right: 10px; */
+}
+
+.tagline ul {
+    list-style-type: none;
+    margin-top: 50px;
+}
+
+.tagline ul li span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 10px;
+}
