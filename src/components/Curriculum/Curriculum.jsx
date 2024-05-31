@@ -2,8 +2,6 @@ import React, { useState, useRef } from "react";
 import "./Curriculum.css";
 import useKeypress from "react-use-keypress";
 import { useReactToPrint } from "react-to-print";
-import jsPDF from "jspdf";
-import html2canvas from "html2canvas";
 
 import photo from "../../assets/images/me-id.jpg";
 //mui
