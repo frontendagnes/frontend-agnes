@@ -6,7 +6,6 @@
 }
 
 .tagline__container {
-  /* background: url("../../../assets/images/background.svg"); */
   background-repeat: no-repeat;
   background-size: cover;
   transition: all 0.75s ease-in-out;
@@ -54,9 +53,7 @@
   object-fit: contain;
   cursor: pointer;
   border: 1px #000000 solid;
-  /* -webkit-box-shadow: 0px -5px 10px 0px #000000;
-  box-shadow: 0px -5px 10px 0px #000000; */
-}
+ }
 
 .taglline__iamge>button {
   height: 150px;
@@ -76,7 +73,6 @@
 }
 
 .tagline__title {
-  /* background-color: #3c4269b9; */
   padding: 5px 10px;
   font-weight: 600;
   letter-spacing: 3px;
@@ -84,8 +80,6 @@
   border-bottom: 1px #000000 solid;
   border-bottom-style: double;
   border-bottom-width: 5px;
-  /* border: 1px solid #000000; */
-  /* box-shadow: 5px 5px 10px 5px #000000; */
 }
 
 @media screen and (max-width: 800px) {

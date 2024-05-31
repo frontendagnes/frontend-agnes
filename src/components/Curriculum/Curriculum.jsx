@@ -9,7 +9,7 @@ import PrintIcon from "@mui/icons-material/Print";
 import Button from "@mui/material/Button";
 
 //components
-import Tagline from "./Tagline/Tagline";
+import Tagline from "./Tagline/Taglinev1.jsx";
 import ButtonBack from "../../Global/ButtonBack/ButtonBack";
 import ContainerCvs from "../../Global/ConatinerCvs/ContainerCvs";
 import CurriculumPoint from "./CurriculumPoint/CurriculumPoint";
@@ -54,7 +54,6 @@ function Curriculum() {
           name={arr.name}
           myCv
         />
-        {/* <ContainerContent name="inż. Agnieszka Kamińska"> */}
         <ContainerContent>
           <ContainerPrint title="Doświadczenie">
             <CurriculumPoint

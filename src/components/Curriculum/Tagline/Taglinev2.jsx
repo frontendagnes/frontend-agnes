@@ -1,5 +1,5 @@
 import React from "react";
-import "./Tagline_2.css";
+import "./Taglinev2.css";
 import { index } from "../../../assets/utility/functions";
 import { useStateValue } from "../../../assets/utility/StateProvider";
 //mui
@@ -8,8 +8,7 @@ import PhoneIcon from "@mui/icons-material/Phone";
 function Tagline({ name, job, email, phone, skills, isFull, myCv, photo }) {
   const [{ file }] = useStateValue();
   return (
-    // <div className="tagline" style={{ width: isFull ? "100%" : "30%" }}>
-    <div className="tagline">
+    <div className="tagline" style={{ width: isFull ? "100%" : "30%" }}>
       <div className="tagline__container">
         <div className="tagline__top">
           <div className="tagline__profession">{job}</div>
