@@ -1,117 +1,132 @@
-# Portfolio ForontEnd Developer
+# Frontend Agnes
 
-Apliakcja zawiera projekty developera podzielone na dwa działy w jednym znajdują się wybrane projekty przy użyciu HTML, CSS oraz czystego javascript natomiast w drugim projekty wykonane za pomocą REACT .
+## Table of Contents
 
-Jako dodatek dodany został genrator Resume (CV) - który tworzy proste CV i pozwala je wydrukować do pdf. Generator jest bardzo prosty w użyciu i nie posiada połączenia z bazą danych co znaczy, że nie trzeba się logować co za tym idzie nie zapisuje żadnych danych, należy używać go ostrożenie ponieważ jedno odświeżenie strony spowoduje utratę danych. 
+- [Introduction](#introduction)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Development](#development)
+- [Contributing](#contributing)
+- [Documentation](#documentation)
+- [License](#license)
 
-Strona (oprócz generatora) jest napisana w dwóch wersjach językowych w nagłówku znajduje się switch do zmiany języka PL - polski,  EN - angielski.
+## Introduction
 
-edit: 5.03.2022 - Do strony został dodany plik sitemap.xml
+Frontend Agnes is a personal portfolio website built to showcase projects, skills, and experiences. It is designed to be a simple, elegant, and responsive website using modern frontend technologies.
 
-edit: 28.03.2022 - Restrukturyzacja kodu pod względem wyświetlania wersji językowych.
-Dodana biblioteka react-scroll w celu dodania efektów do menu podczas skrolowania.
+## Features
 
-## Contribute
+- Responsive design
+- Project showcase
+- Skillset overview
+- Contact form
+- Creating your own CV
 
-- Source Code: [https://github.com/frontendagnes/frontend-agnes](https://github.com/frontendagnes/frontend-agnes)
-- Issue Tracker: [https://github.com/frontendagnes/frontend-agnes/issues](https://github.com/frontendagnes/frontend-agnes/issues)
-- View: https://frontend-agnes.pl
+## Installation
 
-## Documantation
+To run this project locally, follow these steps:
 
-- [firebase](https://www.npmjs.com/package/firebase) - baza danych (deploy)
+### Prerequisites
 
-- [material-ui](https://material-ui.com/) - użyto ikon jak również prostego komonentu SnackBar do pokazywania powiadomień oraz useMediaQuery przy tworzeniu wersji RWD
+Make sure you have the following installed:
 
-- [react-router-dom](https://reactrouter.com/web/guides/quick-start) - nawigacja na stronie
+- [Node.js](https://nodejs.org/) (v14 or higher)
+- [npm](https://www.npmjs.com/) (v6 or higher)
 
-- [nanoid](https://www.npmjs.com/package/nanoid) - za pomocą tej aplikacji tworzę identyfikatory
+### Steps
 
-- [react-number-format](https://www.npmjs.com/package/react-number-format) - obsługa inputów typu number oraz użycie maski dla tych inputów
+1. Clone the repository:
 
-- [html2canvas](https://www.npmjs.com/package/html2canvas) oraz [jspdf](https://www.npmjs.com/package/jspdf) - użyte wspólnie do drukowania CV do pdf. W związku z tym, iż jspdf nie obsługuje UTF-8, użyłam html2canvas do stworzenia zrzutu png faktury a później za pomocą pdf została zapisana do pliku pdf
+   ```sh
+   git clone https://github.com/frontendagnes/frontend-agnes.git
+   cd frontend-agnes
+   ```
 
-- [styled-components](https://styled-components.com/) - stylizacja niektórych komponentów
+2. Install dependencies:
 
-- [classnames](https://github.com/JedWatson/classnames) - użyta do ustawienia dwóch różnych klas CSS dla jednego elementu w zależności od stanu.
+   ```sh
+   npm install
+   ```
 
-- [react-use-keypress](https://www.npmjs.com/package/react-use-keypress) - użyte do reagowania na wciścinięcie klawisza, funkcja byłą potrzebna do ukrycia przycisku na stronie w moim CV po wciśnięciu klawisza "v" pojawia się button umożliwiający wydruk CV do PDF. 
+3. Create a `.env` file in the root directory and configure the necessary environment variables:
 
-- [react-cookie-consent](https://www.npmjs.com/package/react-cookie-consent) - użyte do informacji o plikach cookie komponent ładnie tworzy pasek informacyjny który można stylizwoać do własnych potrzeb. (funkcjonalnoś obecnie wyłączona ponieważ strona nie używa plików cookie)
+   ```sh
+   cp .env.example .env
+   ```
 
-- [react-scroll](https://www.npmjs.com/package/react-scroll) - użyte do efektów manu podczas skrolowania
+4. Start the development server:
+
+   ```sh
+   npm start
+   ```
+
+5. Open your browser and navigate to `http://localhost:3000`.
+
+## Usage
+
+After setting up the project, you can explore the different sections of the portfolio website:
+
+1. **Home:** Introduction and brief overview.
+2. **Projects:** Showcase of various projects with descriptions and links.
+3. **Skills:** List of technical skills.
+4. **Contact:** Form to get in touch.
+5. Creator CV:** (Optional) Creating your own CV
+
+## Development
+
+### Running Tests
+
+To run tests, use the following command:
+
+```sh
+npm test
+```
+
+### Building for Production
+
+To create a production build, use the following command:
+
+```sh
+npm run build
+```
+
+The production-ready files will be in the `build/` directory.
+
+## Documentation
+
+- [firebase](https://www.npmjs.com/package/firebase) - database (Deploy)
+
+- [material-ui](https://material-ui.com/) - icons were used as well as a simple Snackbar common for showing notifications and useediaquery to create the RWD version
+
+- [react-router-dom](https://reactrouter.com/web/guides/quick-start) - navigation on the website
+
+- [nanoid](https://www.npmjs.com/package/nanoid) - I create identifiers using this application
+
+- [react-number-format](https://www.npmjs.com/package/react-number-format) - number input support and the use of a mask for these inputs
+
+- [styled-components](https://styled-components.com/) - styling some components
+
+- [classnames](https://github.com/JedWatson/classnames) - used to set two different CSS classes for one element depending on the state.
+
+- [react-use-keypress](https://www.npmjs.com/package/react-use-keypress) - used to respond to pressing the key, the function was needed to hide the button on the page in my CV after pressing the "V" key, a button appears to print a CV to PDF.
+
+- [react-cookie-consent](https://www.npmjs.com/package/react-cookie-consent) - The component used for information about the files nicely creates an information belt that can be stylized for your own needs.
+
+- [react-scroll](https://www.npmjs.com/package/react-scroll) - used for Manu effects during scrolling
+
+- [react-to-print](https://www.npmjs.com/package/react-to-print) - used to print generated cvs
+
+## Contributing
+
+- Source Code: https://github.com/frontendagnes/frontend-agnes
+- Issue Tracker: [Issues · frontendagnes/frontend-agnes · GitHub](https://github.com/frontendagnes/frontend-agnes/issues)
+- View: [Frontend @gnes](https://frontend-agnes.pl)
+
+## License
+
+This project is licensed under the Apache 2.0 License
 
 ## Author
 
 Agnieszka Kamińska ([agnieszka.kaminska@ksiegarnia.edu.pl](mailto:agnieszka.kaminska@ksiegarnia.edu.pl))
-
-## Installation
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
