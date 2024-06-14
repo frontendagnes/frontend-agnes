@@ -12,6 +12,7 @@
         margin: 0;
         print-color-adjust: exact;
         -webkit-print-color-adjust: exact;
+        transform: scale(1);
     }
 
     @page {
