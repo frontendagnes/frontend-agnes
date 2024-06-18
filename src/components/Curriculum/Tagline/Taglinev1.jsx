@@ -4,7 +4,8 @@ import { useStateValue } from "../../../assets/utility/StateProvider";
 //mui
 import MailIcon from "@mui/icons-material/Mail";
 import PhoneIcon from "@mui/icons-material/Phone";
-function Tagline({ name, job, email, phone, myCv, photo }) {
+
+function TaglineV1({ name, job, email, phone, myCv, photo }) {
   const [{ file }] = useStateValue();
   return (
     <div className="tagline">
@@ -43,4 +44,4 @@ function Tagline({ name, job, email, phone, myCv, photo }) {
   );
 }
 
-export default Tagline;
+export default TaglineV1;

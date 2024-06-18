@@ -23,9 +23,44 @@ export const initialState = {
   },
   file: null,
   img: null,
-  cvs: [],
+  cvs: [
+    // {
+    //   name: "Jan Nowak",
+    //   job: "Junior Frontend developer",
+    //   email: "frontendagnes@gmail.com",
+    //   phone: "666548954",
+    //   skills: ["Prawo Jazdy", "Pisanie", "Czytanie"],
+    //   work: [
+    //     {
+    //       id: "val-Z2oDQhsk",
+    //       date: "6-2024 - 6-2024",
+    //       title: "Ksiegowa",
+    //       workplace: "AGNES",
+    //       skills: ["kontakt z klientem", "pisanie", "liczenie"],
+    //     },
+    //   ],
+    //   education: [
+    //     {
+    //       id: "val-dc3WdWTp",
+    //       date: "4-2024 - 6-2024",
+    //       title: "Średnie",
+    //       workplace: "Zawodowa Średnia",
+    //       skills: [],
+    //     },
+    //   ],
+    //   courses: [
+    //     {
+    //       id: "val-Bumm1obX",
+    //       date: "6-2024 - 6-2024",
+    //       title: "Asystent",
+    //       workplace: "Ośrodek krztałcenia",
+    //       skills: [],
+    //     },
+    //   ],
+    // },
+  ],
   user: null,
-  adminData: []
+  adminData: [],
 };
 
 const reducer = (state, action) => {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Generator.css";
 //other
 import { useStateValue } from "../../../assets/utility/StateProvider";

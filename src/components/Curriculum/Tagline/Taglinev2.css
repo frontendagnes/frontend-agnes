@@ -1,89 +1,46 @@
-.tagline {
-  width: 100%;
-  padding-right: 5px;
+.taglinev2 {
+  width: 30%;
   color: #000000;
-  margin: 0 auto;
+  margin-top: -350px;
 }
 
-.tagline__container {
-  background-repeat: no-repeat;
-  background-size: cover;
-  transition: all 0.75s ease-in-out;
-  transform-origin: right 50%;
-  min-height: 2246px;
-  height: 100%;
-}
-
-.tagline ul {
-  list-style-type: none;
-  padding-bottom: 20px;
-}
-
-.tagline__personal ul li {
-  display: flex;
-  flex-direction: column;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-.tagline__personal ul li>span {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  padding: 10px 0px 5px 0px;
-}
-
-.tagline__skills ul li {
-  padding: 10px 10px 5px 10px;
-}
-
-.tagline__profession {
-  padding: 20px 5px 20px 5px;
-  font-weight: 600;
+.taglinev2__profession {
   font-size: 1.5rem;
   text-align: center;
   letter-spacing: 2px;
-  margin: 0 auto;
-  width: 100%;
+  font-weight: 600;
 }
 
-.tagline img {
-  width: 100%;
-  margin: 0 auto;
-  object-fit: contain;
-  cursor: pointer;
-  border: 1px #000000 solid;
- }
+.taglinev2__top img {
+  width: 200px;
+  border-radius: 5px;
+}
 
-.taglline__iamge>button {
-  height: 150px;
-  width: 100%;
-  cursor: pointer;
-  background: transparent;
-  color: #ffffff;
-  border: 2px solid #000000;
+.taglinev2__title {
+  padding: 5px 0px 5px 10px;
+  margin-top: 20px;
+  margin-right: 10px;
+  font-size: 1.2rem;
   font-weight: 600;
   letter-spacing: 2px;
-  transition: background 0.75s ease-in;
+  border-top: 2px solid #a4b0cc;
+  border-bottom: 2px solid #a4b0cc;
 }
 
-.taglline__iamge>button:hover {
-  background: #a4b0cc;
-  color: #000000;
+.taglinev2__bottom ul {
+  list-style-type: none;
 }
 
-.tagline__title {
-  padding: 5px 10px;
-  font-weight: 600;
-  letter-spacing: 3px;
-  font-size: 1rem;
-  border-bottom: 1px #000000 solid;
-  border-bottom-style: double;
-  border-bottom-width: 5px;
+.taglinev2 ul li {
+  display: flex;
+  width: 230px;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  word-break: break-all;
 }
 
-@media screen and (max-width: 800px) {
-  .tagline {
-    font-size: 11px;
-  }
+.taglinev2__skills ul{
+  padding-left: 20px;
 }

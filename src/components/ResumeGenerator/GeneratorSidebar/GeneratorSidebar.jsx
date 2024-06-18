@@ -29,9 +29,6 @@ function GeneratorSidebar({
   // eslint-di sable-next-line
   const [{ file }, dispatch] = useStateValue();
 
-  useEffect(() => {
-    console.log("File>>>", file);
-  }, [file]);
   const addSkill = () => {
     if (skill) {
       setSkills([skill, ...skills]);

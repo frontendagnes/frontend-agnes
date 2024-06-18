@@ -11,6 +11,7 @@ function CurriculumPoint({
   setPoint,
   point,
   id,
+  style
 }) {
   return (
     <div className="curriculumpoint">
@@ -18,7 +19,7 @@ function CurriculumPoint({
       <div className="curriculumpoint__container">
         <div className="curriculumpoint__title">{title}</div>
         <div className="curriculumpoint__content">{content}</div>
-        <ul className="curriculumpoint__skills">
+        <ul className="curriculumpoint__skills" style={style}>
           {arr?.map((item) => (
             <li key={index()}>{item}</li>
           ))}

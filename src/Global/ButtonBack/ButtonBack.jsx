@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./ButtonBack.css";
 import { useNavigate } from "react-router-dom";
 import OpenModal from "../OpenModal/OpenModal";
-function ButtonBack({ title, openModal }) {
+function ButtonBack({ title, openModal, style }) {
   const history = useNavigate();
   const [openWarring, setOpenWarrning] = useState(false);
 
@@ -32,7 +32,7 @@ function ButtonBack({ title, openModal }) {
         handleClickNo={warriningNo}
         handleClickYes={warrnigYes}
       />
-      <button type="button" onClick={backToHomepage}>
+      <button type="button" onClick={backToHomepage} style={style}>
         Home Page
       </button>
     </div>

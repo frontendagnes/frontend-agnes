@@ -2,21 +2,48 @@
   padding-top: 20px;
   background: #e7e7e7fa;
 }
-
-.printingresume__backButton {
+.printingresume header nav {
+  width: 100%;
+  display: flex;
   padding: 10px 20px;
-  border-radius: 0px 10px 10px 0px;
-  border: transparent;
-  background: #6b83c0;
-  color: #000000;
-  font-weight: 600;
-  font-size: 1.2rem;
-  letter-spacing: 2px;
-  cursor: pointer;
-  transition: all 0.75s ease-in-out;
-  position: fixed;
 }
+.printingresume header nav button {
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
 .printingresume__backButton:hover {
   background: #1f2136;
   color: #ffffff;
 }
+
+.printingresume__buttonsCnt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.printingresume__buttonsCnt button {
+  border-radius: 5px;
+}
+
+.printingresume__buttonPrint button {
+  display: flex;
+  gap: 5px;
+  font-size: 1rem;
+}
+
+.printingresume__version-buttons {
+  list-style: none;
+  counter-reset: item;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.printingresume__version-buttons li {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 0px 10px 0px 10px;
+  margin-left: 5px;
+}
+

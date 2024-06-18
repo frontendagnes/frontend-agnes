@@ -36,12 +36,10 @@
 }
 
 .containercvs__wrapper {
-    /* padding-top: 60px; */
     box-sizing: border-box;
     width: 794px;
     min-height: 1123px;
     height: 100%;
-    /* display: flex;
-    flex-flow: row-reverse wrap; */
     background: #ffffff;
+    flex-flow: row-reverse wrap;
 }
