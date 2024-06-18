@@ -10,30 +10,59 @@
 }
 
 .modal__wrapper {
-    border: 2px solid #ffffff;
+    border: 1px solid #000000;
     padding: 20px 30px;
-    background: #3f4d70;
-    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+    width: 80%;
 }
 
 .modal>div {
     font-size: 2rem;
     letter-spacing: 5px;
-    font-weight: 600;
 }
 
 .modal__buttons {
     display: flex;
     justify-content: center;
+    margin-top: 10px;
+    gap: 20px;
 }
 
 .modal__buttons>button {
-    padding: 10px;
-    margin: 10px;
+    padding: 10px 0px 10px 0px;
     cursor: pointer;
     font-size: 1.1rem;
-    font-weight: 600;
     letter-spacing: 3px;
+    border: transparent;
+    border-radius: 5px;
+    color: #ffffff;
+    border: 1px solid #000000;
+    transition: all 0.7s ease;
+    width: 250px;
+}
+
+.modal__buttonYes {
+    background: rgba(0,0,0,0.4);
+}
+.modal__buttonYes:hover{
+    background: #000000;
+}
+.modal__buttonNo {
+    background: #008000;
+}
+.modal__buttonNo:hover{
+    background: #014401;
+}
+
+@media only screen and (max-width: 560px){
+    .modal__buttons{
+        flex-direction: column;
+        align-items: center;
+    }
+    .modal__wrapper{
+        width: 90%;
+    }
 }
 
 @keyframes zoom {

@@ -9,10 +9,10 @@ function OpenModal( {text, handleClickNo, handleClickYes, open } ) {
         <div className="modal__wrapper">
           <div>{text}</div>
           <div className="modal__buttons">
-            <button type="button" onClick={handleClickYes}>
+            <button type="button" className="modal__buttonYes" onClick={handleClickYes}>
               Tak
             </button>
-            <button type="button" onClick={handleClickNo}>
+            <button type="button" className="modal__buttonNo" onClick={handleClickNo}>
               Nie
             </button>
           </div>
