@@ -1,27 +1,21 @@
 .buttonback button {
     position: fixed;
-    top: 80px;
+    top: 95px;
     left: 0px;
-    padding: 10px 20px;
-    border-radius: 0px 10px 10px 0px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 10px;
+    border-radius: 0px 5px 5px 0px;
     border: transparent;
-    background: #6b83c0;
-    color: #000000;
-    font-weight: 600;
-    font-size: 1.2rem;
+    font-size: 0.8rem;
     letter-spacing: 2px;
     cursor: pointer;
-    transition: all 0.75s ease-in-out;
+    transition: all 0.75s ease;
     z-index: 5;
 }
 
 .buttonback button:hover {
-    background: #1f2136;
+    background: #5a71aa;
     color: #ffffff;
-}
-
-@media screen and (max-width:885px) {
-    .buttonback button {
-        top: 95px;
-    }
 }

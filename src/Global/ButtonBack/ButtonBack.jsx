@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import "./ButtonBack.css";
 import { useNavigate } from "react-router-dom";
 import OpenModal from "../OpenModal/OpenModal";
+//mui
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+
 function ButtonBack({ title, openModal, style }) {
   const history = useNavigate();
   const [openWarring, setOpenWarrning] = useState(false);
@@ -33,7 +36,7 @@ function ButtonBack({ title, openModal, style }) {
         handleClickYes={warrnigYes}
       />
       <button type="button" onClick={backToHomepage} style={style}>
-        Home Page
+        <ArrowBackIcon /> back home
       </button>
     </div>
   );
