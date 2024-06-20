@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Inline+Display:wght@300&family=Source+Code+Pro&display=swap');
-.skills{
-    padding-bottom: 60px;
-}
+
 .skills__container{
     display: flex;
     justify-content: space-around;
@@ -9,8 +7,6 @@
     padding-top: 50px;
 }
 .skills__link{
-    /* display: flex;
-    justify-content: center; */
     text-align: center;
     padding: 30px 30px 0px 30px;
     font-size: 1rem;

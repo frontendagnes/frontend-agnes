@@ -12,6 +12,13 @@ import MenuIcon from "@mui/icons-material/Menu";
 import logo from "../../assets/images/logo-white-cut.webp";
 //data
 import { menuItems } from "./menuItems";
+import Information from "../Information/Information";
+
+const styles = {
+  div:{
+    marginBottom: "20px"
+  }
+}
 
 function Navbar() {
   const matches = useMediaQuery("(max-width: 850px)");
@@ -84,6 +91,9 @@ function Navbar() {
             )}
           </li>
         ))}
+        {/* <li className="navbar__information">
+          <Information style={styles}/>
+        </li> */}
         <li className="navbar__link navbar__lastLink">
           {matches || matchesHeight ? null : (
             <img src={logo} alt="logo" loading="lazy" />

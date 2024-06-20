@@ -41,12 +41,4 @@ export const menuItems = [
     href: "/resume-generator",
     isMain: false,
   },
-  // {
-  //   id: 7,
-  //   polish:
-  //     "Ankieta",
-  //   english: "I code websites on the basis of the graphic design provided",
-  //   href: "/questionare",
-  //   isMain: false,
-  // },
 ];

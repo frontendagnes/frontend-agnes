@@ -5,6 +5,7 @@ import { useStateValue } from "../../assets/utility/StateProvider";
 //components
 import Skill from "../Skill/Skill";
 import Title from "../../Global/Title/Title";
+import Information from "../Information/Information";
 function Skills() {
   const [{ isEnglish }] = useStateValue();
   return (
@@ -36,6 +37,7 @@ function Skills() {
           }
         />
       </div>
+      <Information />
     </div>
   );
 }

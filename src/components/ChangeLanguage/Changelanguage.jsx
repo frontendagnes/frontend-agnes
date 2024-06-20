@@ -5,8 +5,7 @@ import { styled } from "@mui/material/styles";
 import { useStateValue } from "../../assets/utility/StateProvider";
 
 const Button = styled(IconButton)({
-  fontSize: 1 + "rem",
-  fontWeight: 600,
+  fontSize: "1rem",
 });
 
 function Changelanguage() {

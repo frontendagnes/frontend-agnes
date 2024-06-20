@@ -1,0 +1,28 @@
+.information {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.information button {
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin: 10px;
+    padding: 20px 30px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: #ffffff;
+    box-shadow: 0 0 20px #eeeeee;
+    border-radius: 10px;
+    /* background-image: linear-gradient(to right, #a1c4fd 0%, #c2e9fb 51%, #a1c4fd 100%); */
+    background-image: linear-gradient(to right, #fbc2eb 0%, #a6c1ee 51%, #fbc2eb 100%);
+
+}
+
+.information button:hover {
+    background-position: right center;
+
+}

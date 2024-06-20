@@ -3,10 +3,12 @@ import "./Home.css";
 import { useStateValue } from "../../assets/utility/StateProvider";
 import photo from "../../assets/images/me.jpg";
 import Title from "../../Global/Title/Title";
+
+import Information from "../Information/Information.jsx"
 function Home() {
   const [{ isEnglish }] = useStateValue();
   return (
-    <div className="home" name="aboutme">
+    <section className="home" name="aboutme">
       <div className="home__container">
         <Title polish="Kim Jestem" english="Who I am" />
         <div className="home__bottom">
@@ -28,8 +30,9 @@ function Home() {
             loading="lazy"
           />
         </div>
+        {/* <Information /> */}
       </div>
-    </div>
+    </section>
   );
 }
 
