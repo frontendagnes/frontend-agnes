@@ -3,38 +3,6 @@
     justify-content: center;
 }
 
-.wave {
-    position: relative;
-    height: 70px;
-    width: 100%;
-    background: #a0a0a0;
-    margin: 0 auto;
-}
-
-.wave:before {
-    content: "";
-    display: block;
-    position: absolute;
-    border-radius: 100% 50%;
-    width: 57%;
-    height: 80px;
-    background-color: #ffffff;
-    left: 0;
-    top: 27px;
-}
-
-.wave:after {
-    content: "";
-    display: block;
-    position: absolute;
-    border-radius: 100% 50%;
-    width: 51%;
-    height: 50px;
-    background-color: #a0a0a0;
-    right: 0px;
-    top: 40px;
-}
-
 .containercvs__wrapper {
     box-sizing: border-box;
     width: 794px;

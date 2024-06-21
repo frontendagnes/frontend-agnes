@@ -1,21 +1,32 @@
-#main__container{
+#main__container {
     overflow: scrollY;
+    background-color: #a4afcc;
 }
-.main__container{
+
+.main__container {
     width: 80%;
 }
-.main__middle{
+
+.main__middle {
     background: url("../../assets/background.svg");
     background-repeat: no-repeat;
     background-size: cover;
+    /* mask-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)); */
+
 }
-@media screen and (max-width: 850px){
-    .main__container{
+
+/* .main__middle::before {
+    content: url("../../assets/fala.webp");
+} */
+
+@media screen and (max-width: 850px) {
+    .main__container {
         width: 100%;
     }
 }
-@media screen and (max-height: 700px){
-    .main__container{
+
+@media screen and (max-height: 700px) {
+    .main__container {
         width: 100%;
     }
 }

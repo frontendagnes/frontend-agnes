@@ -4,7 +4,6 @@ import { useStateValue } from "../../assets/utility/StateProvider";
 import photo from "../../assets/images/me.jpg";
 import Title from "../../Global/Title/Title";
 
-import Information from "../Information/Information.jsx"
 function Home() {
   const [{ isEnglish }] = useStateValue();
   return (
@@ -30,7 +29,6 @@ function Home() {
             loading="lazy"
           />
         </div>
-        {/* <Information /> */}
       </div>
     </section>
   );
