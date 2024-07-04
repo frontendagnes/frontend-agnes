@@ -12,34 +12,26 @@ import MenuIcon from "@mui/icons-material/Menu";
 import logo from "../../assets/images/logo-white-cut.webp";
 //data
 import { menuItems } from "./menuItems";
-import Information from "../Information/Information";
-
-const styles = {
-  div:{
-    marginBottom: "20px"
-  }
-}
 
 function Navbar() {
-  const matches = useMediaQuery("(max-width: 850px)");
-  const matchesHeight = useMediaQuery("(max-height: 690px)");
+  const matches = useMediaQuery("(max-width: 850px), (max-height: 690px)");
 
   const [{ isEnglish }] = useStateValue();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    if (matches || matchesHeight) {
+    if (matches) {
       setIsVisible(false);
     } else {
       setIsVisible(true);
     }
-  }, [matches, matchesHeight]);
+  }, [matches]);
 
   const handleClick = () => {
-    setIsVisible(!isVisible);
+    setIsVisible((prev) => !prev);
   };
   const closeMenu = () => {
-    if (matches || matchesHeight) {
+    if (matches) {
       setIsVisible(false);
     }
   };
@@ -50,10 +42,7 @@ function Navbar() {
 
   return (
     <nav className="navbar" style={{ height: isVisible ? "100%" : "0px" }}>
-      <div
-        className="navbar__icon"
-        onClick={matches || matchesHeight ? handleClick : undefined}
-      >
+      <div className="navbar__icon" onClick={matches ? handleClick : undefined}>
         <MenuIcon
           sx={{
             fontSize: 52,
@@ -91,13 +80,8 @@ function Navbar() {
             )}
           </li>
         ))}
-        {/* <li className="navbar__information">
-          <Information style={styles}/>
-        </li> */}
         <li className="navbar__link navbar__lastLink">
-          {matches || matchesHeight ? null : (
-            <img src={logo} alt="logo" loading="lazy" />
-          )}
+          {matches ? null : <img src={logo} alt="logo" loading="lazy" />}
         </li>
       </ul>
     </nav>

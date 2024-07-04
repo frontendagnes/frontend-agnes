@@ -26,16 +26,6 @@ import { Button, TextField } from "@mui/material";
 //data
 import { apiInfo, functionality, otherElements } from "./data.js";
 
-// const sgMail = require("@sendgrid/mail");
-// sgMail.setApiKey(process.env.REACT_APP_SANDGRID_APIKEY);
-
-// const FormButton = styled(Button)`
-//   background-color: #add8e7;
-//   color: #000000;
-//   font-size: 1.2rem;
-//   padding: 10px 20px;
-//   margin-bottom: 20px;
-// `;
 const Emoji = (props) => (
   <span
     className="emoji"
@@ -47,17 +37,6 @@ const Emoji = (props) => (
   </span>
 );
 
-const sendMail = (subject, body, mail) => {
-  window.Email.send({
-    Host: import.meta.env.REACT_APP_SMTP_HOST,
-    Username: import.meta.env.REACT_APP_SMTP_USERNAME,
-    Password: import.meta.env.REACT_APP_SMTP_KEY,
-    To: mail,
-    From: import.meta.env.REACT_APP_SMTP_USERNAME,
-    Subject: subject,
-    Body: body,
-  }).catch((error) => console.log("SMTP Error", error));
-};
 
 function Questionare() {
   //global state
@@ -75,13 +54,42 @@ function Questionare() {
   const [photos, setPhotos] = useState([]);
   const history = useNavigate();
 
+  // const sendMail = async ({ subject, text, email }) => {
+  //   const transporter = nodemailer.createTransport({
+  //     host: "smtp.gmail.com",
+  //     port: 587,
+  //     secure: false,
+  //     auth: {
+  //       user: import.meta.env.VITE_APP_AUTH_MAIL,
+  //       pass: import.meta.env.VITE_APP_AUTH_PASS,
+  //     },
+  //   });
+
+  //   const mailOptions = {
+  //     from: import.meta.env.VITE_APP_AUTH_MAIL,
+  //     to: email,
+  //     subject: subject,
+  //     text: text,
+  //   };
+
+  //   try {
+  //     await transporter.sendMail(mailOptions);
+  //     console.log("Email send successfully");
+  //   } catch (error) {
+  //     console.log("Error sending email>>", error);
+  //   }
+  // };
+
   //factoring chatgpt
-  const formHandler = async () => {
+  const formHandler = async (e) => {
+    e.preventDefault();
     const msg = validate(age, email);
     if (msg) {
       dispatch({ type: "ALERT__ERROR", item: msg });
       return;
     }
+    console.log("...Poszło");
+    // sendEmail("Wiadomość AGNES", "Tes nodemailer", email);
     await addDoc(collection(db, "questionare"), {
       timestamp: serverTimestamp(),
       imageUrls: photos,
@@ -98,18 +106,18 @@ function Questionare() {
           item: `Ankieta została wysłana. Dziękuję ${name ? name : email}`,
         });
       })
-      .then(() => {
-        sendMail(
-          "Wiadomość wysłane ze strony frontend-ganes.pl",
-          "Właśnie złożyłeś zapytanie na stronie frontend-agnes.pl. Postaram się odpowiedzieć jak najszybciej zazwyczaj w ciągu 48h, jeżeli ten czas będzie miał sie przedłużyć poinformuję Cię o tym w osobnej wiadomości. pozdrawiam Agnieszka Kamińska",
-          email
-        );
-        sendMail(
-          "Nowe zapytanie w sprawie oferty",
-          "Masz nowe zapytanie w sprawie oferty",
-          import.meta.env.REACT_APP_SMTP_USERNAME
-        );
-      })
+      // .then(() => {
+      //   sendMail(
+      //     "Wiadomość wysłane ze strony frontend-ganes.pl",
+      //     "Właśnie złożyłeś zapytanie na stronie frontend-agnes.pl. Postaram się odpowiedzieć jak najszybciej zazwyczaj w ciągu 48h, jeżeli ten czas będzie miał sie przedłużyć poinformuję Cię o tym w osobnej wiadomości. pozdrawiam Agnieszka Kamińska",
+      //     email
+      //   );
+      //   sendMail(
+      //     "Nowe zapytanie w sprawie oferty",
+      //     "Masz nowe zapytanie w sprawie oferty",
+      //     import.meta.env.REACT_APP_SMTP_USERNAME
+      //   );
+      // })
       .then(() => {
         history("/");
       })
@@ -176,7 +184,41 @@ function Questionare() {
             </p>
           </div>
         </div>
-        <form className="questionare__form">
+        {/* <form className="questionare__form" onSubmit={formHandler}> */}
+        <form
+          className="questionare__form"
+          action="https://formsubmit.co/frontendagnes@gmail.com"
+          method="POST"
+        >
+          <input
+            type="hidden"
+            name="_subject"
+            value="Nowe zgłoszenie dla forntend-agnes.pl!"
+          />
+          <input type="hidden" name="_captcha" value="false" />
+          <input
+            type="text"
+            name="_honey"
+            style={{ display: "none" }}
+          />
+          <input
+            type="hidden"
+            name="_autoresponse"
+            value="Złożyłeś zapytanie ofertowe na stronie frontend-agnes.pl. Odpowiem najszybciej jak to możliwe. Pozdrawiam AK"
+          />
+          <input type="hidden" name="_template" value="table" />
+          <input
+            type="hidden"
+            name="_next"
+            value="https://frontend-agnes.pl/thanks"
+          />
+          <input
+            type="text"
+            name="message"
+            className="questionare__massage"
+            value="Na stornie https://frontend-agnes.pl/ zoatało złożone zapytanie ofertowe."
+            readOnly
+          />
           <QuestionareModule
             api={apiInfo}
             checked={checkedApi}
@@ -260,6 +302,7 @@ function Questionare() {
               <div className="questionare__input">
                 <TextField
                   value={email}
+                  name="email"
                   onChange={(e) => setEmail(e.target.value)}
                   label="Podaj email"
                   variant="standard"
@@ -281,8 +324,8 @@ function Questionare() {
             <Button
               variant="contained"
               endIcon={<SendIcon />}
-              onClick={formHandler}
               size="large"
+              type="submit"
             >
               Wyślij Fromularz
             </Button>

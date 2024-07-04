@@ -5,7 +5,7 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   // depending on your application, base can also be "/"
-  base: "",
+  // base: "",
   plugins: [react()],
   server: {
     // this ensures that the browser opens upon server start
@@ -20,10 +20,5 @@ export default defineConfig({
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
-  },
-  optimizeDeps: {
-    exclude: [
-      "vite/client/node_modules/.vite/deps/chunk-PL5FXEKZ.js?v=e691e8c0",
-    ], // Dodaj tutaj nazwę problematycznej zależności
   },
 });

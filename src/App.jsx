@@ -16,6 +16,7 @@ import {
 import Cookies from "./components/Cookies/Cookies.jsx";
 import Header from "./components/Header/Header.jsx";
 import Main from "./components/Main/Main.jsx";
+import Footer from "./components/Footer/Footer.jsx";
 const CookieInfo = lazy(() => import("./components/Cookies/CookieInfo.jsx"));
 const Snackbar = lazy(() => import("./components/Snackbar/Snackbar.jsx"));
 const PrintingResume = lazy(() =>
@@ -37,6 +38,7 @@ const Auth = lazy(() => import("./Administrator/Auth/Auth.jsx"));
 const AdminDetails = lazy(() =>
   import("./Administrator/AdminDetails/AdminDetails.jsx")
 );
+const Thanks = lazy(() => import("./components/Thanks/Thanks.jsx"));
 function App() {
   const [{ user }, dispatch] = useStateValue();
   useEffect(() => {
@@ -138,6 +140,7 @@ function App() {
             path="admin/details/:questionareId"
             element={<AdminDetails />}
           />
+          <Route path="/thanks" element={<Thanks />} />
           <Route path="/cookies-info" element={<CookieInfo />} />
           <Route
             path="*"

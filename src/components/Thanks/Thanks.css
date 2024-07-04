@@ -1,0 +1,18 @@
+.thanks {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-image: url('../../assets/background.svg');
+}
+
+.thanks__container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 20px;
+    color: #ffffff;
+    text-shadow: 5px 5px 10px #000000;
+}

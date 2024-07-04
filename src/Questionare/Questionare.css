@@ -95,6 +95,9 @@
     color: #ff0000;
 }
 
+.questionare__massage{
+    display: none;
+}
 @media only screen and (max-width: 800px){
     .questionare{
         flex-direction: column;

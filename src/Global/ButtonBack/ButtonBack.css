@@ -12,7 +12,7 @@
     letter-spacing: 2px;
     cursor: pointer;
     transition: all 0.75s ease;
-    z-index: 5;
+    z-index: 999;
 }
 
 .buttonback button:hover {
