@@ -1,37 +1,40 @@
-.questionare{
+.questionare {
     padding-top: 80px;
     background-color: #ebebeb;
+    display: flex;
+    /* flex-direction: column; */
 }
-.questionare__isEnglish{
+
+.questionare__isEnglish {
     text-align: center;
     height: 50px;
     font-size: 1.5rem;
     font-weight: 600;
     letter-spacing: 3px;
 }
+
 .questionare__wrapper {
     padding-right: 20px;
-    display: flex;
-    justify-content: center;
+    /* display: flex; */
+    /* justify-content: center; */
 }
-.questionare img{
+
+/* .questionare img {
     width: 100%;
-}
+} */
+
 .questionare__header {
     margin-bottom: 50px;
-    text-align: center;
+    /* text-align: center; */
     padding: 0 20px 0 20px;
     font-size: 1.2rem;
     color: #272727;
     text-shadow: 2px 2px 2px #ffffff;
     font-weight: 600;
-    width: 40%;
+    /* width: 40%; */
 }
 
-.questionare__header p {
-    margin-bottom: 20px;
-    line-height: 40px;
-}
+
 
 .questionare__textarea {
     width: 100%;
@@ -48,14 +51,16 @@
     padding-bottom: 20px;
 }
 
-.questionare__buttonsGroup{
+.questionare__buttonsGroup {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.questionare__buttonsGroup > svg{
+
+.questionare__buttonsGroup>svg {
     margin-right: 50px;
 }
+
 .questionare__buttonsGroup>button {
     padding: 10px 20px;
     border: transparent;
@@ -67,47 +72,55 @@
     cursor: pointer;
     transition: background 0.75s;
 }
-.questionare__buttonsGroup>button:hover{
+
+.questionare__buttonsGroup>button:hover {
     background: #a4b0cc;
 }
-.questionere__settingsBtn{
+
+.questionere__settingsBtn {
     flex: 1;
 }
-.questionere__settingsBtn svg{
+
+.questionere__settingsBtn svg {
     margin-left: 20px;
 }
-.questionare__input {
-    margin-bottom: 10px;
+
+
+.questionare__galleryDiscrition{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 20px;
 }
-.questionare__gallery{
+.questionare__gallery {
     display: flex;
     flex-flow: row wrap;
     align-items: center;
     justify-content: center;
 }
-.questionare__uploadImage img{
+
+.questionare__uploadImage img {
     width: 100px;
     height: auto;
     margin-left: 20px;
 }
+
 .questionare__age {
     display: none;
     color: #ff0000;
 }
 
-.questionare__massage{
-    display: none;
-}
-@media only screen and (max-width: 800px){
-    .questionare{
+
+@media only screen and (max-width: 800px) {
+    .questionare {
         flex-direction: column;
         padding-left: 10px;
         padding-right: 10px;
     }
-    .questionare__header{
+
+    .questionare__header {
         width: 100%;
     }
-    .questionare__wrapper{
+
+    .questionare__wrapper {
         flex-wrap: wrap;
     }
 }

@@ -1,0 +1,16 @@
+.questionareInformation{
+    padding: 20px 30px;
+}
+
+.questionareInformation p {
+    margin-bottom: 20px;
+    line-height: 30px;
+    text-align: justify;
+
+}
+
+.questionareInformation img{
+    width: 60%;
+    float: left;
+    margin-right: 20px;
+}
