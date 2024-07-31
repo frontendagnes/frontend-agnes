@@ -1,6 +1,6 @@
-import React from 'react'
-import "./HiddenInputs.css"
-function HiddenInputs({message, setMessage, email, setEmail}) {
+import React from "react";
+import "./HiddenInputs.css";
+function HiddenInputs({ email, message, handleChange }) {
   return (
     <>
       <input
@@ -8,17 +8,17 @@ function HiddenInputs({message, setMessage, email, setEmail}) {
         name="message"
         className="hiddenInputs"
         value={message}
-        onChange={(e) => setMessage(e.target.value)}
+        onChange={handleChange}
       />
       <input
         className="hiddenInputs"
         value={email}
         type="email"
         name="email"
-        onChange={(e) => setEmail(e.target.value)}
+        onChange={handleChange}
       />
     </>
   );
 }
 
-export default HiddenInputs
+export default HiddenInputs;

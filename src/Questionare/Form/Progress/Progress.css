@@ -1,0 +1,24 @@
+.progress {
+    padding: 10px;
+    max-width: 800px;
+    position: absolute;
+    top: 10px;
+}
+
+.progress .MuiStepLabel-label {
+    color: #969696fa;
+}
+
+.progress .Mui-active {
+    color: #1976d2;
+}
+
+.progress .MuiStepLabel-label,
+.progress .Mui-active {
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.progress .MuiStepIcon-root {
+    z-index: 999;
+}

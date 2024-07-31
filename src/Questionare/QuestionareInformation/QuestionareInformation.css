@@ -1,5 +1,7 @@
 .questionareInformation{
-    padding: 20px 30px;
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 20px;
 }
 
 .questionareInformation p {
@@ -11,6 +13,6 @@
 
 .questionareInformation img{
     width: 60%;
-    float: left;
-    margin-right: 20px;
+    float: right;
+    margin-left: 20px;
 }

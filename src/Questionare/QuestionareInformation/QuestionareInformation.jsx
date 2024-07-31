@@ -35,7 +35,7 @@ function QuestionareInformation() {
         <p>
           Na podstawie{" "}
           <b style={{ letterSpacing: "4px", fontSize: "1.3rem" }}>
-            poniższej ankiety{" "}
+            ankiety{" "}
           </b>
           będę w stanie podać Ci cenę usługi. Podchodzę indywidualnie do każdego
           projektu – nie wszystkie są takie same więc cena jest zależna od

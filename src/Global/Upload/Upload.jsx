@@ -91,7 +91,11 @@ function Upload({ setPhotos, photos }) {
       () => {
         getDownloadURL(uploadTask.snapshot.ref)
           .then(async (url) => {
-            setPhotos([...photos, url]);
+            // setPhotos([...photos, url]);
+            setPhotos(prevState =>({
+              ...prevState,
+              photos: [...photos, url]
+            }))
           })
           .then(() => {
             setImage(null);

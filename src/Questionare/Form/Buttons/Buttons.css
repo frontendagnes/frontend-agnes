@@ -1,0 +1,19 @@
+.buttons {
+    padding: 20px 0px 0px 0px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+}
+
+.buttons button {
+    padding: 10px 20px;
+}
+
+.buttons__form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 100px;
+}
