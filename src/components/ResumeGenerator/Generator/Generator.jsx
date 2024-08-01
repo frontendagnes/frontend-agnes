@@ -80,7 +80,12 @@ function Generator() {
         />
       </div>
       <div className="generator__button">
-        <Button sx={{ fontSize: "18px" }} onClick={addResume}>
+        <Button
+          sx={{ fontSize: "18px", padding: "10px 20px", letterSpacing: "3px" }}
+          onClick={addResume}
+          variant="contained"
+          color="success"
+        >
           Utwórz CV
         </Button>
       </div>

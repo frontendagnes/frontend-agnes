@@ -165,11 +165,15 @@ function AddForm({
                 />
               ))}
             </ul>
-
           </div>
         </div>
         <div className="addform__buttons">
-          <Button type="button" onClick={saveData}>
+          <Button
+            type="button"
+            onClick={saveData}
+            variant="outlined"
+            sx={{ letterSpacing: "3px" }}
+          >
             Dodaj Punkt
           </Button>
         </div>

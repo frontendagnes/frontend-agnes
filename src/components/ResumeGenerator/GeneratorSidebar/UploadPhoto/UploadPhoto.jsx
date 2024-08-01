@@ -1,10 +1,24 @@
 import React, { useEffect, useState, useRef } from "react";
-import "./UploadPhoto.css"
+import "./UploadPhoto.css";
 
 import { useStateValue } from "../../../../assets/utility/StateProvider";
 //mui
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
-import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
+import { styled } from "@mui/material/styles";
+import Button from "@mui/material/Button";
+import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+
+const VisuallyHiddenInput = styled("input")({
+  clip: "rect(0 0 0 0)",
+  clipPath: "inset(50%)",
+  height: 1,
+  overflow: "hidden",
+  position: "absolute",
+  bottom: 0,
+  left: 0,
+  whiteSpace: "nowrap",
+  width: 1,
+});
 function UploadPhoto({ name }) {
   const [image, setImage] = useState(null);
   const [{ file }, dispatch] = useStateValue();
@@ -60,8 +74,18 @@ function UploadPhoto({ name }) {
           <b>Klikając na zdjęcie możesz je zmienić</b>
         </>
       ) : (
-        <div className="uploadPhoto__addButton" onClick={handleClick}>
-          <AddAPhotoIcon fontSize="large" />
+        <div>
+          <Button
+            component="label"
+            role={undefined}
+            variant="contained"
+            tabIndex={-1}
+            startIcon={<CloudUploadIcon />}
+            onClick={handleClick}
+          >
+            Upload Photo
+            <VisuallyHiddenInput type="file" />
+          </Button>
         </div>
       )}
     </div>

@@ -7,6 +7,7 @@ import AddForm from "../AddForm/AddForm";
 import CurriculumPoint from "../../Curriculum/CurriculumPoint/CurriculumPoint";
 import TabGenerator from "../../../Global/TabGenerator/TabGenerator";
 import GeneratorSidebar from "../GeneratorSidebar/GeneratorSidebar";
+
 function GeneratorContent({
   point,
   setPoint,
@@ -27,6 +28,75 @@ function GeneratorContent({
   phone,
   setPhone,
 }) {
+  const tabs = [
+    {
+      label: "Doświadczenie",
+      component: (
+        <AddForm
+          point={point}
+          setPoint={setPoint}
+          name="Zawód"
+          helperName="Wprowadź nazwę zawodu (wymagane)"
+          place="Miejsce pracy"
+          helperPlace="Wprowadź miejsce pracy (wymagane)"
+          placeholderName="np. Księgowa"
+          placeholdePlace="Nazwa Firmy"
+          placeholdSkill="np. prowadzenie dokumentacji księgowej"
+        />
+      ),
+    },
+    {
+      label: "Wykształcenie",
+      component: (
+        <AddForm
+          point={education}
+          setPoint={setEducation}
+          name="Wykrztałcenie"
+          helperName="Wprowadź wykrztałcenie (wymagane)"
+          place="Szkoła"
+          helperPlace="Wprowadź nazwę szkoły (wymagane)"
+          placeholderName="np. Liceum Ekonomiczne, technik ekonomista"
+          placeholdePlace="Nazwa Szkoły"
+          placeholdSkill="np. prowadzenie dokumentacji księgowej"
+        />
+      ),
+    },
+    {
+      label: "Kursy",
+      component: (
+        <AddForm
+          point={courses}
+          setPoint={setCourses}
+          name="Kurs"
+          helperName="Wprowadź Kurs"
+          place="Miejsce odbycia"
+          helperPlace="Wprowadź gdzie odbyłeś kurs"
+          placeholderName="np. Asystent ds. kadrowo płacowych"
+          placeholdePlace="np. Ośrodek Doskonalenia Zawodowego"
+          placeholdSkill="np. prowadzenie dokumentacji księgowej"
+        />
+      ),
+    },
+    {
+      label: "Dane Osobowe",
+      component: (
+        <GeneratorSidebar
+          skill={skill}
+          setSkill={setSkill}
+          setSkills={setSkills}
+          skills={skills}
+          name={name}
+          setName={setName}
+          job={job}
+          setJob={setJob}
+          email={email}
+          setEmail={setEmail}
+          phone={phone}
+          setPhone={setPhone}
+        />
+      ),
+    },
+  ];
   return (
     <div className="generatorcontent">
       <div className="generatorcontent__tabs">
@@ -36,8 +106,8 @@ function GeneratorContent({
           od nowa. Proszę o uważne korzystanie z aplikacji żeby nie stracić
           wprowadzonych danych!
           <div>
-            <b>UWAGA:</b> Drukując CV w zaawansowanych opcjach wydruku
-            odznacz drukowanie nagłowka i stopki. Ustaw również skale wydruku na 100%!
+            <b>UWAGA:</b> Drukując CV w zaawansowanych opcjach wydruku odznacz
+            drukowanie nagłowka i stopki. Ustaw również skale wydruku na 100%!
           </div>
         </div>
         <h4>
@@ -48,63 +118,7 @@ function GeneratorContent({
             </Link>
           </div>
         </h4>
-        <TabGenerator
-          component={
-            <AddForm
-              point={point}
-              setPoint={setPoint}
-              name="Zawód"
-              helperName="Wprowadź nazwę zawodu (wymagane)"
-              place="Miejsce pracy"
-              helperPlace="Wprowadź miejsce pracy (wymagane)"
-              placeholderName="np. Księgowa"
-              placeholdePlace="Nazwa Firmy"
-              placeholdSkill="np. prowadzenie dokumentacji księgowej"
-            />
-          }
-          component1={
-            <AddForm
-              point={education}
-              setPoint={setEducation}
-              name="Wykrztałcenie"
-              helperName="Wprowadź wykrztałcenie (wymagane)"
-              place="Szkoła"
-              helperPlace="Wprowadź nazwę szkoły (wymagane)"
-              placeholderName="np. Liceum Ekonomiczne, technik ekonomista"
-              placeholdePlace="Nazwa Szkoły"
-              placeholdSkill="np. prowadzenie dokumentacji księgowej"
-            />
-          }
-          component2={
-            <AddForm
-              point={courses}
-              setPoint={setCourses}
-              name="Kurs"
-              helperName="Wprowadź Kurs"
-              place="Miejsce odbycia"
-              helperPlace="Wprowadź gdzie odbyłeś kurs"
-              placeholderName="np. Asystent ds. kadrowo płacowych"
-              placeholdePlace="np. Ośrodek Doskonalenia Zawodowego"
-              placeholdSkill="np. prowadzenie dokumentacji księgowej"
-            />
-          }
-          component3={
-            <GeneratorSidebar
-              skill={skill}
-              setSkill={setSkill}
-              setSkills={setSkills}
-              skills={skills}
-              name={name}
-              setName={setName}
-              job={job}
-              setJob={setJob}
-              email={email}
-              setEmail={setEmail}
-              phone={phone}
-              setPhone={setPhone}
-            />
-          }
-        />
+        <TabGenerator tabs={tabs} />
       </div>
       <div className="generatorcontent__title">Doświadczenie</div>
       <div className="generatorcontent__content">

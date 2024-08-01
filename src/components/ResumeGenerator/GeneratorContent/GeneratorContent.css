@@ -1,22 +1,27 @@
 .generatorcontent {
-    padding-top: 50px;
+    /* padding-top: 50px; */
+    margin:50px;
 }
-.generatorcontent h4{
+
+.generatorcontent h4 {
     text-align: center;
     margin-bottom: 20px;
     font-size: 1.5rem;
     letter-spacing: 3px;
 }
-.generatorcontent a{
+
+.generatorcontent a {
     cursor: pointer;
     color: #a9a9a9;
     font-size: 1rem;
     text-decoration: none;
 }
-.generatorcontent__description{
+
+.generatorcontent__description {
     text-align: center;
     padding: 10px;
 }
+
 .generatorcontent__title {
     border-top: 2px solid #a4b0cc;
     border-bottom: 2px solid #a4b0cc;
@@ -32,7 +37,7 @@
     width: 100%;
 }
 
-.generatorcontent__button{
+.generatorcontent__button {
     display: flex;
     justify-content: center;
 }
