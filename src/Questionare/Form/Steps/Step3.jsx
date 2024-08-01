@@ -12,7 +12,7 @@ const Step3 = (props) => {
 
   return (
     <MotionDiv>
-      <Fieldset legend="Dodatkowe elemtnty">
+      <Fieldset legend="Dodatkowe elemtnty" className="step__fieldest">
         {otherElements.map((item, index) => (
           <div className="questioneremodule__row" key={`${index}-${item}`}>
             <FormControlLabel

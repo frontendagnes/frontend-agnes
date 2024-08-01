@@ -21,7 +21,7 @@ function Step6(props) {
   } = props;
   return (
     <DivMotion>
-      <Fieldsest legend="Podaj dane do kontaktu">
+      <Fieldsest legend="Podaj dane do kontaktu" className="step__fieldest">
         <Stack spacing={2}>
           <Input
             type="text"

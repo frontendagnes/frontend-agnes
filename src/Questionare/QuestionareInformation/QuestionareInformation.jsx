@@ -37,14 +37,14 @@ function QuestionareInformation() {
           <b style={{ letterSpacing: "4px", fontSize: "1.3rem" }}>
             ankiety{" "}
           </b>
-          będę w stanie podać Ci cenę usługi. Podchodzę indywidualnie do każdego
+          będę w stanie podać Ci orientacyjną cenę usługi (może się zmnienić w zależności o ostatecznych ustaleń). Podchodzę indywidualnie do każdego
           projektu – nie wszystkie są takie same więc cena jest zależna od
           oczekiwań klienta.
         </p>
         <p>
           Jeżeli nie chcesz tworzyć całej strony tylko zmienić jedną rzecz np.
           nagłówek lub menu nie wypełniaj formularza opisz wszystko w
-          dodatkowych informacjach na dole strony i załącz projekt.
+          dodatkowych informacjach w pkt 4 ankiety i załącz projekt.
         </p>
         <p>
           Nie masz projektu też możesz napisać - może razem coś wymyślimy{" "}

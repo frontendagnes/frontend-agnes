@@ -9,7 +9,7 @@ const Step4 = (props) => {
   const { handleChangeInput, formState, onNext, onPrevious } = props;
   return (
     <DivMotion>
-      <Fieldset legend="Dodatkowe informacje">
+      <Fieldset legend="Dodatkowe informacje" className="step__fieldest">
         <textarea
           className="questionare__textarea"
           placeholder="dodatkowe informacje..."

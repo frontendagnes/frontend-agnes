@@ -11,7 +11,10 @@ const Step5 = (props) => {
   const { onNext, onPrevious, formState, setFormState } = props;
   return (
     <DivMotion>
-      <Fieldset legend="Dodaj projekt graficzny strony">
+      <Fieldset
+        legend="Dodaj projekt graficzny strony"
+        className="step__fieldest"
+      >
         <div className="questionare__galleryDiscrition">
           Proszę o dodanie zdjęć pojedynczo, pamiętając żeby każdorazowo kliknąć
           przycisk "Dodaj Zdjęcie"

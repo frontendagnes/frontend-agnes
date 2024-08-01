@@ -1,3 +1,8 @@
+.step__fieldest {
+    max-width: 800px;
+    min-height: 600px;
+}
+
 .step4__list div {
     font-size: 1.2rem;
     letter-spacing: 2px;
@@ -18,17 +23,20 @@
 }
 
 @media screen and (max-width: 800px) {
-    .step4__list div{
+    .step4__list div {
         margin-bottom: 0px;
         font-size: 1rem;
     }
-    .step4__list ol li{
+
+    .step4__list ol li {
         border: none;
         padding: 0px;
     }
-    .step4__list ol li::before{
-        content: "*";
+
+    .step4__list ol li::before {
+        content: "~";
         font-size: 1.2rem;
         font-weight: 900;
+        padding-right: 5px;
     }
 }
