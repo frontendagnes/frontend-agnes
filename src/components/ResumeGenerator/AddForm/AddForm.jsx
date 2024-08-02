@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./AddForm.css";
+
+import { AnimatePresence } from "framer-motion";
+
 //mui
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -57,7 +60,7 @@ function AddForm({
 
   const addSkill = () => {
     if (skill) {
-      setSkills([skill, ...skills]);
+      setSkills([...skills, skill]);
       setSkill("");
     } else
       dispatch({
@@ -97,6 +100,7 @@ function AddForm({
   };
   return (
     <div className="addform">
+      {error ? <ValidationError text={error} /> : null}
       <form>
         <div className="addform__date">
           <div>
@@ -120,51 +124,56 @@ function AddForm({
             />
           </div>
         </div>
-        {error ? <ValidationError text={error} /> : null}
         <div className="addform__inputs">
-          <div>
-            <TextField
-              helperText={helperName}
-              placeholder={placeholderName}
-              id="outlined-basic"
-              label={name}
-              variant="outlined"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              fullWidth
-            />
+          <div className="addform__nameInputs">
+            <div>
+              <TextField
+                helperText={helperName}
+                placeholder={placeholderName}
+                id="outlined-basic"
+                label={name}
+                variant="outlined"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                fullWidth
+              />
+            </div>
+            <div>
+              <TextField
+                helperText={helperPlace}
+                placeholder={placeholdePlace}
+                id="outlined-basic"
+                label={place}
+                variant="outlined"
+                value={workplace}
+                onChange={(e) => setWorkPlace(e.target.value)}
+                fullWidth
+              />
+            </div>
           </div>
-          <div>
-            <TextField
-              helperText={helperPlace}
-              placeholder={placeholdePlace}
-              id="outlined-basic"
-              label={place}
-              variant="outlined"
-              value={workplace}
-              onChange={(e) => setWorkPlace(e.target.value)}
-              fullWidth
+          <div className="addform__skills">
+            <AddSkill
+              placeholder={placeholdSkill}
+              addSkill={addSkill}
+              skill={skill}
+              setSkill={setSkill}
             />
-          </div>
-          <AddSkill
-            placeholder={placeholdSkill}
-            addSkill={addSkill}
-            skill={skill}
-            setSkill={setSkill}
-          />
-          <div className="addform__descriptions">
-            <ul className="addform__description">
-              {skills?.map((item, index) => (
-                <SkillItem
-                  key={index}
-                  index={index}
-                  item={item}
-                  skills={skill}
-                  setSkills={setSkills}
-                  removeSkill={() => removeSkill(index, skills, setSkills)}
-                />
-              ))}
-            </ul>
+            <div className="addform__descriptions">
+              <ul className="addform__description">
+                <AnimatePresence initial={false}>
+                  {skills?.map((item, index) => (
+                    <SkillItem
+                      key={index}
+                      index={index}
+                      item={item}
+                      skills={skill}
+                      setSkills={setSkills}
+                      removeSkill={() => removeSkill(index, skills, setSkills)}
+                    />
+                  ))}
+                </AnimatePresence>
+              </ul>
+            </div>
           </div>
         </div>
         <div className="addform__buttons">
