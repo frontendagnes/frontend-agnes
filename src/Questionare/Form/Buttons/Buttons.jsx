@@ -16,8 +16,9 @@ const Buttons = ({
   handleSubmit,
   handleChangeInput,
   email,
-  message
+  message,
 }) => {
+
   return (
     <div className="buttons">
       {isLastStep && (
@@ -51,15 +52,15 @@ const Buttons = ({
             message={message}
             handleChange={handleChangeInput}
           />
-            <Button
-              variant="contained"
-              endIcon={<SendIcon />}
-              size="large"
-              type="submit"
-              color="success"
-            >
-              Wyślij Fromularz
-            </Button>
+          <Button
+            variant="contained"
+            endIcon={<SendIcon />}
+            size="large"
+            type="submit"
+            color="success"
+          >
+            Wyślij Fromularz
+          </Button>
         </form>
       )}
     </div>

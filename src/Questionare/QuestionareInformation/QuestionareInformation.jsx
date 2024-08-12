@@ -37,7 +37,7 @@ function QuestionareInformation() {
           <b style={{ letterSpacing: "4px", fontSize: "1.3rem" }}>
             ankiety{" "}
           </b>
-          będę w stanie podać Ci orientacyjną cenę usługi (może się zmnienić w zależności o ostatecznych ustaleń). Podchodzę indywidualnie do każdego
+          będę w stanie podać Ci orientacyjną cenę usługi (może się zmnienić w zależności od ostatecznych ustaleń). Podchodzę indywidualnie do każdego
           projektu – nie wszystkie są takie same więc cena jest zależna od
           oczekiwań klienta.
         </p>

@@ -3,6 +3,7 @@ import "./Generator.css";
 //other
 import { useStateValue } from "../../../assets/utility/StateProvider";
 import { useNavigate } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 //components
 import GeneratorContent from "../GeneratorContent/GeneratorContent";
 import ButtonBack from "../../../Global/ButtonBack/ButtonBack";
@@ -11,6 +12,7 @@ import { validate } from "./vialidate";
 // mui
 import Button from "@mui/material/Button";
 
+const MotionButton = motion(Button);
 function Generator() {
   // eslint-disable-next-line
   const [{ cvs }, dispatch] = useStateValue();
@@ -79,16 +81,32 @@ function Generator() {
           setPhone={setPhone}
         />
       </div>
-      <div className="generator__button">
-        <Button
-          sx={{ fontSize: "18px", padding: "10px 20px", letterSpacing: "3px" }}
-          onClick={addResume}
-          variant="contained"
-          color="success"
-        >
-          Utwórz CV
-        </Button>
-      </div>
+      <AnimatePresence>
+        {name ? (
+          <div className="generator__button">
+            <MotionButton
+              initial={{ scale: 0 }}
+              animate={{ rotate: 360, scale: 1 }}
+              exit={{ scale: 0, opacity: 0 }}
+              transition={{
+                type: "spring",
+                stiffness: 260,
+                damping: 20,
+              }}
+              sx={{
+                fontSize: "18px",
+                padding: "10px 20px",
+                letterSpacing: "3px",
+              }}
+              onClick={addResume}
+              variant="contained"
+              color="success"
+            >
+              Utwórz CV
+            </MotionButton>
+          </div>
+        ) : null}
+      </AnimatePresence>
     </div>
   );
 }

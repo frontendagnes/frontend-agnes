@@ -1,12 +1,12 @@
 import React from "react";
 import "./GeneratorContent.css";
 import { index } from "../../../assets/utility/functions";
-import { Link } from "react-router-dom";
 //components
 import AddForm from "../AddForm/AddForm";
 import CurriculumPoint from "../../Curriculum/CurriculumPoint/CurriculumPoint";
 import TabGenerator from "../../../Global/TabGenerator/TabGenerator";
 import GeneratorSidebar from "../GeneratorSidebar/GeneratorSidebar";
+import ContentDescryption from "./ContentDescryption";
 
 function GeneratorContent({
   point,
@@ -99,28 +99,11 @@ function GeneratorContent({
   ];
   return (
     <div className="generatorcontent">
-      <div className="generatorcontent__tabs">
-        <div className="generatorcontent__description">
-          Generator nie wysyła i nie zapisuje żadnych danych dlatego po
-          odświeżeniu strony wszystkie informację znikają i trzeba je wpisywać
-          od nowa. Proszę o uważne korzystanie z aplikacji żeby nie stracić
-          wprowadzonych danych!
-          <div>
-            <b>UWAGA:</b> Drukując CV w zaawansowanych opcjach wydruku odznacz
-            drukowanie nagłowka i stopki. Ustaw również skale wydruku na 100%!
-          </div>
-        </div>
-        <h4>
-          Wypełnij formularze i wybierz przycisk Utwórz CV.
-          <div title="Przykładowe CV">
-            <Link to="/resume-agnieszka.kaminska">
-              Przykład wypełnionego CV(zalecane otwarcie w nowej karcie)
-            </Link>
-          </div>
-        </h4>
-        <TabGenerator tabs={tabs} />
-      </div>
-      <div className="generatorcontent__title">Doświadczenie</div>
+      <ContentDescryption />
+      <TabGenerator tabs={tabs} />
+      {point.length ? (
+        <div className="generatorcontent__title">Doświadczenie</div>
+      ) : null}
       <div className="generatorcontent__content">
         <div>
           {point?.map((item, i) => (
@@ -138,7 +121,9 @@ function GeneratorContent({
           ))}
         </div>
       </div>
-      <div className="generatorcontent__title">Wykształcenie</div>
+      {education.length ? (
+        <div className="generatorcontent__title">Wykształcenie</div>
+      ) : null}
       <div className="generatorcontent__content">
         <div>
           {education?.map((item, i) => (

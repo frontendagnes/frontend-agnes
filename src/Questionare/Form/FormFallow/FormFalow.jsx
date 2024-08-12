@@ -12,7 +12,6 @@ import {
 import { useStateValue } from "../../../assets/utility/StateProvider.jsx";
 import { useNavigate } from "react-router-dom";
 
-import kwesforms from "kwesforms";
 import { AnimatePresence } from "framer-motion";
 //components
 import Progress from "../Progress/Progress.jsx";
@@ -46,10 +45,6 @@ function FormFalow({ isView, setIsView }) {
   );
   const [{ alert }, dispatch] = useStateValue();
   const history = useNavigate();
-
-  useEffect(() => {
-    kwesforms.init();
-  }, []);
 
   const handleNextStep = () => {
     setStep((prev) => prev + 1);

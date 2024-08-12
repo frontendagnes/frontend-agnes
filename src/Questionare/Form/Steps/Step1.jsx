@@ -14,7 +14,7 @@ const Step1 = (props) => {
 
   return (
     <MotionDiv>
-      <Fieldset legend="Informacje o hostingu i domenie" className="step__fieldest">
+      <Fieldset legend="Informacje o hostingu i domenie" className="step__fieldest step1">
         {apiInfo.map((item, index) => (
           <div className="questioneremodule__row" key={`${index}-${item}`}>
             <FormControlLabel

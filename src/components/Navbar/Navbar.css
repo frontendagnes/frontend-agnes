@@ -51,7 +51,6 @@
     background-color: #161827;
     list-style-type: none;
     height: 100%;
-    transition: transform 0.75s ease;
 }
 
 .navbar__list>li {
@@ -66,13 +65,16 @@
     transition: all 0.5s linear;
     cursor: pointer;
 }
-.navabar__activeLink{
+
+.navabar__activeLink {
     background: #1f2136;
 }
+
 .navbar__lastLink {
     padding-top: 20px;
 
 }
+
 .navbar__horizontal {
     height: 200px;
 }
@@ -84,12 +86,15 @@
 .navbar__null {
     height: 0;
 }
-.navbar--visible{
+
+.navbar--visible {
     height: 100%;
 }
-.navbar--hidden{
+
+.navbar--hidden {
     height: 0px;
 }
+
 @media screen and (max-width: 850px) {
     .navbar {
         width: 100%;
@@ -98,6 +103,7 @@
     }
 
     .navbar__list {
+        transition: transform 0.75s ease;
         width: 100%;
         visibility: hidden;
         transform-origin: right;
