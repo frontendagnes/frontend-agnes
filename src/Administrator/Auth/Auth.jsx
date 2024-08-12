@@ -10,7 +10,11 @@ import {
   auth,
 } from "../../assets/utility/firebase";
 //mui
-import { Button, TextField } from "@mui/material";
+import { Button } from "@mui/material";
+import Input from "@mui/joy/Input";
+import Stack from "@mui/joy/Stack";
+import EmailIcon from "@mui/icons-material/Email";
+import VpnKeyIcon from "@mui/icons-material/VpnKey";
 //components
 import Fieldset from "../../Questionare/Fieldset/Fieldset";
 
@@ -44,25 +48,26 @@ export default function Authorization() {
     <form className="auth" onSubmit={signIn}>
       <Fieldset legend="Logowanie">
         <div className="auth__cnt">
-          <div className="auth__row">
-            <TextField
+          <Stack spacing={2}>
+            <Input
+              type="text"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               label="Wpisz login/email"
-              variant="standard"
-              fullWidth
+              placeholder="Wpisz login/email"
+              size="lg"
+              startDecorator={<EmailIcon />}
             />
-          </div>
-          <div className="auth__row">
-            <TextField
+            <Input
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               type="password"
               label="Wpisz hasło"
-              variant="standard"
-              fullWidth
+              placeholder="Wpisz hasło"
+              size="lg"
+              startDecorator={<VpnKeyIcon />}
             />
-          </div>
+          </Stack>
           <input
             type="text"
             placeholder="age"
