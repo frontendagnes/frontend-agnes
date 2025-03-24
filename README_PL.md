@@ -2,7 +2,7 @@
 
 Apliakcja zawiera projekty developera podzielone na dwa działy w jednym znajdują się wybrane projekty przy użyciu HTML, CSS oraz czystego javascript natomiast w drugim projekty wykonane za pomocą REACT .
 
-Jako dodatek dodany został genrator Resume (CV) - który tworzy proste CV i pozwala je wydrukować do pdf. Generator jest bardzo prosty w użyciu i nie posiada połączenia z bazą danych co znaczy, że nie trzeba się logować co za tym idzie nie zapisuje żadnych danych, należy używać go ostrożenie ponieważ jedno odświeżenie strony spowoduje utratę danych. 
+Jako dodatek dodany został genrator Resume (CV) - który tworzy proste CV i pozwala je wydrukować do pdf. Generator jest bardzo prosty w użyciu i nie posiada połączenia z bazą danych co znaczy, że nie trzeba się logować co za tym idzie nie zapisuje żadnych danych, należy używać go ostrożenie ponieważ jedno odświeżenie strony spowoduje utratę danych.
 
 Strona (oprócz generatora) jest napisana w dwóch wersjach językowych w nagłówku znajduje się switch do zmiany języka PL - polski,  EN - angielski.
 
@@ -35,7 +35,7 @@ Dodana biblioteka react-scroll w celu dodania efektów do menu podczas skrolowan
 
 - [classnames](https://github.com/JedWatson/classnames) - użyta do ustawienia dwóch różnych klas CSS dla jednego elementu w zależności od stanu.
 
-- [react-use-keypress](https://www.npmjs.com/package/react-use-keypress) - użyte do reagowania na wciścinięcie klawisza, funkcja byłą potrzebna do ukrycia przycisku na stronie w moim CV po wciśnięciu klawisza "v" pojawia się button umożliwiający wydruk CV do PDF. 
+- [react-use-keypress](https://www.npmjs.com/package/react-use-keypress) - użyte do reagowania na wciścinięcie klawisza, funkcja byłą potrzebna do ukrycia przycisku na stronie w moim CV po wciśnięciu klawisza "v" pojawia się button umożliwiający wydruk CV do PDF.
 
 - [react-cookie-consent](https://www.npmjs.com/package/react-cookie-consent) - użyte do informacji o plikach cookie komponent ładnie tworzy pasek informacyjny który można stylizwoać do własnych potrzeb. (funkcjonalnoś obecnie wyłączona ponieważ strona nie używa plików cookie)
 
@@ -43,7 +43,7 @@ Dodana biblioteka react-scroll w celu dodania efektów do menu podczas skrolowan
 
 ## Author
 
-Agnieszka Kamińska ([agnieszka.kaminska@ksiegarnia.edu.pl](mailto:agnieszka.kaminska@ksiegarnia.edu.pl))
+Agnieszka Kamińska ([agnieszka.kaminska@ksiegarnia.edu.pl](mailto:frontendagnes@gmail.com))
 
 ## Installation
 

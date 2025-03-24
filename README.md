@@ -121,7 +121,7 @@ The production-ready files will be in the `build/` directory.
 
 - Source Code: https://github.com/frontendagnes/frontend-agnes
 - Issue Tracker: [Issues · frontendagnes/frontend-agnes · GitHub](https://github.com/frontendagnes/frontend-agnes/issues)
-- View: [Frontend @gnes](https://frontend-agnes.pl)
+- View: [Frontend @gnes](https://frontend-agnes.web.app/)
 
 ## License
 
@@ -129,4 +129,4 @@ This project is licensed under the Apache 2.0 License
 
 ## Author
 
-Agnieszka Kamińska ([agnieszka.kaminska@ksiegarnia.edu.pl](mailto:agnieszka.kaminska@ksiegarnia.edu.pl))
+Agnieszka Kamińska ([frontendagnes@gmail.com](mailto:frontendagnes@gmail.com))
